@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 02 Feb 2025 pada 11.27
+-- Waktu pembuatan: 05 Feb 2025 pada 12.57
 -- Versi server: 10.4.32-MariaDB
 -- Versi PHP: 8.2.12
 
@@ -38,7 +38,6 @@ CREATE TABLE `cabang_dinas` (
 --
 
 INSERT INTO `cabang_dinas` (`id`, `kode_cabang`, `nama_cabang`) VALUES
-(1, 'CD01', 'Cabang Dinas Contoh'),
 (3, 'CD001', 'Cabang Dinas Wilayah Kota Banda Aceh dan Kabupaten Aceh Besar'),
 (5, 'CD002', 'Cabang Dinas Wilayah Kota Sabang'),
 (6, 'CD003', 'Cabang Dinas Wilayah Kabupaten Pidie dan Kabupaten Pidie Jaya'),
@@ -59,6 +58,86 @@ INSERT INTO `cabang_dinas` (`id`, `kode_cabang`, `nama_cabang`) VALUES
 (22, 'CD018', 'Cabang Dinas Wilayah Kabupaten Aceh Selatan'),
 (24, 'CD019', 'Cabang Dinas Wilayah Kabupaten Simeulue'),
 (25, 'CD000', 'Dinas Pendidikan Aceh');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `cabang_dinas_kabupaten`
+--
+
+CREATE TABLE `cabang_dinas_kabupaten` (
+  `id` int(11) NOT NULL,
+  `cabang_dinas_id` int(11) NOT NULL,
+  `kabupaten_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `cabang_dinas_kabupaten`
+--
+
+INSERT INTO `cabang_dinas_kabupaten` (`id`, `cabang_dinas_id`, `kabupaten_id`) VALUES
+(1, 3, 20),
+(2, 3, 9),
+(3, 13, 18),
+(4, 24, 1),
+(5, 22, 4),
+(6, 21, 13),
+(7, 20, 16),
+(8, 19, 8),
+(9, 17, 17),
+(10, 16, 14),
+(11, 15, 5),
+(12, 14, 7),
+(13, 12, 15),
+(14, 11, 22),
+(15, 10, 6),
+(16, 9, 12),
+(17, 8, 23),
+(18, 7, 11),
+(19, 6, 10),
+(20, 6, 19),
+(21, 5, 21);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `kabupaten`
+--
+
+CREATE TABLE `kabupaten` (
+  `id_kab` int(11) NOT NULL,
+  `nama_kab` varchar(255) NOT NULL,
+  `nama_ibukotakab` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `kabupaten`
+--
+
+INSERT INTO `kabupaten` (`id_kab`, `nama_kab`, `nama_ibukotakab`) VALUES
+(1, 'Kabupaten Simeulue', 'Sinabang'),
+(2, 'Kabupaten Aceh Singkil', 'Singkil'),
+(4, 'Kabupaten Aceh Selatan', 'Tapaktuan'),
+(5, 'Kabupaten Aceh Tenggara', 'Kuta Cane'),
+(6, 'Kabupaten Aceh Timur', 'Idi Rayeuk'),
+(7, 'Kabupaten Aceh Tengah', 'Takengon'),
+(8, 'Kabupaten Aceh Barat', 'Meulaboh'),
+(9, 'Kabupaten Aceh Besar', 'Jantho'),
+(10, 'Kabupaten Pidie', 'Sigli'),
+(11, 'Kabupaten Bireuen', 'Bireuen'),
+(12, 'Kabupaten Aceh Utara', 'Lhoksukon'),
+(13, 'Kabupaten Aceh Barat Daya', 'Blang Pidie'),
+(14, 'Kabupaten Gayo Lues', 'Blang Kejeren'),
+(15, 'Kabupaten Aceh Tamiang', 'Kuala Simpang'),
+(16, 'Kabupaten Nagan Raya', 'Suka Makmue'),
+(17, 'Kabupaten Aceh Jaya', 'Calang'),
+(18, 'Kabupaten Bener Meriah', 'Simpang Tiga Redelong'),
+(19, 'Kabupaten Pidie Jaya', 'Meureudu'),
+(20, 'Kota Banda Aceh', 'Banda Aceh'),
+(21, 'Kota Sabang', 'Sabang'),
+(22, 'Kota Langsa', 'Langsa'),
+(23, 'Kota Lhokseumawe', 'Lhokseumawe'),
+(24, 'Kota Subulussalam', 'Subulussalam');
 
 -- --------------------------------------------------------
 
@@ -126,17 +205,10 @@ CREATE TABLE `pengiriman_usulan` (
 --
 
 INSERT INTO `pengiriman_usulan` (`id`, `nomor_usulan`, `dokumen_rekomendasi`, `operator`, `no_hp`, `created_at`, `updated_at`, `status_usulan_cabdin`, `catatan`, `status_telaah`, `catatan_telaah`, `updated_at_telaah`) VALUES
-(17, 'CD006202501270005', 'CD006202501270005-rekomendasicabdin.pdf', 'Spiderman', '085358207706', '2025-01-27 02:13:27', '2025-01-27 09:48:43', 'Lengkap', '', 'Disetujui', 'Usulan mutasi memenuhi syarat', '2025-01-26 19:48:43'),
 (19, 'CD006202501270002', 'CD006202501270002-rekomendasicabdin.pdf', 'Spiderman', '085373600369', '2025-01-27 02:13:50', '2025-01-27 10:33:20', 'Lengkap', '', 'Ditolak', 'Usulan mutasi tidak memenuhi syarat', '2025-01-26 20:33:20'),
-(20, 'CD001202501270004', 'CD001202501270004-rekomendasicabdin.pdf', 'Prabowo Subianto', '085391592165', '2025-01-27 02:18:03', '2025-01-29 10:06:22', 'Lengkap', '', 'Disetujui', 'Usulan mutasi memenuhi syarat', '2025-01-28 20:06:22'),
 (21, 'CD001202501270003', 'CD001202501270003-rekomendasicabdin.pdf', 'Prabowo Subianto', '085391592165', '2025-01-27 02:18:13', '2025-01-27 09:33:29', 'TdkLengkap', 'berkas usulan tidak lengkap', NULL, NULL, NULL),
-(22, 'CD011202501270003', 'CD011202501270003-rekomendasicabdin.pdf', 'Op Cabdin Aceh Tengah', '085358207706', '2025-01-27 02:22:04', '2025-01-29 10:45:57', 'Lengkap', '', 'Disetujui', 'Usulan mutasi memenuhi syarat', '2025-01-28 20:45:57'),
-(23, 'CD011202501270002', 'CD011202501270002-rekomendasicabdin.pdf', 'Op Cabdin Aceh Tengah', '085358207706', '2025-01-27 02:22:15', '2025-01-29 10:37:36', 'Lengkap', '', 'Disetujui', 'Usulan mutasi memenuhi syarat', '2025-01-28 20:37:36'),
-(24, 'CD003202501270002', 'CD003202501270002-rekomendasicabdin.pdf', 'OP Cabdin Kab Pidie', '085358207706', '2025-01-27 02:25:44', '2025-01-27 09:33:54', 'Lengkap', '', 'Disetujui', 'Usulan mutasi memenuhi syarat', '2025-01-26 19:33:54'),
 (25, 'CD003202501270001', 'CD003202501270001-rekomendasicabdin.pdf', 'OP Cabdin Kab Pidie', '085373600369', '2025-01-27 02:26:02', '2025-01-27 09:32:49', 'TdkLengkap', 'rekom lepas tidak terbaca', NULL, NULL, NULL),
 (26, 'CD006202501270003', 'CD006202501270003-rekomendasicabdin.pdf', 'Spiderman', '085373600369', '2025-01-27 03:36:58', '2025-01-27 12:32:05', 'Lengkap', '', 'Ditolak', 'Usulan mutasi tidak memenuhi syarat', '2025-01-26 22:32:05'),
-(29, 'CD006202501270004', 'CD006202501270004-rekomendasicabdin.pdf', 'Spiderman', '085358207706', '2025-01-27 09:43:29', '2025-01-29 10:47:50', 'Lengkap', 'lanjut ke proses telaah kabid gtk', 'Disetujui', 'Usulan mutasi memenuhi syarat', '2025-01-28 20:47:50'),
-(31, 'CD011202501270001', 'CD011202501270001-rekomendasicabdin.pdf', 'Op Cabdin Aceh Tengah', '085391592165', '2025-01-29 04:57:03', '2025-01-29 12:26:22', 'Lengkap', '', 'Disetujui', 'Usulan mutasi memenuhi syarat', '2025-01-28 22:26:22'),
 (33, 'CD006202501270007', 'CD006202501270007-rekomendasicabdin.pdf', 'Spiderman', '085358207706', '2025-01-29 05:22:57', '2025-01-31 16:06:40', 'Lengkap', 'verif admin', 'Disetujui', 'Usulan mutasi memenuhi syarat', '2025-01-31 02:06:40'),
 (34, 'CD011202501290001', 'CD011202501290001-rekomendasicabdin.pdf', 'Op Cabdin Aceh Tengah', '34565456', '2025-01-29 05:46:00', '2025-01-29 12:47:25', 'Lengkap', 'lanjut ke proses telaah', 'Disetujui', 'Usulan mutasi memenuhi syarat', '2025-01-28 22:47:25'),
 (35, 'CD007202501260004', 'CD007202501260004-rekomendasicabdin.pdf', 'OP Cabdin Aceh Timur', '085391592165', '2025-01-30 17:15:51', '2025-02-01 22:59:29', 'Lengkap', '', 'Disetujui', 'Usulan mutasi memenuhi syarat', '2025-02-01 08:59:29'),
@@ -147,7 +219,8 @@ INSERT INTO `pengiriman_usulan` (`id`, `nomor_usulan`, `dokumen_rekomendasi`, `o
 (40, 'CD001202501270001', 'CD001202501270001-rekomendasicabdin.pdf', 'Prabowo Subianto', '34565456', '2025-01-31 07:35:13', '2025-02-02 01:45:26', 'Lengkap', '', 'Disetujui', 'Usulan mutasi memenuhi syarat', '2025-02-01 11:45:26'),
 (41, 'CD004202501270003', 'CD004202501270003-rekomendasicabdin.pdf', 'Op Cabdin Bireuen', '34565456', '2025-01-31 07:36:47', '2025-01-31 15:19:15', 'Lengkap', '', 'Disetujui', 'Usulan mutasi memenuhi syarat', '2025-01-31 01:19:15'),
 (42, 'CD004202501270002', 'CD004202501270002-rekomendasicabdin.pdf', 'Op Cabdin Bireuen', '34565456', '2025-01-31 07:36:55', '2025-02-01 22:59:23', 'Lengkap', '', 'Disetujui', 'Usulan mutasi memenuhi syarat', '2025-02-01 08:59:23'),
-(43, 'CD004202501270001', 'CD004202501270001-rekomendasicabdin.pdf', 'Op Cabdin Bireuen', '34565456', '2025-01-31 07:37:04', '2025-02-01 22:59:16', 'Lengkap', '', 'Disetujui', 'Usulan mutasi memenuhi syarat', '2025-02-01 08:59:16');
+(43, 'CD004202501270001', 'CD004202501270001-rekomendasicabdin.pdf', 'Op Cabdin Bireuen', '34565456', '2025-01-31 07:37:04', '2025-02-01 22:59:16', 'Lengkap', '', 'Disetujui', 'Usulan mutasi memenuhi syarat', '2025-02-01 08:59:16'),
+(44, 'CD006202502020001', 'CD006202502020001-rekomendasicabdin.pdf', 'Spiderman', '34567', '2025-02-02 15:40:20', '2025-02-02 22:41:28', 'Lengkap', '', 'Disetujui', 'Usulan mutasi memenuhi syarat', '2025-02-02 08:41:28');
 
 -- --------------------------------------------------------
 
@@ -232,7 +305,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `nama`, `email`, `no_hp`, `password`, `role`, `created_at`, `updated_at`, `status`, `login_attempts`, `last_attempt`) VALUES
-(3, 'admin', 'pakiqin', 'pakiqin@gmail.com', '085358207706', '$2y$10$DKS5u732GHgaNWgrPVx9NuB5fpUtJFbsU1iaiTloIHNadU4uehR/K', 'admin', '2025-01-09 11:20:40', '2025-01-15 09:24:05', 'enable', 0, NULL),
+(3, 'admin', 'pakiqin', 'pakiqin@gmail.com', '085358207706', '$2y$10$LdcGulUcIWVSgqe3NILbUe9Dc2RVBNg7UOENScrjVV8Xl0OpbgoJG', 'admin', '2025-01-09 11:20:40', '2025-02-02 10:07:55', 'enable', 0, '2025-02-02 10:07:39'),
 (8, 'kabid', 'Muksalmina', 'kabid@gmail.com', '987656789', '$2y$10$IqfMEu1ITaNElbKux6LcmuLtqliCEhdETl/WVRK3l9.b30qzMpW9u', 'kabid', '2025-01-10 02:59:30', '2025-02-02 02:07:49', 'enable', 0, '2025-02-02 01:08:43'),
 (9, 'iqin', 'sodiqin', 'pakiqin@gmail.com', '34567890', '$2y$10$l8vZwxK52D5TqzpLSO363u0vH.ZWNBiidnUpGErjqSg2vri6VQV96', 'admin', '2025-01-10 07:16:25', '2025-02-01 23:41:04', 'enable', 0, NULL),
 (10, 'opdinas1', 'opdinas1', 'opdinas1@gmail.com', '3453463463565', '$2y$10$QvI98bypu2djh6eZscVWMuxPdVhkdiZf8aPKho2fGVr/AAuN8AQk2', 'dinas', '2025-01-10 07:45:04', '2025-01-27 03:15:59', 'enable', 0, NULL),
@@ -296,7 +369,36 @@ INSERT INTO `user_logs` (`id`, `user_id`, `action`, `ip_address`, `user_agent`, 
 (20, 3, 'logout', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36', '2025-02-02 08:08:30'),
 (21, 3, 'login', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36', '2025-02-02 08:25:06'),
 (22, 3, 'logout', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36', '2025-02-02 08:27:01'),
-(23, 8, 'login', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36', '2025-02-02 09:07:49');
+(23, 8, 'login', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36', '2025-02-02 09:07:49'),
+(24, 3, 'login', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36', '2025-02-02 11:13:46'),
+(25, 3, 'logout', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36', '2025-02-02 11:14:21'),
+(26, 3, 'login', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36', '2025-02-02 14:38:25'),
+(27, 3, 'logout', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36', '2025-02-02 14:38:38'),
+(28, 25, 'login', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36', '2025-02-02 15:38:35'),
+(29, 25, 'logout', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36', '2025-02-02 15:39:10'),
+(30, 47, 'login', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36', '2025-02-02 15:39:20'),
+(31, 47, 'logout', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36', '2025-02-02 15:40:25'),
+(32, 25, 'login', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36', '2025-02-02 15:40:45'),
+(33, 25, 'logout', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36', '2025-02-02 15:40:59'),
+(34, 8, 'login', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36', '2025-02-02 15:41:19'),
+(35, 8, 'logout', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36', '2025-02-02 17:07:32'),
+(36, 3, 'login', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36', '2025-02-02 17:07:55'),
+(37, 3, 'logout', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36', '2025-02-02 17:13:16'),
+(38, 8, 'login', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36', '2025-02-02 18:07:13'),
+(39, 3, 'login', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36', '2025-02-03 08:55:44'),
+(40, 3, 'login', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36', '2025-02-03 10:22:12'),
+(41, 3, 'login', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36', '2025-02-03 10:23:50'),
+(42, 3, 'logout', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36', '2025-02-03 10:57:27'),
+(43, 8, 'login', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36', '2025-02-03 10:58:52'),
+(44, 3, 'login', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36', '2025-02-03 15:29:12'),
+(45, 3, 'login', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36', '2025-02-05 03:14:27'),
+(46, 3, 'logout', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36', '2025-02-05 06:09:36'),
+(47, 10, 'login', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36', '2025-02-05 06:09:45'),
+(48, 10, 'logout', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36', '2025-02-05 06:10:01'),
+(49, 8, 'login', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36', '2025-02-05 06:10:08'),
+(50, 8, 'logout', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36', '2025-02-05 06:12:05'),
+(51, 3, 'login', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36', '2025-02-05 06:12:13'),
+(52, 3, 'login', '::1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36', '2025-02-05 09:35:58');
 
 -- --------------------------------------------------------
 
@@ -343,7 +445,8 @@ INSERT INTO `usulan` (`id`, `guru_nama`, `guru_nip`, `guru_nik`, `sekolah_asal`,
 (80, 'Sahfitri. S. Pd', '199508152023212029', '3273199508150040', 'SMA Negeri 4 Bireuen', 'SMA Negeri 1 Karang Baru', 'Pulang Kampung', 'http://example.com', 'CD004202501270003', '06', '2025-01-27 02:28:26', '2025-02-01 19:11:52', 7, 14, 1, '2025-02-01 16:00:24'),
 (81, 'Cahyo Kumolo', '199608152023212029', '8973199508150040', 'SMK Negeri 1 Sawang', 'SMK Negeri 1 Banda Aceh', 'Ikut suami', 'http://example.com', 'CD006202501270006', '01', '2025-01-27 05:53:16', '2025-01-31 06:57:24', 9, NULL, NULL, NULL),
 (83, 'Wali Dunia, ST', '199009092021011001', '1234567890987654', 'SMK Mana AJa', 'SMK wewe', 'tets', 'https://pakiqin.com', 'CD006202501270007', '07', '2025-01-27 09:21:18', '2025-02-01 18:15:09', 9, 8, 1, '2025-02-01 15:58:53'),
-(86, 'Test Guru', '98765456789', '987656789', 'SMK Test mutasi', 'SMK Tes terima mutasi', 'test alasan', 'https://pakiqin.com', 'CD011202501290001', '06', '2025-01-29 05:45:34', '2025-02-01 19:10:33', 14, 10, 1, '2025-02-01 15:58:53');
+(86, 'Test Guru', '98765456789', '987656789', 'SMK Test mutasi', 'SMK Tes terima mutasi', 'test alasan', 'https://pakiqin.com', 'CD011202501290001', '06', '2025-01-29 05:45:34', '2025-02-01 19:10:33', 14, 10, 1, '2025-02-01 15:58:53'),
+(87, 'sdfsdfsdfdsf', '234534534345', '3453453453453453', 'sdfdsfgxc', 'dsgxcdsgfx', 'zfgdgfx', 'dfgdgfxdf', 'CD006202502020001', '04', '2025-02-02 15:39:45', '2025-02-02 15:41:28', 9, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -453,7 +556,11 @@ INSERT INTO `usulan_status_history` (`id`, `nomor_usulan`, `status`, `updated_at
 (227, 'CD004202501270002', '06', '2025-02-01 12:12:00', 'SK Mutasi / Nota Dinas telah dibatalkan'),
 (228, 'CD004202501270001', '06', '2025-02-01 12:12:08', 'SK Mutasi / Nota Dinas telah dibatalkan'),
 (229, 'CD006202501270007', '07', '2025-02-01 12:12:48', 'File SK Mutasi / Nota Dinas diperbarui'),
-(230, 'CD007202501260004', '06', '2025-02-01 12:51:05', 'SK Mutasi / Nota Dinas telah dibatalkan');
+(230, 'CD007202501260004', '06', '2025-02-01 12:51:05', 'SK Mutasi / Nota Dinas telah dibatalkan'),
+(231, 'CD006202502020001', '01', '2025-02-02 08:39:45', 'Input data usulan mutasi oleh Cabang Dinas'),
+(232, 'CD006202502020001', '02', '2025-02-02 08:40:20', 'Berkas usulan mutasi telah dikirim ke Dinas Provinsi'),
+(233, 'CD006202502020001', '03', '2025-02-02 08:40:53', 'Proses Verifikasi Berkas di Dinas Provinsi (Lengkap). '),
+(234, 'CD006202502020001', '04', '2025-02-02 08:41:28', 'Telaah Usulan oleh Kepala Bidang GTK (Disetujui). Usulan mutasi memenuhi syarat');
 
 --
 -- Indexes for dumped tables
@@ -465,6 +572,20 @@ INSERT INTO `usulan_status_history` (`id`, `nomor_usulan`, `status`, `updated_at
 ALTER TABLE `cabang_dinas`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `kode_cabang` (`kode_cabang`);
+
+--
+-- Indeks untuk tabel `cabang_dinas_kabupaten`
+--
+ALTER TABLE `cabang_dinas_kabupaten`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `cabang_dinas_id` (`cabang_dinas_id`),
+  ADD KEY `kabupaten_id` (`kabupaten_id`);
+
+--
+-- Indeks untuk tabel `kabupaten`
+--
+ALTER TABLE `kabupaten`
+  ADD PRIMARY KEY (`id_kab`);
 
 --
 -- Indeks untuk tabel `operator_cabang_dinas`
@@ -533,7 +654,19 @@ ALTER TABLE `usulan_status_history`
 -- AUTO_INCREMENT untuk tabel `cabang_dinas`
 --
 ALTER TABLE `cabang_dinas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+
+--
+-- AUTO_INCREMENT untuk tabel `cabang_dinas_kabupaten`
+--
+ALTER TABLE `cabang_dinas_kabupaten`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+
+--
+-- AUTO_INCREMENT untuk tabel `kabupaten`
+--
+ALTER TABLE `kabupaten`
+  MODIFY `id_kab` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT untuk tabel `operator_cabang_dinas`
@@ -545,7 +678,7 @@ ALTER TABLE `operator_cabang_dinas`
 -- AUTO_INCREMENT untuk tabel `pengiriman_usulan`
 --
 ALTER TABLE `pengiriman_usulan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT untuk tabel `rekom_kadis`
@@ -569,23 +702,30 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT untuk tabel `user_logs`
 --
 ALTER TABLE `user_logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- AUTO_INCREMENT untuk tabel `usulan`
 --
 ALTER TABLE `usulan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=87;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
 
 --
 -- AUTO_INCREMENT untuk tabel `usulan_status_history`
 --
 ALTER TABLE `usulan_status_history`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=231;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=235;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
+
+--
+-- Ketidakleluasaan untuk tabel `cabang_dinas_kabupaten`
+--
+ALTER TABLE `cabang_dinas_kabupaten`
+  ADD CONSTRAINT `cabang_dinas_kabupaten_ibfk_1` FOREIGN KEY (`cabang_dinas_id`) REFERENCES `cabang_dinas` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `cabang_dinas_kabupaten_ibfk_2` FOREIGN KEY (`kabupaten_id`) REFERENCES `kabupaten` (`id_kab`) ON DELETE CASCADE;
 
 --
 -- Ketidakleluasaan untuk tabel `operator_cabang_dinas`
