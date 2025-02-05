@@ -1,0 +1,1482 @@
+DEBUG - 2025-01-26 07:34:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 07:34:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 07:34:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 07:34:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 07:34:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 07:34:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 07:34:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 07:36:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 07:37:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 07:37:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 07:47:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 07:47:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 07:47:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 07:49:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 07:50:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 07:50:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 07:52:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 07:53:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 07:53:46 --> Proses upload dimulai
+DEBUG - 2025-01-26 07:53:46 --> Nomor Rekomkadis: 800/878
+DEBUG - 2025-01-26 07:53:46 --> Tanggal Rekomkadis: 2025-01-17
+DEBUG - 2025-01-26 07:53:46 --> Perihal Rekomkadis: test
+DEBUG - 2025-01-26 07:53:46 --> File ditemukan dan valid
+DEBUG - 2025-01-26 07:53:46 --> File name: GLOSARIUM.pdf
+DEBUG - 2025-01-26 07:53:46 --> File temp name: C:\xampp\tmp\php18B2.tmp
+DEBUG - 2025-01-26 07:53:46 --> File size: 130877
+DEBUG - 2025-01-26 07:53:46 --> File extension: pdf
+DEBUG - 2025-01-26 07:53:46 --> File berhasil diunggah ke: C:\xampp\htdocs\simutasi\writable\uploads/rekom_kadis/2025-01-17-rekomkadis.pdf
+DEBUG - 2025-01-26 07:53:46 --> Data berhasil disimpan ke database
+DEBUG - 2025-01-26 07:53:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 08:24:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 08:24:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 08:25:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 08:25:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 08:59:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 09:00:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 09:00:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 09:02:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 09:04:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 09:04:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 09:06:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 09:06:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 09:06:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 09:11:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 09:12:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 09:13:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 09:13:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 09:14:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 09:15:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 09:21:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 09:22:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 09:22:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 09:24:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 09:24:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 09:24:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 09:24:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 09:24:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 09:24:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 09:25:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 09:25:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 09:25:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 09:25:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 09:26:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 09:26:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 09:26:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 09:26:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 09:26:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 09:26:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 09:26:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 09:26:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 09:26:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 09:26:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 09:26:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 09:26:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 09:26:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 09:27:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 09:27:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 09:27:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 09:27:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 09:27:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 09:27:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-01-26 09:27:42 --> [DEPRECATED] Creation of dynamic property App\Controllers\TelaahController::$db is deprecated in APPPATH\Controllers\TelaahController.php on line 14.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\TelaahController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+ERROR - 2025-01-26 09:27:42 --> mysqli_sql_exception: Unknown column 'pengiriman_usulan.status_telaah' in 'where clause' in C:\xampp\htdocs\simutasi\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\simutasi\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\xampp\htdocs\simutasi\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\xampp\htdocs\simutasi\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\xampp\htdocs\simutasi\system\Database\BaseBuilder.php(1728): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\xampp\htdocs\simutasi\system\Model.php(676): CodeIgniter\Database\BaseBuilder->countAllResults(false)
+#5 C:\xampp\htdocs\simutasi\system\BaseModel.php(1283): CodeIgniter\Model->countAllResults(false)
+#6 C:\xampp\htdocs\simutasi\app\Controllers\TelaahController.php(36): CodeIgniter\BaseModel->paginate(50, 'usulanMenunggu')
+#7 C:\xampp\htdocs\simutasi\system\CodeIgniter.php(933): App\Controllers\TelaahController->index()
+#8 C:\xampp\htdocs\simutasi\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TelaahController))
+#9 C:\xampp\htdocs\simutasi\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\simutasi\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\simutasi\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\simutasi\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 C:\xampp\htdocs\simutasi\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#14 {main}
+CRITICAL - 2025-01-26 09:27:42 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'pengiriman_usulan.status_telaah' in 'where clause'
+[Method: GET, Route: telaah]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1728): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM `pengiriman_usulan`
+INNER JOIN `usulan` ON `pengiriman_usulan`.`nomor_usulan` = `usulan`.`nomor_usulan`
+LEFT JOIN `cabang_dinas` ON `usulan`.`cabang_dinas_id` = `cabang_dinas`.`id`
+WHERE `pengiriman_usulan`.`status_usulan_cabdin` = :pengiriman_usulan.status_usulan_cabdin:
+AND `pengiriman_usulan`.`status_telaah` IS NULL', [...], false)
+ 2 SYSTEMPATH\Model.php(676): CodeIgniter\Database\BaseBuilder->countAllResults(false)
+ 3 SYSTEMPATH\BaseModel.php(1283): CodeIgniter\Model->countAllResults(false)
+ 4 APPPATH\Controllers\TelaahController.php(36): CodeIgniter\BaseModel->paginate(50, 'usulanMenunggu')
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\TelaahController->index()
+ 6 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TelaahController))
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+CRITICAL - 2025-01-26 09:27:42 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'pengiriman_usulan.status_telaah' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows`
+FROM `pengiriman_usulan`
+INNER JOIN `usulan` ON `pengiriman_usulan`.`nomor_usulan` = `usulan`.`nomor_usulan`
+LEFT JOIN `cabang_dinas` ON `usulan`.`cabang_dinas_id` = `cabang_dinas`.`id`
+WHERE `pengiriman_usulan`.`status_usulan_cabdin` = \'Lengkap\'
+AND `pengiriman_usulan`.`status_telaah` IS NULL')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows`
+FROM `pengiriman_usulan`
+INNER JOIN `usulan` ON `pengiriman_usulan`.`nomor_usulan` = `usulan`.`nomor_usulan`
+LEFT JOIN `cabang_dinas` ON `usulan`.`cabang_dinas_id` = `cabang_dinas`.`id`
+WHERE `pengiriman_usulan`.`status_usulan_cabdin` = \'Lengkap\'
+AND `pengiriman_usulan`.`status_telaah` IS NULL')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1728): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM `pengiriman_usulan`
+INNER JOIN `usulan` ON `pengiriman_usulan`.`nomor_usulan` = `usulan`.`nomor_usulan`
+LEFT JOIN `cabang_dinas` ON `usulan`.`cabang_dinas_id` = `cabang_dinas`.`id`
+WHERE `pengiriman_usulan`.`status_usulan_cabdin` = :pengiriman_usulan.status_usulan_cabdin:
+AND `pengiriman_usulan`.`status_telaah` IS NULL', [...], false)
+ 4 SYSTEMPATH\Model.php(676): CodeIgniter\Database\BaseBuilder->countAllResults(false)
+ 5 SYSTEMPATH\BaseModel.php(1283): CodeIgniter\Model->countAllResults(false)
+ 6 APPPATH\Controllers\TelaahController.php(36): CodeIgniter\BaseModel->paginate(50, 'usulanMenunggu')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\TelaahController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TelaahController))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+CRITICAL - 2025-01-26 09:27:42 --> [Caused by] mysqli_sql_exception: Unknown column 'pengiriman_usulan.status_telaah' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT COUNT(*) AS `numrows`
+FROM `pengiriman_usulan`
+INNER JOIN `usulan` ON `pengiriman_usulan`.`nomor_usulan` = `usulan`.`nomor_usulan`
+LEFT JOIN `cabang_dinas` ON `usulan`.`cabang_dinas_id` = `cabang_dinas`.`id`
+WHERE `pengiriman_usulan`.`status_usulan_cabdin` = \'Lengkap\'
+AND `pengiriman_usulan`.`status_telaah` IS NULL', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows`
+FROM `pengiriman_usulan`
+INNER JOIN `usulan` ON `pengiriman_usulan`.`nomor_usulan` = `usulan`.`nomor_usulan`
+LEFT JOIN `cabang_dinas` ON `usulan`.`cabang_dinas_id` = `cabang_dinas`.`id`
+WHERE `pengiriman_usulan`.`status_usulan_cabdin` = \'Lengkap\'
+AND `pengiriman_usulan`.`status_telaah` IS NULL')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows`
+FROM `pengiriman_usulan`
+INNER JOIN `usulan` ON `pengiriman_usulan`.`nomor_usulan` = `usulan`.`nomor_usulan`
+LEFT JOIN `cabang_dinas` ON `usulan`.`cabang_dinas_id` = `cabang_dinas`.`id`
+WHERE `pengiriman_usulan`.`status_usulan_cabdin` = \'Lengkap\'
+AND `pengiriman_usulan`.`status_telaah` IS NULL')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1728): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM `pengiriman_usulan`
+INNER JOIN `usulan` ON `pengiriman_usulan`.`nomor_usulan` = `usulan`.`nomor_usulan`
+LEFT JOIN `cabang_dinas` ON `usulan`.`cabang_dinas_id` = `cabang_dinas`.`id`
+WHERE `pengiriman_usulan`.`status_usulan_cabdin` = :pengiriman_usulan.status_usulan_cabdin:
+AND `pengiriman_usulan`.`status_telaah` IS NULL', [...], false)
+ 5 SYSTEMPATH\Model.php(676): CodeIgniter\Database\BaseBuilder->countAllResults(false)
+ 6 SYSTEMPATH\BaseModel.php(1283): CodeIgniter\Model->countAllResults(false)
+ 7 APPPATH\Controllers\TelaahController.php(36): CodeIgniter\BaseModel->paginate(50, 'usulanMenunggu')
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\TelaahController->index()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TelaahController))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+DEBUG - 2025-01-26 09:32:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 09:32:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-01-26 09:32:27 --> [DEPRECATED] Creation of dynamic property App\Controllers\TelaahController::$db is deprecated in APPPATH\Controllers\TelaahController.php on line 14.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\TelaahController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+ERROR - 2025-01-26 09:32:27 --> mysqli_sql_exception: Unknown column 'pengiriman_usulan.status_telaah' in 'where clause' in C:\xampp\htdocs\simutasi\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\simutasi\system\Database\MySQLi\Connection.php(312): mysqli->query('SELECT COUNT(*)...', 0)
+#1 C:\xampp\htdocs\simutasi\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*)...')
+#2 C:\xampp\htdocs\simutasi\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*)...')
+#3 C:\xampp\htdocs\simutasi\system\Database\BaseBuilder.php(1728): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*)...', Array, false)
+#4 C:\xampp\htdocs\simutasi\system\Model.php(676): CodeIgniter\Database\BaseBuilder->countAllResults(false)
+#5 C:\xampp\htdocs\simutasi\system\BaseModel.php(1283): CodeIgniter\Model->countAllResults(false)
+#6 C:\xampp\htdocs\simutasi\app\Controllers\TelaahController.php(36): CodeIgniter\BaseModel->paginate(50, 'usulanMenunggu')
+#7 C:\xampp\htdocs\simutasi\system\CodeIgniter.php(933): App\Controllers\TelaahController->index()
+#8 C:\xampp\htdocs\simutasi\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TelaahController))
+#9 C:\xampp\htdocs\simutasi\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\simutasi\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\simutasi\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 C:\xampp\htdocs\simutasi\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 C:\xampp\htdocs\simutasi\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#14 {main}
+CRITICAL - 2025-01-26 09:32:27 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'pengiriman_usulan.status_telaah' in 'where clause'
+[Method: GET, Route: telaah]
+in SYSTEMPATH\Database\BaseConnection.php on line 688.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(1728): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM `pengiriman_usulan`
+INNER JOIN `usulan` ON `pengiriman_usulan`.`nomor_usulan` = `usulan`.`nomor_usulan`
+LEFT JOIN `cabang_dinas` ON `usulan`.`cabang_dinas_id` = `cabang_dinas`.`id`
+WHERE `pengiriman_usulan`.`status_usulan_cabdin` = :pengiriman_usulan.status_usulan_cabdin:
+AND `pengiriman_usulan`.`status_telaah` IS NULL', [...], false)
+ 2 SYSTEMPATH\Model.php(676): CodeIgniter\Database\BaseBuilder->countAllResults(false)
+ 3 SYSTEMPATH\BaseModel.php(1283): CodeIgniter\Model->countAllResults(false)
+ 4 APPPATH\Controllers\TelaahController.php(36): CodeIgniter\BaseModel->paginate(50, 'usulanMenunggu')
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\TelaahController->index()
+ 6 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TelaahController))
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+CRITICAL - 2025-01-26 09:32:27 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'pengiriman_usulan.status_telaah' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 317.
+ 1 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows`
+FROM `pengiriman_usulan`
+INNER JOIN `usulan` ON `pengiriman_usulan`.`nomor_usulan` = `usulan`.`nomor_usulan`
+LEFT JOIN `cabang_dinas` ON `usulan`.`cabang_dinas_id` = `cabang_dinas`.`id`
+WHERE `pengiriman_usulan`.`status_usulan_cabdin` = \'Lengkap\'
+AND `pengiriman_usulan`.`status_telaah` IS NULL')
+ 2 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows`
+FROM `pengiriman_usulan`
+INNER JOIN `usulan` ON `pengiriman_usulan`.`nomor_usulan` = `usulan`.`nomor_usulan`
+LEFT JOIN `cabang_dinas` ON `usulan`.`cabang_dinas_id` = `cabang_dinas`.`id`
+WHERE `pengiriman_usulan`.`status_usulan_cabdin` = \'Lengkap\'
+AND `pengiriman_usulan`.`status_telaah` IS NULL')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(1728): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM `pengiriman_usulan`
+INNER JOIN `usulan` ON `pengiriman_usulan`.`nomor_usulan` = `usulan`.`nomor_usulan`
+LEFT JOIN `cabang_dinas` ON `usulan`.`cabang_dinas_id` = `cabang_dinas`.`id`
+WHERE `pengiriman_usulan`.`status_usulan_cabdin` = :pengiriman_usulan.status_usulan_cabdin:
+AND `pengiriman_usulan`.`status_telaah` IS NULL', [...], false)
+ 4 SYSTEMPATH\Model.php(676): CodeIgniter\Database\BaseBuilder->countAllResults(false)
+ 5 SYSTEMPATH\BaseModel.php(1283): CodeIgniter\Model->countAllResults(false)
+ 6 APPPATH\Controllers\TelaahController.php(36): CodeIgniter\BaseModel->paginate(50, 'usulanMenunggu')
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\TelaahController->index()
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TelaahController))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+CRITICAL - 2025-01-26 09:32:27 --> [Caused by] mysqli_sql_exception: Unknown column 'pengiriman_usulan.status_telaah' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 312.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(312): mysqli->query('SELECT COUNT(*) AS `numrows`
+FROM `pengiriman_usulan`
+INNER JOIN `usulan` ON `pengiriman_usulan`.`nomor_usulan` = `usulan`.`nomor_usulan`
+LEFT JOIN `cabang_dinas` ON `usulan`.`cabang_dinas_id` = `cabang_dinas`.`id`
+WHERE `pengiriman_usulan`.`status_usulan_cabdin` = \'Lengkap\'
+AND `pengiriman_usulan`.`status_telaah` IS NULL', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('SELECT COUNT(*) AS `numrows`
+FROM `pengiriman_usulan`
+INNER JOIN `usulan` ON `pengiriman_usulan`.`nomor_usulan` = `usulan`.`nomor_usulan`
+LEFT JOIN `cabang_dinas` ON `usulan`.`cabang_dinas_id` = `cabang_dinas`.`id`
+WHERE `pengiriman_usulan`.`status_usulan_cabdin` = \'Lengkap\'
+AND `pengiriman_usulan`.`status_telaah` IS NULL')
+ 3 SYSTEMPATH\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT COUNT(*) AS `numrows`
+FROM `pengiriman_usulan`
+INNER JOIN `usulan` ON `pengiriman_usulan`.`nomor_usulan` = `usulan`.`nomor_usulan`
+LEFT JOIN `cabang_dinas` ON `usulan`.`cabang_dinas_id` = `cabang_dinas`.`id`
+WHERE `pengiriman_usulan`.`status_usulan_cabdin` = \'Lengkap\'
+AND `pengiriman_usulan`.`status_telaah` IS NULL')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1728): CodeIgniter\Database\BaseConnection->query('SELECT COUNT(*) AS `numrows`
+FROM `pengiriman_usulan`
+INNER JOIN `usulan` ON `pengiriman_usulan`.`nomor_usulan` = `usulan`.`nomor_usulan`
+LEFT JOIN `cabang_dinas` ON `usulan`.`cabang_dinas_id` = `cabang_dinas`.`id`
+WHERE `pengiriman_usulan`.`status_usulan_cabdin` = :pengiriman_usulan.status_usulan_cabdin:
+AND `pengiriman_usulan`.`status_telaah` IS NULL', [...], false)
+ 5 SYSTEMPATH\Model.php(676): CodeIgniter\Database\BaseBuilder->countAllResults(false)
+ 6 SYSTEMPATH\BaseModel.php(1283): CodeIgniter\Model->countAllResults(false)
+ 7 APPPATH\Controllers\TelaahController.php(36): CodeIgniter\BaseModel->paginate(50, 'usulanMenunggu')
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\TelaahController->index()
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TelaahController))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+DEBUG - 2025-01-26 09:49:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 09:49:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 09:49:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 09:50:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-01-26 09:50:00 --> [DEPRECATED] Creation of dynamic property App\Controllers\TelaahController::$db is deprecated in APPPATH\Controllers\TelaahController.php on line 14.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\TelaahController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+DEBUG - 2025-01-26 09:50:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-01-26 09:50:15 --> [DEPRECATED] Creation of dynamic property App\Controllers\TelaahController::$db is deprecated in APPPATH\Controllers\TelaahController.php on line 14.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\TelaahController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+DEBUG - 2025-01-26 09:50:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-01-26 09:50:16 --> [DEPRECATED] Creation of dynamic property App\Controllers\TelaahController::$db is deprecated in APPPATH\Controllers\TelaahController.php on line 14.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\TelaahController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+DEBUG - 2025-01-26 09:51:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-01-26 09:51:44 --> [DEPRECATED] Creation of dynamic property App\Controllers\TelaahController::$db is deprecated in APPPATH\Controllers\TelaahController.php on line 14.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\TelaahController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+DEBUG - 2025-01-26 09:51:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-01-26 09:51:45 --> [DEPRECATED] Creation of dynamic property App\Controllers\TelaahController::$db is deprecated in APPPATH\Controllers\TelaahController.php on line 14.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\TelaahController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+DEBUG - 2025-01-26 09:52:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-01-26 09:52:15 --> [DEPRECATED] Creation of dynamic property App\Controllers\TelaahController::$db is deprecated in APPPATH\Controllers\TelaahController.php on line 14.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\TelaahController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+DEBUG - 2025-01-26 09:52:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 09:53:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 09:53:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 09:53:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 09:53:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 09:53:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 09:53:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 09:53:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 09:54:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 09:54:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 09:54:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 09:54:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 09:54:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 09:54:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 09:54:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 09:54:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 09:54:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 09:56:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 09:56:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 09:59:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 09:59:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 09:59:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 10:00:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 10:00:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-01-26 10:00:40 --> [DEPRECATED] Function strftime() is deprecated in APPPATH\Views\usulan\pdf_resi.php on line 102.
+ 1 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\simutasi\\app\\Views\\usulan\\pdf_resi.php')
+ 2 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('usulan/pdf_resi', [], true)
+ 4 APPPATH\Controllers\UsulanController.php(217): view('usulan/pdf_resi', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\UsulanController->generateResi('CD007202501260001')
+ 6 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UsulanController))
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+WARNING - 2025-01-26 10:00:40 --> [DEPRECATED] Function strftime() is deprecated in APPPATH\Views\usulan\pdf_resi.php on line 106.
+ 1 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\simutasi\\app\\Views\\usulan\\pdf_resi.php')
+ 2 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('usulan/pdf_resi', [], true)
+ 4 APPPATH\Controllers\UsulanController.php(217): view('usulan/pdf_resi', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\UsulanController->generateResi('CD007202501260001')
+ 6 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UsulanController))
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+WARNING - 2025-01-26 10:00:40 --> [DEPRECATED] Function strftime() is deprecated in APPPATH\Views\usulan\pdf_resi.php on line 157.
+ 1 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\simutasi\\app\\Views\\usulan\\pdf_resi.php')
+ 2 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('usulan/pdf_resi', [], true)
+ 4 APPPATH\Controllers\UsulanController.php(217): view('usulan/pdf_resi', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\UsulanController->generateResi('CD007202501260001')
+ 6 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UsulanController))
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+WARNING - 2025-01-26 10:00:40 --> [DEPRECATED] Function strftime() is deprecated in APPPATH\Views\usulan\pdf_resi.php on line 161.
+ 1 SYSTEMPATH\View\View.php(234): include('C:\\xampp\\htdocs\\simutasi\\app\\Views\\usulan\\pdf_resi.php')
+ 2 SYSTEMPATH\View\View.php(237): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH\Common.php(1171): CodeIgniter\View\View->render('usulan/pdf_resi', [], true)
+ 4 APPPATH\Controllers\UsulanController.php(217): view('usulan/pdf_resi', [...])
+ 5 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\UsulanController->generateResi('CD007202501260001')
+ 6 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UsulanController))
+ 7 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+11 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+WARNING - 2025-01-26 10:00:40 --> [DEPRECATED] Using ${var} in strings is deprecated, use {$var} instead in APPPATH\ThirdParty\dompdf\src\Css\Style.php on line 2508.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(316): include_once('C:\\xampp\\htdocs\\simutasi\\system\\Debug\\Exceptions.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(295): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\simutasi\\app\\ThirdParty/dompdf/src\\Css\\Style.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(271): CodeIgniter\Autoloader\Autoloader->loadInNamespace('Dompdf\\Css\\Style')
+ 4 APPPATH\ThirdParty\dompdf\src\Css\Stylesheet.php(180): CodeIgniter\Autoloader\Autoloader->loadClass('Dompdf\\Css\\Style')
+ 5 APPPATH\ThirdParty\dompdf\src\Dompdf.php(302): Dompdf\Css\Stylesheet->__construct(Object(Dompdf\Dompdf))
+ 6 APPPATH\Controllers\UsulanController.php(220): Dompdf\Dompdf->__construct()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\UsulanController->generateResi('CD007202501260001')
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UsulanController))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+WARNING - 2025-01-26 10:00:40 --> [DEPRECATED] Using ${var} in strings is deprecated, use {$var} instead in APPPATH\ThirdParty\dompdf\src\Css\Style.php on line 2509.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(316): include_once('C:\\xampp\\htdocs\\simutasi\\system\\Debug\\Exceptions.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(295): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\simutasi\\app\\ThirdParty/dompdf/src\\Css\\Style.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(271): CodeIgniter\Autoloader\Autoloader->loadInNamespace('Dompdf\\Css\\Style')
+ 4 APPPATH\ThirdParty\dompdf\src\Css\Stylesheet.php(180): CodeIgniter\Autoloader\Autoloader->loadClass('Dompdf\\Css\\Style')
+ 5 APPPATH\ThirdParty\dompdf\src\Dompdf.php(302): Dompdf\Css\Stylesheet->__construct(Object(Dompdf\Dompdf))
+ 6 APPPATH\Controllers\UsulanController.php(220): Dompdf\Dompdf->__construct()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\UsulanController->generateResi('CD007202501260001')
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UsulanController))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+WARNING - 2025-01-26 10:00:40 --> [DEPRECATED] Using ${var} in strings is deprecated, use {$var} instead in APPPATH\ThirdParty\dompdf\src\Css\Style.php on line 2510.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(316): include_once('C:\\xampp\\htdocs\\simutasi\\system\\Debug\\Exceptions.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(295): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\simutasi\\app\\ThirdParty/dompdf/src\\Css\\Style.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(271): CodeIgniter\Autoloader\Autoloader->loadInNamespace('Dompdf\\Css\\Style')
+ 4 APPPATH\ThirdParty\dompdf\src\Css\Stylesheet.php(180): CodeIgniter\Autoloader\Autoloader->loadClass('Dompdf\\Css\\Style')
+ 5 APPPATH\ThirdParty\dompdf\src\Dompdf.php(302): Dompdf\Css\Stylesheet->__construct(Object(Dompdf\Dompdf))
+ 6 APPPATH\Controllers\UsulanController.php(220): Dompdf\Dompdf->__construct()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\UsulanController->generateResi('CD007202501260001')
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UsulanController))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+WARNING - 2025-01-26 10:00:40 --> [DEPRECATED] Using ${var} in strings is deprecated, use {$var} instead in APPPATH\ThirdParty\dompdf\src\Css\Style.php on line 2513.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(316): include_once('C:\\xampp\\htdocs\\simutasi\\system\\Debug\\Exceptions.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(295): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\simutasi\\app\\ThirdParty/dompdf/src\\Css\\Style.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(271): CodeIgniter\Autoloader\Autoloader->loadInNamespace('Dompdf\\Css\\Style')
+ 4 APPPATH\ThirdParty\dompdf\src\Css\Stylesheet.php(180): CodeIgniter\Autoloader\Autoloader->loadClass('Dompdf\\Css\\Style')
+ 5 APPPATH\ThirdParty\dompdf\src\Dompdf.php(302): Dompdf\Css\Stylesheet->__construct(Object(Dompdf\Dompdf))
+ 6 APPPATH\Controllers\UsulanController.php(220): Dompdf\Dompdf->__construct()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\UsulanController->generateResi('CD007202501260001')
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UsulanController))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+WARNING - 2025-01-26 10:00:40 --> [DEPRECATED] Using ${var} in strings is deprecated, use {$var} instead in APPPATH\ThirdParty\dompdf\src\Css\Style.php on line 2515.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(316): include_once('C:\\xampp\\htdocs\\simutasi\\system\\Debug\\Exceptions.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(295): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\simutasi\\app\\ThirdParty/dompdf/src\\Css\\Style.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(271): CodeIgniter\Autoloader\Autoloader->loadInNamespace('Dompdf\\Css\\Style')
+ 4 APPPATH\ThirdParty\dompdf\src\Css\Stylesheet.php(180): CodeIgniter\Autoloader\Autoloader->loadClass('Dompdf\\Css\\Style')
+ 5 APPPATH\ThirdParty\dompdf\src\Dompdf.php(302): Dompdf\Css\Stylesheet->__construct(Object(Dompdf\Dompdf))
+ 6 APPPATH\Controllers\UsulanController.php(220): Dompdf\Dompdf->__construct()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\UsulanController->generateResi('CD007202501260001')
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UsulanController))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+WARNING - 2025-01-26 10:00:40 --> [DEPRECATED] Using ${var} in strings is deprecated, use {$var} instead in APPPATH\ThirdParty\dompdf\src\Css\Style.php on line 2518.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(316): include_once('C:\\xampp\\htdocs\\simutasi\\system\\Debug\\Exceptions.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(295): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\simutasi\\app\\ThirdParty/dompdf/src\\Css\\Style.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(271): CodeIgniter\Autoloader\Autoloader->loadInNamespace('Dompdf\\Css\\Style')
+ 4 APPPATH\ThirdParty\dompdf\src\Css\Stylesheet.php(180): CodeIgniter\Autoloader\Autoloader->loadClass('Dompdf\\Css\\Style')
+ 5 APPPATH\ThirdParty\dompdf\src\Dompdf.php(302): Dompdf\Css\Stylesheet->__construct(Object(Dompdf\Dompdf))
+ 6 APPPATH\Controllers\UsulanController.php(220): Dompdf\Dompdf->__construct()
+ 7 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\UsulanController->generateResi('CD007202501260001')
+ 8 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UsulanController))
+ 9 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+13 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+WARNING - 2025-01-26 10:00:40 --> [DEPRECATED] Return type of Dompdf\Frame\FrameTreeList::getIterator() should either be compatible with IteratorAggregate::getIterator(): Traversable, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in APPPATH\ThirdParty\dompdf\src\Frame\FrameTreeList.php on line 31.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(316): include_once('C:\\xampp\\htdocs\\simutasi\\app\\ThirdParty\\dompdf\\src\\Frame\\FrameTreeList.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(295): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\simutasi\\app\\ThirdParty/dompdf/src\\Frame\\FrameTreeList.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(271): CodeIgniter\Autoloader\Autoloader->loadInNamespace('Dompdf\\Frame\\FrameTreeList')
+ 4 APPPATH\ThirdParty\dompdf\src\Frame\FrameTree.php(131): CodeIgniter\Autoloader\Autoloader->loadClass('Dompdf\\Frame\\FrameTreeList')
+ 5 APPPATH\ThirdParty\dompdf\src\Css\Stylesheet.php(1076): Dompdf\Frame\FrameTree->get_frames()
+ 6 APPPATH\ThirdParty\dompdf\src\Dompdf.php(763): Dompdf\Css\Stylesheet->apply_styles(Object(Dompdf\Frame\FrameTree))
+ 7 APPPATH\Controllers\UsulanController.php(223): Dompdf\Dompdf->render()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\UsulanController->generateResi('CD007202501260001')
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UsulanController))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+WARNING - 2025-01-26 10:00:40 --> [DEPRECATED] Return type of Dompdf\Frame\FrameTreeIterator::current() should either be compatible with Iterator::current(): mixed, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in APPPATH\ThirdParty\dompdf\src\Frame\FrameTreeIterator.php on line 69.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(316): include_once('C:\\xampp\\htdocs\\simutasi\\app\\ThirdParty\\dompdf\\src\\Frame\\FrameTreeIterator.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(295): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\simutasi\\app\\ThirdParty/dompdf/src\\Frame\\FrameTreeIterator.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(271): CodeIgniter\Autoloader\Autoloader->loadInNamespace('Dompdf\\Frame\\FrameTreeIterator')
+ 4 APPPATH\ThirdParty\dompdf\src\Frame\FrameTreeList.php(33): CodeIgniter\Autoloader\Autoloader->loadClass('Dompdf\\Frame\\FrameTreeIterator')
+ 5 APPPATH\ThirdParty\dompdf\src\Css\Stylesheet.php(1076): Dompdf\Frame\FrameTreeList->getIterator()
+ 6 APPPATH\ThirdParty\dompdf\src\Dompdf.php(763): Dompdf\Css\Stylesheet->apply_styles(Object(Dompdf\Frame\FrameTree))
+ 7 APPPATH\Controllers\UsulanController.php(223): Dompdf\Dompdf->render()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\UsulanController->generateResi('CD007202501260001')
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UsulanController))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+WARNING - 2025-01-26 10:00:40 --> [DEPRECATED] Return type of Dompdf\Frame\FrameTreeIterator::next() should either be compatible with Iterator::next(): void, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in APPPATH\ThirdParty\dompdf\src\Frame\FrameTreeIterator.php on line 77.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(316): include_once('C:\\xampp\\htdocs\\simutasi\\app\\ThirdParty\\dompdf\\src\\Frame\\FrameTreeIterator.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(295): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\simutasi\\app\\ThirdParty/dompdf/src\\Frame\\FrameTreeIterator.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(271): CodeIgniter\Autoloader\Autoloader->loadInNamespace('Dompdf\\Frame\\FrameTreeIterator')
+ 4 APPPATH\ThirdParty\dompdf\src\Frame\FrameTreeList.php(33): CodeIgniter\Autoloader\Autoloader->loadClass('Dompdf\\Frame\\FrameTreeIterator')
+ 5 APPPATH\ThirdParty\dompdf\src\Css\Stylesheet.php(1076): Dompdf\Frame\FrameTreeList->getIterator()
+ 6 APPPATH\ThirdParty\dompdf\src\Dompdf.php(763): Dompdf\Css\Stylesheet->apply_styles(Object(Dompdf\Frame\FrameTree))
+ 7 APPPATH\Controllers\UsulanController.php(223): Dompdf\Dompdf->render()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\UsulanController->generateResi('CD007202501260001')
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UsulanController))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+WARNING - 2025-01-26 10:00:40 --> [DEPRECATED] Return type of Dompdf\Frame\FrameTreeIterator::key() should either be compatible with Iterator::key(): mixed, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in APPPATH\ThirdParty\dompdf\src\Frame\FrameTreeIterator.php on line 61.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(316): include_once('C:\\xampp\\htdocs\\simutasi\\app\\ThirdParty\\dompdf\\src\\Frame\\FrameTreeIterator.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(295): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\simutasi\\app\\ThirdParty/dompdf/src\\Frame\\FrameTreeIterator.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(271): CodeIgniter\Autoloader\Autoloader->loadInNamespace('Dompdf\\Frame\\FrameTreeIterator')
+ 4 APPPATH\ThirdParty\dompdf\src\Frame\FrameTreeList.php(33): CodeIgniter\Autoloader\Autoloader->loadClass('Dompdf\\Frame\\FrameTreeIterator')
+ 5 APPPATH\ThirdParty\dompdf\src\Css\Stylesheet.php(1076): Dompdf\Frame\FrameTreeList->getIterator()
+ 6 APPPATH\ThirdParty\dompdf\src\Dompdf.php(763): Dompdf\Css\Stylesheet->apply_styles(Object(Dompdf\Frame\FrameTree))
+ 7 APPPATH\Controllers\UsulanController.php(223): Dompdf\Dompdf->render()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\UsulanController->generateResi('CD007202501260001')
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UsulanController))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+WARNING - 2025-01-26 10:00:40 --> [DEPRECATED] Return type of Dompdf\Frame\FrameTreeIterator::valid() should either be compatible with Iterator::valid(): bool, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in APPPATH\ThirdParty\dompdf\src\Frame\FrameTreeIterator.php on line 53.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(316): include_once('C:\\xampp\\htdocs\\simutasi\\app\\ThirdParty\\dompdf\\src\\Frame\\FrameTreeIterator.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(295): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\simutasi\\app\\ThirdParty/dompdf/src\\Frame\\FrameTreeIterator.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(271): CodeIgniter\Autoloader\Autoloader->loadInNamespace('Dompdf\\Frame\\FrameTreeIterator')
+ 4 APPPATH\ThirdParty\dompdf\src\Frame\FrameTreeList.php(33): CodeIgniter\Autoloader\Autoloader->loadClass('Dompdf\\Frame\\FrameTreeIterator')
+ 5 APPPATH\ThirdParty\dompdf\src\Css\Stylesheet.php(1076): Dompdf\Frame\FrameTreeList->getIterator()
+ 6 APPPATH\ThirdParty\dompdf\src\Dompdf.php(763): Dompdf\Css\Stylesheet->apply_styles(Object(Dompdf\Frame\FrameTree))
+ 7 APPPATH\Controllers\UsulanController.php(223): Dompdf\Dompdf->render()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\UsulanController->generateResi('CD007202501260001')
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UsulanController))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+WARNING - 2025-01-26 10:00:40 --> [DEPRECATED] Return type of Dompdf\Frame\FrameTreeIterator::rewind() should either be compatible with Iterator::rewind(): void, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in APPPATH\ThirdParty\dompdf\src\Frame\FrameTreeIterator.php on line 44.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(316): include_once('C:\\xampp\\htdocs\\simutasi\\app\\ThirdParty\\dompdf\\src\\Frame\\FrameTreeIterator.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(295): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\simutasi\\app\\ThirdParty/dompdf/src\\Frame\\FrameTreeIterator.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(271): CodeIgniter\Autoloader\Autoloader->loadInNamespace('Dompdf\\Frame\\FrameTreeIterator')
+ 4 APPPATH\ThirdParty\dompdf\src\Frame\FrameTreeList.php(33): CodeIgniter\Autoloader\Autoloader->loadClass('Dompdf\\Frame\\FrameTreeIterator')
+ 5 APPPATH\ThirdParty\dompdf\src\Css\Stylesheet.php(1076): Dompdf\Frame\FrameTreeList->getIterator()
+ 6 APPPATH\ThirdParty\dompdf\src\Dompdf.php(763): Dompdf\Css\Stylesheet->apply_styles(Object(Dompdf\Frame\FrameTree))
+ 7 APPPATH\Controllers\UsulanController.php(223): Dompdf\Dompdf->render()
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\UsulanController->generateResi('CD007202501260001')
+ 9 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UsulanController))
+10 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+WARNING - 2025-01-26 10:00:40 --> [DEPRECATED] Return type of Dompdf\Frame\FrameList::getIterator() should either be compatible with IteratorAggregate::getIterator(): Traversable, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in APPPATH\ThirdParty\dompdf\src\Frame\FrameList.php on line 31.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(316): include_once('C:\\xampp\\htdocs\\simutasi\\app\\ThirdParty\\dompdf\\src\\Frame\\FrameList.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(295): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\simutasi\\app\\ThirdParty/dompdf/src\\Frame\\FrameList.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(271): CodeIgniter\Autoloader\Autoloader->loadInNamespace('Dompdf\\Frame\\FrameList')
+ 4 APPPATH\ThirdParty\dompdf\src\Frame.php(426): CodeIgniter\Autoloader\Autoloader->loadClass('Dompdf\\Frame\\FrameList')
+ 5 APPPATH\ThirdParty\dompdf\src\FrameReflower\Page.php(120): Dompdf\Frame->get_children()
+ 6 APPPATH\ThirdParty\dompdf\src\FrameDecorator\AbstractFrameDecorator.php(895): Dompdf\FrameReflower\Page->reflow(null)
+ 7 APPPATH\ThirdParty\dompdf\src\Dompdf.php(838): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow()
+ 8 APPPATH\Controllers\UsulanController.php(223): Dompdf\Dompdf->render()
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\UsulanController->generateResi('CD007202501260001')
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UsulanController))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+WARNING - 2025-01-26 10:00:40 --> [DEPRECATED] Return type of Dompdf\Frame\FrameListIterator::current() should either be compatible with Iterator::current(): mixed, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in APPPATH\ThirdParty\dompdf\src\Frame\FrameListIterator.php on line 72.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(316): include_once('C:\\xampp\\htdocs\\simutasi\\app\\ThirdParty\\dompdf\\src\\Frame\\FrameListIterator.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(295): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\simutasi\\app\\ThirdParty/dompdf/src\\Frame\\FrameListIterator.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(271): CodeIgniter\Autoloader\Autoloader->loadInNamespace('Dompdf\\Frame\\FrameListIterator')
+ 4 APPPATH\ThirdParty\dompdf\src\Frame\FrameList.php(33): CodeIgniter\Autoloader\Autoloader->loadClass('Dompdf\\Frame\\FrameListIterator')
+ 5 APPPATH\ThirdParty\dompdf\src\FrameReflower\Page.php(121): Dompdf\Frame\FrameList->getIterator()
+ 6 APPPATH\ThirdParty\dompdf\src\FrameDecorator\AbstractFrameDecorator.php(895): Dompdf\FrameReflower\Page->reflow(null)
+ 7 APPPATH\ThirdParty\dompdf\src\Dompdf.php(838): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow()
+ 8 APPPATH\Controllers\UsulanController.php(223): Dompdf\Dompdf->render()
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\UsulanController->generateResi('CD007202501260001')
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UsulanController))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+WARNING - 2025-01-26 10:00:40 --> [DEPRECATED] Return type of Dompdf\Frame\FrameListIterator::next() should either be compatible with Iterator::next(): void, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in APPPATH\ThirdParty\dompdf\src\Frame\FrameListIterator.php on line 80.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(316): include_once('C:\\xampp\\htdocs\\simutasi\\app\\ThirdParty\\dompdf\\src\\Frame\\FrameListIterator.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(295): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\simutasi\\app\\ThirdParty/dompdf/src\\Frame\\FrameListIterator.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(271): CodeIgniter\Autoloader\Autoloader->loadInNamespace('Dompdf\\Frame\\FrameListIterator')
+ 4 APPPATH\ThirdParty\dompdf\src\Frame\FrameList.php(33): CodeIgniter\Autoloader\Autoloader->loadClass('Dompdf\\Frame\\FrameListIterator')
+ 5 APPPATH\ThirdParty\dompdf\src\FrameReflower\Page.php(121): Dompdf\Frame\FrameList->getIterator()
+ 6 APPPATH\ThirdParty\dompdf\src\FrameDecorator\AbstractFrameDecorator.php(895): Dompdf\FrameReflower\Page->reflow(null)
+ 7 APPPATH\ThirdParty\dompdf\src\Dompdf.php(838): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow()
+ 8 APPPATH\Controllers\UsulanController.php(223): Dompdf\Dompdf->render()
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\UsulanController->generateResi('CD007202501260001')
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UsulanController))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+WARNING - 2025-01-26 10:00:40 --> [DEPRECATED] Return type of Dompdf\Frame\FrameListIterator::key() should either be compatible with Iterator::key(): mixed, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in APPPATH\ThirdParty\dompdf\src\Frame\FrameListIterator.php on line 64.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(316): include_once('C:\\xampp\\htdocs\\simutasi\\app\\ThirdParty\\dompdf\\src\\Frame\\FrameListIterator.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(295): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\simutasi\\app\\ThirdParty/dompdf/src\\Frame\\FrameListIterator.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(271): CodeIgniter\Autoloader\Autoloader->loadInNamespace('Dompdf\\Frame\\FrameListIterator')
+ 4 APPPATH\ThirdParty\dompdf\src\Frame\FrameList.php(33): CodeIgniter\Autoloader\Autoloader->loadClass('Dompdf\\Frame\\FrameListIterator')
+ 5 APPPATH\ThirdParty\dompdf\src\FrameReflower\Page.php(121): Dompdf\Frame\FrameList->getIterator()
+ 6 APPPATH\ThirdParty\dompdf\src\FrameDecorator\AbstractFrameDecorator.php(895): Dompdf\FrameReflower\Page->reflow(null)
+ 7 APPPATH\ThirdParty\dompdf\src\Dompdf.php(838): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow()
+ 8 APPPATH\Controllers\UsulanController.php(223): Dompdf\Dompdf->render()
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\UsulanController->generateResi('CD007202501260001')
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UsulanController))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+WARNING - 2025-01-26 10:00:40 --> [DEPRECATED] Return type of Dompdf\Frame\FrameListIterator::valid() should either be compatible with Iterator::valid(): bool, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in APPPATH\ThirdParty\dompdf\src\Frame\FrameListIterator.php on line 56.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(316): include_once('C:\\xampp\\htdocs\\simutasi\\app\\ThirdParty\\dompdf\\src\\Frame\\FrameListIterator.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(295): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\simutasi\\app\\ThirdParty/dompdf/src\\Frame\\FrameListIterator.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(271): CodeIgniter\Autoloader\Autoloader->loadInNamespace('Dompdf\\Frame\\FrameListIterator')
+ 4 APPPATH\ThirdParty\dompdf\src\Frame\FrameList.php(33): CodeIgniter\Autoloader\Autoloader->loadClass('Dompdf\\Frame\\FrameListIterator')
+ 5 APPPATH\ThirdParty\dompdf\src\FrameReflower\Page.php(121): Dompdf\Frame\FrameList->getIterator()
+ 6 APPPATH\ThirdParty\dompdf\src\FrameDecorator\AbstractFrameDecorator.php(895): Dompdf\FrameReflower\Page->reflow(null)
+ 7 APPPATH\ThirdParty\dompdf\src\Dompdf.php(838): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow()
+ 8 APPPATH\Controllers\UsulanController.php(223): Dompdf\Dompdf->render()
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\UsulanController->generateResi('CD007202501260001')
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UsulanController))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+WARNING - 2025-01-26 10:00:40 --> [DEPRECATED] Return type of Dompdf\Frame\FrameListIterator::rewind() should either be compatible with Iterator::rewind(): void, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in APPPATH\ThirdParty\dompdf\src\Frame\FrameListIterator.php on line 47.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(316): include_once('C:\\xampp\\htdocs\\simutasi\\app\\ThirdParty\\dompdf\\src\\Frame\\FrameListIterator.php')
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(295): CodeIgniter\Autoloader\Autoloader->includeFile('C:\\xampp\\htdocs\\simutasi\\app\\ThirdParty/dompdf/src\\Frame\\FrameListIterator.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(271): CodeIgniter\Autoloader\Autoloader->loadInNamespace('Dompdf\\Frame\\FrameListIterator')
+ 4 APPPATH\ThirdParty\dompdf\src\Frame\FrameList.php(33): CodeIgniter\Autoloader\Autoloader->loadClass('Dompdf\\Frame\\FrameListIterator')
+ 5 APPPATH\ThirdParty\dompdf\src\FrameReflower\Page.php(121): Dompdf\Frame\FrameList->getIterator()
+ 6 APPPATH\ThirdParty\dompdf\src\FrameDecorator\AbstractFrameDecorator.php(895): Dompdf\FrameReflower\Page->reflow(null)
+ 7 APPPATH\ThirdParty\dompdf\src\Dompdf.php(838): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow()
+ 8 APPPATH\Controllers\UsulanController.php(223): Dompdf\Dompdf->render()
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\UsulanController->generateResi('CD007202501260001')
+10 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UsulanController))
+11 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+WARNING - 2025-01-26 10:00:40 --> [DEPRECATED] mb_stripos(): Passing null to parameter #1 ($haystack) of type string is deprecated in APPPATH\ThirdParty\dompdf\src\Css\Style.php on line 623.
+ 1 APPPATH\ThirdParty\dompdf\src\Css\Style.php(623): mb_stripos(null, 'px')
+ 2 APPPATH\ThirdParty\dompdf\src\Css\Style.php(1688): Dompdf\Css\Style->length_in_pt([...])
+ 3 APPPATH\ThirdParty\dompdf\src\Css\Style.php(2545): Dompdf\Css\Style->_set_style_side_type('border', 'top', 'color', [...], false)
+ 4 APPPATH\ThirdParty\dompdf\src\Css\Style.php(894): Dompdf\Css\Style->set_border_top_color('')
+ 5 APPPATH\ThirdParty\dompdf\src\Css\Style.php(954): Dompdf\Css\Style->__set('border_top_color', '')
+ 6 APPPATH\ThirdParty\dompdf\src\Css\Style.php(1349): Dompdf\Css\Style->__get('border_top_color')
+ 7 APPPATH\ThirdParty\dompdf\src\Cellmap.php(531): Dompdf\Css\Style->get_border_properties()
+ 8 APPPATH\ThirdParty\dompdf\src\Cellmap.php(514): Dompdf\Cellmap->add_frame(Object(Dompdf\FrameDecorator\TableRowGroup))
+ 9 APPPATH\ThirdParty\dompdf\src\FrameReflower\Table.php(532): Dompdf\Cellmap->add_frame(Object(Dompdf\FrameDecorator\Table))
+10 APPPATH\ThirdParty\dompdf\src\FrameReflower\Table.php(408): Dompdf\FrameReflower\Table->get_min_max_width()
+11 APPPATH\ThirdParty\dompdf\src\FrameDecorator\AbstractFrameDecorator.php(895): Dompdf\FrameReflower\Table->reflow(Object(Dompdf\FrameDecorator\Block))
+12 APPPATH\ThirdParty\dompdf\src\FrameReflower\Block.php(845): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow(Object(Dompdf\FrameDecorator\Block))
+13 APPPATH\ThirdParty\dompdf\src\FrameDecorator\AbstractFrameDecorator.php(895): Dompdf\FrameReflower\Block->reflow(null)
+14 APPPATH\ThirdParty\dompdf\src\FrameReflower\Page.php(141): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow()
+15 APPPATH\ThirdParty\dompdf\src\FrameDecorator\AbstractFrameDecorator.php(895): Dompdf\FrameReflower\Page->reflow(null)
+16 APPPATH\ThirdParty\dompdf\src\Dompdf.php(838): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow()
+17 APPPATH\Controllers\UsulanController.php(223): Dompdf\Dompdf->render()
+18 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\UsulanController->generateResi('CD007202501260001')
+19 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UsulanController))
+20 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+21 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+22 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+23 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+24 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+WARNING - 2025-01-26 10:00:40 --> [DEPRECATED] mb_stripos(): Passing null to parameter #1 ($haystack) of type string is deprecated in APPPATH\ThirdParty\dompdf\src\Css\Style.php on line 629.
+ 1 APPPATH\ThirdParty\dompdf\src\Css\Style.php(629): mb_stripos(null, 'pt')
+ 2 APPPATH\ThirdParty\dompdf\src\Css\Style.php(1688): Dompdf\Css\Style->length_in_pt([...])
+ 3 APPPATH\ThirdParty\dompdf\src\Css\Style.php(2545): Dompdf\Css\Style->_set_style_side_type('border', 'top', 'color', [...], false)
+ 4 APPPATH\ThirdParty\dompdf\src\Css\Style.php(894): Dompdf\Css\Style->set_border_top_color('')
+ 5 APPPATH\ThirdParty\dompdf\src\Css\Style.php(954): Dompdf\Css\Style->__set('border_top_color', '')
+ 6 APPPATH\ThirdParty\dompdf\src\Css\Style.php(1349): Dompdf\Css\Style->__get('border_top_color')
+ 7 APPPATH\ThirdParty\dompdf\src\Cellmap.php(531): Dompdf\Css\Style->get_border_properties()
+ 8 APPPATH\ThirdParty\dompdf\src\Cellmap.php(514): Dompdf\Cellmap->add_frame(Object(Dompdf\FrameDecorator\TableRowGroup))
+ 9 APPPATH\ThirdParty\dompdf\src\FrameReflower\Table.php(532): Dompdf\Cellmap->add_frame(Object(Dompdf\FrameDecorator\Table))
+10 APPPATH\ThirdParty\dompdf\src\FrameReflower\Table.php(408): Dompdf\FrameReflower\Table->get_min_max_width()
+11 APPPATH\ThirdParty\dompdf\src\FrameDecorator\AbstractFrameDecorator.php(895): Dompdf\FrameReflower\Table->reflow(Object(Dompdf\FrameDecorator\Block))
+12 APPPATH\ThirdParty\dompdf\src\FrameReflower\Block.php(845): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow(Object(Dompdf\FrameDecorator\Block))
+13 APPPATH\ThirdParty\dompdf\src\FrameDecorator\AbstractFrameDecorator.php(895): Dompdf\FrameReflower\Block->reflow(null)
+14 APPPATH\ThirdParty\dompdf\src\FrameReflower\Page.php(141): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow()
+15 APPPATH\ThirdParty\dompdf\src\FrameDecorator\AbstractFrameDecorator.php(895): Dompdf\FrameReflower\Page->reflow(null)
+16 APPPATH\ThirdParty\dompdf\src\Dompdf.php(838): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow()
+17 APPPATH\Controllers\UsulanController.php(223): Dompdf\Dompdf->render()
+18 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\UsulanController->generateResi('CD007202501260001')
+19 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UsulanController))
+20 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+21 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+22 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+23 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+24 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+WARNING - 2025-01-26 10:00:40 --> [DEPRECATED] mb_stripos(): Passing null to parameter #1 ($haystack) of type string is deprecated in APPPATH\ThirdParty\dompdf\src\Css\Style.php on line 634.
+ 1 APPPATH\ThirdParty\dompdf\src\Css\Style.php(634): mb_stripos(null, '%')
+ 2 APPPATH\ThirdParty\dompdf\src\Css\Style.php(1688): Dompdf\Css\Style->length_in_pt([...])
+ 3 APPPATH\ThirdParty\dompdf\src\Css\Style.php(2545): Dompdf\Css\Style->_set_style_side_type('border', 'top', 'color', [...], false)
+ 4 APPPATH\ThirdParty\dompdf\src\Css\Style.php(894): Dompdf\Css\Style->set_border_top_color('')
+ 5 APPPATH\ThirdParty\dompdf\src\Css\Style.php(954): Dompdf\Css\Style->__set('border_top_color', '')
+ 6 APPPATH\ThirdParty\dompdf\src\Css\Style.php(1349): Dompdf\Css\Style->__get('border_top_color')
+ 7 APPPATH\ThirdParty\dompdf\src\Cellmap.php(531): Dompdf\Css\Style->get_border_properties()
+ 8 APPPATH\ThirdParty\dompdf\src\Cellmap.php(514): Dompdf\Cellmap->add_frame(Object(Dompdf\FrameDecorator\TableRowGroup))
+ 9 APPPATH\ThirdParty\dompdf\src\FrameReflower\Table.php(532): Dompdf\Cellmap->add_frame(Object(Dompdf\FrameDecorator\Table))
+10 APPPATH\ThirdParty\dompdf\src\FrameReflower\Table.php(408): Dompdf\FrameReflower\Table->get_min_max_width()
+11 APPPATH\ThirdParty\dompdf\src\FrameDecorator\AbstractFrameDecorator.php(895): Dompdf\FrameReflower\Table->reflow(Object(Dompdf\FrameDecorator\Block))
+12 APPPATH\ThirdParty\dompdf\src\FrameReflower\Block.php(845): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow(Object(Dompdf\FrameDecorator\Block))
+13 APPPATH\ThirdParty\dompdf\src\FrameDecorator\AbstractFrameDecorator.php(895): Dompdf\FrameReflower\Block->reflow(null)
+14 APPPATH\ThirdParty\dompdf\src\FrameReflower\Page.php(141): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow()
+15 APPPATH\ThirdParty\dompdf\src\FrameDecorator\AbstractFrameDecorator.php(895): Dompdf\FrameReflower\Page->reflow(null)
+16 APPPATH\ThirdParty\dompdf\src\Dompdf.php(838): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow()
+17 APPPATH\Controllers\UsulanController.php(223): Dompdf\Dompdf->render()
+18 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\UsulanController->generateResi('CD007202501260001')
+19 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UsulanController))
+20 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+21 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+22 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+23 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+24 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+WARNING - 2025-01-26 10:00:40 --> [DEPRECATED] mb_stripos(): Passing null to parameter #1 ($haystack) of type string is deprecated in APPPATH\ThirdParty\dompdf\src\Css\Style.php on line 639.
+ 1 APPPATH\ThirdParty\dompdf\src\Css\Style.php(639): mb_stripos(null, 'rem')
+ 2 APPPATH\ThirdParty\dompdf\src\Css\Style.php(1688): Dompdf\Css\Style->length_in_pt([...])
+ 3 APPPATH\ThirdParty\dompdf\src\Css\Style.php(2545): Dompdf\Css\Style->_set_style_side_type('border', 'top', 'color', [...], false)
+ 4 APPPATH\ThirdParty\dompdf\src\Css\Style.php(894): Dompdf\Css\Style->set_border_top_color('')
+ 5 APPPATH\ThirdParty\dompdf\src\Css\Style.php(954): Dompdf\Css\Style->__set('border_top_color', '')
+ 6 APPPATH\ThirdParty\dompdf\src\Css\Style.php(1349): Dompdf\Css\Style->__get('border_top_color')
+ 7 APPPATH\ThirdParty\dompdf\src\Cellmap.php(531): Dompdf\Css\Style->get_border_properties()
+ 8 APPPATH\ThirdParty\dompdf\src\Cellmap.php(514): Dompdf\Cellmap->add_frame(Object(Dompdf\FrameDecorator\TableRowGroup))
+ 9 APPPATH\ThirdParty\dompdf\src\FrameReflower\Table.php(532): Dompdf\Cellmap->add_frame(Object(Dompdf\FrameDecorator\Table))
+10 APPPATH\ThirdParty\dompdf\src\FrameReflower\Table.php(408): Dompdf\FrameReflower\Table->get_min_max_width()
+11 APPPATH\ThirdParty\dompdf\src\FrameDecorator\AbstractFrameDecorator.php(895): Dompdf\FrameReflower\Table->reflow(Object(Dompdf\FrameDecorator\Block))
+12 APPPATH\ThirdParty\dompdf\src\FrameReflower\Block.php(845): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow(Object(Dompdf\FrameDecorator\Block))
+13 APPPATH\ThirdParty\dompdf\src\FrameDecorator\AbstractFrameDecorator.php(895): Dompdf\FrameReflower\Block->reflow(null)
+14 APPPATH\ThirdParty\dompdf\src\FrameReflower\Page.php(141): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow()
+15 APPPATH\ThirdParty\dompdf\src\FrameDecorator\AbstractFrameDecorator.php(895): Dompdf\FrameReflower\Page->reflow(null)
+16 APPPATH\ThirdParty\dompdf\src\Dompdf.php(838): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow()
+17 APPPATH\Controllers\UsulanController.php(223): Dompdf\Dompdf->render()
+18 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\UsulanController->generateResi('CD007202501260001')
+19 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UsulanController))
+20 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+21 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+22 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+23 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+24 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+WARNING - 2025-01-26 10:00:40 --> [DEPRECATED] mb_stripos(): Passing null to parameter #1 ($haystack) of type string is deprecated in APPPATH\ThirdParty\dompdf\src\Css\Style.php on line 649.
+ 1 APPPATH\ThirdParty\dompdf\src\Css\Style.php(649): mb_stripos(null, 'em')
+ 2 APPPATH\ThirdParty\dompdf\src\Css\Style.php(1688): Dompdf\Css\Style->length_in_pt([...])
+ 3 APPPATH\ThirdParty\dompdf\src\Css\Style.php(2545): Dompdf\Css\Style->_set_style_side_type('border', 'top', 'color', [...], false)
+ 4 APPPATH\ThirdParty\dompdf\src\Css\Style.php(894): Dompdf\Css\Style->set_border_top_color('')
+ 5 APPPATH\ThirdParty\dompdf\src\Css\Style.php(954): Dompdf\Css\Style->__set('border_top_color', '')
+ 6 APPPATH\ThirdParty\dompdf\src\Css\Style.php(1349): Dompdf\Css\Style->__get('border_top_color')
+ 7 APPPATH\ThirdParty\dompdf\src\Cellmap.php(531): Dompdf\Css\Style->get_border_properties()
+ 8 APPPATH\ThirdParty\dompdf\src\Cellmap.php(514): Dompdf\Cellmap->add_frame(Object(Dompdf\FrameDecorator\TableRowGroup))
+ 9 APPPATH\ThirdParty\dompdf\src\FrameReflower\Table.php(532): Dompdf\Cellmap->add_frame(Object(Dompdf\FrameDecorator\Table))
+10 APPPATH\ThirdParty\dompdf\src\FrameReflower\Table.php(408): Dompdf\FrameReflower\Table->get_min_max_width()
+11 APPPATH\ThirdParty\dompdf\src\FrameDecorator\AbstractFrameDecorator.php(895): Dompdf\FrameReflower\Table->reflow(Object(Dompdf\FrameDecorator\Block))
+12 APPPATH\ThirdParty\dompdf\src\FrameReflower\Block.php(845): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow(Object(Dompdf\FrameDecorator\Block))
+13 APPPATH\ThirdParty\dompdf\src\FrameDecorator\AbstractFrameDecorator.php(895): Dompdf\FrameReflower\Block->reflow(null)
+14 APPPATH\ThirdParty\dompdf\src\FrameReflower\Page.php(141): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow()
+15 APPPATH\ThirdParty\dompdf\src\FrameDecorator\AbstractFrameDecorator.php(895): Dompdf\FrameReflower\Page->reflow(null)
+16 APPPATH\ThirdParty\dompdf\src\Dompdf.php(838): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow()
+17 APPPATH\Controllers\UsulanController.php(223): Dompdf\Dompdf->render()
+18 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\UsulanController->generateResi('CD007202501260001')
+19 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UsulanController))
+20 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+21 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+22 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+23 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+24 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+WARNING - 2025-01-26 10:00:40 --> [DEPRECATED] mb_stripos(): Passing null to parameter #1 ($haystack) of type string is deprecated in APPPATH\ThirdParty\dompdf\src\Css\Style.php on line 654.
+ 1 APPPATH\ThirdParty\dompdf\src\Css\Style.php(654): mb_stripos(null, 'cm')
+ 2 APPPATH\ThirdParty\dompdf\src\Css\Style.php(1688): Dompdf\Css\Style->length_in_pt([...])
+ 3 APPPATH\ThirdParty\dompdf\src\Css\Style.php(2545): Dompdf\Css\Style->_set_style_side_type('border', 'top', 'color', [...], false)
+ 4 APPPATH\ThirdParty\dompdf\src\Css\Style.php(894): Dompdf\Css\Style->set_border_top_color('')
+ 5 APPPATH\ThirdParty\dompdf\src\Css\Style.php(954): Dompdf\Css\Style->__set('border_top_color', '')
+ 6 APPPATH\ThirdParty\dompdf\src\Css\Style.php(1349): Dompdf\Css\Style->__get('border_top_color')
+ 7 APPPATH\ThirdParty\dompdf\src\Cellmap.php(531): Dompdf\Css\Style->get_border_properties()
+ 8 APPPATH\ThirdParty\dompdf\src\Cellmap.php(514): Dompdf\Cellmap->add_frame(Object(Dompdf\FrameDecorator\TableRowGroup))
+ 9 APPPATH\ThirdParty\dompdf\src\FrameReflower\Table.php(532): Dompdf\Cellmap->add_frame(Object(Dompdf\FrameDecorator\Table))
+10 APPPATH\ThirdParty\dompdf\src\FrameReflower\Table.php(408): Dompdf\FrameReflower\Table->get_min_max_width()
+11 APPPATH\ThirdParty\dompdf\src\FrameDecorator\AbstractFrameDecorator.php(895): Dompdf\FrameReflower\Table->reflow(Object(Dompdf\FrameDecorator\Block))
+12 APPPATH\ThirdParty\dompdf\src\FrameReflower\Block.php(845): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow(Object(Dompdf\FrameDecorator\Block))
+13 APPPATH\ThirdParty\dompdf\src\FrameDecorator\AbstractFrameDecorator.php(895): Dompdf\FrameReflower\Block->reflow(null)
+14 APPPATH\ThirdParty\dompdf\src\FrameReflower\Page.php(141): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow()
+15 APPPATH\ThirdParty\dompdf\src\FrameDecorator\AbstractFrameDecorator.php(895): Dompdf\FrameReflower\Page->reflow(null)
+16 APPPATH\ThirdParty\dompdf\src\Dompdf.php(838): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow()
+17 APPPATH\Controllers\UsulanController.php(223): Dompdf\Dompdf->render()
+18 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\UsulanController->generateResi('CD007202501260001')
+19 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UsulanController))
+20 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+21 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+22 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+23 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+24 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+WARNING - 2025-01-26 10:00:40 --> [DEPRECATED] mb_stripos(): Passing null to parameter #1 ($haystack) of type string is deprecated in APPPATH\ThirdParty\dompdf\src\Css\Style.php on line 659.
+ 1 APPPATH\ThirdParty\dompdf\src\Css\Style.php(659): mb_stripos(null, 'mm')
+ 2 APPPATH\ThirdParty\dompdf\src\Css\Style.php(1688): Dompdf\Css\Style->length_in_pt([...])
+ 3 APPPATH\ThirdParty\dompdf\src\Css\Style.php(2545): Dompdf\Css\Style->_set_style_side_type('border', 'top', 'color', [...], false)
+ 4 APPPATH\ThirdParty\dompdf\src\Css\Style.php(894): Dompdf\Css\Style->set_border_top_color('')
+ 5 APPPATH\ThirdParty\dompdf\src\Css\Style.php(954): Dompdf\Css\Style->__set('border_top_color', '')
+ 6 APPPATH\ThirdParty\dompdf\src\Css\Style.php(1349): Dompdf\Css\Style->__get('border_top_color')
+ 7 APPPATH\ThirdParty\dompdf\src\Cellmap.php(531): Dompdf\Css\Style->get_border_properties()
+ 8 APPPATH\ThirdParty\dompdf\src\Cellmap.php(514): Dompdf\Cellmap->add_frame(Object(Dompdf\FrameDecorator\TableRowGroup))
+ 9 APPPATH\ThirdParty\dompdf\src\FrameReflower\Table.php(532): Dompdf\Cellmap->add_frame(Object(Dompdf\FrameDecorator\Table))
+10 APPPATH\ThirdParty\dompdf\src\FrameReflower\Table.php(408): Dompdf\FrameReflower\Table->get_min_max_width()
+11 APPPATH\ThirdParty\dompdf\src\FrameDecorator\AbstractFrameDecorator.php(895): Dompdf\FrameReflower\Table->reflow(Object(Dompdf\FrameDecorator\Block))
+12 APPPATH\ThirdParty\dompdf\src\FrameReflower\Block.php(845): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow(Object(Dompdf\FrameDecorator\Block))
+13 APPPATH\ThirdParty\dompdf\src\FrameDecorator\AbstractFrameDecorator.php(895): Dompdf\FrameReflower\Block->reflow(null)
+14 APPPATH\ThirdParty\dompdf\src\FrameReflower\Page.php(141): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow()
+15 APPPATH\ThirdParty\dompdf\src\FrameDecorator\AbstractFrameDecorator.php(895): Dompdf\FrameReflower\Page->reflow(null)
+16 APPPATH\ThirdParty\dompdf\src\Dompdf.php(838): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow()
+17 APPPATH\Controllers\UsulanController.php(223): Dompdf\Dompdf->render()
+18 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\UsulanController->generateResi('CD007202501260001')
+19 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UsulanController))
+20 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+21 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+22 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+23 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+24 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+WARNING - 2025-01-26 10:00:40 --> [DEPRECATED] mb_stripos(): Passing null to parameter #1 ($haystack) of type string is deprecated in APPPATH\ThirdParty\dompdf\src\Css\Style.php on line 665.
+ 1 APPPATH\ThirdParty\dompdf\src\Css\Style.php(665): mb_stripos(null, 'ex')
+ 2 APPPATH\ThirdParty\dompdf\src\Css\Style.php(1688): Dompdf\Css\Style->length_in_pt([...])
+ 3 APPPATH\ThirdParty\dompdf\src\Css\Style.php(2545): Dompdf\Css\Style->_set_style_side_type('border', 'top', 'color', [...], false)
+ 4 APPPATH\ThirdParty\dompdf\src\Css\Style.php(894): Dompdf\Css\Style->set_border_top_color('')
+ 5 APPPATH\ThirdParty\dompdf\src\Css\Style.php(954): Dompdf\Css\Style->__set('border_top_color', '')
+ 6 APPPATH\ThirdParty\dompdf\src\Css\Style.php(1349): Dompdf\Css\Style->__get('border_top_color')
+ 7 APPPATH\ThirdParty\dompdf\src\Cellmap.php(531): Dompdf\Css\Style->get_border_properties()
+ 8 APPPATH\ThirdParty\dompdf\src\Cellmap.php(514): Dompdf\Cellmap->add_frame(Object(Dompdf\FrameDecorator\TableRowGroup))
+ 9 APPPATH\ThirdParty\dompdf\src\FrameReflower\Table.php(532): Dompdf\Cellmap->add_frame(Object(Dompdf\FrameDecorator\Table))
+10 APPPATH\ThirdParty\dompdf\src\FrameReflower\Table.php(408): Dompdf\FrameReflower\Table->get_min_max_width()
+11 APPPATH\ThirdParty\dompdf\src\FrameDecorator\AbstractFrameDecorator.php(895): Dompdf\FrameReflower\Table->reflow(Object(Dompdf\FrameDecorator\Block))
+12 APPPATH\ThirdParty\dompdf\src\FrameReflower\Block.php(845): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow(Object(Dompdf\FrameDecorator\Block))
+13 APPPATH\ThirdParty\dompdf\src\FrameDecorator\AbstractFrameDecorator.php(895): Dompdf\FrameReflower\Block->reflow(null)
+14 APPPATH\ThirdParty\dompdf\src\FrameReflower\Page.php(141): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow()
+15 APPPATH\ThirdParty\dompdf\src\FrameDecorator\AbstractFrameDecorator.php(895): Dompdf\FrameReflower\Page->reflow(null)
+16 APPPATH\ThirdParty\dompdf\src\Dompdf.php(838): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow()
+17 APPPATH\Controllers\UsulanController.php(223): Dompdf\Dompdf->render()
+18 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\UsulanController->generateResi('CD007202501260001')
+19 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UsulanController))
+20 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+21 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+22 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+23 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+24 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+WARNING - 2025-01-26 10:00:40 --> [DEPRECATED] mb_stripos(): Passing null to parameter #1 ($haystack) of type string is deprecated in APPPATH\ThirdParty\dompdf\src\Css\Style.php on line 670.
+ 1 APPPATH\ThirdParty\dompdf\src\Css\Style.php(670): mb_stripos(null, 'in')
+ 2 APPPATH\ThirdParty\dompdf\src\Css\Style.php(1688): Dompdf\Css\Style->length_in_pt([...])
+ 3 APPPATH\ThirdParty\dompdf\src\Css\Style.php(2545): Dompdf\Css\Style->_set_style_side_type('border', 'top', 'color', [...], false)
+ 4 APPPATH\ThirdParty\dompdf\src\Css\Style.php(894): Dompdf\Css\Style->set_border_top_color('')
+ 5 APPPATH\ThirdParty\dompdf\src\Css\Style.php(954): Dompdf\Css\Style->__set('border_top_color', '')
+ 6 APPPATH\ThirdParty\dompdf\src\Css\Style.php(1349): Dompdf\Css\Style->__get('border_top_color')
+ 7 APPPATH\ThirdParty\dompdf\src\Cellmap.php(531): Dompdf\Css\Style->get_border_properties()
+ 8 APPPATH\ThirdParty\dompdf\src\Cellmap.php(514): Dompdf\Cellmap->add_frame(Object(Dompdf\FrameDecorator\TableRowGroup))
+ 9 APPPATH\ThirdParty\dompdf\src\FrameReflower\Table.php(532): Dompdf\Cellmap->add_frame(Object(Dompdf\FrameDecorator\Table))
+10 APPPATH\ThirdParty\dompdf\src\FrameReflower\Table.php(408): Dompdf\FrameReflower\Table->get_min_max_width()
+11 APPPATH\ThirdParty\dompdf\src\FrameDecorator\AbstractFrameDecorator.php(895): Dompdf\FrameReflower\Table->reflow(Object(Dompdf\FrameDecorator\Block))
+12 APPPATH\ThirdParty\dompdf\src\FrameReflower\Block.php(845): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow(Object(Dompdf\FrameDecorator\Block))
+13 APPPATH\ThirdParty\dompdf\src\FrameDecorator\AbstractFrameDecorator.php(895): Dompdf\FrameReflower\Block->reflow(null)
+14 APPPATH\ThirdParty\dompdf\src\FrameReflower\Page.php(141): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow()
+15 APPPATH\ThirdParty\dompdf\src\FrameDecorator\AbstractFrameDecorator.php(895): Dompdf\FrameReflower\Page->reflow(null)
+16 APPPATH\ThirdParty\dompdf\src\Dompdf.php(838): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow()
+17 APPPATH\Controllers\UsulanController.php(223): Dompdf\Dompdf->render()
+18 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\UsulanController->generateResi('CD007202501260001')
+19 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UsulanController))
+20 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+21 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+22 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+23 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+24 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+WARNING - 2025-01-26 10:00:40 --> [DEPRECATED] mb_stripos(): Passing null to parameter #1 ($haystack) of type string is deprecated in APPPATH\ThirdParty\dompdf\src\Css\Style.php on line 675.
+ 1 APPPATH\ThirdParty\dompdf\src\Css\Style.php(675): mb_stripos(null, 'pc')
+ 2 APPPATH\ThirdParty\dompdf\src\Css\Style.php(1688): Dompdf\Css\Style->length_in_pt([...])
+ 3 APPPATH\ThirdParty\dompdf\src\Css\Style.php(2545): Dompdf\Css\Style->_set_style_side_type('border', 'top', 'color', [...], false)
+ 4 APPPATH\ThirdParty\dompdf\src\Css\Style.php(894): Dompdf\Css\Style->set_border_top_color('')
+ 5 APPPATH\ThirdParty\dompdf\src\Css\Style.php(954): Dompdf\Css\Style->__set('border_top_color', '')
+ 6 APPPATH\ThirdParty\dompdf\src\Css\Style.php(1349): Dompdf\Css\Style->__get('border_top_color')
+ 7 APPPATH\ThirdParty\dompdf\src\Cellmap.php(531): Dompdf\Css\Style->get_border_properties()
+ 8 APPPATH\ThirdParty\dompdf\src\Cellmap.php(514): Dompdf\Cellmap->add_frame(Object(Dompdf\FrameDecorator\TableRowGroup))
+ 9 APPPATH\ThirdParty\dompdf\src\FrameReflower\Table.php(532): Dompdf\Cellmap->add_frame(Object(Dompdf\FrameDecorator\Table))
+10 APPPATH\ThirdParty\dompdf\src\FrameReflower\Table.php(408): Dompdf\FrameReflower\Table->get_min_max_width()
+11 APPPATH\ThirdParty\dompdf\src\FrameDecorator\AbstractFrameDecorator.php(895): Dompdf\FrameReflower\Table->reflow(Object(Dompdf\FrameDecorator\Block))
+12 APPPATH\ThirdParty\dompdf\src\FrameReflower\Block.php(845): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow(Object(Dompdf\FrameDecorator\Block))
+13 APPPATH\ThirdParty\dompdf\src\FrameDecorator\AbstractFrameDecorator.php(895): Dompdf\FrameReflower\Block->reflow(null)
+14 APPPATH\ThirdParty\dompdf\src\FrameReflower\Page.php(141): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow()
+15 APPPATH\ThirdParty\dompdf\src\FrameDecorator\AbstractFrameDecorator.php(895): Dompdf\FrameReflower\Page->reflow(null)
+16 APPPATH\ThirdParty\dompdf\src\Dompdf.php(838): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow()
+17 APPPATH\Controllers\UsulanController.php(223): Dompdf\Dompdf->render()
+18 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\UsulanController->generateResi('CD007202501260001')
+19 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UsulanController))
+20 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+21 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+22 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+23 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+24 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+WARNING - 2025-01-26 10:00:40 --> [DEPRECATED] DOMDocument::createTextNode(): Passing null to parameter #1 ($data) of type string is deprecated in APPPATH\ThirdParty\dompdf\src\FrameReflower\AbstractFrameReflower.php on line 507.
+ 1 APPPATH\ThirdParty\dompdf\src\FrameReflower\AbstractFrameReflower.php(507): DOMDocument->createTextNode(null)
+ 2 APPPATH\ThirdParty\dompdf\src\FrameReflower\Block.php(781): Dompdf\FrameReflower\AbstractFrameReflower->_set_content()
+ 3 APPPATH\ThirdParty\dompdf\src\FrameDecorator\AbstractFrameDecorator.php(895): Dompdf\FrameReflower\Block->reflow(Object(Dompdf\FrameDecorator\Block))
+ 4 APPPATH\ThirdParty\dompdf\src\FrameReflower\Block.php(845): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow(Object(Dompdf\FrameDecorator\Block))
+ 5 APPPATH\ThirdParty\dompdf\src\FrameDecorator\AbstractFrameDecorator.php(895): Dompdf\FrameReflower\Block->reflow(Object(Dompdf\FrameDecorator\Block))
+ 6 APPPATH\ThirdParty\dompdf\src\FrameReflower\Block.php(845): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow(Object(Dompdf\FrameDecorator\Block))
+ 7 APPPATH\ThirdParty\dompdf\src\FrameDecorator\AbstractFrameDecorator.php(895): Dompdf\FrameReflower\Block->reflow(null)
+ 8 APPPATH\ThirdParty\dompdf\src\FrameReflower\Page.php(141): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow()
+ 9 APPPATH\ThirdParty\dompdf\src\FrameDecorator\AbstractFrameDecorator.php(895): Dompdf\FrameReflower\Page->reflow(null)
+10 APPPATH\ThirdParty\dompdf\src\Dompdf.php(838): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow()
+11 APPPATH\Controllers\UsulanController.php(223): Dompdf\Dompdf->render()
+12 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\UsulanController->generateResi('CD007202501260001')
+13 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UsulanController))
+14 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+15 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+16 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+17 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+18 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+WARNING - 2025-01-26 10:00:40 --> [DEPRECATED] mb_stripos(): Passing null to parameter #1 ($haystack) of type string is deprecated in APPPATH\ThirdParty\dompdf\src\Css\Style.php on line 623.
+ 1 APPPATH\ThirdParty\dompdf\src\Css\Style.php(623): mb_stripos(null, 'px')
+ 2 APPPATH\ThirdParty\dompdf\src\Css\Style.php(1688): Dompdf\Css\Style->length_in_pt([...])
+ 3 APPPATH\ThirdParty\dompdf\src\Css\Style.php(2545): Dompdf\Css\Style->_set_style_side_type('border', 'top', 'color', [...], false)
+ 4 APPPATH\ThirdParty\dompdf\src\Css\Style.php(894): Dompdf\Css\Style->set_border_top_color('')
+ 5 APPPATH\ThirdParty\dompdf\src\Css\Style.php(954): Dompdf\Css\Style->__set('border_top_color', '')
+ 6 APPPATH\ThirdParty\dompdf\src\Css\Style.php(1349): Dompdf\Css\Style->__get('border_top_color')
+ 7 APPPATH\ThirdParty\dompdf\src\Renderer\Block.php(105): Dompdf\Css\Style->get_border_properties()
+ 8 APPPATH\ThirdParty\dompdf\src\Renderer\Block.php(71): Dompdf\Renderer\Block->_render_border(Object(Dompdf\FrameDecorator\Block), [...])
+ 9 APPPATH\ThirdParty\dompdf\src\Renderer.php(293): Dompdf\Renderer\Block->render(Object(Dompdf\FrameDecorator\Block))
+10 APPPATH\ThirdParty\dompdf\src\Renderer.php(101): Dompdf\Renderer->_render_frame('block', Object(Dompdf\FrameDecorator\Block))
+11 APPPATH\ThirdParty\dompdf\src\Renderer.php(194): Dompdf\Renderer->render(Object(Dompdf\FrameDecorator\Block))
+12 APPPATH\ThirdParty\dompdf\src\Renderer.php(194): Dompdf\Renderer->render(Object(Dompdf\FrameDecorator\Block))
+13 APPPATH\ThirdParty\dompdf\src\FrameReflower\Page.php(148): Dompdf\Renderer->render(Object(Dompdf\FrameDecorator\Block))
+14 APPPATH\ThirdParty\dompdf\src\FrameDecorator\AbstractFrameDecorator.php(895): Dompdf\FrameReflower\Page->reflow(null)
+15 APPPATH\ThirdParty\dompdf\src\Dompdf.php(838): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow()
+16 APPPATH\Controllers\UsulanController.php(223): Dompdf\Dompdf->render()
+17 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\UsulanController->generateResi('CD007202501260001')
+18 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UsulanController))
+19 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+20 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+21 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+22 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+23 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+WARNING - 2025-01-26 10:00:40 --> [DEPRECATED] mb_stripos(): Passing null to parameter #1 ($haystack) of type string is deprecated in APPPATH\ThirdParty\dompdf\src\Css\Style.php on line 629.
+ 1 APPPATH\ThirdParty\dompdf\src\Css\Style.php(629): mb_stripos(null, 'pt')
+ 2 APPPATH\ThirdParty\dompdf\src\Css\Style.php(1688): Dompdf\Css\Style->length_in_pt([...])
+ 3 APPPATH\ThirdParty\dompdf\src\Css\Style.php(2545): Dompdf\Css\Style->_set_style_side_type('border', 'top', 'color', [...], false)
+ 4 APPPATH\ThirdParty\dompdf\src\Css\Style.php(894): Dompdf\Css\Style->set_border_top_color('')
+ 5 APPPATH\ThirdParty\dompdf\src\Css\Style.php(954): Dompdf\Css\Style->__set('border_top_color', '')
+ 6 APPPATH\ThirdParty\dompdf\src\Css\Style.php(1349): Dompdf\Css\Style->__get('border_top_color')
+ 7 APPPATH\ThirdParty\dompdf\src\Renderer\Block.php(105): Dompdf\Css\Style->get_border_properties()
+ 8 APPPATH\ThirdParty\dompdf\src\Renderer\Block.php(71): Dompdf\Renderer\Block->_render_border(Object(Dompdf\FrameDecorator\Block), [...])
+ 9 APPPATH\ThirdParty\dompdf\src\Renderer.php(293): Dompdf\Renderer\Block->render(Object(Dompdf\FrameDecorator\Block))
+10 APPPATH\ThirdParty\dompdf\src\Renderer.php(101): Dompdf\Renderer->_render_frame('block', Object(Dompdf\FrameDecorator\Block))
+11 APPPATH\ThirdParty\dompdf\src\Renderer.php(194): Dompdf\Renderer->render(Object(Dompdf\FrameDecorator\Block))
+12 APPPATH\ThirdParty\dompdf\src\Renderer.php(194): Dompdf\Renderer->render(Object(Dompdf\FrameDecorator\Block))
+13 APPPATH\ThirdParty\dompdf\src\FrameReflower\Page.php(148): Dompdf\Renderer->render(Object(Dompdf\FrameDecorator\Block))
+14 APPPATH\ThirdParty\dompdf\src\FrameDecorator\AbstractFrameDecorator.php(895): Dompdf\FrameReflower\Page->reflow(null)
+15 APPPATH\ThirdParty\dompdf\src\Dompdf.php(838): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow()
+16 APPPATH\Controllers\UsulanController.php(223): Dompdf\Dompdf->render()
+17 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\UsulanController->generateResi('CD007202501260001')
+18 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UsulanController))
+19 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+20 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+21 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+22 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+23 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+WARNING - 2025-01-26 10:00:40 --> [DEPRECATED] mb_stripos(): Passing null to parameter #1 ($haystack) of type string is deprecated in APPPATH\ThirdParty\dompdf\src\Css\Style.php on line 634.
+ 1 APPPATH\ThirdParty\dompdf\src\Css\Style.php(634): mb_stripos(null, '%')
+ 2 APPPATH\ThirdParty\dompdf\src\Css\Style.php(1688): Dompdf\Css\Style->length_in_pt([...])
+ 3 APPPATH\ThirdParty\dompdf\src\Css\Style.php(2545): Dompdf\Css\Style->_set_style_side_type('border', 'top', 'color', [...], false)
+ 4 APPPATH\ThirdParty\dompdf\src\Css\Style.php(894): Dompdf\Css\Style->set_border_top_color('')
+ 5 APPPATH\ThirdParty\dompdf\src\Css\Style.php(954): Dompdf\Css\Style->__set('border_top_color', '')
+ 6 APPPATH\ThirdParty\dompdf\src\Css\Style.php(1349): Dompdf\Css\Style->__get('border_top_color')
+ 7 APPPATH\ThirdParty\dompdf\src\Renderer\Block.php(105): Dompdf\Css\Style->get_border_properties()
+ 8 APPPATH\ThirdParty\dompdf\src\Renderer\Block.php(71): Dompdf\Renderer\Block->_render_border(Object(Dompdf\FrameDecorator\Block), [...])
+ 9 APPPATH\ThirdParty\dompdf\src\Renderer.php(293): Dompdf\Renderer\Block->render(Object(Dompdf\FrameDecorator\Block))
+10 APPPATH\ThirdParty\dompdf\src\Renderer.php(101): Dompdf\Renderer->_render_frame('block', Object(Dompdf\FrameDecorator\Block))
+11 APPPATH\ThirdParty\dompdf\src\Renderer.php(194): Dompdf\Renderer->render(Object(Dompdf\FrameDecorator\Block))
+12 APPPATH\ThirdParty\dompdf\src\Renderer.php(194): Dompdf\Renderer->render(Object(Dompdf\FrameDecorator\Block))
+13 APPPATH\ThirdParty\dompdf\src\FrameReflower\Page.php(148): Dompdf\Renderer->render(Object(Dompdf\FrameDecorator\Block))
+14 APPPATH\ThirdParty\dompdf\src\FrameDecorator\AbstractFrameDecorator.php(895): Dompdf\FrameReflower\Page->reflow(null)
+15 APPPATH\ThirdParty\dompdf\src\Dompdf.php(838): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow()
+16 APPPATH\Controllers\UsulanController.php(223): Dompdf\Dompdf->render()
+17 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\UsulanController->generateResi('CD007202501260001')
+18 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UsulanController))
+19 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+20 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+21 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+22 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+23 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+WARNING - 2025-01-26 10:00:40 --> [DEPRECATED] mb_stripos(): Passing null to parameter #1 ($haystack) of type string is deprecated in APPPATH\ThirdParty\dompdf\src\Css\Style.php on line 639.
+ 1 APPPATH\ThirdParty\dompdf\src\Css\Style.php(639): mb_stripos(null, 'rem')
+ 2 APPPATH\ThirdParty\dompdf\src\Css\Style.php(1688): Dompdf\Css\Style->length_in_pt([...])
+ 3 APPPATH\ThirdParty\dompdf\src\Css\Style.php(2545): Dompdf\Css\Style->_set_style_side_type('border', 'top', 'color', [...], false)
+ 4 APPPATH\ThirdParty\dompdf\src\Css\Style.php(894): Dompdf\Css\Style->set_border_top_color('')
+ 5 APPPATH\ThirdParty\dompdf\src\Css\Style.php(954): Dompdf\Css\Style->__set('border_top_color', '')
+ 6 APPPATH\ThirdParty\dompdf\src\Css\Style.php(1349): Dompdf\Css\Style->__get('border_top_color')
+ 7 APPPATH\ThirdParty\dompdf\src\Renderer\Block.php(105): Dompdf\Css\Style->get_border_properties()
+ 8 APPPATH\ThirdParty\dompdf\src\Renderer\Block.php(71): Dompdf\Renderer\Block->_render_border(Object(Dompdf\FrameDecorator\Block), [...])
+ 9 APPPATH\ThirdParty\dompdf\src\Renderer.php(293): Dompdf\Renderer\Block->render(Object(Dompdf\FrameDecorator\Block))
+10 APPPATH\ThirdParty\dompdf\src\Renderer.php(101): Dompdf\Renderer->_render_frame('block', Object(Dompdf\FrameDecorator\Block))
+11 APPPATH\ThirdParty\dompdf\src\Renderer.php(194): Dompdf\Renderer->render(Object(Dompdf\FrameDecorator\Block))
+12 APPPATH\ThirdParty\dompdf\src\Renderer.php(194): Dompdf\Renderer->render(Object(Dompdf\FrameDecorator\Block))
+13 APPPATH\ThirdParty\dompdf\src\FrameReflower\Page.php(148): Dompdf\Renderer->render(Object(Dompdf\FrameDecorator\Block))
+14 APPPATH\ThirdParty\dompdf\src\FrameDecorator\AbstractFrameDecorator.php(895): Dompdf\FrameReflower\Page->reflow(null)
+15 APPPATH\ThirdParty\dompdf\src\Dompdf.php(838): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow()
+16 APPPATH\Controllers\UsulanController.php(223): Dompdf\Dompdf->render()
+17 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\UsulanController->generateResi('CD007202501260001')
+18 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UsulanController))
+19 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+20 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+21 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+22 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+23 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+WARNING - 2025-01-26 10:00:40 --> [DEPRECATED] mb_stripos(): Passing null to parameter #1 ($haystack) of type string is deprecated in APPPATH\ThirdParty\dompdf\src\Css\Style.php on line 649.
+ 1 APPPATH\ThirdParty\dompdf\src\Css\Style.php(649): mb_stripos(null, 'em')
+ 2 APPPATH\ThirdParty\dompdf\src\Css\Style.php(1688): Dompdf\Css\Style->length_in_pt([...])
+ 3 APPPATH\ThirdParty\dompdf\src\Css\Style.php(2545): Dompdf\Css\Style->_set_style_side_type('border', 'top', 'color', [...], false)
+ 4 APPPATH\ThirdParty\dompdf\src\Css\Style.php(894): Dompdf\Css\Style->set_border_top_color('')
+ 5 APPPATH\ThirdParty\dompdf\src\Css\Style.php(954): Dompdf\Css\Style->__set('border_top_color', '')
+ 6 APPPATH\ThirdParty\dompdf\src\Css\Style.php(1349): Dompdf\Css\Style->__get('border_top_color')
+ 7 APPPATH\ThirdParty\dompdf\src\Renderer\Block.php(105): Dompdf\Css\Style->get_border_properties()
+ 8 APPPATH\ThirdParty\dompdf\src\Renderer\Block.php(71): Dompdf\Renderer\Block->_render_border(Object(Dompdf\FrameDecorator\Block), [...])
+ 9 APPPATH\ThirdParty\dompdf\src\Renderer.php(293): Dompdf\Renderer\Block->render(Object(Dompdf\FrameDecorator\Block))
+10 APPPATH\ThirdParty\dompdf\src\Renderer.php(101): Dompdf\Renderer->_render_frame('block', Object(Dompdf\FrameDecorator\Block))
+11 APPPATH\ThirdParty\dompdf\src\Renderer.php(194): Dompdf\Renderer->render(Object(Dompdf\FrameDecorator\Block))
+12 APPPATH\ThirdParty\dompdf\src\Renderer.php(194): Dompdf\Renderer->render(Object(Dompdf\FrameDecorator\Block))
+13 APPPATH\ThirdParty\dompdf\src\FrameReflower\Page.php(148): Dompdf\Renderer->render(Object(Dompdf\FrameDecorator\Block))
+14 APPPATH\ThirdParty\dompdf\src\FrameDecorator\AbstractFrameDecorator.php(895): Dompdf\FrameReflower\Page->reflow(null)
+15 APPPATH\ThirdParty\dompdf\src\Dompdf.php(838): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow()
+16 APPPATH\Controllers\UsulanController.php(223): Dompdf\Dompdf->render()
+17 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\UsulanController->generateResi('CD007202501260001')
+18 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UsulanController))
+19 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+20 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+21 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+22 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+23 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+WARNING - 2025-01-26 10:00:40 --> [DEPRECATED] mb_stripos(): Passing null to parameter #1 ($haystack) of type string is deprecated in APPPATH\ThirdParty\dompdf\src\Css\Style.php on line 654.
+ 1 APPPATH\ThirdParty\dompdf\src\Css\Style.php(654): mb_stripos(null, 'cm')
+ 2 APPPATH\ThirdParty\dompdf\src\Css\Style.php(1688): Dompdf\Css\Style->length_in_pt([...])
+ 3 APPPATH\ThirdParty\dompdf\src\Css\Style.php(2545): Dompdf\Css\Style->_set_style_side_type('border', 'top', 'color', [...], false)
+ 4 APPPATH\ThirdParty\dompdf\src\Css\Style.php(894): Dompdf\Css\Style->set_border_top_color('')
+ 5 APPPATH\ThirdParty\dompdf\src\Css\Style.php(954): Dompdf\Css\Style->__set('border_top_color', '')
+ 6 APPPATH\ThirdParty\dompdf\src\Css\Style.php(1349): Dompdf\Css\Style->__get('border_top_color')
+ 7 APPPATH\ThirdParty\dompdf\src\Renderer\Block.php(105): Dompdf\Css\Style->get_border_properties()
+ 8 APPPATH\ThirdParty\dompdf\src\Renderer\Block.php(71): Dompdf\Renderer\Block->_render_border(Object(Dompdf\FrameDecorator\Block), [...])
+ 9 APPPATH\ThirdParty\dompdf\src\Renderer.php(293): Dompdf\Renderer\Block->render(Object(Dompdf\FrameDecorator\Block))
+10 APPPATH\ThirdParty\dompdf\src\Renderer.php(101): Dompdf\Renderer->_render_frame('block', Object(Dompdf\FrameDecorator\Block))
+11 APPPATH\ThirdParty\dompdf\src\Renderer.php(194): Dompdf\Renderer->render(Object(Dompdf\FrameDecorator\Block))
+12 APPPATH\ThirdParty\dompdf\src\Renderer.php(194): Dompdf\Renderer->render(Object(Dompdf\FrameDecorator\Block))
+13 APPPATH\ThirdParty\dompdf\src\FrameReflower\Page.php(148): Dompdf\Renderer->render(Object(Dompdf\FrameDecorator\Block))
+14 APPPATH\ThirdParty\dompdf\src\FrameDecorator\AbstractFrameDecorator.php(895): Dompdf\FrameReflower\Page->reflow(null)
+15 APPPATH\ThirdParty\dompdf\src\Dompdf.php(838): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow()
+16 APPPATH\Controllers\UsulanController.php(223): Dompdf\Dompdf->render()
+17 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\UsulanController->generateResi('CD007202501260001')
+18 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UsulanController))
+19 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+20 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+21 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+22 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+23 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+WARNING - 2025-01-26 10:00:40 --> [DEPRECATED] mb_stripos(): Passing null to parameter #1 ($haystack) of type string is deprecated in APPPATH\ThirdParty\dompdf\src\Css\Style.php on line 659.
+ 1 APPPATH\ThirdParty\dompdf\src\Css\Style.php(659): mb_stripos(null, 'mm')
+ 2 APPPATH\ThirdParty\dompdf\src\Css\Style.php(1688): Dompdf\Css\Style->length_in_pt([...])
+ 3 APPPATH\ThirdParty\dompdf\src\Css\Style.php(2545): Dompdf\Css\Style->_set_style_side_type('border', 'top', 'color', [...], false)
+ 4 APPPATH\ThirdParty\dompdf\src\Css\Style.php(894): Dompdf\Css\Style->set_border_top_color('')
+ 5 APPPATH\ThirdParty\dompdf\src\Css\Style.php(954): Dompdf\Css\Style->__set('border_top_color', '')
+ 6 APPPATH\ThirdParty\dompdf\src\Css\Style.php(1349): Dompdf\Css\Style->__get('border_top_color')
+ 7 APPPATH\ThirdParty\dompdf\src\Renderer\Block.php(105): Dompdf\Css\Style->get_border_properties()
+ 8 APPPATH\ThirdParty\dompdf\src\Renderer\Block.php(71): Dompdf\Renderer\Block->_render_border(Object(Dompdf\FrameDecorator\Block), [...])
+ 9 APPPATH\ThirdParty\dompdf\src\Renderer.php(293): Dompdf\Renderer\Block->render(Object(Dompdf\FrameDecorator\Block))
+10 APPPATH\ThirdParty\dompdf\src\Renderer.php(101): Dompdf\Renderer->_render_frame('block', Object(Dompdf\FrameDecorator\Block))
+11 APPPATH\ThirdParty\dompdf\src\Renderer.php(194): Dompdf\Renderer->render(Object(Dompdf\FrameDecorator\Block))
+12 APPPATH\ThirdParty\dompdf\src\Renderer.php(194): Dompdf\Renderer->render(Object(Dompdf\FrameDecorator\Block))
+13 APPPATH\ThirdParty\dompdf\src\FrameReflower\Page.php(148): Dompdf\Renderer->render(Object(Dompdf\FrameDecorator\Block))
+14 APPPATH\ThirdParty\dompdf\src\FrameDecorator\AbstractFrameDecorator.php(895): Dompdf\FrameReflower\Page->reflow(null)
+15 APPPATH\ThirdParty\dompdf\src\Dompdf.php(838): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow()
+16 APPPATH\Controllers\UsulanController.php(223): Dompdf\Dompdf->render()
+17 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\UsulanController->generateResi('CD007202501260001')
+18 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UsulanController))
+19 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+20 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+21 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+22 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+23 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+WARNING - 2025-01-26 10:00:40 --> [DEPRECATED] mb_stripos(): Passing null to parameter #1 ($haystack) of type string is deprecated in APPPATH\ThirdParty\dompdf\src\Css\Style.php on line 665.
+ 1 APPPATH\ThirdParty\dompdf\src\Css\Style.php(665): mb_stripos(null, 'ex')
+ 2 APPPATH\ThirdParty\dompdf\src\Css\Style.php(1688): Dompdf\Css\Style->length_in_pt([...])
+ 3 APPPATH\ThirdParty\dompdf\src\Css\Style.php(2545): Dompdf\Css\Style->_set_style_side_type('border', 'top', 'color', [...], false)
+ 4 APPPATH\ThirdParty\dompdf\src\Css\Style.php(894): Dompdf\Css\Style->set_border_top_color('')
+ 5 APPPATH\ThirdParty\dompdf\src\Css\Style.php(954): Dompdf\Css\Style->__set('border_top_color', '')
+ 6 APPPATH\ThirdParty\dompdf\src\Css\Style.php(1349): Dompdf\Css\Style->__get('border_top_color')
+ 7 APPPATH\ThirdParty\dompdf\src\Renderer\Block.php(105): Dompdf\Css\Style->get_border_properties()
+ 8 APPPATH\ThirdParty\dompdf\src\Renderer\Block.php(71): Dompdf\Renderer\Block->_render_border(Object(Dompdf\FrameDecorator\Block), [...])
+ 9 APPPATH\ThirdParty\dompdf\src\Renderer.php(293): Dompdf\Renderer\Block->render(Object(Dompdf\FrameDecorator\Block))
+10 APPPATH\ThirdParty\dompdf\src\Renderer.php(101): Dompdf\Renderer->_render_frame('block', Object(Dompdf\FrameDecorator\Block))
+11 APPPATH\ThirdParty\dompdf\src\Renderer.php(194): Dompdf\Renderer->render(Object(Dompdf\FrameDecorator\Block))
+12 APPPATH\ThirdParty\dompdf\src\Renderer.php(194): Dompdf\Renderer->render(Object(Dompdf\FrameDecorator\Block))
+13 APPPATH\ThirdParty\dompdf\src\FrameReflower\Page.php(148): Dompdf\Renderer->render(Object(Dompdf\FrameDecorator\Block))
+14 APPPATH\ThirdParty\dompdf\src\FrameDecorator\AbstractFrameDecorator.php(895): Dompdf\FrameReflower\Page->reflow(null)
+15 APPPATH\ThirdParty\dompdf\src\Dompdf.php(838): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow()
+16 APPPATH\Controllers\UsulanController.php(223): Dompdf\Dompdf->render()
+17 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\UsulanController->generateResi('CD007202501260001')
+18 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UsulanController))
+19 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+20 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+21 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+22 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+23 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+WARNING - 2025-01-26 10:00:40 --> [DEPRECATED] mb_stripos(): Passing null to parameter #1 ($haystack) of type string is deprecated in APPPATH\ThirdParty\dompdf\src\Css\Style.php on line 670.
+ 1 APPPATH\ThirdParty\dompdf\src\Css\Style.php(670): mb_stripos(null, 'in')
+ 2 APPPATH\ThirdParty\dompdf\src\Css\Style.php(1688): Dompdf\Css\Style->length_in_pt([...])
+ 3 APPPATH\ThirdParty\dompdf\src\Css\Style.php(2545): Dompdf\Css\Style->_set_style_side_type('border', 'top', 'color', [...], false)
+ 4 APPPATH\ThirdParty\dompdf\src\Css\Style.php(894): Dompdf\Css\Style->set_border_top_color('')
+ 5 APPPATH\ThirdParty\dompdf\src\Css\Style.php(954): Dompdf\Css\Style->__set('border_top_color', '')
+ 6 APPPATH\ThirdParty\dompdf\src\Css\Style.php(1349): Dompdf\Css\Style->__get('border_top_color')
+ 7 APPPATH\ThirdParty\dompdf\src\Renderer\Block.php(105): Dompdf\Css\Style->get_border_properties()
+ 8 APPPATH\ThirdParty\dompdf\src\Renderer\Block.php(71): Dompdf\Renderer\Block->_render_border(Object(Dompdf\FrameDecorator\Block), [...])
+ 9 APPPATH\ThirdParty\dompdf\src\Renderer.php(293): Dompdf\Renderer\Block->render(Object(Dompdf\FrameDecorator\Block))
+10 APPPATH\ThirdParty\dompdf\src\Renderer.php(101): Dompdf\Renderer->_render_frame('block', Object(Dompdf\FrameDecorator\Block))
+11 APPPATH\ThirdParty\dompdf\src\Renderer.php(194): Dompdf\Renderer->render(Object(Dompdf\FrameDecorator\Block))
+12 APPPATH\ThirdParty\dompdf\src\Renderer.php(194): Dompdf\Renderer->render(Object(Dompdf\FrameDecorator\Block))
+13 APPPATH\ThirdParty\dompdf\src\FrameReflower\Page.php(148): Dompdf\Renderer->render(Object(Dompdf\FrameDecorator\Block))
+14 APPPATH\ThirdParty\dompdf\src\FrameDecorator\AbstractFrameDecorator.php(895): Dompdf\FrameReflower\Page->reflow(null)
+15 APPPATH\ThirdParty\dompdf\src\Dompdf.php(838): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow()
+16 APPPATH\Controllers\UsulanController.php(223): Dompdf\Dompdf->render()
+17 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\UsulanController->generateResi('CD007202501260001')
+18 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UsulanController))
+19 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+20 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+21 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+22 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+23 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+WARNING - 2025-01-26 10:00:40 --> [DEPRECATED] mb_stripos(): Passing null to parameter #1 ($haystack) of type string is deprecated in APPPATH\ThirdParty\dompdf\src\Css\Style.php on line 675.
+ 1 APPPATH\ThirdParty\dompdf\src\Css\Style.php(675): mb_stripos(null, 'pc')
+ 2 APPPATH\ThirdParty\dompdf\src\Css\Style.php(1688): Dompdf\Css\Style->length_in_pt([...])
+ 3 APPPATH\ThirdParty\dompdf\src\Css\Style.php(2545): Dompdf\Css\Style->_set_style_side_type('border', 'top', 'color', [...], false)
+ 4 APPPATH\ThirdParty\dompdf\src\Css\Style.php(894): Dompdf\Css\Style->set_border_top_color('')
+ 5 APPPATH\ThirdParty\dompdf\src\Css\Style.php(954): Dompdf\Css\Style->__set('border_top_color', '')
+ 6 APPPATH\ThirdParty\dompdf\src\Css\Style.php(1349): Dompdf\Css\Style->__get('border_top_color')
+ 7 APPPATH\ThirdParty\dompdf\src\Renderer\Block.php(105): Dompdf\Css\Style->get_border_properties()
+ 8 APPPATH\ThirdParty\dompdf\src\Renderer\Block.php(71): Dompdf\Renderer\Block->_render_border(Object(Dompdf\FrameDecorator\Block), [...])
+ 9 APPPATH\ThirdParty\dompdf\src\Renderer.php(293): Dompdf\Renderer\Block->render(Object(Dompdf\FrameDecorator\Block))
+10 APPPATH\ThirdParty\dompdf\src\Renderer.php(101): Dompdf\Renderer->_render_frame('block', Object(Dompdf\FrameDecorator\Block))
+11 APPPATH\ThirdParty\dompdf\src\Renderer.php(194): Dompdf\Renderer->render(Object(Dompdf\FrameDecorator\Block))
+12 APPPATH\ThirdParty\dompdf\src\Renderer.php(194): Dompdf\Renderer->render(Object(Dompdf\FrameDecorator\Block))
+13 APPPATH\ThirdParty\dompdf\src\FrameReflower\Page.php(148): Dompdf\Renderer->render(Object(Dompdf\FrameDecorator\Block))
+14 APPPATH\ThirdParty\dompdf\src\FrameDecorator\AbstractFrameDecorator.php(895): Dompdf\FrameReflower\Page->reflow(null)
+15 APPPATH\ThirdParty\dompdf\src\Dompdf.php(838): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow()
+16 APPPATH\Controllers\UsulanController.php(223): Dompdf\Dompdf->render()
+17 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\UsulanController->generateResi('CD007202501260001')
+18 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UsulanController))
+19 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+20 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+21 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+22 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+23 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+WARNING - 2025-01-26 10:00:40 --> [DEPRECATED] mb_stripos(): Passing null to parameter #1 ($haystack) of type string is deprecated in APPPATH\ThirdParty\dompdf\src\Css\Style.php on line 623.
+ 1 APPPATH\ThirdParty\dompdf\src\Css\Style.php(623): mb_stripos(null, 'px')
+ 2 APPPATH\ThirdParty\dompdf\src\Css\Style.php(1688): Dompdf\Css\Style->length_in_pt([...])
+ 3 APPPATH\ThirdParty\dompdf\src\Css\Style.php(2545): Dompdf\Css\Style->_set_style_side_type('border', 'top', 'color', [...], false)
+ 4 APPPATH\ThirdParty\dompdf\src\Css\Style.php(894): Dompdf\Css\Style->set_border_top_color('')
+ 5 APPPATH\ThirdParty\dompdf\src\Css\Style.php(954): Dompdf\Css\Style->__set('border_top_color', '')
+ 6 APPPATH\ThirdParty\dompdf\src\Css\Style.php(1349): Dompdf\Css\Style->__get('border_top_color')
+ 7 APPPATH\ThirdParty\dompdf\src\Renderer\Block.php(105): Dompdf\Css\Style->get_border_properties()
+ 8 APPPATH\ThirdParty\dompdf\src\Renderer\Block.php(71): Dompdf\Renderer\Block->_render_border(Object(Dompdf\FrameDecorator\Block), [...])
+ 9 APPPATH\ThirdParty\dompdf\src\Renderer.php(293): Dompdf\Renderer\Block->render(Object(Dompdf\FrameDecorator\Block))
+10 APPPATH\ThirdParty\dompdf\src\Renderer.php(101): Dompdf\Renderer->_render_frame('block', Object(Dompdf\FrameDecorator\Block))
+11 APPPATH\ThirdParty\dompdf\src\Renderer.php(194): Dompdf\Renderer->render(Object(Dompdf\FrameDecorator\Block))
+12 APPPATH\ThirdParty\dompdf\src\Renderer.php(194): Dompdf\Renderer->render(Object(Dompdf\FrameDecorator\Block))
+13 APPPATH\ThirdParty\dompdf\src\FrameReflower\Page.php(148): Dompdf\Renderer->render(Object(Dompdf\FrameDecorator\Block))
+14 APPPATH\ThirdParty\dompdf\src\FrameDecorator\AbstractFrameDecorator.php(895): Dompdf\FrameReflower\Page->reflow(null)
+15 APPPATH\ThirdParty\dompdf\src\Dompdf.php(838): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow()
+16 APPPATH\Controllers\UsulanController.php(223): Dompdf\Dompdf->render()
+17 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\UsulanController->generateResi('CD007202501260001')
+18 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UsulanController))
+19 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+20 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+21 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+22 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+23 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+WARNING - 2025-01-26 10:00:40 --> [DEPRECATED] mb_stripos(): Passing null to parameter #1 ($haystack) of type string is deprecated in APPPATH\ThirdParty\dompdf\src\Css\Style.php on line 629.
+ 1 APPPATH\ThirdParty\dompdf\src\Css\Style.php(629): mb_stripos(null, 'pt')
+ 2 APPPATH\ThirdParty\dompdf\src\Css\Style.php(1688): Dompdf\Css\Style->length_in_pt([...])
+ 3 APPPATH\ThirdParty\dompdf\src\Css\Style.php(2545): Dompdf\Css\Style->_set_style_side_type('border', 'top', 'color', [...], false)
+ 4 APPPATH\ThirdParty\dompdf\src\Css\Style.php(894): Dompdf\Css\Style->set_border_top_color('')
+ 5 APPPATH\ThirdParty\dompdf\src\Css\Style.php(954): Dompdf\Css\Style->__set('border_top_color', '')
+ 6 APPPATH\ThirdParty\dompdf\src\Css\Style.php(1349): Dompdf\Css\Style->__get('border_top_color')
+ 7 APPPATH\ThirdParty\dompdf\src\Renderer\Block.php(105): Dompdf\Css\Style->get_border_properties()
+ 8 APPPATH\ThirdParty\dompdf\src\Renderer\Block.php(71): Dompdf\Renderer\Block->_render_border(Object(Dompdf\FrameDecorator\Block), [...])
+ 9 APPPATH\ThirdParty\dompdf\src\Renderer.php(293): Dompdf\Renderer\Block->render(Object(Dompdf\FrameDecorator\Block))
+10 APPPATH\ThirdParty\dompdf\src\Renderer.php(101): Dompdf\Renderer->_render_frame('block', Object(Dompdf\FrameDecorator\Block))
+11 APPPATH\ThirdParty\dompdf\src\Renderer.php(194): Dompdf\Renderer->render(Object(Dompdf\FrameDecorator\Block))
+12 APPPATH\ThirdParty\dompdf\src\Renderer.php(194): Dompdf\Renderer->render(Object(Dompdf\FrameDecorator\Block))
+13 APPPATH\ThirdParty\dompdf\src\FrameReflower\Page.php(148): Dompdf\Renderer->render(Object(Dompdf\FrameDecorator\Block))
+14 APPPATH\ThirdParty\dompdf\src\FrameDecorator\AbstractFrameDecorator.php(895): Dompdf\FrameReflower\Page->reflow(null)
+15 APPPATH\ThirdParty\dompdf\src\Dompdf.php(838): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow()
+16 APPPATH\Controllers\UsulanController.php(223): Dompdf\Dompdf->render()
+17 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\UsulanController->generateResi('CD007202501260001')
+18 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UsulanController))
+19 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+20 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+21 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+22 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+23 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+WARNING - 2025-01-26 10:00:40 --> [DEPRECATED] mb_stripos(): Passing null to parameter #1 ($haystack) of type string is deprecated in APPPATH\ThirdParty\dompdf\src\Css\Style.php on line 634.
+ 1 APPPATH\ThirdParty\dompdf\src\Css\Style.php(634): mb_stripos(null, '%')
+ 2 APPPATH\ThirdParty\dompdf\src\Css\Style.php(1688): Dompdf\Css\Style->length_in_pt([...])
+ 3 APPPATH\ThirdParty\dompdf\src\Css\Style.php(2545): Dompdf\Css\Style->_set_style_side_type('border', 'top', 'color', [...], false)
+ 4 APPPATH\ThirdParty\dompdf\src\Css\Style.php(894): Dompdf\Css\Style->set_border_top_color('')
+ 5 APPPATH\ThirdParty\dompdf\src\Css\Style.php(954): Dompdf\Css\Style->__set('border_top_color', '')
+ 6 APPPATH\ThirdParty\dompdf\src\Css\Style.php(1349): Dompdf\Css\Style->__get('border_top_color')
+ 7 APPPATH\ThirdParty\dompdf\src\Renderer\Block.php(105): Dompdf\Css\Style->get_border_properties()
+ 8 APPPATH\ThirdParty\dompdf\src\Renderer\Block.php(71): Dompdf\Renderer\Block->_render_border(Object(Dompdf\FrameDecorator\Block), [...])
+ 9 APPPATH\ThirdParty\dompdf\src\Renderer.php(293): Dompdf\Renderer\Block->render(Object(Dompdf\FrameDecorator\Block))
+10 APPPATH\ThirdParty\dompdf\src\Renderer.php(101): Dompdf\Renderer->_render_frame('block', Object(Dompdf\FrameDecorator\Block))
+11 APPPATH\ThirdParty\dompdf\src\Renderer.php(194): Dompdf\Renderer->render(Object(Dompdf\FrameDecorator\Block))
+12 APPPATH\ThirdParty\dompdf\src\Renderer.php(194): Dompdf\Renderer->render(Object(Dompdf\FrameDecorator\Block))
+13 APPPATH\ThirdParty\dompdf\src\FrameReflower\Page.php(148): Dompdf\Renderer->render(Object(Dompdf\FrameDecorator\Block))
+14 APPPATH\ThirdParty\dompdf\src\FrameDecorator\AbstractFrameDecorator.php(895): Dompdf\FrameReflower\Page->reflow(null)
+15 APPPATH\ThirdParty\dompdf\src\Dompdf.php(838): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow()
+16 APPPATH\Controllers\UsulanController.php(223): Dompdf\Dompdf->render()
+17 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\UsulanController->generateResi('CD007202501260001')
+18 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UsulanController))
+19 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+20 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+21 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+22 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+23 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+WARNING - 2025-01-26 10:00:40 --> [DEPRECATED] mb_stripos(): Passing null to parameter #1 ($haystack) of type string is deprecated in APPPATH\ThirdParty\dompdf\src\Css\Style.php on line 639.
+ 1 APPPATH\ThirdParty\dompdf\src\Css\Style.php(639): mb_stripos(null, 'rem')
+ 2 APPPATH\ThirdParty\dompdf\src\Css\Style.php(1688): Dompdf\Css\Style->length_in_pt([...])
+ 3 APPPATH\ThirdParty\dompdf\src\Css\Style.php(2545): Dompdf\Css\Style->_set_style_side_type('border', 'top', 'color', [...], false)
+ 4 APPPATH\ThirdParty\dompdf\src\Css\Style.php(894): Dompdf\Css\Style->set_border_top_color('')
+ 5 APPPATH\ThirdParty\dompdf\src\Css\Style.php(954): Dompdf\Css\Style->__set('border_top_color', '')
+ 6 APPPATH\ThirdParty\dompdf\src\Css\Style.php(1349): Dompdf\Css\Style->__get('border_top_color')
+ 7 APPPATH\ThirdParty\dompdf\src\Renderer\Block.php(105): Dompdf\Css\Style->get_border_properties()
+ 8 APPPATH\ThirdParty\dompdf\src\Renderer\Block.php(71): Dompdf\Renderer\Block->_render_border(Object(Dompdf\FrameDecorator\Block), [...])
+ 9 APPPATH\ThirdParty\dompdf\src\Renderer.php(293): Dompdf\Renderer\Block->render(Object(Dompdf\FrameDecorator\Block))
+10 APPPATH\ThirdParty\dompdf\src\Renderer.php(101): Dompdf\Renderer->_render_frame('block', Object(Dompdf\FrameDecorator\Block))
+11 APPPATH\ThirdParty\dompdf\src\Renderer.php(194): Dompdf\Renderer->render(Object(Dompdf\FrameDecorator\Block))
+12 APPPATH\ThirdParty\dompdf\src\Renderer.php(194): Dompdf\Renderer->render(Object(Dompdf\FrameDecorator\Block))
+13 APPPATH\ThirdParty\dompdf\src\FrameReflower\Page.php(148): Dompdf\Renderer->render(Object(Dompdf\FrameDecorator\Block))
+14 APPPATH\ThirdParty\dompdf\src\FrameDecorator\AbstractFrameDecorator.php(895): Dompdf\FrameReflower\Page->reflow(null)
+15 APPPATH\ThirdParty\dompdf\src\Dompdf.php(838): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow()
+16 APPPATH\Controllers\UsulanController.php(223): Dompdf\Dompdf->render()
+17 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\UsulanController->generateResi('CD007202501260001')
+18 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UsulanController))
+19 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+20 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+21 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+22 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+23 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+WARNING - 2025-01-26 10:00:40 --> [DEPRECATED] mb_stripos(): Passing null to parameter #1 ($haystack) of type string is deprecated in APPPATH\ThirdParty\dompdf\src\Css\Style.php on line 649.
+ 1 APPPATH\ThirdParty\dompdf\src\Css\Style.php(649): mb_stripos(null, 'em')
+ 2 APPPATH\ThirdParty\dompdf\src\Css\Style.php(1688): Dompdf\Css\Style->length_in_pt([...])
+ 3 APPPATH\ThirdParty\dompdf\src\Css\Style.php(2545): Dompdf\Css\Style->_set_style_side_type('border', 'top', 'color', [...], false)
+ 4 APPPATH\ThirdParty\dompdf\src\Css\Style.php(894): Dompdf\Css\Style->set_border_top_color('')
+ 5 APPPATH\ThirdParty\dompdf\src\Css\Style.php(954): Dompdf\Css\Style->__set('border_top_color', '')
+ 6 APPPATH\ThirdParty\dompdf\src\Css\Style.php(1349): Dompdf\Css\Style->__get('border_top_color')
+ 7 APPPATH\ThirdParty\dompdf\src\Renderer\Block.php(105): Dompdf\Css\Style->get_border_properties()
+ 8 APPPATH\ThirdParty\dompdf\src\Renderer\Block.php(71): Dompdf\Renderer\Block->_render_border(Object(Dompdf\FrameDecorator\Block), [...])
+ 9 APPPATH\ThirdParty\dompdf\src\Renderer.php(293): Dompdf\Renderer\Block->render(Object(Dompdf\FrameDecorator\Block))
+10 APPPATH\ThirdParty\dompdf\src\Renderer.php(101): Dompdf\Renderer->_render_frame('block', Object(Dompdf\FrameDecorator\Block))
+11 APPPATH\ThirdParty\dompdf\src\Renderer.php(194): Dompdf\Renderer->render(Object(Dompdf\FrameDecorator\Block))
+12 APPPATH\ThirdParty\dompdf\src\Renderer.php(194): Dompdf\Renderer->render(Object(Dompdf\FrameDecorator\Block))
+13 APPPATH\ThirdParty\dompdf\src\FrameReflower\Page.php(148): Dompdf\Renderer->render(Object(Dompdf\FrameDecorator\Block))
+14 APPPATH\ThirdParty\dompdf\src\FrameDecorator\AbstractFrameDecorator.php(895): Dompdf\FrameReflower\Page->reflow(null)
+15 APPPATH\ThirdParty\dompdf\src\Dompdf.php(838): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow()
+16 APPPATH\Controllers\UsulanController.php(223): Dompdf\Dompdf->render()
+17 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\UsulanController->generateResi('CD007202501260001')
+18 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UsulanController))
+19 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+20 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+21 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+22 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+23 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+WARNING - 2025-01-26 10:00:40 --> [DEPRECATED] mb_stripos(): Passing null to parameter #1 ($haystack) of type string is deprecated in APPPATH\ThirdParty\dompdf\src\Css\Style.php on line 654.
+ 1 APPPATH\ThirdParty\dompdf\src\Css\Style.php(654): mb_stripos(null, 'cm')
+ 2 APPPATH\ThirdParty\dompdf\src\Css\Style.php(1688): Dompdf\Css\Style->length_in_pt([...])
+ 3 APPPATH\ThirdParty\dompdf\src\Css\Style.php(2545): Dompdf\Css\Style->_set_style_side_type('border', 'top', 'color', [...], false)
+ 4 APPPATH\ThirdParty\dompdf\src\Css\Style.php(894): Dompdf\Css\Style->set_border_top_color('')
+ 5 APPPATH\ThirdParty\dompdf\src\Css\Style.php(954): Dompdf\Css\Style->__set('border_top_color', '')
+ 6 APPPATH\ThirdParty\dompdf\src\Css\Style.php(1349): Dompdf\Css\Style->__get('border_top_color')
+ 7 APPPATH\ThirdParty\dompdf\src\Renderer\Block.php(105): Dompdf\Css\Style->get_border_properties()
+ 8 APPPATH\ThirdParty\dompdf\src\Renderer\Block.php(71): Dompdf\Renderer\Block->_render_border(Object(Dompdf\FrameDecorator\Block), [...])
+ 9 APPPATH\ThirdParty\dompdf\src\Renderer.php(293): Dompdf\Renderer\Block->render(Object(Dompdf\FrameDecorator\Block))
+10 APPPATH\ThirdParty\dompdf\src\Renderer.php(101): Dompdf\Renderer->_render_frame('block', Object(Dompdf\FrameDecorator\Block))
+11 APPPATH\ThirdParty\dompdf\src\Renderer.php(194): Dompdf\Renderer->render(Object(Dompdf\FrameDecorator\Block))
+12 APPPATH\ThirdParty\dompdf\src\Renderer.php(194): Dompdf\Renderer->render(Object(Dompdf\FrameDecorator\Block))
+13 APPPATH\ThirdParty\dompdf\src\FrameReflower\Page.php(148): Dompdf\Renderer->render(Object(Dompdf\FrameDecorator\Block))
+14 APPPATH\ThirdParty\dompdf\src\FrameDecorator\AbstractFrameDecorator.php(895): Dompdf\FrameReflower\Page->reflow(null)
+15 APPPATH\ThirdParty\dompdf\src\Dompdf.php(838): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow()
+16 APPPATH\Controllers\UsulanController.php(223): Dompdf\Dompdf->render()
+17 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\UsulanController->generateResi('CD007202501260001')
+18 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UsulanController))
+19 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+20 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+21 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+22 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+23 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+WARNING - 2025-01-26 10:00:40 --> [DEPRECATED] mb_stripos(): Passing null to parameter #1 ($haystack) of type string is deprecated in APPPATH\ThirdParty\dompdf\src\Css\Style.php on line 659.
+ 1 APPPATH\ThirdParty\dompdf\src\Css\Style.php(659): mb_stripos(null, 'mm')
+ 2 APPPATH\ThirdParty\dompdf\src\Css\Style.php(1688): Dompdf\Css\Style->length_in_pt([...])
+ 3 APPPATH\ThirdParty\dompdf\src\Css\Style.php(2545): Dompdf\Css\Style->_set_style_side_type('border', 'top', 'color', [...], false)
+ 4 APPPATH\ThirdParty\dompdf\src\Css\Style.php(894): Dompdf\Css\Style->set_border_top_color('')
+ 5 APPPATH\ThirdParty\dompdf\src\Css\Style.php(954): Dompdf\Css\Style->__set('border_top_color', '')
+ 6 APPPATH\ThirdParty\dompdf\src\Css\Style.php(1349): Dompdf\Css\Style->__get('border_top_color')
+ 7 APPPATH\ThirdParty\dompdf\src\Renderer\Block.php(105): Dompdf\Css\Style->get_border_properties()
+ 8 APPPATH\ThirdParty\dompdf\src\Renderer\Block.php(71): Dompdf\Renderer\Block->_render_border(Object(Dompdf\FrameDecorator\Block), [...])
+ 9 APPPATH\ThirdParty\dompdf\src\Renderer.php(293): Dompdf\Renderer\Block->render(Object(Dompdf\FrameDecorator\Block))
+10 APPPATH\ThirdParty\dompdf\src\Renderer.php(101): Dompdf\Renderer->_render_frame('block', Object(Dompdf\FrameDecorator\Block))
+11 APPPATH\ThirdParty\dompdf\src\Renderer.php(194): Dompdf\Renderer->render(Object(Dompdf\FrameDecorator\Block))
+12 APPPATH\ThirdParty\dompdf\src\Renderer.php(194): Dompdf\Renderer->render(Object(Dompdf\FrameDecorator\Block))
+13 APPPATH\ThirdParty\dompdf\src\FrameReflower\Page.php(148): Dompdf\Renderer->render(Object(Dompdf\FrameDecorator\Block))
+14 APPPATH\ThirdParty\dompdf\src\FrameDecorator\AbstractFrameDecorator.php(895): Dompdf\FrameReflower\Page->reflow(null)
+15 APPPATH\ThirdParty\dompdf\src\Dompdf.php(838): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow()
+16 APPPATH\Controllers\UsulanController.php(223): Dompdf\Dompdf->render()
+17 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\UsulanController->generateResi('CD007202501260001')
+18 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UsulanController))
+19 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+20 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+21 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+22 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+23 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+WARNING - 2025-01-26 10:00:40 --> [DEPRECATED] mb_stripos(): Passing null to parameter #1 ($haystack) of type string is deprecated in APPPATH\ThirdParty\dompdf\src\Css\Style.php on line 665.
+ 1 APPPATH\ThirdParty\dompdf\src\Css\Style.php(665): mb_stripos(null, 'ex')
+ 2 APPPATH\ThirdParty\dompdf\src\Css\Style.php(1688): Dompdf\Css\Style->length_in_pt([...])
+ 3 APPPATH\ThirdParty\dompdf\src\Css\Style.php(2545): Dompdf\Css\Style->_set_style_side_type('border', 'top', 'color', [...], false)
+ 4 APPPATH\ThirdParty\dompdf\src\Css\Style.php(894): Dompdf\Css\Style->set_border_top_color('')
+ 5 APPPATH\ThirdParty\dompdf\src\Css\Style.php(954): Dompdf\Css\Style->__set('border_top_color', '')
+ 6 APPPATH\ThirdParty\dompdf\src\Css\Style.php(1349): Dompdf\Css\Style->__get('border_top_color')
+ 7 APPPATH\ThirdParty\dompdf\src\Renderer\Block.php(105): Dompdf\Css\Style->get_border_properties()
+ 8 APPPATH\ThirdParty\dompdf\src\Renderer\Block.php(71): Dompdf\Renderer\Block->_render_border(Object(Dompdf\FrameDecorator\Block), [...])
+ 9 APPPATH\ThirdParty\dompdf\src\Renderer.php(293): Dompdf\Renderer\Block->render(Object(Dompdf\FrameDecorator\Block))
+10 APPPATH\ThirdParty\dompdf\src\Renderer.php(101): Dompdf\Renderer->_render_frame('block', Object(Dompdf\FrameDecorator\Block))
+11 APPPATH\ThirdParty\dompdf\src\Renderer.php(194): Dompdf\Renderer->render(Object(Dompdf\FrameDecorator\Block))
+12 APPPATH\ThirdParty\dompdf\src\Renderer.php(194): Dompdf\Renderer->render(Object(Dompdf\FrameDecorator\Block))
+13 APPPATH\ThirdParty\dompdf\src\FrameReflower\Page.php(148): Dompdf\Renderer->render(Object(Dompdf\FrameDecorator\Block))
+14 APPPATH\ThirdParty\dompdf\src\FrameDecorator\AbstractFrameDecorator.php(895): Dompdf\FrameReflower\Page->reflow(null)
+15 APPPATH\ThirdParty\dompdf\src\Dompdf.php(838): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow()
+16 APPPATH\Controllers\UsulanController.php(223): Dompdf\Dompdf->render()
+17 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\UsulanController->generateResi('CD007202501260001')
+18 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UsulanController))
+19 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+20 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+21 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+22 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+23 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+WARNING - 2025-01-26 10:00:40 --> [DEPRECATED] mb_stripos(): Passing null to parameter #1 ($haystack) of type string is deprecated in APPPATH\ThirdParty\dompdf\src\Css\Style.php on line 670.
+ 1 APPPATH\ThirdParty\dompdf\src\Css\Style.php(670): mb_stripos(null, 'in')
+ 2 APPPATH\ThirdParty\dompdf\src\Css\Style.php(1688): Dompdf\Css\Style->length_in_pt([...])
+ 3 APPPATH\ThirdParty\dompdf\src\Css\Style.php(2545): Dompdf\Css\Style->_set_style_side_type('border', 'top', 'color', [...], false)
+ 4 APPPATH\ThirdParty\dompdf\src\Css\Style.php(894): Dompdf\Css\Style->set_border_top_color('')
+ 5 APPPATH\ThirdParty\dompdf\src\Css\Style.php(954): Dompdf\Css\Style->__set('border_top_color', '')
+ 6 APPPATH\ThirdParty\dompdf\src\Css\Style.php(1349): Dompdf\Css\Style->__get('border_top_color')
+ 7 APPPATH\ThirdParty\dompdf\src\Renderer\Block.php(105): Dompdf\Css\Style->get_border_properties()
+ 8 APPPATH\ThirdParty\dompdf\src\Renderer\Block.php(71): Dompdf\Renderer\Block->_render_border(Object(Dompdf\FrameDecorator\Block), [...])
+ 9 APPPATH\ThirdParty\dompdf\src\Renderer.php(293): Dompdf\Renderer\Block->render(Object(Dompdf\FrameDecorator\Block))
+10 APPPATH\ThirdParty\dompdf\src\Renderer.php(101): Dompdf\Renderer->_render_frame('block', Object(Dompdf\FrameDecorator\Block))
+11 APPPATH\ThirdParty\dompdf\src\Renderer.php(194): Dompdf\Renderer->render(Object(Dompdf\FrameDecorator\Block))
+12 APPPATH\ThirdParty\dompdf\src\Renderer.php(194): Dompdf\Renderer->render(Object(Dompdf\FrameDecorator\Block))
+13 APPPATH\ThirdParty\dompdf\src\FrameReflower\Page.php(148): Dompdf\Renderer->render(Object(Dompdf\FrameDecorator\Block))
+14 APPPATH\ThirdParty\dompdf\src\FrameDecorator\AbstractFrameDecorator.php(895): Dompdf\FrameReflower\Page->reflow(null)
+15 APPPATH\ThirdParty\dompdf\src\Dompdf.php(838): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow()
+16 APPPATH\Controllers\UsulanController.php(223): Dompdf\Dompdf->render()
+17 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\UsulanController->generateResi('CD007202501260001')
+18 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UsulanController))
+19 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+20 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+21 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+22 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+23 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+WARNING - 2025-01-26 10:00:40 --> [DEPRECATED] mb_stripos(): Passing null to parameter #1 ($haystack) of type string is deprecated in APPPATH\ThirdParty\dompdf\src\Css\Style.php on line 675.
+ 1 APPPATH\ThirdParty\dompdf\src\Css\Style.php(675): mb_stripos(null, 'pc')
+ 2 APPPATH\ThirdParty\dompdf\src\Css\Style.php(1688): Dompdf\Css\Style->length_in_pt([...])
+ 3 APPPATH\ThirdParty\dompdf\src\Css\Style.php(2545): Dompdf\Css\Style->_set_style_side_type('border', 'top', 'color', [...], false)
+ 4 APPPATH\ThirdParty\dompdf\src\Css\Style.php(894): Dompdf\Css\Style->set_border_top_color('')
+ 5 APPPATH\ThirdParty\dompdf\src\Css\Style.php(954): Dompdf\Css\Style->__set('border_top_color', '')
+ 6 APPPATH\ThirdParty\dompdf\src\Css\Style.php(1349): Dompdf\Css\Style->__get('border_top_color')
+ 7 APPPATH\ThirdParty\dompdf\src\Renderer\Block.php(105): Dompdf\Css\Style->get_border_properties()
+ 8 APPPATH\ThirdParty\dompdf\src\Renderer\Block.php(71): Dompdf\Renderer\Block->_render_border(Object(Dompdf\FrameDecorator\Block), [...])
+ 9 APPPATH\ThirdParty\dompdf\src\Renderer.php(293): Dompdf\Renderer\Block->render(Object(Dompdf\FrameDecorator\Block))
+10 APPPATH\ThirdParty\dompdf\src\Renderer.php(101): Dompdf\Renderer->_render_frame('block', Object(Dompdf\FrameDecorator\Block))
+11 APPPATH\ThirdParty\dompdf\src\Renderer.php(194): Dompdf\Renderer->render(Object(Dompdf\FrameDecorator\Block))
+12 APPPATH\ThirdParty\dompdf\src\Renderer.php(194): Dompdf\Renderer->render(Object(Dompdf\FrameDecorator\Block))
+13 APPPATH\ThirdParty\dompdf\src\FrameReflower\Page.php(148): Dompdf\Renderer->render(Object(Dompdf\FrameDecorator\Block))
+14 APPPATH\ThirdParty\dompdf\src\FrameDecorator\AbstractFrameDecorator.php(895): Dompdf\FrameReflower\Page->reflow(null)
+15 APPPATH\ThirdParty\dompdf\src\Dompdf.php(838): Dompdf\FrameDecorator\AbstractFrameDecorator->reflow()
+16 APPPATH\Controllers\UsulanController.php(223): Dompdf\Dompdf->render()
+17 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\UsulanController->generateResi('CD007202501260001')
+18 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UsulanController))
+19 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+20 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+21 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+22 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+23 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+DEBUG - 2025-01-26 10:00:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 10:00:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 15:20:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 15:20:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 15:21:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 15:21:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 15:21:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 15:21:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 15:22:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 15:22:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 15:22:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 15:22:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 15:22:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 15:22:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 15:22:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 15:22:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 15:23:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 15:23:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 15:23:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 15:23:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 15:23:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 15:23:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 15:24:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 15:24:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 15:24:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 15:24:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 15:24:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 15:24:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 15:25:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 15:25:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-01-26 15:25:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

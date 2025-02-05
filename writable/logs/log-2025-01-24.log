@@ -1,0 +1,314 @@
+DEBUG - 2025-01-24 17:58:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-01-24 17:58:20 --> [DEPRECATED] Creation of dynamic property App\Controllers\TelaahController::$db is deprecated in APPPATH\Controllers\TelaahController.php on line 14.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\TelaahController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+DEBUG - 2025-01-24 17:58:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-01-24 17:58:29 --> [DEPRECATED] Creation of dynamic property App\Controllers\TelaahController::$db is deprecated in APPPATH\Controllers\TelaahController.php on line 14.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\TelaahController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+INFO - 2025-01-24 17:58:29 --> Data request diterima: {"nomor_usulan":"CD006202501220002","status_telaah":"Ditolak","catatan_telaah":"test tolak"}
+INFO - 2025-01-24 17:58:29 --> Memulai transaksi untuk usulan: CD006202501220002
+INFO - 2025-01-24 17:58:29 --> Query pengiriman_usulan: UPDATE `pengiriman_usulan` SET `status_telaah` = 'Ditolak', `catatan_telaah` = 'test tolak', `updated_at_telaah` = '2025-01-24 17:58:29'
+WHERE `nomor_usulan` = 'CD006202501220002'
+INFO - 2025-01-24 17:58:29 --> Query usulan: UPDATE `usulan` SET `status` = '02'
+WHERE `nomor_usulan` = 'CD006202501220002'
+ERROR - 2025-01-24 17:58:29 --> mysqli_sql_exception: Unknown column 'created_at' in 'field list' in C:\xampp\htdocs\simutasi\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\simutasi\system\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `us...', 0)
+#1 C:\xampp\htdocs\simutasi\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `us...')
+#2 C:\xampp\htdocs\simutasi\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `us...')
+#3 C:\xampp\htdocs\simutasi\system\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `us...', Array, false)
+#4 C:\xampp\htdocs\simutasi\app\Controllers\TelaahController.php(109): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\xampp\htdocs\simutasi\system\CodeIgniter.php(933): App\Controllers\TelaahController->update()
+#6 C:\xampp\htdocs\simutasi\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TelaahController))
+#7 C:\xampp\htdocs\simutasi\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\simutasi\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\simutasi\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\simutasi\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 C:\xampp\htdocs\simutasi\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#12 {main}
+INFO - 2025-01-24 17:58:29 --> Query usulan_status_history: INSERT INTO `usulan_status_history` (`nomor_usulan`, `status`, `catatan_history`, `created_at`) VALUES ('CD006202501220002', '02', 'Proses Telaah Usulan oleh Kepala Bidang GTK. test tolak', '2025-01-24 17:58:29')
+ERROR - 2025-01-24 17:58:29 --> Transaksi gagal untuk usulan: CD006202501220002
+ERROR - 2025-01-24 17:58:29 --> Error pada transaksi: Transaksi gagal.
+ERROR - 2025-01-24 17:58:29 --> Query terakhir: INSERT INTO `usulan_status_history` (`nomor_usulan`, `status`, `catatan_history`, `created_at`) VALUES ('CD006202501220002', '02', 'Proses Telaah Usulan oleh Kepala Bidang GTK. test tolak', '2025-01-24 17:58:29')
+DEBUG - 2025-01-24 18:01:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-01-24 18:01:15 --> [DEPRECATED] Creation of dynamic property App\Controllers\TelaahController::$db is deprecated in APPPATH\Controllers\TelaahController.php on line 14.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\TelaahController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+DEBUG - 2025-01-24 18:01:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-01-24 18:01:28 --> [DEPRECATED] Creation of dynamic property App\Controllers\TelaahController::$db is deprecated in APPPATH\Controllers\TelaahController.php on line 14.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\TelaahController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+INFO - 2025-01-24 18:01:28 --> Data request diterima: {"nomor_usulan":"CD006202501220002","status_telaah":"Ditolak","catatan_telaah":"coba di tolak di proses telaah"}
+INFO - 2025-01-24 18:01:28 --> Memulai transaksi untuk usulan: CD006202501220002
+INFO - 2025-01-24 18:01:28 --> Query pengiriman_usulan: UPDATE `pengiriman_usulan` SET `status_telaah` = 'Ditolak', `catatan_telaah` = 'coba di tolak di proses telaah', `updated_at_telaah` = '2025-01-24 18:01:28'
+WHERE `nomor_usulan` = 'CD006202501220002'
+INFO - 2025-01-24 18:01:28 --> Query usulan: UPDATE `usulan` SET `status` = '02'
+WHERE `nomor_usulan` = 'CD006202501220002'
+INFO - 2025-01-24 18:01:28 --> Query usulan_status_history: INSERT INTO `usulan_status_history` (`nomor_usulan`, `status`, `updated_at`, `catatan_history`) VALUES ('CD006202501220002', '02', '2025-01-24 18:01:28', 'Proses Telaah Usulan oleh Kepala Bidang GTK. coba di tolak di proses telaah')
+INFO - 2025-01-24 18:01:28 --> Transaksi berhasil untuk usulan: CD006202501220002
+DEBUG - 2025-01-24 18:02:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-01-24 18:02:16 --> [DEPRECATED] Creation of dynamic property App\Controllers\TelaahController::$db is deprecated in APPPATH\Controllers\TelaahController.php on line 14.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\TelaahController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+DEBUG - 2025-01-24 18:02:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-01-24 18:02:40 --> [DEPRECATED] Creation of dynamic property App\Controllers\TelaahController::$db is deprecated in APPPATH\Controllers\TelaahController.php on line 14.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\TelaahController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+INFO - 2025-01-24 18:02:40 --> Data request diterima: {"nomor_usulan":"CD006202501240001","status_telaah":"Diterima","catatan_telaah":"diterima ya"}
+INFO - 2025-01-24 18:02:40 --> Memulai transaksi untuk usulan: CD006202501240001
+INFO - 2025-01-24 18:02:40 --> Query pengiriman_usulan: UPDATE `pengiriman_usulan` SET `status_telaah` = 'Diterima', `catatan_telaah` = 'diterima ya', `updated_at_telaah` = '2025-01-24 18:02:40'
+WHERE `nomor_usulan` = 'CD006202501240001'
+INFO - 2025-01-24 18:02:40 --> Query usulan: UPDATE `usulan` SET `status` = '04'
+WHERE `nomor_usulan` = 'CD006202501240001'
+INFO - 2025-01-24 18:02:40 --> Query usulan_status_history: INSERT INTO `usulan_status_history` (`nomor_usulan`, `status`, `updated_at`, `catatan_history`) VALUES ('CD006202501240001', '04', '2025-01-24 18:02:40', 'Proses Telaah Usulan oleh Kepala Bidang GTK. diterima ya')
+INFO - 2025-01-24 18:02:40 --> Transaksi berhasil untuk usulan: CD006202501240001
+DEBUG - 2025-01-24 18:02:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-01-24 18:02:41 --> [DEPRECATED] Creation of dynamic property App\Controllers\TelaahController::$db is deprecated in APPPATH\Controllers\TelaahController.php on line 14.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\TelaahController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+DEBUG - 2025-01-24 18:10:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-01-24 18:10:50 --> [DEPRECATED] Creation of dynamic property App\Controllers\TelaahController::$db is deprecated in APPPATH\Controllers\TelaahController.php on line 14.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\TelaahController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+DEBUG - 2025-01-24 18:13:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-01-24 18:13:35 --> [DEPRECATED] Creation of dynamic property App\Controllers\TelaahController::$db is deprecated in APPPATH\Controllers\TelaahController.php on line 14.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\TelaahController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+DEBUG - 2025-01-24 18:13:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-01-24 18:13:52 --> [DEPRECATED] Creation of dynamic property App\Controllers\TelaahController::$db is deprecated in APPPATH\Controllers\TelaahController.php on line 14.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\TelaahController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+INFO - 2025-01-24 18:13:52 --> Data request Disetujui: {"nomor_usulan":"CD006202501220004","status_telaah":"Disetujui","catatan_telaah":""}
+INFO - 2025-01-24 18:13:52 --> Memulai transaksi untuk usulan: CD006202501220004
+INFO - 2025-01-24 18:13:52 --> Query pengiriman_usulan: UPDATE `pengiriman_usulan` SET `status_telaah` = 'Disetujui', `catatan_telaah` = '', `updated_at_telaah` = '2025-01-24 18:13:52'
+WHERE `nomor_usulan` = 'CD006202501220004'
+INFO - 2025-01-24 18:13:52 --> Query usulan: UPDATE `usulan` SET `status` = '04'
+WHERE `nomor_usulan` = 'CD006202501220004'
+ERROR - 2025-01-24 18:13:52 --> mysqli_sql_exception: Unknown column 'created_at' in 'field list' in C:\xampp\htdocs\simutasi\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\simutasi\system\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `us...', 0)
+#1 C:\xampp\htdocs\simutasi\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `us...')
+#2 C:\xampp\htdocs\simutasi\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `us...')
+#3 C:\xampp\htdocs\simutasi\system\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `us...', Array, false)
+#4 C:\xampp\htdocs\simutasi\app\Controllers\TelaahController.php(109): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\xampp\htdocs\simutasi\system\CodeIgniter.php(933): App\Controllers\TelaahController->update()
+#6 C:\xampp\htdocs\simutasi\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TelaahController))
+#7 C:\xampp\htdocs\simutasi\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\simutasi\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\simutasi\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\simutasi\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 C:\xampp\htdocs\simutasi\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#12 {main}
+INFO - 2025-01-24 18:13:52 --> Query usulan_status_history: INSERT INTO `usulan_status_history` (`nomor_usulan`, `status`, `catatan_history`, `created_at`) VALUES ('CD006202501220004', '04', 'Proses Telaah Usulan oleh Kepala Bidang GTK. ', '2025-01-24 18:13:52')
+ERROR - 2025-01-24 18:13:52 --> Transaksi gagal untuk usulan: CD006202501220004
+ERROR - 2025-01-24 18:13:52 --> Error pada transaksi: Transaksi gagal.
+ERROR - 2025-01-24 18:13:52 --> Query terakhir: INSERT INTO `usulan_status_history` (`nomor_usulan`, `status`, `catatan_history`, `created_at`) VALUES ('CD006202501220004', '04', 'Proses Telaah Usulan oleh Kepala Bidang GTK. ', '2025-01-24 18:13:52')
+DEBUG - 2025-01-24 18:14:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-01-24 18:14:01 --> [DEPRECATED] Creation of dynamic property App\Controllers\TelaahController::$db is deprecated in APPPATH\Controllers\TelaahController.php on line 14.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\TelaahController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+INFO - 2025-01-24 18:14:01 --> Data request Disetujui: {"nomor_usulan":"CD006202501220004","status_telaah":"Disetujui","catatan_telaah":""}
+INFO - 2025-01-24 18:14:01 --> Memulai transaksi untuk usulan: CD006202501220004
+INFO - 2025-01-24 18:14:01 --> Query pengiriman_usulan: UPDATE `pengiriman_usulan` SET `status_telaah` = 'Disetujui', `catatan_telaah` = '', `updated_at_telaah` = '2025-01-24 18:14:01'
+WHERE `nomor_usulan` = 'CD006202501220004'
+INFO - 2025-01-24 18:14:01 --> Query usulan: UPDATE `usulan` SET `status` = '04'
+WHERE `nomor_usulan` = 'CD006202501220004'
+ERROR - 2025-01-24 18:14:01 --> mysqli_sql_exception: Unknown column 'created_at' in 'field list' in C:\xampp\htdocs\simutasi\system\Database\MySQLi\Connection.php:312
+Stack trace:
+#0 C:\xampp\htdocs\simutasi\system\Database\MySQLi\Connection.php(312): mysqli->query('INSERT INTO `us...', 0)
+#1 C:\xampp\htdocs\simutasi\system\Database\BaseConnection.php(734): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `us...')
+#2 C:\xampp\htdocs\simutasi\system\Database\BaseConnection.php(648): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `us...')
+#3 C:\xampp\htdocs\simutasi\system\Database\BaseBuilder.php(2340): CodeIgniter\Database\BaseConnection->query('INSERT INTO `us...', Array, false)
+#4 C:\xampp\htdocs\simutasi\app\Controllers\TelaahController.php(109): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 C:\xampp\htdocs\simutasi\system\CodeIgniter.php(933): App\Controllers\TelaahController->update()
+#6 C:\xampp\htdocs\simutasi\system\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\TelaahController))
+#7 C:\xampp\htdocs\simutasi\system\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\simutasi\system\Boot.php(334): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\simutasi\system\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#10 C:\xampp\htdocs\simutasi\public\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#11 C:\xampp\htdocs\simutasi\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#12 {main}
+INFO - 2025-01-24 18:14:01 --> Query usulan_status_history: INSERT INTO `usulan_status_history` (`nomor_usulan`, `status`, `catatan_history`, `created_at`) VALUES ('CD006202501220004', '04', 'Proses Telaah Usulan oleh Kepala Bidang GTK. ', '2025-01-24 18:14:01')
+ERROR - 2025-01-24 18:14:01 --> Transaksi gagal untuk usulan: CD006202501220004
+ERROR - 2025-01-24 18:14:01 --> Error pada transaksi: Transaksi gagal.
+ERROR - 2025-01-24 18:14:01 --> Query terakhir: INSERT INTO `usulan_status_history` (`nomor_usulan`, `status`, `catatan_history`, `created_at`) VALUES ('CD006202501220004', '04', 'Proses Telaah Usulan oleh Kepala Bidang GTK. ', '2025-01-24 18:14:01')
+DEBUG - 2025-01-24 18:15:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-01-24 18:15:04 --> [DEPRECATED] Creation of dynamic property App\Controllers\TelaahController::$db is deprecated in APPPATH\Controllers\TelaahController.php on line 14.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\TelaahController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+DEBUG - 2025-01-24 18:15:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-01-24 18:15:15 --> [DEPRECATED] Creation of dynamic property App\Controllers\TelaahController::$db is deprecated in APPPATH\Controllers\TelaahController.php on line 14.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\TelaahController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+INFO - 2025-01-24 18:15:15 --> Data request Disetujui: {"nomor_usulan":"CD006202501220004","status_telaah":"Disetujui","catatan_telaah":""}
+INFO - 2025-01-24 18:15:15 --> Memulai transaksi untuk usulan: CD006202501220004
+INFO - 2025-01-24 18:15:15 --> Query pengiriman_usulan: UPDATE `pengiriman_usulan` SET `status_telaah` = 'Disetujui', `catatan_telaah` = '', `updated_at_telaah` = '2025-01-24 18:15:15'
+WHERE `nomor_usulan` = 'CD006202501220004'
+INFO - 2025-01-24 18:15:15 --> Query usulan: UPDATE `usulan` SET `status` = '04'
+WHERE `nomor_usulan` = 'CD006202501220004'
+INFO - 2025-01-24 18:15:15 --> Query usulan_status_history: INSERT INTO `usulan_status_history` (`nomor_usulan`, `status`, `catatan_history`, `updated_at`) VALUES ('CD006202501220004', '04', 'Proses Telaah Usulan oleh Kepala Bidang GTK. ', '2025-01-24 18:15:15')
+INFO - 2025-01-24 18:15:15 --> Transaksi berhasil untuk usulan: CD006202501220004
+DEBUG - 2025-01-24 18:15:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-01-24 18:15:16 --> [DEPRECATED] Creation of dynamic property App\Controllers\TelaahController::$db is deprecated in APPPATH\Controllers\TelaahController.php on line 14.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\TelaahController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+DEBUG - 2025-01-24 18:21:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-01-24 18:21:43 --> [DEPRECATED] Creation of dynamic property App\Controllers\TelaahController::$db is deprecated in APPPATH\Controllers\TelaahController.php on line 14.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\TelaahController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+DEBUG - 2025-01-24 18:21:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-01-24 18:21:58 --> [DEPRECATED] Creation of dynamic property App\Controllers\TelaahController::$db is deprecated in APPPATH\Controllers\TelaahController.php on line 14.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\TelaahController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+INFO - 2025-01-24 18:21:58 --> Data request Disetujui: {"nomor_usulan":"CD006202501220001","status_telaah":"Ditolak","catatan_telaah":"tidak memenuhi syarat"}
+INFO - 2025-01-24 18:21:58 --> Memulai transaksi untuk usulan: CD006202501220001
+INFO - 2025-01-24 18:21:58 --> Query pengiriman_usulan: UPDATE `pengiriman_usulan` SET `status_telaah` = 'Ditolak', `catatan_telaah` = 'tidak memenuhi syarat', `updated_at_telaah` = '2025-01-24 18:21:58'
+WHERE `nomor_usulan` = 'CD006202501220001'
+INFO - 2025-01-24 18:21:58 --> Query usulan: UPDATE `usulan` SET `status` = '02'
+WHERE `nomor_usulan` = 'CD006202501220001'
+INFO - 2025-01-24 18:21:58 --> Query usulan_status_history: INSERT INTO `usulan_status_history` (`nomor_usulan`, `status`, `catatan_history`, `updated_at`) VALUES ('CD006202501220001', '02', 'Telaah Usulan oleh Kepala Bidang GTK (Ditolak). tidak memenuhi syarat', '2025-01-24 18:21:58')
+INFO - 2025-01-24 18:21:59 --> Transaksi berhasil untuk usulan: CD006202501220001
+DEBUG - 2025-01-24 18:22:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-01-24 18:22:00 --> [DEPRECATED] Creation of dynamic property App\Controllers\TelaahController::$db is deprecated in APPPATH\Controllers\TelaahController.php on line 14.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\TelaahController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+DEBUG - 2025-01-24 18:26:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-01-24 18:26:15 --> [DEPRECATED] Creation of dynamic property App\Controllers\TelaahController::$db is deprecated in APPPATH\Controllers\TelaahController.php on line 14.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\TelaahController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+DEBUG - 2025-01-24 18:26:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-01-24 18:26:30 --> [DEPRECATED] Creation of dynamic property App\Controllers\TelaahController::$db is deprecated in APPPATH\Controllers\TelaahController.php on line 14.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\TelaahController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+DEBUG - 2025-01-24 18:26:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-01-24 18:26:31 --> [DEPRECATED] Creation of dynamic property App\Controllers\TelaahController::$db is deprecated in APPPATH\Controllers\TelaahController.php on line 14.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\TelaahController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+DEBUG - 2025-01-24 18:26:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-01-24 18:26:43 --> [DEPRECATED] Creation of dynamic property App\Controllers\TelaahController::$db is deprecated in APPPATH\Controllers\TelaahController.php on line 14.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\TelaahController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+DEBUG - 2025-01-24 18:26:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-01-24 18:26:45 --> [DEPRECATED] Creation of dynamic property App\Controllers\TelaahController::$db is deprecated in APPPATH\Controllers\TelaahController.php on line 14.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\TelaahController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+DEBUG - 2025-01-24 18:30:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-01-24 18:30:05 --> [DEPRECATED] Creation of dynamic property App\Controllers\TelaahController::$db is deprecated in APPPATH\Controllers\TelaahController.php on line 14.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\TelaahController->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(500): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
