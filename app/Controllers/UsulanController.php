@@ -526,21 +526,15 @@ public function create()
 
     public function updateRevisi($id)
     {
-        // Proses update revisi
+        // Update hanya google_drive_link
         $this->usulanModel->update($id, [
-            'guru_nama' => $this->request->getPost('guru_nama'),
-            'guru_nik' => $this->request->getPost('guru_nik'),
-            'guru_nip' => $this->request->getPost('guru_nip'),            
-            'sekolah_asal' => $this->request->getPost('sekolah_asal'),
-            'sekolah_tujuan' => $this->request->getPost('sekolah_tujuan'),
-            'alasan' => $this->request->getPost('alasan'),
             'google_drive_link' => $this->request->getPost('google_drive_link'),
-            //'status' => '01', // Mengubah status menjadi "01" setelah revisi
         ]);
-
+    
         session()->setFlashdata('success', 'Revisi berhasil disimpan. Silahkan melanjutkan proses pengiriman melalui Menu Pengiriman Usulan');
         return redirect()->to('/usulan');
     }
+    
 
 
 }

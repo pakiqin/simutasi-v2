@@ -1,106 +1,108 @@
 <?= $this->extend('layouts/main_layout'); ?>
 <?= $this->section('content'); ?>
-<div class="container">
-    <h1 class="mb-4"><i class="fas fa-undo-alt"></i> Revisi Usulan Mutasi</h1>
-    <?php if (session()->getFlashdata('message')): ?>
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <?= session()->getFlashdata('message'); ?>
-            </button>
-        </div>
-    <?php endif; ?>
-    <!-- Notifikasi untuk pesan flash -->
-    <?php if (session()->getFlashdata('success')): ?>
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <?= session()->getFlashdata('success'); ?>
-        </div>
-    <?php endif; ?>
 
-    <?php if (session()->getFlashdata('error')): ?>
-        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            <?= session()->getFlashdata('error'); ?>
-        </div>
-    <?php endif; ?>
-    <p class="text-muted">Form ini digunakan untuk memperbaiki data usulan mutasi yang sebelumnya ditolak karena tidak lengkap. Mohon lengkapi data berikut dengan benar.</p>
-    <form action="/usulan/updateRevisi/<?= $usulan['id'] ?>" method="post">
-        <div class="row">
-            <div class="col-md-6">
-                <div class="form-group mb-3">
-                    <label>Nomor Usulan</label>
-                    <div class="input-group">
-                        <span class="input-group-text"><i class="fas fa-hashtag"></i></span>
-                        <input type="text" name="nomor_usulan" class="form-control" value="<?= $usulan['nomor_usulan'] ?>" readonly>
+<h1 class="h3 mb-4 text-gray-800"><i class="fas fa-undo-alt"></i> Revisi Usulan Mutasi</h1>
+
+<!-- Form dalam Card -->
+<div class="card">
+    <div class="card-body">
+        <form action="/usulan/updateRevisi/<?= $usulan['id'] ?>" method="post">
+            <div class="row">
+                <!-- Kolom Kiri (1/3) -->
+                <div class="col-md-4">
+                    <div class="form-group mb-3">
+                        <label for="nomorUsulan">Nomor Usulan</label>
+                        <input type="text" name="nomor_usulan" id="nomorUsulan" class="form-control" value="<?= $usulan['nomor_usulan'] ?>" readonly>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="guruNama">Nama Guru</label>
+                        <input type="text" name="guru_nama" id="guruNama" class="form-control" value="<?= $usulan['guru_nama'] ?>" readonly>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="guruNip">NIP</label>
+                        <input type="text" name="guru_nip" id="guruNip" class="form-control" value="<?= $usulan['guru_nip'] ?>" readonly>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="guruNik">NIK</label>
+                        <input type="text" name="guru_nik" id="guruNik" class="form-control" value="<?= $usulan['guru_nik'] ?>" readonly>
                     </div>
                 </div>
-                <div class="form-group mb-3">
-                    <label>Nama Guru</label>
-                    <div class="input-group">
-                        <span class="input-group-text"><i class="fas fa-user"></i></span>
-                        <input type="text" name="guru_nama" class="form-control" value="<?= $usulan['guru_nama'] ?>"  placeholder="Masukkan Nama Guru" required>
+                
+                <!-- Kolom Tengah (2/3) -->
+                <div class="col-md-8">
+                    <!-- Sekolah Asal & Sekolah Tujuan sejajar -->
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group mb-3">
+                                <label for="sekolahAsal">Sekolah Asal</label>
+                                <input type="text" id="sekolahAsal" class="form-control" value="<?= $usulan['sekolah_asal'] ?>" readonly>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group mb-3">
+                                <label for="sekolahTujuan">Sekolah Tujuan</label>
+                                <input type="text" id="sekolahTujuan" class="form-control" value="<?= $usulan['sekolah_tujuan'] ?>" readonly>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="form-group mb-3">
-                    <label>NIP</label>
-                    <div class="input-group">
-                        <span class="input-group-text"><i class="fas fa-id-card"></i></span>
-                        <input type="text" name="guru_nip" class="form-control" value="<?= $usulan['guru_nip'] ?>"  placeholder="Masukkan NIP" required>>
-                    </div>
-                </div>
-                <div class="form-group mb-3">
-                    <label>Alasan</label>
-                    <div class="input-group">
-                        <span class="input-group-text"><i class="fas fa-comment"></i></span>
-                        <textarea name="alasan" class="form-control" placeholder="Masukkan Alasan Mutasi" rows="5" required><?= $usulan['alasan'] ?></textarea>
+                    <!-- Alasan -->
+                    <div class="form-group mb-3">
+                        <label for="alasan">Alasan</label>
+                        <input type="text" name="alasan" id="alasan" class="form-control" value="<?= $usulan['alasan'] ?>" readonly>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="form-group mb-3">
-                    <label>NIK</label>
+            
+            <!-- Tautan Berkas -->
+            <div class="row border p-3 mt-3 rounded bg-white">
+                <div class="col-md-12">
+                    <label for="googleDriveLink">Tautan Berkas di Google Drive</label>
                     <div class="input-group">
-                        <span class="input-group-text"><i class="fas fa-id-badge"></i></span>
-                        <input type="number" name="guru_nik" class="form-control" value="<?= $usulan['guru_nik'] ?>" placeholder="Masukkan NIK" required maxlength="16">
+                        <input type="text" name="google_drive_link" id="googleDriveLink" class="form-control" value="<?= $usulan['google_drive_link'] ?>" placeholder="Masukkan Tautan Google Drive" required>
+                        <button type="button" class="btn btn-sm-custom btn-info" onclick="previewLink()">
+                            <i class="fas fa-eye"></i>
+                        </button>
                     </div>
-                </div>
-                <div class="form-group mb-3">
-                    <label>Sekolah Asal</label>
-                    <div class="input-group">
-                        <span class="input-group-text"><i class="fas fa-school"></i></span>
-                        <input type="text" name="sekolah_asal" class="form-control" value="<?= $usulan['sekolah_asal'] ?>" placeholder="Masukkan Sekolah Asal" required>
-                    </div>
-                </div>
-                <div class="form-group mb-3">
-                    <label>Sekolah Tujuan</label>
-                    <div class="input-group">
-                        <span class="input-group-text"><i class="fas fa-graduation-cap"></i></span>
-                        <input type="text" name="sekolah_tujuan" class="form-control" value="<?= $usulan['sekolah_tujuan'] ?>" placeholder="Masukkan Sekolah Tujuan" required>
-                    </div>
-                </div>
-                <div class="form-group mb-3">
-                    <label>Tautan Berkas di Google Drive</label>
-                    <div class="input-group">
-                        <span class="input-group-text"><i class="fas fa-link"></i></span>
-                        <input type="text" name="google_drive_link" id="google_drive_link" class="form-control" value="<?= $usulan['google_drive_link'] ?>" placeholder="Masukkan Tautan Google Drive">
-                    </div>
-                    <!-- Tombol Preview -->
-                    <button type="button" class="btn btn-info mt-2 btn-sm-custom" onclick="previewLink()"> <i class="fas fa-eye"></i> Lihat</button>
                 </div>
             </div>
-        </div>
-        <div class="d-flex justify-content-between mt-4">
-            <a href="/usulan" class="btn btn-secondary btn-sm-custom"><i class="fas fa-arrow-left"></i> Kembali</a>
-            <button type="submit" class="btn btn-success btn-sm-custom"><i class="fas fa-save"></i> Simpan Revisi</button>
-        </div>
-    </form>
+            
+            <!-- Tombol -->
+            <div class="d-flex justify-content-between mt-4">
+                <a href="/usulan" class="btn btn-sm-custom btn-secondary"><i class="fas fa-arrow-left"></i> Kembali</a>
+                <button type="submit" class="btn btn-sm-custom btn-success"><i class="fas fa-save"></i> Simpan Revisi</button>
+            </div>
+        </form>
+    </div>
 </div>
 
+<!-- SCRIPT -->
 <script>
-    function previewLink() {
-        const link = document.getElementById('google_drive_link').value;
-        if (link) {
-            window.open(link, '_blank');
-        } else {
-            alert('Tautan Google Drive belum diisi.');
-        }
+function previewLink() {
+    let link = document.getElementById('googleDriveLink').value.trim();
+    let googleDrivePattern = /^(https?:\/\/)?(www\.)?(drive\.google\.com\/|docs\.google\.com\/)/;
+    
+    if (!link) {
+        Swal.fire({
+            title: 'Peringatan!',
+            text: 'Tautan Google Drive belum diisi.',
+            icon: 'warning',
+            confirmButtonText: 'OK'
+        });
+        return;
     }
+    
+    if (!googleDrivePattern.test(link)) {
+        Swal.fire({
+            title: 'Peringatan!',
+            text: 'Masukkan tautan Google Drive yang valid!',
+            icon: 'warning',
+            confirmButtonText: 'OK'
+        });
+        return;
+    }
+    
+    window.open(link, '_blank');
+}
 </script>
+
 <?= $this->endSection(); ?>

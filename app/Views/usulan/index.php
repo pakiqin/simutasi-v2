@@ -73,6 +73,15 @@
                                         <i class="fas fa-trash-alt"></i>
                                     </a>
 
+                                <?php elseif ($row['status'] === '02' && $row['status_usulan_cabdin'] === 'TdkLengkap'): ?>
+                                    <!-- Tombol Revisi Usulan -->
+                                    <a href="javascript:void(0)" class="btn btn-revisi btn-sm-custom" onclick="submitRevisiForm('<?= $row['nomor_usulan'] ?>')">
+                                        <i class="fas fa-undo-alt"></i>                                    </a>
+                                    <form id="revisiForm" action="/revisi_usulan/deleteByNomorUsulan" method="POST" style="display: none;">
+                                        <input type="hidden" name="nomor_usulan" id="revisiNomorUsulan">
+                                    </form>
+
+
                                 <?php elseif ($row['status'] === '02' && $row['status_telaah'] === 'Ditolak'): ?>
                                     <!-- Status 02: Telaah Ditolak, Bisa Dihapus -->
                                     <a href="#" class="btn btn-danger btn-sm-custom" onclick="confirmDeleteTolak('/usulan/deletetolak/<?= $row['id'] ?>')">
@@ -229,6 +238,24 @@
         }).then((result) => {
             if (result.isConfirmed) {
                 window.location.href = url;
+            }
+        });
+    }
+
+    function submitRevisiForm(nomorUsulan) {
+        Swal.fire({
+            title: 'Konfirmasi Revisi',
+            text: "Anda akan melakukan revisi berkas usulan mutasi. Data lama akan dihapus!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Ya, Revisi',
+            cancelButtonText: 'Batal'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                document.getElementById('revisiNomorUsulan').value = nomorUsulan;
+                document.getElementById('revisiForm').submit();
             }
         });
     }
