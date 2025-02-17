@@ -213,50 +213,26 @@ public function create()
 
     public function store()
     {
-        // Ambil NIP dari input
-        $guruNip = $this->request->getPost('guru_nip');
-        $guruNik = $this->request->getPost('guru_nik');
-        
-        // Cek apakah ada usulan dengan NIP yang sama dan belum selesai
-        $existingUsulan = $this->usulanModel
-            ->groupStart()
-                ->where('guru_nip', $guruNip)
-                ->orWhere('guru_nik', $guruNik)
-            ->groupEnd()
-            ->whereNotIn('status', ['08']) // Status "08" dianggap selesai
-            ->first();
 
-        if ($existingUsulan) {
-            // Jika ada usulan yang belum selesai, kembalikan pesan error
-            session()->setFlashdata('error', 'Guru dengan NIP atau NIK ini masih dalam proses usulan dan belum selesai.');
+        // Ambil ID Cabang Dinas Asal & Tujuan
+        $cabangDinasAsalId = $this->request->getPost('cabang_dinas_asal_id');
+        $cabangDinasTujuanId = $this->request->getPost('cabang_dinas_tujuan_id');
+        $sekolahAsalId = $this->request->getPost('sekolah_asal_id');
+        $sekolahTujuanId = $this->request->getPost('sekolah_tujuan_id');
 
-            $data = [
-                'kabupatenList' => (new \App\Models\KabupatenModel())->findAll(),
-            ];
-
-            // Kembali ke tampilan create
-            return view('usulan/create', $data);
+        // Pastikan data sekolah dan cabang dinas tidak kosong
+        if (empty($sekolahAsalId) || empty($sekolahTujuanId) || empty($cabangDinasAsalId)) {
+            log_message('error', 'Data sekolah atau cabang dinas tidak ditemukan dalam POST request');
+            return redirect()->back()->with('error', 'Gagal menyimpan usulan. Pastikan semua data telah diisi.')->withInput();
         }
 
-    // Ambil ID Cabang Dinas Asal & Tujuan
-    $cabangDinasAsalId = $this->request->getPost('cabang_dinas_asal_id');
-    $cabangDinasTujuanId = $this->request->getPost('cabang_dinas_tujuan_id');
-    $sekolahAsalId = $this->request->getPost('sekolah_asal_id');
-    $sekolahTujuanId = $this->request->getPost('sekolah_tujuan_id');
+        // Ambil nama sekolah berdasarkan ID yang dipilih
+        $sekolahModel = new \App\Models\SekolahModel();
+        $sekolahAsal = $sekolahModel->find($sekolahAsalId);
+        $sekolahTujuan = $sekolahModel->find($sekolahTujuanId);
 
-    // Pastikan data sekolah dan cabang dinas tidak kosong
-    if (empty($sekolahAsalId) || empty($sekolahTujuanId) || empty($cabangDinasAsalId)) {
-        log_message('error', 'Data sekolah atau cabang dinas tidak ditemukan dalam POST request');
-        return redirect()->back()->with('error', 'Gagal menyimpan usulan. Pastikan semua data telah diisi.')->withInput();
-    }
-
-    // Ambil nama sekolah berdasarkan ID yang dipilih
-    $sekolahModel = new \App\Models\SekolahModel();
-    $sekolahAsal = $sekolahModel->find($sekolahAsalId);
-    $sekolahTujuan = $sekolahModel->find($sekolahTujuanId);
-
-    // Ambil kode cabang dinas asal untuk nomor usulan
-    $kodeCabang = $this->getKodeCabangDinas($cabangDinasAsalId); // Mendapatkan kode cabang (CD01)
+        // Ambil kode cabang dinas asal untuk nomor usulan
+        $kodeCabang = $this->getKodeCabangDinas($cabangDinasAsalId); // Mendapatkan kode cabang (CD01)
 
         // Tanggal pengajuan dalam format YYYYMMDD
         $tanggal = date('Ymd');
@@ -278,19 +254,19 @@ public function create()
         // Gabungkan menjadi nomor unik
         $nomorUsulan = "{$kodeCabang}{$tanggal}{$nomorUrut}";
 
-    // Simpan data usulan ke database
-    $this->usulanModel->save([
-        'guru_nama'         => $this->request->getPost('guru_nama'),
-        'guru_nik'          => $guruNik,
-        'guru_nip'          => $guruNip,
-        'sekolah_asal'    => $sekolahAsal ? $sekolahAsal['nama_sekolah'] : null, // Simpan nama sekolah, bukan ID
-        'sekolah_tujuan'  => $sekolahTujuan ? $sekolahTujuan['nama_sekolah'] : null, // Simpan nama sekolah
-        'alasan'            => $this->request->getPost('alasan'),
-        'google_drive_link' => $this->request->getPost('google_drive_link'),
-        'cabang_dinas_id' => $cabangDinasAsalId, // Simpan cabang dinas asal        
-        'nomor_usulan'      => $nomorUsulan,
-        'status'            => '01', // Status awal
-    ]);
+        // Simpan data usulan ke database
+        $this->usulanModel->save([
+            'guru_nama'         => $this->request->getPost('guru_nama'),
+            'guru_nik'          => $this->request->getPost('guru_nik'),
+            'guru_nip'          => $this->request->getPost('guru_nip'),
+            'sekolah_asal'    => $sekolahAsal ? $sekolahAsal['nama_sekolah'] : null, // Simpan nama sekolah, bukan ID
+            'sekolah_tujuan'  => $sekolahTujuan ? $sekolahTujuan['nama_sekolah'] : null, // Simpan nama sekolah
+            'alasan'            => $this->request->getPost('alasan'),
+            'google_drive_link' => $this->request->getPost('google_drive_link'),
+            'cabang_dinas_id' => $cabangDinasAsalId, // Simpan cabang dinas asal        
+            'nomor_usulan'      => $nomorUsulan,
+            'status'            => '01', // Status awal
+        ]);
 
         // Simpan riwayat status awal
         $this->addStatusHistory($nomorUsulan, '01', 'Input data usulan mutasi oleh Cabang Dinas'); // Status awal: Diajukan
@@ -303,7 +279,25 @@ public function create()
 
     }
 
-        public function destroy($id)
+    public function checkNipNik()
+    {
+        $nip = $this->request->getGet('nip');
+        $nik = $this->request->getGet('nik');
+    
+        $exists = $this->usulanModel
+            ->groupStart()
+                ->where('guru_nip', $nip)
+                ->orWhere('guru_nik', $nik)
+            ->groupEnd()
+            ->whereNotIn('status', ['08'])
+            ->countAllResults() > 0;
+    
+        return $this->response->setJSON(['exists' => $exists]);
+    }
+    
+
+
+    public function destroy($id)
     {
         $usulan = $this->usulanModel->find($id);
         

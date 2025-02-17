@@ -136,7 +136,7 @@ $routes->get('usulan/revisi/(:any)', 'UsulanController::revisi/$1');
 
 $routes->get('/api/get-cabang-dinas/(:num)', 'UsulanController::getCabangDinas/$1');
 $routes->get('/api/get-sekolah/(:num)', 'UsulanController::getSekolah/$1');
-
+$routes->get('/api/check-nip-nik', 'UsulanController::checkNipNik');
 
 $routes->get('/usulan/konfirmasi-cetak/(:segment)', 'UsulanController::konfirmasiCetak/$1');
 $routes->get('/usulan/generate-resi/(:any)', 'UsulanController::generateResi/$1');

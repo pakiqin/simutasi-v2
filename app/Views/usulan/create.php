@@ -134,7 +134,6 @@
 <script>
 function updateCabangDinas(kabupatenId, targetCabangInput, targetCabangHidden, targetSekolahSelect) {
     if (kabupatenId) {
-        // Ambil data Cabang Dinas berdasarkan Kabupaten
         fetch(`/api/get-cabang-dinas/${kabupatenId}`)
             .then(response => response.json())
             .then(data => {
@@ -148,7 +147,6 @@ function updateCabangDinas(kabupatenId, targetCabangInput, targetCabangHidden, t
             })
             .catch(error => console.error("Error Fetching Cabang Dinas:", error));
 
-        // Ambil daftar sekolah berdasarkan Kabupaten
         fetch(`/api/get-sekolah/${kabupatenId}`)
             .then(response => response.json())
             .then(data => {
@@ -161,22 +159,7 @@ function updateCabangDinas(kabupatenId, targetCabangInput, targetCabangHidden, t
             .catch(error => console.error("Error Fetching Sekolah:", error));
     }
 }
-function updateSekolahAsal(kabupatenId) {
-    if (kabupatenId) {
-        fetch(`/api/get-sekolah/${kabupatenId}`)
-            .then(response => response.json())
-            .then(data => {
-                let sekolahSelect = document.getElementById("sekolahAsal");
-                sekolahSelect.innerHTML = '<option value="">-- Pilih Sekolah --</option>';
-                data.forEach(sekolah => {
-                    sekolahSelect.innerHTML += `<option value="${sekolah.id}">${sekolah.nama_sekolah}</option>`;
-                });
-            })
-            .catch(error => console.error("Error Fetching Sekolah:", error));
-    }
-}
 
-// Pastikan ID elemen yang dipilih benar
 document.getElementById("kabupatenAsal").addEventListener("change", function () {
     updateCabangDinas(this.value, "cabangDinasAsal", "cabangDinasAsalId", "sekolahAsal");
 });
@@ -185,124 +168,125 @@ document.getElementById("kabupatenTujuan").addEventListener("change", function (
     updateCabangDinas(this.value, "cabangDinasTujuan", "cabangDinasTujuanId", "sekolahTujuan");
 });
 
-// Validasi NIK hanya boleh angka & max 16 digit
+// Validasi NIK hanya angka & max 16 digit
 document.getElementById("guruNik").addEventListener("input", function () {
     this.value = this.value.replace(/\D/g, '').substring(0, 16);
 });
 
+// ✅ Validasi NIP/NIK dengan AJAX sebelum submit
+function checkNipNikAvailability(callback = null) {
+    let nip = document.getElementById("guruNip").value.trim();
+    let nik = document.getElementById("guruNik").value.trim();
+    let submitBtn = document.querySelector("button[type='submit']");
 
-    document.addEventListener("DOMContentLoaded", function () {
-        document.querySelector("form").addEventListener("submit", function (event) {
-            let nikInput = document.getElementById("guru_nik");
-            let nipInput = document.getElementById("guru_nip");
-            let namaInput = document.querySelector("input[name='guru_nama']");
-            let kabupatenAsal = document.getElementById("kabupaten_asal");
-            let sekolahAsal = document.getElementById("sekolah_asal");
-            let kabupatenTujuan = document.getElementById("kabupaten_tujuan");
-            let sekolahTujuan = document.getElementById("sekolah_tujuan");
-            let alasan = document.querySelector("textarea[name='alasan']");
-            let googleDriveLink = document.querySelector("input[name='google_drive_link']");
-
-            // Regex format valid untuk tautan Google Drive
-            let googleDrivePattern = /^(https?:\/\/)?(www\.)?(drive\.google\.com\/(file\/d\/|open\?id=)|docs\.google\.com\/document\/d\/).+/;
-
-            // Validasi NIK (harus 16 digit angka)
-            if (!/^\d{16}$/.test(nikInput.value.trim())) {
-                Swal.fire({
-                    title: 'Gagal!',
-                    text: 'NIK harus terdiri dari 16 digit angka.',
-                    icon: 'error',
-                    confirmButtonText: 'OK'
-                });
-                event.preventDefault(); // Mencegah form terkirim
-                return;
-            }
-
-            // Validasi semua inputan harus terisi
-            if (
-                !namaInput.value.trim() || 
-                !nipInput.value.trim() || 
-                !nikInput.value.trim() || 
-                !kabupatenAsal.value.trim() || 
-                !sekolahAsal.value.trim() || 
-                !kabupatenTujuan.value.trim() || 
-                !sekolahTujuan.value.trim() || 
-                !alasan.value.trim() ||
-                !googleDriveLink.value.trim() // Validasi tautan berkas wajib diisi
-            ) {
-                Swal.fire({
-                    title: 'Gagal!',
-                    text: 'Harap isi semua kolom sebelum menyimpan.',
-                    icon: 'error',
-                    confirmButtonText: 'OK'
-                });
-                event.preventDefault();
-                return;
-            }
-
-            // Validasi format tautan Google Drive
-            if (!googleDrivePattern.test(googleDriveLink.value.trim())) {
-                Swal.fire({
-                    title: 'Gagal!',
-                    text: 'Masukkan tautan Google Drive yang valid. Contoh: https://drive.google.com/file/d/EXAMPLE_ID/view',
-                    icon: 'error',
-                    confirmButtonText: 'OK'
-                });
-                event.preventDefault();
-                return;
-            }
-        });
-    });
-
-        //SweetAlert
-    document.addEventListener("DOMContentLoaded", function () {
-        <?php if (session()->getFlashdata('success')): ?>
-            Swal.fire({
-                title: 'Berhasil!',
-                text: '<?= session()->getFlashdata('success'); ?>',
-                icon: 'success',
-                confirmButtonText: 'OK'
-            });
-        <?php endif; ?>
-        <?php if (session()->getFlashdata('error')): ?>
-            Swal.fire({
-                title: 'Gagal!',
-                text: '<?= session()->getFlashdata('error'); ?>',
-                icon: 'error',
-                confirmButtonText: 'OK'
-            });
-        <?php endif; ?>
-    });
-
-    function previewLink() {
-        let link = document.getElementById('googleDriveLink').value.trim();
-
-        // Validasi apakah tautan berisi teks
-        if (!link) {
-            Swal.fire({
-                title: 'Peringatan!',
-                text: 'Tautan Google Drive belum diisi.',
-                icon: 'warning',
-                confirmButtonText: 'OK'
-            });
-            return;
-        }
-
-        // Validasi apakah tautan mengandung format Google Drive
-        let googleDrivePattern = /^(https?:\/\/)?(www\.)?(drive\.google\.com\/|docs\.google\.com\/)/;
-        if (!googleDrivePattern.test(link)) {
-            Swal.fire({
-                title: 'Peringatan!',
-                text: 'Masukkan tautan Google Drive yang valid!',
-                icon: 'warning',
-                confirmButtonText: 'OK'
-            });
-            return;
-        }
-
-        // Jika valid, buka tautan di tab baru
-        window.open(link, '_blank');
+    if (nip.length < 18 || nik.length < 16) {
+        return;
     }
 
+    fetch(`/api/check-nip-nik?nip=${nip}&nik=${nik}`)
+        .then(response => response.json())
+        .then(data => {
+            if (data.exists) {
+                Swal.fire({
+                    title: 'Gagal!',
+                    text: 'Guru dengan NIP atau NIK ini masih dalam proses usulan dan belum selesai.',
+                    icon: 'error',
+                    confirmButtonText: 'OK'
+                });
+                submitBtn.disabled = true;
+            } else {
+                submitBtn.disabled = false;
+                if (callback) callback(); // Eksekusi callback jika ada (untuk validasi submit)
+            }
+        })
+        .catch(error => console.error("Error checking NIP/NIK:", error));
+}
+
+document.getElementById("guruNip").addEventListener("input", checkNipNikAvailability);
+document.getElementById("guruNik").addEventListener("input", checkNipNikAvailability);
+
+// Validasi Tautan Google Drive sebelum submit
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelector("form").addEventListener("submit", function (event) {
+        event.preventDefault(); // Cegah submit sementara
+
+        checkNipNikAvailability(() => {
+            let googleDriveLink = document.querySelector("input[name='google_drive_link']").value.trim();
+
+            // 🔍 Update regex agar mendukung tautan folder Google Drive
+            let googleDrivePattern = /^(https?:\/\/)?(www\.)?(drive\.google\.com\/(file\/d\/|open\?id=|drive\/folders\/)).+/;
+
+            if (!googleDrivePattern.test(googleDriveLink)) {
+                Swal.fire({
+                    title: 'Gagal!',
+                    html: `<div style="text-align:left;">
+                            <p>Masukkan tautan Google Drive yang valid.</p>
+                            <b>Contoh format yang diterima:</b>
+                            <ul style="text-align:left; padding-left:15px;">
+                                <li>📂 <b>File:</b> <code>https://drive.google.com/file/d/EXAMPLE_ID/view</code></li>
+                                <li>📁 <b>Folder:</b> <code>https://drive.google.com/drive/folders/EXAMPLE_ID</code></li>
+                            </ul>
+                          </div>`,
+                    icon: 'error',
+                    confirmButtonText: 'OK'
+                });
+                return;
+            }
+
+            event.target.submit(); // Jika semua validasi lolos, lanjut submit
+        });
+    });
+});
+
+
+
+// SweetAlert Notifikasi
+document.addEventListener("DOMContentLoaded", function () {
+    <?php if (session()->getFlashdata('success')): ?>
+        Swal.fire({
+            title: 'Berhasil!',
+            text: '<?= session()->getFlashdata('success'); ?>',
+            icon: 'success',
+            confirmButtonText: 'OK'
+        });
+    <?php endif; ?>
+    <?php if (session()->getFlashdata('error')): ?>
+        Swal.fire({
+            title: 'Gagal!',
+            text: '<?= session()->getFlashdata('error'); ?>',
+            icon: 'error',
+            confirmButtonText: 'OK'
+        });
+    <?php endif; ?>
+});
+
+// Fungsi Preview Link Google Drive
+function previewLink() {
+    let link = document.getElementById('googleDriveLink').value.trim();
+    let googleDrivePattern = /^(https?:\/\/)?(www\.)?(drive\.google\.com\/|docs\.google\.com\/)/;
+
+    if (!link) {
+        Swal.fire({
+            title: 'Peringatan!',
+            text: 'Tautan Google Drive belum diisi.',
+            icon: 'warning',
+            confirmButtonText: 'OK'
+        });
+        return;
+    }
+
+    if (!googleDrivePattern.test(link)) {
+        Swal.fire({
+            title: 'Peringatan!',
+            text: 'Masukkan tautan Google Drive yang valid!',
+            icon: 'warning',
+            confirmButtonText: 'OK'
+        });
+        return;
+    }
+
+    window.open(link, '_blank');
+}
 </script>
+
 <?= $this->endSection(); ?>

@@ -123,6 +123,10 @@
             <td id="detailNIP"></td>
         </tr>
         <tr>
+            <th>NIK</th>
+            <td id="detailNIK"></td>
+        </tr>        
+        <tr>
             <th>Sekolah Asal</th>
             <td id="detailSekolahAsal"></td>
         </tr>
@@ -168,6 +172,7 @@
         function showDetail(row) {
         document.getElementById('detailNamaGuru').textContent = row.guru_nama;
         document.getElementById('detailNIP').textContent = row.guru_nip;
+        document.getElementById('detailNIK').textContent = row.guru_nik;        
         document.getElementById('detailSekolahAsal').textContent = row.sekolah_asal;
         document.getElementById('detailSekolahTujuan').textContent = row.sekolah_tujuan;
         document.getElementById('detailNomorUsulan').textContent = row.nomor_usulan;
