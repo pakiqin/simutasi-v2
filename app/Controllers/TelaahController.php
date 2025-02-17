@@ -14,51 +14,6 @@ class TelaahController extends BaseController
         $this->db = \Config\Database::connect();
 
     }
-/*
-    public function index()
-    {
-        $perPage = $this->request->getGet('perPage') ?? 50; // Baca jumlah data per halaman dari GET parameter
-
-        // Data untuk tabel kiri (Menunggu Telaah)
-        $usulanMenunggu = $this->telaahBerkasModel
-            ->select('pengiriman_usulan.nomor_usulan, usulan.guru_nama, usulan.guru_nip, usulan.guru_nik, 
-                      usulan.sekolah_asal, usulan.sekolah_tujuan, usulan.alasan, usulan.google_drive_link, usulan.created_at, 
-                      cabang_dinas.nama_cabang, pengiriman_usulan.dokumen_rekomendasi, pengiriman_usulan.operator, 
-                      pengiriman_usulan.no_hp, pengiriman_usulan.status_usulan_cabdin, pengiriman_usulan.created_at AS tanggal_dikirim, pengiriman_usulan.updated_at AS tanggal_update, pengiriman_usulan.catatan')
-            ->join('usulan', 'pengiriman_usulan.nomor_usulan = usulan.nomor_usulan', 'inner') // Relasi ke tabel 'usulan'
-            ->join('cabang_dinas', 'usulan.cabang_dinas_id = cabang_dinas.id', 'left') // Relasi ke tabel 'cabang_dinas'
-            ->where('pengiriman_usulan.status_usulan_cabdin', 'Lengkap') // Status "Lengkap"
-            ->where('pengiriman_usulan.status_telaah', null) // Status NULL
-            ->paginate($perPage, 'usulanMenunggu');
-
-        $pagerMenunggu = $this->telaahBerkasModel->pager;
-
-        // Data untuk tabel kanan (Sudah Ditelaah)
-        $usulanDitelaah = $this->telaahBerkasModel
-            ->select('pengiriman_usulan.nomor_usulan, usulan.guru_nama, usulan.guru_nip, usulan.guru_nik, 
-                      usulan.sekolah_asal, usulan.sekolah_tujuan, usulan.alasan, usulan.google_drive_link, usulan.created_at, 
-                      cabang_dinas.nama_cabang, pengiriman_usulan.status_telaah, pengiriman_usulan.updated_at_telaah, 
-                      pengiriman_usulan.dokumen_rekomendasi, pengiriman_usulan.operator, 
-                      pengiriman_usulan.no_hp, pengiriman_usulan.status_usulan_cabdin, pengiriman_usulan.created_at AS tanggal_dikirim, pengiriman_usulan.updated_at AS tanggal_update, pengiriman_usulan.catatan')
-            ->join('usulan', 'pengiriman_usulan.nomor_usulan = usulan.nomor_usulan', 'inner') // Relasi ke tabel 'usulan'
-            ->join('cabang_dinas', 'usulan.cabang_dinas_id = cabang_dinas.id', 'left') // Relasi ke tabel 'cabang_dinas'
-            ->whereIn('pengiriman_usulan.status_telaah', ['Disetujui', 'Ditolak']) // Filter status telaah
-            ->paginate($perPage, 'usulanDitelaah');
-
-        $pagerDitelaah = $this->telaahBerkasModel->pager;
-
-        // Data untuk view
-        $data = [
-            'usulanMenunggu' => $usulanMenunggu,
-            'pagerMenunggu' => $pagerMenunggu,
-            'usulanDitelaah' => $usulanDitelaah,
-            'pagerDitelaah' => $pagerDitelaah,
-            'perPage' => $perPage, // Kirim nilai perPage ke view
-        ];
-
-        return view('telaah/index', $data);
-    }
-*/
 
     public function index()
     {
@@ -119,7 +74,7 @@ class TelaahController extends BaseController
                       pengiriman_usulan.status_telaah, pengiriman_usulan.updated_at_telaah, 
                       pengiriman_usulan.dokumen_rekomendasi, pengiriman_usulan.operator, 
                       pengiriman_usulan.no_hp, pengiriman_usulan.status_usulan_cabdin, pengiriman_usulan.created_at AS tanggal_dikirim, 
-                      pengiriman_usulan.updated_at AS tanggal_update, pengiriman_usulan.catatan')
+                      pengiriman_usulan.updated_at AS tanggal_update, pengiriman_usulan.catatan_telaah')
             ->join('usulan', 'pengiriman_usulan.nomor_usulan = usulan.nomor_usulan', 'inner') 
             ->join('cabang_dinas', 'usulan.cabang_dinas_id = cabang_dinas.id', 'left')
             ->where('pengiriman_usulan.status_telaah !=', NULL)

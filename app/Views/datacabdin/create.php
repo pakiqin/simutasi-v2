@@ -54,8 +54,8 @@
         </div>
 
         <div class="d-flex justify-content-between mt-4">
-            <a href="/cabang-dinas" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Kembali</a>
-            <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Simpan</button>
+            <a href="/cabang-dinas" class="btn btn-secondary btn-sm-custom"><i class="fas fa-arrow-left"></i> Kembali</a>
+            <button type="submit" class="btn btn-primary btn-sm-custom"><i class="fas fa-save"></i> Simpan</button>
         </div>
     </form>
 </div>

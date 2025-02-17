@@ -82,13 +82,13 @@
                         <input type="text" name="google_drive_link" id="google_drive_link" class="form-control" value="<?= $usulan['google_drive_link'] ?>" placeholder="Masukkan Tautan Google Drive">
                     </div>
                     <!-- Tombol Preview -->
-                    <button type="button" class="btn btn-info mt-2" onclick="previewLink()"> <i class="fas fa-eye"></i> Preview</button>
+                    <button type="button" class="btn btn-info mt-2 btn-sm-custom" onclick="previewLink()"> <i class="fas fa-eye"></i> Lihat</button>
                 </div>
             </div>
         </div>
         <div class="d-flex justify-content-between mt-4">
-            <a href="/usulan" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Kembali</a>
-            <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Simpan Revisi</button>
+            <a href="/usulan" class="btn btn-secondary btn-sm-custom"><i class="fas fa-arrow-left"></i> Kembali</a>
+            <button type="submit" class="btn btn-success btn-sm-custom"><i class="fas fa-save"></i> Simpan Revisi</button>
         </div>
     </form>
 </div>

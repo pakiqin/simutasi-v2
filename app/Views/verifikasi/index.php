@@ -1,186 +1,20 @@
 <?= $this->extend('layouts/main_layout'); ?>
 <?= $this->section('content'); ?>
 
-<style>
-    .table-container {
-        overflow-x: auto; /* Aktifkan scroll horizontal */
-    }
-
-    table {
-        font-size: 0.75rem;
-        border-collapse: collapse;
-        width: 100%; /* Tabel akan memenuhi container */
-    }
-
-    table th, table td {
-        padding: 10px 15px;
-        white-space: nowrap;
-        text-align: left;
-        border: 1px solid #dee2e6; /* Border antar sel */
-    }
-
-    table th {
-        background-color: #4e73df; /* Warna biru sesuai dengan tombol Kirim */
-        color: white; /* Teks putih */
-        font-weight: bold; /* Cetak tebal */
-    }
-
-    table tbody tr:hover {
-        background-color: #eaf1fd; /* Warna latar biru lembut saat baris dihover */
-    }
-
-    .table-row {
-        transition: background-color 0.2s; /* Efek transisi untuk hover */
-    }
-
-    .filter-section {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 10px;
-    }
-
-    .filter-input {
-        max-width: 250px; /* Batasi lebar input filter */
-    }
-
-    .pagination-container {
-        display: flex;
-        justify-content: flex-end; /* Posisi ke kanan */
-        margin-top: 5px; /* Jarak antara tabel dan pagination */
-    }
-
-    .detail-container {
-        margin-top: 5px;
-        display: none;
-    }
-
-    .detail-table {
-        width: 100%;
-    }
-
-    .detail-table th {
-        background-color: #4e73df;
-    }
-
-    .detail-table td {
-        background-color: #f8f9fc;
-    }
-
-    .swal-title {
-    font-family: 'Arial', sans-serif;
-    font-size: 1.5rem;
-    color: #333;
-    margin-bottom: 10px;
-    }
-
-    .swal-button-confirm {
-        background-color: #4e73df !important;
-        color: #fff !important;
-        font-weight: bold !important;
-    }
-
-    .swal-button-cancel {
-        background-color: #d1d1d1 !important;
-        color: #333 !important;
-    }
-
-    .swal2-popup {
-        border-radius: 10px !important;
-        padding: 20px !important;
-    }
-
-    #detailData {
-        background-color: #f8f9fc;
-        border: 1px solid #dee2e6;
-        padding: 20px;
-        border-radius: 8px;
-        margin-top: 10px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
-
-        #detailDataDiverifikasi {
-        background-color: #f8f9fc;
-        border: 1px solid #dee2e6;
-        padding: 20px;
-        border-radius: 8px;
-        margin-top: 10px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
-
-    #detailDataDiverifikasi .status-container {
-        margin-top: 5px; /* Jarak atas */
-        padding: 10px; /* Ruang dalam elemen */
-        border-left: 5px solid #dc3545 !important; /* Border kiri lebih tebal */
-        border-top-left-radius: 10px; /* Membulatkan sudut kiri atas */
-        border-bottom-left-radius: 10px; /* Membulatkan sudut kiri bawah */
-        background-color: #f8d7da; /* Latar merah lembut */
-        font-size: 1rem; /* Ukuran font */
-        color: #721c24; /* Warna teks merah */
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Bayangan */
-        overflow: hidden; /* Untuk memastikan sudut membulat terlihat sempurna */
-    }
-
-    #detailDataDiverifikasi .status-container.success {
-        border-left: 5px solid #3fd54a !important; /* Hijau untuk status Lengkap */
-        background-color: #e9f7ea; /* Latar hijau lembut */
-        color: #155724; /* Warna teks hijau */
-    }
-
-    #detailDataDiverifikasi .status-container.danger {
-        border-left: 5px solid #dc3545 !important; /* Border kiri lebih tebal untuk status TdkLengkap */
-        background-color: #f8d7da; /* Latar merah lembut */
-        color: #721c24; /* Warna teks merah */
-    }
-
-    #statusContainerDiverifikasi .status-note {
-        font-weight: bold;
-        text-align: center;
-        font-size: 1.25rem; /* Ukuran teks lebih besar */
-    }
-    .badge {
-        display: inline-block;
-        padding: 0.25em 0.4em;
-        font-size: 75%;
-        font-weight: 700;
-        line-height: 1;
-        text-align: center;
-        white-space: nowrap;
-        vertical-align: baseline;
-        border-radius: 0.25rem;
-    }
-
-    .badge-success {
-        color: #fff;
-        background-color: #28a745;
-    }
-
-    .badge-danger {
-        color: #fff;
-        background-color: #dc3545;
-    }
-    .bg-warning-custom {
-    background-color: #f6c23e !important;
-    color: #291e03 !important;
-    font-weight: bold; 
-}
-
-</style>
 
 <h1 class="h3 mb-4 text-gray-800"><i class="fas fa-file-alt"></i> Verifikasi Dokumen</h1>
 
 <div class="row">
     <!-- Tabel 03: Usulan Menunggu Verifikasi -->
     <div class="col-md-6">
-        <div class="filter-section">
-            <h5><i>03.1. Menunggu Verifikasi</i></h5>
-            <input type="text" id="filterMenunggu" class="form-control filter-input" placeholder="Filter Nama Guru" onkeyup="filterTable('tableMenunggu', this.value)">
-        </div>
-        <div class="table-container">
-            <table id="tableMenunggu" class="table table-striped">
+    <div class="filter-section">
+        <label class="text-primary"><i class="fas fa-info-circle"></i> 03.1: Menunggu Verifikasi</label>
+        <input type="text" id="filterMenunggu" class="form-control filter-input" placeholder="Filter Nama Guru" onkeyup="filterTable('tableMenunggu', this.value)">
+    </div>
+        <div class="table-responsive">
+            <table id="tableMenunggu" class="table table-sm table-striped">
                 <thead>
                     <tr>
-                        <th>Kode Cabang</th>
                         <th>Nama Guru</th>
                         <th>NIP</th>
                         <th>Sekolah Asal</th>
@@ -191,8 +25,6 @@
                     <?php if (!empty($usulanMenunggu)): ?>
                         <?php foreach ($usulanMenunggu as $usulan): ?>
                             <tr>
-                                <td>
-                                    <?= $usulan['nomor_usulan']; ?></td>
                                 <td><?= $usulan['guru_nama']; ?></td>
                                 <td><?= $usulan['guru_nip']; ?></td>
                                 <td><?= $usulan['sekolah_asal']; ?></td>
@@ -211,19 +43,15 @@
                 </tbody>
             </table>
         </div>
-        <div class="pagination-container">
-            <?= $pagerMenunggu->links('usulanMenunggu', 'custom_pagination'); ?>
-        </div>
-
+        <?php if (!empty($pagerMenunggu)) : ?>
+            <div class="pagination-container">
+                <?= $pagerMenunggu->links('page_status03', 'default_full'); ?>
+            </div>
+        <?php endif; ?>
         <!-- Detail Usulan -->
-        <div id="detailData" class="detail-container"  style="overflow-x: auto;">
-            <h5><i class="fas fa-info-circle"></i> 03.1 Detail</h5>
-            <table class="table table-bordered detail-table">
-                <thead>
-                    <tr>
-                        <th colspan="2" class="text-center"><i class="fas fa-info-circle"></i> Informasi Usulan Guru</th>
-                    </tr>
-                </thead>
+        <div id="detailData" class="mt-4 detail-container"  style="display: none;">
+            <label class="text-primary"><i class="fas fa-info-circle"></i> 03.1 Detail Usulan</label>
+            <table class="table-responsive table-bordered detail-table">
                 <tbody>
                     <tr>
                         <th>Nomor Usulan</th>
@@ -256,8 +84,8 @@
                     <tr>
                         <th>Berkas Usulan</th>
                         <td>
-                            <a id="berkasUsulanLink" href="#" target="_blank" class="btn btn-info btn-sm">
-                                <i class="fas fa-file-pdf"></i> View PDF
+                            <a id="berkasUsulanLink" href="#" target="_blank" class="btn btn-info  btn-sm">
+                                <i class="fas fa-file-pdf"></i> Lihat
                             </a>
                         </td>
                     </tr>
@@ -266,17 +94,19 @@
                         <td id="detailTanggalInput"></td>
                     </tr>
                     <tr>
-                        <th colspan="2" class="text-center"><i class="fas fa-info-circle"></i> Rekomendasi Cabang Dinas</th>
+                        <th colspan="2" class="text-left text-primary custom-bg"><i class="fas fa-info-circle"></i> 
+                            Rekomendasi Cabang Dinas
+                        </th>
                     </tr>
                     <tr>
                         <th>Nama Cabang Dinas</th>
                         <td id="detailNamaCabang"></td>
                     </tr>
                     <tr>
-                        <th>Dokumen Rekomendasi</th>
+                        <th>Dokumen Rekom</th>
                         <td>
-                            <a id="dokumenRekomendasiLink" href="#" target="_blank" class="btn btn-info btn-sm">
-                                <i class="fas fa-file-pdf"></i> View PDF
+                            <a id="dokumenRekomendasiLink" href="#" target="_blank" class="btn btn-info  btn-sm">
+                                <i class="fas fa-file-pdf"></i> Lihat
                             </a>
                         </td>
                     </tr>
@@ -302,10 +132,10 @@
                     <tr>
                         <td colspan="2" class="text-center">
                             <p class="mb-2 bg-warning-custom text-white p-2 text-center"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Pastikan anda untuk melakukan verifikasi kelengkapan<br \>dokumen usulan mutasi guru beserta rekomendasi Cabang Dinas pengusul<br \>sebelum klik tombol dibawah ini.</p>
-                            <button class="btn btn-danger me-2" onclick="verifikasi('TdkLengkap')">
+                            <button class="btn btn-sm-custom btn-danger me-2" onclick="verifikasi('TdkLengkap')">
                                 <i class="fas fa-times"></i> TdkLengkap
                             </button>
-                            <button class="btn btn-success" onclick="verifikasi('Lengkap')">
+                            <button class="btn btn-sm-custom btn-success" onclick="verifikasi('Lengkap')">
                                 <i class="fas fa-check"></i> Lengkap
                             </button>
                         </td>
@@ -313,7 +143,7 @@
                     <?php endif; ?>
                 </tbody>
             </table>
-            <button class="btn btn-secondary mt-2" onclick="hideDetail()">
+            <button class="btn btn-secondary btn-sm-custom" onclick="hideDetail()">
                 <i class="fas fa-window-close"></i>
             </button>
         </div>
@@ -324,18 +154,16 @@
     <!-- Tabel 04: Usulan Diverifikasi -->
     <div class="col-md-6">
         <div class="filter-section">
-            <h5><i>03.2. Usulan Diverifikasi</i></h5>
+            <label class="text-primary"><i class="fas fa-info-circle"></i> 03.2: Usulan Diverifikasi</label>
             <input type="text" id="filterDiverifikasi" class="form-control filter-input" placeholder="Filter Nama Guru" onkeyup="filterTable('tableDiverifikasi', this.value)">
         </div>
-        <div class="table-container">
-            <table id="tableDiverifikasi" class="table table-striped">
+        <div class="table-responsive">
+            <table id="tableDiverifikasi" class="table table-sm table-striped">
                 <thead>
                     <tr>
-                        <th>Nomor Usulan</th>
                         <th>Nama Guru</th>
-                        <th>NIP</th>
                         <th>Sekolah Asal</th>
-                        <th>Tanggal Verifikasi</th>
+                        <th>Tanggal</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -343,15 +171,13 @@
                     <?php if (!empty($usulanDiverifikasi)): ?>
                         <?php foreach ($usulanDiverifikasi as $usulan): ?>
                             <tr>
-                                <td><?= $usulan['nomor_usulan']; ?>
+                                <td><?= $usulan['guru_nama']; ?></td>
+                                <td><?= $usulan['sekolah_asal']; ?></td>
+                                <td align="center"><?= date('d-m-Y', strtotime($usulan['updated_at'])); ?><br />
                                     <span class="badge <?= $usulan['status_usulan_cabdin'] === 'Lengkap' ? 'badge-success' : 'badge-danger'; ?>">
                                         <?= $usulan['status_usulan_cabdin']; ?>
                                     </span>
                                 </td>
-                                <td><?= $usulan['guru_nama']; ?></td>
-                                <td><?= $usulan['guru_nip']; ?></td>
-                                <td><?= $usulan['sekolah_asal']; ?></td>
-                                <td><?= date('d-m-Y', strtotime($usulan['updated_at'])); ?></td>
                                 <td>
                                     <button class="btn btn-info btn-sm" onclick="showDetailDiverifikasi(<?= htmlspecialchars(json_encode($usulan)) ?>)">
                                         <i class="fas fa-eye"></i>
@@ -367,17 +193,14 @@
                 </tbody>
             </table>
         </div>
-        <div class="pagination-container">
-            <?= $pagerDiverifikasi->links('usulanDiverifikasi', 'custom_pagination'); ?>
-        </div>
-        <div id="detailDataDiverifikasi" class="detail-container" style="overflow-x: auto;" >
-        <h5><i class="fas fa-info-circle"></i> 03.2 Detail</h5>
-        <table class="table table-bordered detail-table">
-            <thead>
-                <tr>
-                    <th colspan="2" class="text-center"><i class="fas fa-info-circle"></i> Informasi Usulan Guru</th>
-                </tr>
-            </thead>
+        <?php if (!empty($pagerDiverifikasi)) : ?>
+            <div class="pagination-container">
+                <?= $pagerDiverifikasi->links('page_status04', 'default_full'); ?>
+            </div>
+        <?php endif; ?>
+        <div id="detailDataDiverifikasi" class="detail-container" style="display: none;" >
+        <label class="text-primary"><i class="fas fa-info-circle"></i> 03.2 Detail Usulan</label>
+        <table class="table-responsive table-bordered detail-table">
             <tbody>
                 <tr>
                     <th>Nomor Usulan</th>
@@ -411,7 +234,7 @@
                     <th>Berkas Usulan</th>
                     <td>
                         <a id="berkasUsulanLinkDiverifikasi" href="#" target="_blank" class="btn btn-info btn-sm">
-                            <i class="fas fa-file-pdf"></i> View
+                            <i class="fas fa-file-pdf"></i> Lihat
                         </a>
                     </td>
                 </tr>
@@ -420,7 +243,7 @@
                     <td id="detailTanggalInputDiverifikasi"></td>
                 </tr>
                 <tr>
-                    <th colspan="2" class="text-center"><i class="fas fa-info-circle"></i> Rekomendasi Cabang Dinas</th>
+                    <th colspan="2" class="text-left text-primary custom-bg"><i class="fas fa-info-circle"></i> Rekomendasi Cabang Dinas</th>
                 </tr>
                 <tr>
                     <th>Nama Cabang Dinas</th>
@@ -430,7 +253,7 @@
                     <th>Dokumen Rekomendasi</th>
                     <td>
                         <a id="dokumenRekomendasiLinkDiverifikasi" href="#" target="_blank" class="btn btn-info btn-sm">
-                            <i class="fas fa-file-pdf"></i> View
+                            <i class="fas fa-file-pdf"></i> Lihat
                         </a>
                     </td>
                 </tr>
@@ -453,12 +276,11 @@
             </tbody>
         </table>
 
-        <div class="mt-3 p-3 border rounded status-container" id="statusContainerDiverifikasi">
-            <h6 class="status-title">Status Verifikasi:</h6>
-            <p id="statusVerifikasiDiverifikasi" class="fw-bold text-center status-note" style="font-size: 1.25rem;"></p>
+        <div class="status-container mt-4 p-3 border rounded" id="statusContainerDiverifikasi">
+            <label id="statusVerifikasiDiverifikasi" class="fw-bold text-center status-note"></label>
         </div>
 
-        <button class="btn btn-secondary mt-2" onclick="hideDetailDiverifikasi()">
+        <button class="btn btn-sm-custom btn-secondary mt-2" onclick="hideDetailDiverifikasi()">
             <i class="fas fa-window-close"></i>
         </button>
     </div>
@@ -561,7 +383,10 @@
                 }
             },
             customClass: {
-                title: 'swal-title',
+                popup: 'swal2-popup',
+                title: 'swal2-title',
+                htmlContainer: 'swal2-html-container',
+                input: 'swal2-textarea',
                 confirmButton: 'swal-button-confirm',
                 cancelButton: 'swal-button-cancel',
             },

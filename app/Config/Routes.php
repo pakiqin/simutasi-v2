@@ -92,38 +92,32 @@ $routes->group('kabupaten', ['filter' => 'auth'], function ($routes) {
     $routes->get('delete/(:num)', 'datakabupaten\KabupatenController::delete/$1');
 });
 
+$routes->group('sekolah', function ($routes) {
+    $routes->get('/', 'SekolahController::index');
+    $routes->get('create', 'SekolahController::create');
+    $routes->post('store', 'SekolahController::store');
+    $routes->get('edit/(:num)', 'SekolahController::edit/$1');
+    $routes->post('update/(:num)', 'SekolahController::update/$1');
+    $routes->get('delete/(:num)', 'SekolahController::delete/$1');
+
+    // Fitur Import Data
+    $routes->get('import', 'SekolahController::importView'); // Tampilan Import
+    $routes->post('previewExcel', 'SekolahController::previewExcel'); // Proses Preview Data
+    $routes->post('saveImportedData', 'SekolahController::saveImportedData'); // Simpan Data Setelah Preview
+
+    // Fitur Ekspor Data
+    $routes->get('export', 'SekolahController::exportExcel'); // Proses Ekspor
+    $routes->get('download-template', 'SekolahController::downloadTemplate'); // Download Template
+});
+
+
+
 
 $routes->get('/user/changePassword', 'UserController::changePassword');
 $routes->post('/user/updatePassword', 'UserController::updatePassword');
 $routes->get('/user/profile', 'UserController::profile');
 $routes->post('/user/updateProfile', 'UserController::updateProfile');
 
-
-
-/* 
-
-
-
-
-
-
-
-
-// Routes untuk User Management
-$routes->group('users', ['filter' => 'auth'], function ($routes) {
-    $routes->get('/', 'UserController::index');
-    $routes->get('create', 'UserController::create');
-    $routes->post('store', 'UserController::store');
-    $routes->get('edit/(:num)', 'UserController::edit/$1');
-    $routes->post('update/(:num)', 'UserController::update/$1');
-    $routes->get('delete/(:num)', 'UserController::delete/$1');
-
-    $routes->get('admin', 'UserController::admin');
-    $routes->get('kabid', 'UserController::kabid');
-    $routes->get('dinas', 'UserController::dinas');
-    $routes->get('operator', 'UserController::operator');
-});
-*/
 // Routes untuk usulan
 $routes->group('usulan', ['filter' => 'auth'], function ($routes) {
     $routes->get('/', 'UsulanController::index');
@@ -140,12 +134,13 @@ $routes->group('usulan', ['filter' => 'auth'], function ($routes) {
 $routes->post('revisi_usulan/deleteByNomorUsulan', 'RevisiUsulanController::deleteByNomorUsulan');
 $routes->get('usulan/revisi/(:any)', 'UsulanController::revisi/$1');
 
+$routes->get('/api/get-cabang-dinas/(:num)', 'UsulanController::getCabangDinas/$1');
+$routes->get('/api/get-sekolah/(:num)', 'UsulanController::getSekolah/$1');
 
 
-
-
-$routes->get('/usulan/konfirmasi-cetak', 'UsulanController::konfirmasiCetak');
+$routes->get('/usulan/konfirmasi-cetak/(:segment)', 'UsulanController::konfirmasiCetak/$1');
 $routes->get('/usulan/generate-resi/(:any)', 'UsulanController::generateResi/$1');
+
 //$routes->get('/usulan/generate-resi/(:segment)', 'UsulanController::generateResi/$1');
 
 $routes->get('/pengiriman', 'PengirimanController::index');
@@ -163,7 +158,7 @@ $routes->group('telaah', ['filter' => 'auth'], function ($routes) {
     $routes->get('/', 'TelaahController::index');
     $routes->post('update', 'TelaahController::update');
 });
-
+/*
 $routes->group('rekomkadis', ['filter' => 'auth'], function ($routes) {
     $routes->get('/', 'RekomkadisController::index');
     $routes->post('store', 'RekomkadisController::store');
@@ -174,6 +169,20 @@ $routes->group('rekomkadis', ['filter' => 'auth'], function ($routes) {
 });
 // Rute khusus untuk proses penyematan rekomendasi
 $routes->post('sematkan/proses', 'SematkanController::proses');
+*/
+
+$routes->group('rekomkadis', ['filter' => 'auth'], function ($routes) {
+    $routes->get('/', 'RekomkadisController::index');
+    $routes->post('store', 'RekomkadisController::store');
+    $routes->get('edit/(:num)', 'RekomkadisController::edit/$1');    
+    $routes->get('delete/(:num)', 'RekomkadisController::delete/$1');
+    $routes->post('updaterekomkadis/(:num)', 'RekomkadisController::updaterekomkadis/$1');
+
+    // 🔹 **Perubahan Rute Sematkan**
+    $routes->post('sematkan', 'RekomkadisController::sematkan'); // **Menangani penyematan langsung**
+    $routes->post('batalrekomdis', 'RekomkadisController::batalrekomdis');
+});
+
 
 $routes->get('file/rekomkadis/(:segment)', 'FileController::viewRekomkadis/$1');
 
@@ -190,10 +199,6 @@ $routes->group('skmutasi', function ($routes) {
     $routes->get('delete/(:num)', 'SkMutasiController::delete/$1'); // Hapus SK Mutasi
 });
 $routes->get('file/skmutasi/(:segment)', 'FileController::viewSkMutasi/$1');
-
-
-
-
 
 
 // Routing untuk Menu

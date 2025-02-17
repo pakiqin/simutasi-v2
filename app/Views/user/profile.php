@@ -2,7 +2,9 @@
 <?= $this->section('content') ?>
 
 <div class="container">
-    <h1 class="mb-4"><i class="fas fa-fw fa-user"></i> Profil Anda</h1>
+    <h1 class="h3 mb-4 text-gray-800">
+        <i class="fas fa-fw fa-user"></i>  Profil Anda
+    </h1>
     <!-- Tampilkan pesan sukses -->
     <?php if (session()->getFlashdata('success')): ?>
         <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -54,7 +56,7 @@
                     <label for="instansi">Instansi</label>
                     <div class="input-group">
                         <span class="input-group-text"><i class="fas fa-building"></i></span>
-                        <input type="text" name="instansi" id="instansi" class="form-control" value="<?= $instansi ?>" readonly>
+                        <input type="text" name="instansi" id="instansi" class="form-control" value="<?= ($user['role'] === 'operator') ? implode(', ', $hakAkses) : $instansi ?>" readonly>
                     </div>
                 </div>
             </div>
@@ -69,8 +71,8 @@
             </div>
         <?php endif; ?>
         <div class="d-flex justify-content-between mt-4">
-            <a href="/dashboard" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Kembali</a>
-            <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Simpan</button>
+            <a href="/dashboard" class="btn btn-sm-custom btn-secondary"><i class="fas fa-arrow-left"></i> Kembali</a>
+            <button type="submit" class="btn btn-sm-custom btn-primary"><i class="fas fa-save"></i> Simpan</button>
         </div>
     </form>
 </div>

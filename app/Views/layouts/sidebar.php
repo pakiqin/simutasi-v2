@@ -72,14 +72,14 @@
             <div id="usulanMenu" class="collapse" aria-labelledby="headingUsulan" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">CABANG DINAS:</h6>
-                    <a class="collapse-item" href="<?= base_url('/usulan'); ?>"><i class="fas fa-inbox"></i> 01: Penerimaan Usulan</a>
-                    <a class="collapse-item" href="<?= base_url('/pengiriman'); ?>"><i class="fas fa-paper-plane"></i> 02: Pengiriman Usulan</a>
+                    <a class="collapse-item" href="<?= base_url('/usulan'); ?>"><i class="fas fa-inbox"></i> Penerimaan Usulan</a>
+                    <a class="collapse-item" href="<?= base_url('/pengiriman'); ?>"><i class="fas fa-paper-plane"></i> Pengiriman Usulan</a>
                     <h6 class="collapse-header">DINAS PROVINSI:</h6>
-                    <a class="collapse-item" href="<?= base_url('/verifikasi'); ?>"><i class="fas fa-tasks"></i> 03: Verifikasi Dokumen</a>
-                    <a class="collapse-item" href="<?= base_url('/telaah'); ?>"><i class="fas fa-tasks"></i> 04: Telaah Usulan</a>
-                    <a class="collapse-item" href="<?= base_url('/rekomkadis'); ?>"><i class="fas fa-tasks"></i> 05: Rekomendasi Kadis</a>
-                    <a class="collapse-item" href="<?= base_url('/berkasbkpsdm'); ?>"><i class="fas fa-tasks"></i> 06: Kirim Usulan ke BKA</a>
-                    <a class="collapse-item" href="<?= base_url('/skmutasi'); ?>"><i class="fas fa-tasks"></i> 07: SK Mutasi</a>
+                    <a class="collapse-item" href="<?= base_url('/verifikasi'); ?>"><i class="fas fa-file-alt"></i> Verifikasi Dokumen</a>
+                    <a class="collapse-item" href="<?= base_url('/telaah'); ?>"><i class="fas fa-search"></i> Telaah Usulan</a>
+                    <a class="collapse-item" href="<?= base_url('/rekomkadis'); ?>"><i class="fas fa-stamp"></i> Rekomendasi Kadis</a>
+                    <a class="collapse-item" href="<?= base_url('/berkasbkpsdm'); ?>"><i class="fas fa-file-upload"></i> Kirim Usulan ke BKA</a>
+                    <a class="collapse-item" href="<?= base_url('/skmutasi'); ?>"><i class="fas fa-file-signature"></i> SK Mutasi</a>
                 </div>
             </div>
         </li>        
@@ -107,14 +107,14 @@
             <div id="usulanMenu" class="collapse" aria-labelledby="headingUsulan" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">CABANG DINAS:</h6>
-                    <a class="collapse-item" href="<?= base_url('/usulan'); ?>"><i class="fas fa-inbox"></i> 01: Penerimaan Usulan</a>
-                    <a class="collapse-item" href="<?= base_url('/pengiriman'); ?>"><i class="fas fa-paper-plane"></i> 02: Pengiriman Usulan</a>
+                    <a class="collapse-item" href="<?= base_url('/usulan'); ?>"><i class="fas fa-inbox"></i> Penerimaan Usulan</a>
+                    <a class="collapse-item" href="<?= base_url('/pengiriman'); ?>"><i class="fas fa-paper-plane"></i> Pengiriman Usulan</a>
                     <h6 class="collapse-header">DINAS PROVINSI:</h6>
-                    <a class="collapse-item" href="<?= base_url('/verifikasi'); ?>"><i class="fas fa-tasks"></i> 03: Verifikasi Dokumen</a>
-                    <a class="collapse-item" href="<?= base_url('/telaah'); ?>"><i class="fas fa-tasks"></i> 04: Telaah Usulan</a>
-                    <a class="collapse-item" href="<?= base_url('/rekomkadis'); ?>"><i class="fas fa-tasks"></i> 05: Rekomendasi Kadis</a>
-                    <a class="collapse-item" href="<?= base_url('/berkasbkpsdm'); ?>"><i class="fas fa-tasks"></i> 06: Kirim Usulan ke BKA</a>
-                    <a class="collapse-item" href="<?= base_url('/skmutasi'); ?>"><i class="fas fa-tasks"></i> 07: SK Mutasi</a>
+                    <a class="collapse-item" href="<?= base_url('/verifikasi'); ?>"><i class="fas fa-file-alt"></i> Verifikasi Dokumen</a>
+                    <a class="collapse-item" href="<?= base_url('/telaah'); ?>"><i class="fas fa-search"></i> Telaah Usulan</a>
+                    <a class="collapse-item" href="<?= base_url('/rekomkadis'); ?>"><i class="fas fa-stamp"></i> Rekomendasi Kadis</a>
+                    <a class="collapse-item" href="<?= base_url('/berkasbkpsdm'); ?>"><i class="fas fa-file-upload"></i> Kirim Usulan ke BKA</a>
+                    <a class="collapse-item" href="<?= base_url('/skmutasi'); ?>"><i class="fas fa-file-signature"></i> SK Mutasi</a>
                 </div>
             </div>
         </li>        
@@ -143,11 +143,11 @@
             <div id="usulanMenu" class="collapse" aria-labelledby="headingUsulan" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">DINAS PROVINSI:</h6>
-                    <a class="collapse-item" href="<?= base_url('/verifikasi'); ?>"><i class="fas fa-tasks"></i> 03: Verifikasi Dokumen</a>
-                    <a class="collapse-item" href="<?= base_url('/telaah'); ?>"><i class="fas fa-tasks"></i> 04: Telaah Usulan</a>                    
-                    <a class="collapse-item" href="<?= base_url('/rekomkadis'); ?>"><i class="fas fa-tasks"></i> 05: Rekomendasi Kadis</a>
-                    <a class="collapse-item" href="<?= base_url('/berkasbkpsdm'); ?>"><i class="fas fa-tasks"></i> 06: Kirim Usulan ke BKA</a>
-                    <a class="collapse-item" href="<?= base_url('/skmutasi'); ?>"><i class="fas fa-tasks"></i> 07: SK Mutasi</a>
+                    <a class="collapse-item" href="<?= base_url('/verifikasi'); ?>"><i class="fas fa-file-alt"></i> Verifikasi Dokumen</a>
+                    <a class="collapse-item" href="<?= base_url('/telaah'); ?>"><i class="fas fa-search"></i> Telaah Usulan</a>
+                    <a class="collapse-item" href="<?= base_url('/rekomkadis'); ?>"><i class="fas fa-stamp"></i> Rekomendasi Kadis</a>
+                    <a class="collapse-item" href="<?= base_url('/berkasbkpsdm'); ?>"><i class="fas fa-file-upload"></i> Kirim Usulan ke BKA</a>
+                    <a class="collapse-item" href="<?= base_url('/skmutasi'); ?>"><i class="fas fa-file-signature"></i> SK Mutasi</a>
                 </div>
             </div>
         </li>          
@@ -162,7 +162,7 @@
             </a>
             <div id="usulanMenu" class="collapse" aria-labelledby="headingUsulan" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Kelola Usulan:</h6>
+                    <h6 class="collapse-header">CABANG DINAS:</h6>
                     <a class="collapse-item" href="<?= base_url('/usulan'); ?>"><i class="fas fa-inbox"></i> Penerimaan Usulan</a>
                     <a class="collapse-item" href="<?= base_url('/pengiriman'); ?>"><i class="fas fa-paper-plane"></i> Pengiriman Usulan</a>
                 </div>

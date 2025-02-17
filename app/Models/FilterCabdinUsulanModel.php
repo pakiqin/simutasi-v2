@@ -36,11 +36,10 @@ class FilterCabdinUsulanModel extends Model
 
         return $query->orderBy('created_at', 'DESC')->findAll($limit, $offset);
     }
-
-    public function getUsulanWithDokumen($status, $cabangDinasId = null, $limit = 10, $offset = 0)
+    
+    public function getUsulanWithDokumenPaginated($status, $cabangDinasId = null, $perPage = 10)
     {
-        $query = $this->db->table($this->table)
-            ->select('usulan.*, pengiriman_usulan.dokumen_rekomendasi, pengiriman_usulan.status_usulan_cabdin, pengiriman_usulan.catatan')
+        $query = $this->select('usulan.*, pengiriman_usulan.dokumen_rekomendasi, pengiriman_usulan.status_usulan_cabdin, pengiriman_usulan.catatan')
             ->join('pengiriman_usulan', 'pengiriman_usulan.nomor_usulan = usulan.nomor_usulan', 'left')
             ->where('usulan.status', $status);
 
@@ -48,8 +47,9 @@ class FilterCabdinUsulanModel extends Model
             $query->where('usulan.cabang_dinas_id', $cabangDinasId);
         }
 
-        return $query->orderBy('usulan.created_at', 'DESC')->limit($limit, $offset)->get()->getResultArray();
+        return $query->paginate($perPage, 'page_status02'); // Menggunakan pagination bawaan CI4
     }
+
 
     public function countUsulanByStatus($status, $cabangDinasId = null)
     {

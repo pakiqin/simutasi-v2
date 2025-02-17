@@ -13,81 +13,11 @@ class VerifikasiController extends BaseController
     {
         $this->verifikasiBerkasModel = new VerifikasiBerkasModel();
     }
-/*
-    public function index()
-    {
-        //cek role
-        if (!in_array(session()->get('role'), ['dinas', 'kabid', 'admin'])) {
-            return redirect()->to('/unauthorized');
-        }
-        $perPage = 50; // Jumlah data per halaman
-        $userId = session()->get('id'); // ID user dari sesi login
-
-        // Ambil data cabang dinas berdasarkan user
-        $db = \Config\Database::connect();
-        $cabangDinasIds = $db->table('operator_cabang_dinas')
-            ->select('cabang_dinas_id')
-            ->where('user_id', $userId)
-            ->get()
-            ->getResultArray();
-
-        $cabangDinasIds = array_column($cabangDinasIds, 'cabang_dinas_id');
-
-        if (empty($cabangDinasIds)) {
-            $cabangDinasIds = [0]; // Nilai default untuk menghindari error
-        }
-
-        // Ambil data untuk tabel kiri (usulan menunggu verifikasi)
-        $usulanMenunggu = $this->verifikasiBerkasModel
-            ->select('usulan.*,
-                        cabang_dinas.kode_cabang, 
-                        cabang_dinas.nama_cabang, 
-                        pengiriman_usulan.dokumen_rekomendasi,
-                        pengiriman_usulan.operator, 
-                        pengiriman_usulan.no_hp,
-                        pengiriman_usulan.updated_at as tanggal_dikirim, 
-                        pengiriman_usulan.catatan,
-                        pengiriman_usulan.status_usulan_cabdin')
-            ->join('cabang_dinas',
-                        'usulan.cabang_dinas_id = cabang_dinas.id', 'inner')
-            ->join('pengiriman_usulan',
-                        'usulan.nomor_usulan = pengiriman_usulan.nomor_usulan', 'inner')
-            ->whereIn('usulan.cabang_dinas_id', $cabangDinasIds) // Filter berdasarkan cabang dinas pengguna
-            ->where('pengiriman_usulan.status_usulan_cabdin', 'Terkirim') // Filter hanya data dengan status 'Terkirim'
-            ->paginate($perPage, 'usulanMenunggu');
-
-        $pagerMenunggu = $this->verifikasiBerkasModel->pager;
-
-        // Ambil data untuk tabel kanan (usulan diverifikasi)
-        $usulanDiverifikasi = $this->verifikasiBerkasModel
-            ->select('usulan.*, cabang_dinas.kode_cabang, cabang_dinas.nama_cabang, 
-                      pengiriman_usulan.dokumen_rekomendasi, pengiriman_usulan.operator, 
-                      pengiriman_usulan.no_hp, pengiriman_usulan.updated_at as tanggal_dikirim, 
-                      pengiriman_usulan.catatan, pengiriman_usulan.status_usulan_cabdin')
-            ->join('cabang_dinas', 'usulan.cabang_dinas_id = cabang_dinas.id', 'inner')
-            ->join('pengiriman_usulan', 'usulan.nomor_usulan = pengiriman_usulan.nomor_usulan', 'inner')
-            ->whereIn('usulan.cabang_dinas_id', $cabangDinasIds) // Filter berdasarkan cabang dinas pengguna
-            ->whereIn('pengiriman_usulan.status_usulan_cabdin', ['Lengkap', 'TdkLengkap']) // Tambahkan filter status Lengkap/TdkLengkap
-            ->paginate($perPage, 'usulanDiverifikasi');
-
-        $pagerDiverifikasi = $this->verifikasiBerkasModel->pager;
-
-        // Data untuk view
-        $data = [
-            'usulanMenunggu' => $usulanMenunggu,
-            'pagerMenunggu' => $pagerMenunggu,
-            'usulanDiverifikasi' => $usulanDiverifikasi,
-            'pagerDiverifikasi' => $pagerDiverifikasi,
-        ];
-
-        return view('verifikasi/index', $data);
-    }
-*/
     public function index()
     {
         $role = session()->get('role');
         $userId = session()->get('id');
-        $perPage = 50;
+        $perPage = 10;
 
         // Operator tidak bisa mengakses halaman verifikasi
         if ($role === 'operator') {
@@ -112,42 +42,12 @@ class VerifikasiController extends BaseController
             }
         }
 
-        // Query untuk mengambil data usulan menunggu verifikasi
-        $usulanMenunggu = $this->verifikasiBerkasModel
-            ->select('usulan.*, cabang_dinas.kode_cabang, cabang_dinas.nama_cabang, 
-                      pengiriman_usulan.dokumen_rekomendasi, pengiriman_usulan.operator, 
-                      pengiriman_usulan.no_hp, pengiriman_usulan.updated_at as tanggal_dikirim, 
-                      pengiriman_usulan.catatan, pengiriman_usulan.status_usulan_cabdin')
-            ->join('cabang_dinas', 'usulan.cabang_dinas_id = cabang_dinas.id', 'inner')
-            ->join('pengiriman_usulan', 'usulan.nomor_usulan = pengiriman_usulan.nomor_usulan', 'inner')
-            ->where('pengiriman_usulan.status_usulan_cabdin', 'Terkirim')
-            ->orderBy('tanggal_dikirim', 'ASC');
-
-        // Jika role adalah dinas, filter berdasarkan cabang dinas yang menjadi kewenangannya
-        if ($role === 'dinas') {
-            $usulanMenunggu = $usulanMenunggu->whereIn('usulan.cabang_dinas_id', $cabangDinasIds);
-        }
-
-        $usulanMenunggu = $usulanMenunggu->paginate($perPage, 'usulanMenunggu');
+        // Ambil daftar usulan menunggu verifikasi
+        $usulanMenunggu = $this->verifikasiBerkasModel->getUsulanByStatus('Terkirim', $cabangDinasIds, $perPage, 'page_status03');
         $pagerMenunggu = $this->verifikasiBerkasModel->pager;
 
-        // Query untuk mengambil data usulan yang sudah diverifikasi
-        $usulanDiverifikasi = $this->verifikasiBerkasModel
-            ->select('usulan.*, cabang_dinas.kode_cabang, cabang_dinas.nama_cabang, 
-                      pengiriman_usulan.dokumen_rekomendasi, pengiriman_usulan.operator, 
-                      pengiriman_usulan.no_hp, pengiriman_usulan.updated_at as tanggal_dikirim, 
-                      pengiriman_usulan.catatan, pengiriman_usulan.status_usulan_cabdin')
-            ->join('cabang_dinas', 'usulan.cabang_dinas_id = cabang_dinas.id', 'inner')
-            ->join('pengiriman_usulan', 'usulan.nomor_usulan = pengiriman_usulan.nomor_usulan', 'inner')
-            ->whereIn('pengiriman_usulan.status_usulan_cabdin', ['Lengkap', 'TdkLengkap'])
-            ->orderBy('pengiriman_usulan.updated_at', 'DESC');
-
-        // Jika role adalah dinas, filter berdasarkan cabang dinas yang menjadi kewenangannya
-        if ($role === 'dinas') {
-            $usulanDiverifikasi = $usulanDiverifikasi->whereIn('usulan.cabang_dinas_id', $cabangDinasIds);
-        }
-
-        $usulanDiverifikasi = $usulanDiverifikasi->paginate($perPage, 'usulanDiverifikasi');
+        // Ambil daftar usulan yang sudah diverifikasi
+        $usulanDiverifikasi = $this->verifikasiBerkasModel->getUsulanWithDokumenPaginated(['Lengkap', 'TdkLengkap'], $cabangDinasIds, $perPage, 'page_status04');
         $pagerDiverifikasi = $this->verifikasiBerkasModel->pager;
 
         // Kabid hanya bisa melihat (readonly)
@@ -225,7 +125,7 @@ class VerifikasiController extends BaseController
                     ]);
             }
 
-            return $this->response->setJSON(['message' => 'Verifikasi berhasil diperbarui.']);
+            return $this->response->setJSON(['success' => 'Verifikasi berhasil diperbarui.']);
         } 
         catch (\Exception $e) {
         return $this->response->setJSON(['error' => $e->getMessage()])->setStatusCode(500);

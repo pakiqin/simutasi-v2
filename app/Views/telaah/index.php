@@ -1,193 +1,6 @@
 <?= $this->extend('layouts/main_layout'); ?>
 <?= $this->section('content'); ?>
 
-<style>
-    .table-container {
-        overflow-x: auto; /* Aktifkan scroll horizontal */
-    }
-
-    table {
-        font-size: 0.75rem;
-        border-collapse: collapse;
-        width: 100%; /* Tabel akan memenuhi container */
-    }
-
-    table th, table td {
-        padding: 10px 15px;
-        white-space: nowrap;
-        text-align: left;
-        border: 1px solid #dee2e6; /* Border antar sel */
-    }
-
-    table th {
-        background-color: #4e73df; /* Warna biru sesuai dengan tombol Kirim */
-        color: white; /* Teks putih */
-        font-weight: bold; /* Cetak tebal */
-    }
-
-    table tbody tr:hover {
-        background-color: #eaf1fd; /* Warna latar biru lembut saat baris dihover */
-    }
-
-    .table-row {
-        transition: background-color 0.2s; /* Efek transisi untuk hover */
-    }
-
-    .filter-section {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 10px;
-    }
-
-    .filter-input {
-        max-width: 250px; /* Batasi lebar input filter */
-    }
-
-    .pagination-container {
-        display: flex;
-        justify-content: flex-end; /* Posisi ke kanan */
-        margin-top: 5px; /* Jarak antara tabel dan pagination */
-    }
-        .filter-section {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 10px;
-    }
-
-    .filter-section .filter-input {
-        height: 38px;
-        font-size: 0.875rem;
-        margin-right: 10px;
-    }
-
-    .filter-section select {
-        height: 38px;
-        padding: 6px 12px;
-        font-size: 0.875rem;
-        border: 1px solid #ced4da;
-        border-radius: 4px;
-        background-color: #fff;
-        color: #495057;
-        min-width: 80px;
-    }
-
-    .filter-section select:focus,
-    .filter-section .filter-input:focus {
-        border-color: #4e73df;
-        box-shadow: 0 0 4px rgba(78, 115, 223, 0.5);
-    }
-    #detailData {
-        /* Container utama */
-        margin-top: 5px;
-        display: none;
-        background-color: #f8f9fc;
-        border: 1px solid #dee2e6;
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
-
-    #detailData .detail-table {
-        /* Tabel detail */
-        width: 100%;
-    }
-
-    #detailData .detail-table th {
-        /* Header tabel */
-        background-color: #4e73df;
-        color: white;
-        text-align: left;
-        padding: 10px 15px;
-    }
-
-    #detailData .detail-table td {
-        /* Isi tabel */
-        background-color: #f8f9fc;
-        text-align: left;
-        padding: 10px 15px;
-    }
-
-    #detailData .status-container {
-        /* Status container */
-        margin-top: 15px;
-        padding: 15px;
-        background-color: #eaf1fd;
-        border: 1px solid #4e73df;
-        border-radius: 8px;
-        text-align: center;
-    }
-
-    #detailData .status-title {
-        /* Judul status */
-        font-weight: bold;
-        margin-bottom: 10px;
-    }
-
-    #detailData .status-note {
-        /* Catatan status */
-        font-size: 1rem;
-    }
-    #detailDataKanan {
-        /* Container utama */
-        margin-top: 5px;
-        display: none;
-        background-color: #f8f9fc;
-        border: 1px solid #dee2e6;
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
-
-    #detailDataKanan .detail-table {
-        /* Tabel detail */
-        width: 100%;
-    }
-
-    #detailDataKanan .detail-table th {
-        /* Header tabel */
-        background-color: #4e73df;
-        color: white;
-        text-align: left;
-        padding: 10px 15px;
-    }
-
-    #detailDataKanan .detail-table td {
-        /* Isi tabel */
-        background-color: #f8f9fc;
-        text-align: left;
-        padding: 10px 15px;
-    }
-
-    /* Status Disetujui */
-    #detailDataKanan .status-container.success {
-        border-left-color: #3fd54a; /* Border hijau */
-        background-color: #e9f7ea; /* Latar hijau lembut */
-        color: #155724; /* Warna teks hijau */
-    }
-
-    /* Status Ditolak */
-    #detailDataKanan .status-container.danger {
-        border-left-color: #dc3545; /* Border merah */
-        background-color: #f8d7da; /* Latar merah lembut */
-        color: #721c24; /* Warna teks merah */
-    }
-
-    /* Teks di Status Container */
-    #detailDataKanan .status-note {
-        font-weight: bold;
-        text-align: center;
-        font-size: 1.25rem; /* Ukuran teks lebih besar */
-    }
-        .bg-warning-custom {
-        background-color: #f6c23e !important;
-        color: #291e03 !important;
-        font-weight: bold; 
-    }
-
-</style>
-
 <h1 class="h3 mb-4 text-gray-800"><i class="fas fa-file-alt"></i> Telaah Dokumen</h1>
 <?php if (session()->getFlashdata('message')): ?>
     <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -211,7 +24,7 @@
     <!-- Tabel Menunggu Telaah -->
     <div class="col-md-6">
         <div class="filter-section">
-            <h5><i>04.1. Menunggu Telaah</i></h5>
+            <label class="text-primary"><i class="fas fa-info-circle"></i> 04.1. Menunggu Telaah</label>            
             <div class="d-flex">
                 <input type="text" id="filterMenunggu" class="form-control filter-input" placeholder="Filter Nama Guru" onkeyup="filterTable('tableMenunggu', this.value)">
                 <form method="get" id="perPageFormMenunggu">
@@ -223,15 +36,13 @@
                 </form>
             </div>
         </div>
-        <div class="table-container">
-            <table id="tableMenunggu" class="table table-striped">
+        <div class="table-responsive">
+            <table id="tableMenunggu" class="table table-sm table-striped">
                 <thead>
                     <tr>
                         <th>Nama Guru</th>
-                        <th>NIP</th>
-                        <th>Nama Cabang</th>                        
+                        <th>NIP</th>                        
                         <th>Sekolah Asal</th>
-                        <th>Sekolah Tujuan</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -240,10 +51,8 @@
                         <?php foreach ($usulanMenunggu as $usulan): ?>
                             <tr>
                                 <td><?= $usulan['guru_nama']; ?></td>
-                                <td><?= $usulan['guru_nip']; ?></td>
-                                <td><?= $usulan['nama_cabang']; ?></td>                                
+                                <td><?= $usulan['guru_nip']; ?></td>                               
                                 <td><?= $usulan['sekolah_asal']; ?></td>
-                                <td><?= $usulan['sekolah_tujuan']; ?></td>
                                 <td>
                                     <button class="btn btn-info btn-sm" onclick="showDetail(<?= htmlspecialchars(json_encode($usulan)) ?>)">
                                         <i class="fas fa-eye"></i>
@@ -260,17 +69,12 @@
             </table>
         </div>
         <div class="pagination-container">
-            <?= $pagerMenunggu->links('usulanMenunggu', 'custom_pagination'); ?>
+            <?= $pagerMenunggu->links('usulanMenunggu', 'default_full'); ?>
         </div>
         <!-- Detail Data -->
         <div id="detailData" class="detail-container" style="display: none;">
-            <h5><i class="fas fa-info-circle"></i> Detail Usulan</h5>
-            <table class="table table-bordered detail-table">
-                <thead>
-                    <tr>
-                        <th colspan="2" class="text-center"><i class="fas fa-info-circle"></i> Informasi Usulan Guru</th>
-                    </tr>
-                </thead>
+            <label class="text-primary"><i class="fas fa-info-circle"></i> 04.1 Detail Usulan</label>            
+            <table class="table table-responsive table-bordered detail-table">
                 <tbody>
                     <tr>
                         <th>Nomor Usulan</th>
@@ -304,17 +108,19 @@
                         <th>Berkas Usulan</th>
                         <td>
                             <a id="berkasUsulanLink" href="#" target="_blank" class="btn btn-info btn-sm">
-                                <i class="fas fa-file-pdf"></i> View PDF
+                                <i class="fas fa-file-pdf"></i> Lihat
                             </a>
                         </td>
                     </tr>
                     <tr>
                         <th>Tanggal Input Usulan</th>
                         <td id="detailTanggalInput"></td>
-                    </tr>
+                    </tr> 
                     <tr>
-                        <th colspan="2" class="text-center"><i class="fas fa-info-circle"></i> Rekomendasi Cabang Dinas</th>
-                    </tr>                    
+                        <th colspan="2" class="text-left text-primary custom-bg"><i class="fas fa-info-circle"></i> 
+                            Rekomendasi Cabang Dinas
+                        </th>
+                    </tr>                                     
                     <tr>
                         <th>Nama Cabang Dinas</th>
                         <td id="detailNamaCabang"></td>
@@ -323,7 +129,7 @@
                         <th>Dokumen Rekomendasi</th>
                         <td>
                             <a id="dokumenRekomendasiLink" href="#" target="_blank" class="btn btn-info btn-sm">
-                                <i class="fas fa-file-pdf"></i> View PDF
+                                <i class="fas fa-file-pdf"></i> Lihat
                             </a>
                         </td>
                     </tr>
@@ -338,10 +144,12 @@
                     <tr>
                         <th>Tanggal Dikirimkan</th>
                         <td id="detailTanggalDikirim"></td>
-                    </tr>
+                    </tr> 
                     <tr>
-                        <th colspan="2" class="text-center"><i class="fas fa-info-circle"></i> Status Verifikasi Dinas Pendidikan</th>
-                    </tr>  
+                        <th colspan="2" class="text-left text-primary custom-bg"><i class="fas fa-info-circle"></i> 
+                            Status Verifikasi Dinas Pendidikan
+                        </th>
+                    </tr>                     
                     <tr>
                         <th>Status Verifikasi</th>
                         <td id="detailStatusVerifikasi"></td>
@@ -359,10 +167,10 @@
                     <tr>
                         <td colspan="2" class="text-center">
                             <p class="mb-2 bg-warning-custom text-white p-2 text-center"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> Setelah dilakukan telaah secara mendalam terkait usulan mutasi guru yang dimaksud,<br \>maka usulan ini dinyatakan...</p>
-                            <button class="btn btn-danger me-2" onclick="telaahDokumen('Ditolak')">
+                            <button class="btn btn-danger btn-sm-custom me-2" onclick="telaahDokumen('Ditolak')">
                                 <i class="fas fa-times"></i> Ditolak
                             </button>
-                            <button class="btn btn-success" onclick="telaahDokumen('Disetujui')">
+                            <button class="btn btn-sm-custom btn-success" onclick="telaahDokumen('Disetujui')">
                                 <i class="fas fa-check"></i> Disetujui
                             </button>
                         </td>
@@ -371,7 +179,7 @@
                 </tbody>
 
             </table>
-            <button class="btn btn-secondary mt-2" onclick="hideDetail()">
+            <button class="btn btn-secondary btn-sm-custom mt-2" onclick="hideDetail()">
                 <i class="fas fa-window-close"></i>
             </button>
         </div>
@@ -380,7 +188,7 @@
     <!-- Tabel Sudah Ditelaah -->
     <div class="col-md-6">
         <div class="filter-section">
-            <h5><i>04.2. Sudah Ditelaah</i></h5>
+            <label class="text-primary"><i class="fas fa-info-circle"></i> 04.2. Sudah Ditelaah</label>              
             <div class="d-flex">
                 <input type="text" id="filterDitelaah" class="form-control filter-input" placeholder="Filter Nama Guru" onkeyup="filterTable('tableDitelaah', this.value)">
                 <!-- Dropdown untuk Filter Status -->
@@ -398,14 +206,13 @@
                 </form>
             </div>
         </div>
-        <div class="table-container">
-            <table id="tableDitelaah" class="table table-striped">
+        <div class="table-responsive">
+            <table id="tableDitelaah" class="table table-sm table-striped">
                 <thead>
                     <tr>
                         <th>Nama Guru</th>
                         <th>NIP</th>
                         <th>Sekolah Asal</th>
-                        <th>Sekolah Tujuan</th>
                         <th>Status</th>
                         <th>Aksi</th>
                     </tr>
@@ -417,7 +224,6 @@
                                 <td><?= $usulan['guru_nama']; ?></td>
                                 <td><?= $usulan['guru_nip']; ?></td>
                                 <td><?= $usulan['sekolah_asal']; ?></td>
-                                <td><?= $usulan['sekolah_tujuan']; ?></td>
                                 <td>
                                     <span class="badge <?= $usulan['status_telaah'] === 'Disetujui' ? 'badge-success' : 'badge-danger'; ?>">
                                         <?= $usulan['status_telaah']; ?>
@@ -439,17 +245,12 @@
             </table>
         </div>
         <div class="pagination-container">
-            <?= $pagerDitelaah->links('usulanDitelaah', 'custom_pagination'); ?>
+            <?= $pagerDitelaah->links('usulanDitelaah', 'default_full'); ?>
         </div>
         <!-- Detail Data Tabel Kanan -->
         <div id="detailDataKanan" class="detail-container" style="overflow-x: auto;">
-            <h5><i class="fas fa-info-circle"></i> 04.2 Detail</h5>
-            <table class="table table-bordered detail-table">
-                <thead>
-                    <tr>
-                        <th colspan="2" class="text-center"><i class="fas fa-info-circle"></i> Informasi Usulan Guru</th>
-                    </tr>
-                </thead>
+            <label class="text-primary"><i class="fas fa-info-circle"></i> 04.2 Detail</label>            
+            <table class="table table-responsive table-bordered detail-table">
                 <tbody>
                     <tr>
                         <th>Nomor Usulan</th>
@@ -483,7 +284,7 @@
                         <th>Berkas Usulan</th>
                         <td>
                             <a id="berkasUsulanLinkKanan" href="#" target="_blank" class="btn btn-info btn-sm">
-                                <i class="fas fa-file-pdf"></i> View PDF
+                                <i class="fas fa-file-pdf"></i> Lihat
                             </a>
                         </td>
                     </tr>
@@ -492,8 +293,9 @@
                         <td id="detailTanggalInputKanan"></td>
                     </tr>
                     <tr>
-                        <th colspan="2" class="text-center"><i class="fas fa-info-circle"></i> Rekomendasi Cabang Dinas</th>
-                    </tr>
+                        <th colspan="2" class="text-left text-primary custom-bg"><i class="fas fa-info-circle"></i> 
+                            Rekomendasi Cabang Dinas</th>
+                    </tr>                    
                     <tr>
                         <th>Nama Cabang Dinas</th>
                         <td id="detailNamaCabangKanan"></td>
@@ -502,7 +304,7 @@
                         <th>Dokumen Rekomendasi</th>
                         <td>
                             <a id="dokumenRekomendasiLinkKanan" href="#" target="_blank" class="btn btn-info btn-sm">
-                                <i class="fas fa-file-pdf"></i> View PDF
+                                <i class="fas fa-file-pdf"></i> Lihat
                             </a>
                         </td>
                     </tr>
@@ -519,8 +321,9 @@
                         <td id="detailTanggalDikirimKanan"></td>
                     </tr>
                     <tr>
-                        <th colspan="2" class="text-center"><i class="fas fa-info-circle"></i> Status Telaah Kabid GTK</th>
-                    </tr>
+                        <th colspan="2" class="text-left text-primary custom-bg"><i class="fas fa-info-circle"></i> 
+                            Status Telaah Kabid GTK</th>
+                    </tr>                       
                     <tr>
                         <th>Tanggal Telaah</th>
                         <td id="detailTanggalTelaahKanan"></td>
@@ -538,7 +341,7 @@
                 <p id="statusTelaahNoteKanan" class="fw-bold text-center status-note"></p>
             </div>
 
-            <button class="btn btn-secondary mt-2" onclick="hideDetailKanan()">
+            <button class="btn btn-secondary btn-sm-custom mt-2" onclick="hideDetailKanan()">
                 <i class="fas fa-window-close"></i>
             </button>
         </div>
@@ -792,7 +595,7 @@ function filterStatus() {
     const rows = table.getElementsByTagName('tr');
 
     for (let i = 1; i < rows.length; i++) {
-        const statusCell = rows[i].getElementsByTagName('td')[4]; // Kolom ke-5 (Status)
+        const statusCell = rows[i].getElementsByTagName('td')[3]; // Kolom ke-4 (Status)
         if (statusCell) {
             const statusText = statusCell.textContent.toLowerCase();
             rows[i].style.display =

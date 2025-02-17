@@ -2,7 +2,7 @@
 <?= $this->section('content'); ?>
 
 <div class="container">
-    <h1 class="mb-4 text-center">Konfirmasi Cetak Kartu Resi</h1>
+    <h1 class="h3 mb-4 text-center text-gray-800">Konfirmasi Cetak Kartu Resi</h1>
 
     <div class="alert alert-success text-center">
         <p>Usulan dengan nomor <strong><?= $nomor_usulan; ?></strong> berhasil ditambahkan.</p>
@@ -10,10 +10,10 @@
     </div>
 
     <div class="d-flex justify-content-between mt-4">
-        <a href="/usulan" class="btn btn-secondary">
+        <a href="/usulan" class="btn btn-secondary btn-sm-custom">
             <i class="fas fa-arrow-left"></i> Tidak, Kembali ke Daftar Usulan
         </a>
-        <button class="btn btn-primary" onclick="handleCetakResi('<?= $nomor_usulan; ?>')">
+        <button class="btn btn-primary btn-sm-custom" onclick="handleCetakResi('<?= $nomor_usulan; ?>')">
             <i class="fas fa-print"></i> Ya, Cetak Resi
         </button>
     </div>

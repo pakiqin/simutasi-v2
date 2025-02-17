@@ -36,8 +36,8 @@
                 </div>
             </div>
             <div class="text-end">
-                <a href="/kabupaten" class="btn btn-secondary me-2"><i class="fas fa-arrow-left"></i> Kembali</a>
-                <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Simpan</button>
+                <a href="/kabupaten" class="btn btn-secondary me-2 btn-sm-custom"><i class="fas fa-arrow-left"></i> Kembali</a>
+                <button type="submit" class="btn btn-primary btn-sm-custom"><i class="fas fa-save"></i> Simpan</button>
             </div>
         </form>
     </div>

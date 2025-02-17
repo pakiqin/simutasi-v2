@@ -1,40 +1,23 @@
 <?= $this->extend('layouts/main_layout'); ?>
 <?= $this->section('content'); ?>
 
-<style>
-    .filter-section {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: wrap;
-        margin-bottom: 10px;
-    }
-
-    .table-container {
-        overflow-x: auto;
-    }
-
-    .pagination-container {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-top: 10px;
-        flex-wrap: wrap;
-    }
-</style>
-
 <h1 class="h3 mb-4 text-gray-800">
     <i class="fas fa-building"></i> Daftar Cabang Dinas
 </h1>
 
-<!-- Pagination -->
-<div class="filter-section">
-    <a href="/cabang-dinas/create" class="btn btn-primary">
-        <i class="fas fa-plus-circle"></i> Tambah Cabang Dinas
-    </a>
-    <div>
-        <label for="per_page" class="me-2 mb-0">Tampilkan:</label>
-        <select id="per_page" class="form-select form-select-sm" style="width: auto;" onchange="updatePerPage()">
+<!-- Header dengan Tombol Aksi dan Filter -->
+<div class="header-container">
+    <!-- Tombol Tambah di Kiri -->
+    <div class="action-buttons">
+        <a href="/cabang-dinas/create" class="btn btn-primary btn-sm-custom">
+            <i class="fas fa-plus-circle"></i> Tambah
+        </a>
+    </div>
+
+    <!-- Filter & Pagination di Kanan -->
+    <div class="filter-section">
+        <label for="per_page" class="mb-0"></label>
+        <select id="per_page" class="form-control pagination-select" onchange="updatePerPage()">
             <option value="10" <?= $perPage == 10 ? 'selected' : '' ?>>10</option>
             <option value="25" <?= $perPage == 25 ? 'selected' : '' ?>>25</option>
             <option value="50" <?= $perPage == 50 ? 'selected' : '' ?>>50</option>
@@ -42,8 +25,8 @@
     </div>
 </div>
 
-<!-- Tabel Cabang Dinas -->
-<div class="table-container">
+<!-- Tabel Data Cabang Dinas -->
+<div class="table-responsive">
     <table class="table table-striped">
         <thead>
             <tr>
@@ -63,11 +46,11 @@
                     <td><?= $row['kode_cabang']; ?></td>
                     <td><?= $row['nama_cabang']; ?></td>
                     <td><?= $row['kabupaten_wilayah']; ?></td>
-                    <td>
-                        <a href="/cabang-dinas/edit/<?= $row['id']; ?>" class="btn btn-warning btn-sm">
+                    <td class="action-column">
+                        <a href="/cabang-dinas/edit/<?= $row['id']; ?>" class="btn btn-warning btn-sm-custom">
                             <i class="fas fa-edit"></i> Edit
                         </a>
-                        <button onclick="confirmDelete(<?= $row['id']; ?>)" class="btn btn-danger btn-sm">
+                        <button onclick="confirmDelete(<?= $row['id']; ?>)" class="btn btn-danger btn-sm-custom">
                             <i class="fas fa-trash-alt"></i> Hapus
                         </button>
                     </td>
@@ -78,9 +61,9 @@
 </div>
 
 <!-- Pagination -->
-<div class="pagination-container">
-    <p class="mb-0">Menampilkan <?= count($cabang_dinas); ?> dari <?= $pager->getTotal('cabang_dinas'); ?> data</p>
-    <?= $pager->links('cabang_dinas', 'custom_pagination'); ?>
+<div class="d-flex justify-content-between align-items-center">
+    <p class="pagination-info">Menampilkan <?= count($cabang_dinas); ?> dari <?= $pager->getTotal('cabang_dinas'); ?> data</p>
+    <?= $pager->links('cabang_dinas', 'default_full'); ?>
 </div>
 
 <script>

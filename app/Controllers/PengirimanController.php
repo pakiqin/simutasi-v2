@@ -25,87 +25,55 @@ class PengirimanController extends BaseController
     {
         $role = session()->get('role'); 
         $userId = session()->get('id'); 
-        $perPage = 50;
-
-        // Ambil halaman dari query string
-        $currentPage01 = $this->request->getVar('page_status01') ?? 1;
-        $currentPage02 = $this->request->getVar('page_status02') ?? 1;
-
-        $offset01 = ($currentPage01 - 1) * $perPage;
-        $offset02 = ($currentPage02 - 1) * $perPage;
+        $perPage = 10;
 
         $status01Usulan = [];
         $status02Usulan = [];
         $totalStatus01 = 0;
         $totalStatus02 = 0;
 
-//cek role tampilan --------------------
         if ($role === 'dinas') {
             return redirect()->to('/dashboard')->with('error', 'Akses ditolak.');
         }
+
         if ($role === 'admin') {
-            $status01Usulan = $this->filterCabdinModel->getUsulanByStatus('01', null, $perPage, $offset01);
-            $status02Usulan = $this->filterCabdinModel->getUsulanWithDokumen('02', null, $perPage, $offset02);
+            $status01Usulan = $this->filterCabdinModel->getUsulanByStatus('01', null, $perPage);
+            $status02Usulan = $this->filterCabdinModel->getUsulanWithDokumenPaginated('02', null, $perPage);
             $totalStatus01 = $this->filterCabdinModel->countUsulanByStatus('01');
             $totalStatus02 = $this->filterCabdinModel->countUsulanWithDokumen('02');
             $readonly = false;
         } elseif ($role === 'operator') {
-            $operatorModel = new \App\Models\OperatorCabangDinasModel();
+            $operatorModel = new OperatorCabangDinasModel();
             $operator = $operatorModel->where('user_id', $userId)->first();
             if ($operator && isset($operator['cabang_dinas_id'])) {
                 $cabangDinasId = $operator['cabang_dinas_id'];
-                $status01Usulan = $this->filterCabdinModel->getUsulanByStatus('01', $cabangDinasId, $perPage, $offset01);
-                $status02Usulan = $this->filterCabdinModel->getUsulanWithDokumen('02', $cabangDinasId, $perPage, $offset02);
+                $status01Usulan = $this->filterCabdinModel->getUsulanByStatus('01', $cabangDinasId, $perPage);
+                $status02Usulan = $this->filterCabdinModel->getUsulanWithDokumenPaginated('02', $cabangDinasId, $perPage);
                 $totalStatus01 = $this->filterCabdinModel->countUsulanByStatus('01', $cabangDinasId);
                 $totalStatus02 = $this->filterCabdinModel->countUsulanWithDokumen('02', $cabangDinasId);
                 $readonly = false;
             } else {
                 return redirect()->to('/dashboard')->with('error', 'Cabang dinas tidak ditemukan.');
             }
-        }elseif ($role === 'kabid') {
-            $status01Usulan = $this->filterCabdinModel->getUsulanByStatus('01', null, $perPage, $offset01);
-            $status02Usulan = $this->filterCabdinModel->getUsulanWithDokumen('02', null, $perPage, $offset02);
+        } elseif ($role === 'kabid') {
+            $status01Usulan = $this->filterCabdinModel->getUsulanByStatus('01', null, $perPage);
+            $status02Usulan = $this->filterCabdinModel->getUsulanWithDokumenPaginated('02', null, $perPage);
             $totalStatus01 = $this->filterCabdinModel->countUsulanByStatus('01');
             $totalStatus02 = $this->filterCabdinModel->countUsulanWithDokumen('02');
             $readonly = true;
         }
-//akhir cek role tampilan --------------------
-        
-/*
-        if ($role === 'admin' || $role === 'kabid') {
-            $status01Usulan = $this->filterCabdinModel->getUsulanByStatus('01', null, $perPage, $offset01);
-            $status02Usulan = $this->filterCabdinModel->getUsulanWithDokumen('02', null, $perPage, $offset02);
 
-            $totalStatus01 = $this->filterCabdinModel->countUsulanByStatus('01');
-            $totalStatus02 = $this->filterCabdinModel->countUsulanWithDokumen('02');
-        } elseif ($role === 'operator') {
-            $operatorModel = new OperatorCabangDinasModel();
-            $operator = $operatorModel->where('user_id', $userId)->first();
-
-            if ($operator && isset($operator['cabang_dinas_id'])) {
-                $cabangDinasId = $operator['cabang_dinas_id'];
-
-                $status01Usulan = $this->filterCabdinModel->getUsulanByStatus('01', $cabangDinasId, $perPage, $offset01);
-                $status02Usulan = $this->filterCabdinModel->getUsulanWithDokumen('02', $cabangDinasId, $perPage, $offset02);
-
-                $totalStatus01 = $this->filterCabdinModel->countUsulanByStatus('01', $cabangDinasId);
-                $totalStatus02 = $this->filterCabdinModel->countUsulanWithDokumen('02', $cabangDinasId);
-            }
-        }
-*/
         $data = [
             'status01Usulan' => $status01Usulan,
             'status02Usulan' => $status02Usulan,
-            'currentPage01' => $currentPage01,
-            'currentPage02' => $currentPage02,
-            'totalStatus01' => $totalStatus01,
-            'totalStatus02' => $totalStatus02,
+            'pager' => $this->filterCabdinModel->pager, // Pastikan `pager` dikirim ke view
             'perPage' => $perPage,
             'readonly' => $readonly,
         ];
 
         return view('pengiriman/index', $data);
     }
+
 
 
 public function updateStatus()

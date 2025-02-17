@@ -1,226 +1,91 @@
 <?= $this->extend('layouts/main_layout'); ?>
 <?= $this->section('content'); ?>
-<style>
-    .card-custom {
-        border-left: 12px solid #FFC107; /* Warna default */
-        border-radius: 8px; /* Membuat sudut lebih halus */
-        box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.1); /* Efek shadow */
-        padding: 15px;
-        height: 100%; /* Tinggi card seragam */
-        transition: 0.3s; /* Animasi efek hover */
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    }
-
-    .card-custom:hover {
-        transform: scale(1.02); /* Efek sedikit membesar saat hover */
-    }
-
-    .icon-bg {
-        position: absolute;
-        bottom: 15px;
-        right: 15px;icon-bg
-        opacity: 0.8;
-    }
-
-    .card-yellow {
-        border-left-color: #FFC107;
-    }
-
-    .card-blue {
-        border-left-color: #007BFF;
-    }
-
-    .card-green {
-        border-left-color: #28A745;
-    }
-
-    .card-red {
-        border-left-color: #DC3545;
-    }
-
-    .card-purple {
-        border-left-color: #6F42C1;
-    }
-
-    .h-100 {
-        height: 100%; /* Memastikan semua card memiliki tinggi yang sama */
-    }
-
-    /* Ukuran teks lebih besar */
-    .text-md {
-        font-size: 1 rem;
-        font-weight: bold;
-    }
-
-    .text-right {
-        text-align: right;
-    }
-
-
-</style>
 
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
 </div>
+
 <!-- 🔹 BARIS PERTAMA: 4 KOTAK STATISTIK -->
 <div class="row">
-    <!-- TOTAL USULAN MUTASI -->
-    <div class="col-xl-3 col-md-6 mb-4">
-        <div class="card card-custom card-blue">
-            <div class="card-body">
-                <div class="d-flex justify-content-between align-items-center">
+    <?php 
+    $cards = [
+        ["01 : Usulan Mutasi", "Semua Tahun", $total_usulan, "fa-file-alt", "dashboard-card-blue", []],
+        ["02 : Usulan Cabdin", "Tahun $tahun_saat_ini", $total_usulan_cabdin, "fa-paper-plane", "dashboard-card-yellow", [
+            ["bg-primary text-white", "Menunggu Verifikasi: $total_terkirim"],
+            ["bg-danger text-white", "Belum Dikirim: $usulan_belum_dikirim"]
+        ]],
+        ["03 : Verifikasi Dinas", "Tahun $tahun_saat_ini", $total_verif_dinas, "fa-check-circle", "dashboard-card-red", [
+            ["bg-success text-white", "Lengkap: $total_lengkap"],
+            ["bg-danger text-white", "TdkLengkap: $total_tdk_lengkap"]
+        ]],
+        ["04 : Telaah Usulan", "Tahun $tahun_saat_ini", $total_telaah_kabid, "fa-user-tie", "dashboard-card-yellow", [
+            ["bg-success text-white", "Disetujui: $telaah_disetujui"],
+            ["bg-danger text-white", "Ditolak: $telaah_ditolak"]
+        ]]
+    ];
+    foreach ($cards as $card) : ?>
+        <div class="col-xl-3 col-md-6 col-sm-12 mb-4">
+            <div class="card dashboard-card <?= $card[4]; ?>">
+                <div class="card-body d-flex flex-column">
                     <div>
-                        <div class="text-lg font-weight-bold text-uppercase">01 : Usulan Mutasi</div>
-                        <div class="text-xs text-muted">Semua Tahun</div>
-                    </div>
-                    <div class="text-right">
-                        <div class="h2 font-weight-bold"><?= $total_usulan; ?></div>
-                    </div>
-                </div>
-                <i class="fas fa-file-alt fa-2x text-gray-300 icon-bg"></i>
-            </div>
-        </div>
-    </div>
-
-    <!-- USULAN DIKIRIM KE DINAS -->
-    <div class="col-xl-3 col-md-6 mb-4">
-        <div class="card card-custom card-yellow">
-            <div class="card-body">
-                <div class="d-flex justify-content-between align-items-center">
-                    <div>
-                        <div class="text-lg font-weight-bold text-uppercase">02 : Usulan Cabdin</div>
-                        <div class="text-xs text-muted">Tahun <?= $tahun_saat_ini; ?></div>
+                        <div class="dashboard-text-md text-uppercase"><?= $card[0]; ?></div>
+                        <div class="text-xs text-muted"><?= $card[1]; ?></div>
                         <div class="mt-2">
-                            <span class="badge bg-primary text-white">Menunggu Verifikasi: <?= $total_terkirim; ?></span>
-                            <span class="badge bg-danger text-white">Belum Dikirim: <?= $usulan_belum_dikirim; ?></span>
+                            <?php foreach ($card[5] as $badge) : ?>
+                                <span class="badge <?= $badge[0]; ?>"><?= $badge[1]; ?></span>
+                            <?php endforeach; ?>
                         </div>
                     </div>
-                    <div class="text-right">
-                        <div class="h2 font-weight-bold"><?= $total_usulan_cabdin; ?></div>
+                    <div class="dashboard-text-right mt-auto">
+                        <div class="h2 font-weight-bold"><?= $card[2]; ?></div>
                     </div>
+                    <i class="fas <?= $card[3]; ?> dashboard-icon"></i>
                 </div>
-                <i class="fas fa-paper-plane fa-2x text-gray-300 icon-bg"></i>
             </div>
         </div>
-    </div>
-
-    <!-- VERIFIKASI DINAS -->
-    <div class="col-xl-3 col-md-6 mb-4">
-        <div class="card card-custom card-red">
-            <div class="card-body">
-                <div class="d-flex justify-content-between align-items-center">
-                    <div>
-                        <div class="text-lg font-weight-bold text-uppercase">03 : Verifikasi Dinas</div>
-                        <div class="text-xs text-muted">Tahun <?= $tahun_saat_ini; ?></div>
-                        <div class="mt-2">
-                            <span class="badge bg-success text-white">Lengkap: <?= $total_lengkap; ?></span>
-                            <span class="badge bg-danger text-white">TdkLengkap: <?= $total_tdk_lengkap; ?></span>
-                        </div>
-                    </div>
-                    <div class="text-right">
-                        <div class="h2 font-weight-bold"><?= $total_verif_dinas; ?></div>
-                    </div>
-                </div>
-                <i class="fas fa-check-circle fa-2x text-gray-300 icon-bg"></i>
-            </div>
-        </div>
-    </div>
-
-    <!-- TELAAH KABID -->
-    <div class="col-xl-3 col-md-6 mb-4">
-        <div class="card card-custom card-yellow">
-            <div class="card-body">
-                <div class="d-flex justify-content-between align-items-center">
-                    <div>
-                        <div class="text-lg font-weight-bold text-uppercase">04 : Telaah Usulan</div>
-                        <div class="text-xs text-muted">Tahun <?= $tahun_saat_ini; ?></div>
-                        <div class="mt-2">
-                            <span class="badge bg-success text-white">Disetujui: <?= $telaah_disetujui; ?></span>
-                            <span class="badge bg-danger text-white">Ditolak: <?= $telaah_ditolak; ?></span>
-                        </div>
-                    </div>
-                    <div class="text-right">
-                        <div class="h2 font-weight-bold"><?= $total_telaah_kabid; ?></div>
-                    </div>
-                </div>
-                <i class="fas fa-user-tie fa-2x text-gray-300 icon-bg"></i>
-            </div>
-        </div>
-    </div>
+    <?php endforeach; ?>
 </div>
 
 <!-- 🔹 BARIS KEDUA: 3 KOTAK STATISTIK -->
 <div class="row">
-    <!-- REKOMENDASI KADIS -->
-    <div class="col-xl-4 col-md-6 mb-4">
-        <div class="card card-custom card-green">
-            <div class="card-body">
-                <div class="d-flex justify-content-between align-items-center">
+    <?php 
+    $cards2 = [
+        ["05 : Rekomendasi Kadis", "Tahun $tahun_saat_ini", $rekom_kadis, "fa-clipboard-check", "dashboard-card-green", [
+            ["bg-success text-white", "Ada Rekom: $rekom_kadis_ada"],
+            ["bg-danger text-white", "Belum Ada Rekom: $rekom_kadis_belum"]
+        ]],
+        ["06 : Dikirim ke BKA", "Tahun $tahun_saat_ini", $dikirim_bkpsdm, "fa-share-square", "dashboard-card-blue", [
+            ["bg-success text-white", "Sudah: $kirim_bka_sudah"],
+            ["bg-danger text-white", "Belum: $kirim_bka_belum"]
+        ]],
+        ["07 : SK Mutasi Terbit", "Tahun $tahun_saat_ini", $terbit_sk, "fa-file-signature", "dashboard-card-purple", [
+            ["bg-success text-white", "Nota Dinas: $nota_dinas"],
+            ["bg-primary text-white", "SK Mutasi: $sk_mutasi"],
+            ["bg-danger text-white", "Belum Terbit: $belum_terbit"]
+        ]]
+    ];
+    foreach ($cards2 as $card) : ?>
+        <div class="col-xl-4 col-md-6 col-sm-12 mb-4">
+            <div class="card dashboard-card <?= $card[4]; ?>">
+                <div class="card-body d-flex flex-column">
                     <div>
-                        <div class="text-lg font-weight-bold text-uppercase">05 : Rekomendasi Kadis</div>
-                        <div class="text-xs text-muted">Tahun <?= $tahun_saat_ini; ?></div>
+                        <div class="dashboard-text-md text-uppercase"><?= $card[0]; ?></div>
+                        <div class="text-xs text-muted"><?= $card[1]; ?></div>
                         <div class="mt-2">
-                            <span class="badge bg-success text-white">Ada Rekom: <?= $rekom_kadis_ada; ?></span>
-                            <span class="badge bg-danger text-white">Belum Ada Rekom: <?= $rekom_kadis_belum; ?></span>
+                            <?php foreach ($card[5] as $badge) : ?>
+                                <span class="badge <?= $badge[0]; ?>"><?= $badge[1]; ?></span>
+                            <?php endforeach; ?>
                         </div>
                     </div>
-                    <div class="text-right">
-                        <div class="h2 font-weight-bold"><?= $rekom_kadis; ?></div>
+                    <div class="dashboard-text-right mt-auto">
+                        <div class="h2 font-weight-bold"><?= $card[2]; ?></div>
                     </div>
+                    <i class="fas <?= $card[3]; ?> dashboard-icon"></i>
                 </div>
-                <i class="fas fa-clipboard-check fa-2x text-gray-300 icon-bg"></i>
             </div>
         </div>
-    </div>
-
-    <!-- KIRIM BKPSDM -->
-    <div class="col-xl-4 col-md-6 mb-4">
-        <div class="card card-custom card-blue">
-            <div class="card-body">
-                <div class="d-flex justify-content-between align-items-center">
-                    <div>
-                        <div class="text-lg font-weight-bold text-uppercase">06 : Dikirim ke BKPSDM</div>
-                        <div class="text-xs text-muted">Tahun <?= $tahun_saat_ini; ?></div>
-                        <div class="mt-2">
-                            <span class="badge bg-success text-white">Sudah: <?= $kirim_bka_sudah; ?></span>
-                            <span class="badge bg-danger text-white">Belum: <?= $kirim_bka_belum; ?></span>
-                        </div>
-                    </div>
-                    <div class="text-right">
-                        <div class="h2 font-weight-bold"><?= $dikirim_bkpsdm; ?></div>
-                    </div>
-                </div>
-                <i class="fas fa-share-square fa-2x text-gray-300 icon-bg"></i>
-            </div>
-        </div>
-    </div>
-
-    <!-- SK MUTASI -->
-    <div class="col-xl-4 col-md-6 mb-4">
-        <div class="card card-custom card-purple">
-            <div class="card-body">
-                <div class="d-flex justify-content-between align-items-center">
-                    <div>
-                        <div class="text-lg font-weight-bold text-uppercase">07 : SK Mutasi Terbit</div>
-                        <div class="text-xs text-muted">Tahun <?= $tahun_saat_ini; ?></div>
-                        <div class="mt-2">
-                            <span class="badge bg-success text-white">Nota Dinas: <?= $nota_dinas; ?></span>
-                            <span class="badge bg-primary text-white">SK Mutasi: <?= $sk_mutasi; ?></span>
-                            <span class="badge bg-danger text-white">Belum Terbit: <?= $belum_terbit; ?></span>
-                        </div>
-                    </div>
-                    <div class="text-right">
-                        <div class="h2 font-weight-bold"><?= $terbit_sk; ?></div>
-                    </div>
-                </div>
-                <i class="fas fa-file-signature fa-2x text-gray-300 icon-bg"></i>
-            </div>
-        </div>
-    </div>
+    <?php endforeach; ?>
 </div>
-
 
 
 <!-- 🔹 BARIS KETIGA: GRAFIK -->

@@ -1,77 +1,96 @@
 <?= $this->extend('layouts/main_layout') ?>
 <?= $this->section('content') ?>
 
-<h1 class="h3 mb-4 text-gray-800"><i class="fas fa-fw fa-users"></i> Manajemen Operator Dinas</h1>
+<h1 class="h3 mb-4 text-gray-800">
+    <i class="fas fa-fw fa-users"></i> Manajemen Operator Dinas
+</h1>
 
-    <div class="d-flex justify-content-between align-items-center mb-3">
-        <a href="/operatordinas/create" class="btn btn-primary"><i class="fas fa-plus-circle"></i> Tambah Akun Operator Dinas</a>
-
-        <form method="get" class="d-flex align-items-center">
-            <label for="per_page" class="mb-0 me-2">Tampilkan:</label>
-            <select id="per_page" name="per_page" class="form-select form-select-sm" onchange="this.form.submit()">
-                <option value="5" <?= $perPage == 5 ? 'selected' : '' ?>>5</option>
-                <option value="10" <?= $perPage == 10 ? 'selected' : '' ?>>10</option>
-                <option value="25" <?= $perPage == 25 ? 'selected' : '' ?>>25</option>
-                <option value="50" <?= $perPage == 50 ? 'selected' : '' ?>>50</option>
-            </select>
-        </form>
+<!-- Header dengan Tombol Tambah dan Filter -->
+<div class="header-container">
+    <div class="action-buttons">
+        <a href="/operatordinas/create" class="btn btn-primary btn-sm-custom">
+            <i class="fas fa-plus-circle"></i> Tambah
+        </a>
     </div>
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>No.</th>
-            <th>Nama</th>
-            <th>Username</th>            
-            <th>Email</th>
-            <th>No. HP</th>
-            <th>Hak Akses</th>
-            <th>Aksi</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php $no = 1; foreach ($users as $user): ?>
-            <tr>
-                <td><?= $no++ ?></td>
-                <td><?= $user['nama'] ?></td>       
-                <td><?= $user['username'] ?></td>         
-                <td><?= $user['email'] ?></td>
-                <td><?= $user['no_hp'] ?></td>        
-                <td>
-                    <?php if (!empty($user['hak_akses'])): ?>
-                        <ul>
-                            <?php foreach ($user['hak_akses'] as $cabang): ?>
-                                <li><?= $cabang ?></li>
-                            <?php endforeach; ?>
-                        </ul>
-                    <?php else: ?>
-                        <span class="text-muted">Tidak ada</span>
-                    <?php endif; ?>
-                </td>
-                <td>
-                    <a href="/operatordinas/edit/<?= $user['id'] ?>" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i></a>
-                    
-                     <a href="#" 
-                       class="btn btn-danger btn-sm" 
-                       onclick="confirmDelete(<?= $user['id'] ?>)">
-                       <i class="fas fa-trash-alt"></i>
-                    </a>
-                    <?php if ($user['status'] === 'enable'): ?>
-                        <button class="btn btn-sm btn-success" onclick="confirmDisable(<?= $user['id'] ?>)"><i class="fas fa-check-square"></i></button>
-                    <?php else: ?>
-                        <button class="btn btn-sm btn-secondary" onclick="confirmEnable(<?= $user['id'] ?>)"><i class="fas fa-square"></i></button>
-                    <?php endif; ?>
-                </td>
-            </tr>
-        <?php endforeach; ?>
-    </tbody>
-</table>
-<div class="d-flex justify-content-between align-items-center">
-    <p class="mb-0">Menampilkan <?= count($users) ?> dari <?= $pager->getTotal('users') ?> data</p>
-    <?= $pager->links('users', 'custom_pagination') ?>
+
+    <div class="filter-section">
+        <select id="per_page" name="per_page" class="form-control pagination-select" onchange="updatePerPage()">
+            <option value="5" <?= $perPage == 5 ? 'selected' : '' ?>>5</option>
+            <option value="10" <?= $perPage == 10 ? 'selected' : '' ?>>10</option>
+            <option value="25" <?= $perPage == 25 ? 'selected' : '' ?>>25</option>
+            <option value="50" <?= $perPage == 50 ? 'selected' : '' ?>>50</option>
+        </select>
+    </div>
 </div>
 
+<!-- Tabel Operator Dinas -->
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>No.</th>
+                <th>Nama</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>No. HP</th>
+                <th>Hak Akses</th>
+                <th>Aksi</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php $no = 1; foreach ($users as $user): ?>
+                <tr>
+                    <td><?= $no++ ?></td>
+                    <td><?= $user['nama'] ?></td>
+                    <td><?= $user['username'] ?></td>
+                    <td><?= $user['email'] ?></td>
+                    <td><?= $user['no_hp'] ?></td>
+                    <td>
+                        <?php if (!empty($user['hak_akses'])): ?>
+                            <ul class="mb-0">
+                                <?php foreach ($user['hak_akses'] as $cabang): ?>
+                                    <li><?= $cabang ?></li>
+                                <?php endforeach; ?>
+                            </ul>
+                        <?php else: ?>
+                            <span class="badge bg-secondary">Tidak Ada</span>
+                        <?php endif; ?>
+                    </td>
+                    <td class="action-column">
+                        <a href="/operatordinas/edit/<?= $user['id'] ?>" class="btn btn-warning btn-sm-custom">
+                            <i class="fas fa-edit"></i>Edit
+                        </a>
+                        <button class="btn btn-danger btn-sm-custom" onclick="confirmDelete(<?= $user['id'] ?>)">
+                            <i class="fas fa-trash-alt"></i>Hapus
+                        </button>
+                        <?php if ($user['status'] === 'enable'): ?>
+                            <button class="btn btn-success btn-sm-custom" onclick="confirmDisable(<?= $user['id'] ?>)">
+                                <i class="fas fa-check-square"></i>Enable
+                            </button>
+                        <?php else: ?>
+                            <button class="btn btn-secondary btn-sm-custom" onclick="confirmEnable(<?= $user['id'] ?>)">
+                                <i class="fas fa-square"></i>Disable
+                            </button>
+                        <?php endif; ?>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>
+
+<!-- Pagination -->
+<div class="d-flex justify-content-between align-items-center">
+    <p class="pagination-info">Menampilkan <?= count($users) ?> dari <?= $pager->getTotal('users') ?> data</p>
+    <?= $pager->links('users', 'default_full') ?>
+</div>
 
 <script>
+    function updatePerPage() {
+        const perPage = document.getElementById('per_page').value;
+        window.location.href = `?per_page=${perPage}`;
+    }
+
     function confirmDisable(userId) {
         Swal.fire({
             title: 'Konfirmasi',
@@ -105,8 +124,7 @@
             }
         });
     }
-</script>
-<script>
+
     function confirmDelete(userId) {
         Swal.fire({
             title: 'Konfirmasi Hapus',
@@ -124,9 +142,7 @@
         });
     }
 
-        //SweetAlert
     document.addEventListener("DOMContentLoaded", function () {
-        // SweetAlert untuk notifikasi sukses
         <?php if (session()->getFlashdata('success')): ?>
             Swal.fire({
                 title: 'Berhasil!',
@@ -135,6 +151,7 @@
                 confirmButtonText: 'OK'
             });
         <?php endif; ?>
+
         <?php if (session()->getFlashdata('error')): ?>
             Swal.fire({
                 title: 'Gagal!',
@@ -144,6 +161,6 @@
             });
         <?php endif; ?>
     });
-
 </script>
+
 <?= $this->endSection() ?>

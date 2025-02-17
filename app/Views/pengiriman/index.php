@@ -1,189 +1,7 @@
 <?= $this->extend('layouts/main_layout'); ?>
 <?= $this->section('content'); ?>
 
-<style>
-    .table-container {
-        overflow-x: auto; /* Aktifkan scroll horizontal */
-    }
 
-    table {
-        font-size: 0.75rem;
-        border-collapse: collapse;
-        width: 100%; /* Tabel akan memenuhi container */
-    }
-
-    table th, table td {
-        padding: 10px 15px;
-        white-space: nowrap;
-        text-align: left;
-        border: 1px solid #dee2e6; /* Border antar sel */
-    }
-
-    table th {
-        background-color: #4e73df; /* Warna biru sesuai dengan tombol Kirim */
-        color: white; /* Teks putih */
-        font-weight: bold; /* Cetak tebal */
-    }
-
-    table tbody tr:hover {
-        background-color: #eaf1fd; /* Warna latar biru lembut saat baris dihover */
-    }
-
-    .table-row {
-        transition: background-color 0.2s; /* Efek transisi untuk hover */
-    }
-
-    .filter-section {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 10px;
-    }
-
-    .filter-input {
-        max-width: 250px; /* Batasi lebar input filter */
-    }
-
-    @media (max-width: 768px) {
-        table {
-            font-size: 0.65rem;
-        }
-    }
-    .pagination-container {
-        display: flex;
-        justify-content: flex-end; /* Posisi ke kanan */
-        margin-top: 10px; /* Jarak antara tabel dan pagination */
-    }
-
-    .detail-container {
-        background-color: #f8f9fc;
-        border: 1px solid #dee2e6;
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        margin-top: 20px;
-    }
-
-    .detail-table {
-        width: 100%;
-        font-size: 0.875rem;
-        border-collapse: collapse;
-    }
-
-    .detail-table th {
-        background-color: #4e73df;
-        color: #fff;
-        text-align: left;
-        padding: 10px;
-    }
-
-    .detail-table td {
-        background-color: #f8f9fc;
-        padding: 5px;
-    }
-
-    /* Desain konsisten untuk status usulan */
-    .status-container {
-        border-left: 5px solid #dee2e6; /* Default */
-        background-color: #f8f9fc;
-        text-align: center;
-        font-size: 1rem;
-        padding: 20px;
-        border-radius: 8px;
-        margin-top: 20px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
-
-    .status-container.success {
-        border-left-color: #28a745; /* Hijau untuk Lengkap */
-        background-color: #e9f7ea;
-        color: #155724;
-    }
-
-    .status-container.danger {
-        border-left-color: #dc3545; /* Merah untuk TdkLengkap */
-        background-color: #f8d7da;
-        color: #721c24;
-    }
-
-    .status-container.pending {
-        border-left-color: #007bff; /* Biru untuk terkirim */
-        background-color: #e7f1ff;
-        color: #004085;
-    }
-
-    .status-title {
-        font-size: 1.25rem;
-        font-weight: bold;
-        margin-bottom: 10px;
-    }
-
-    .status-note {
-        font-size: 1.5rem;
-        font-weight: bold;
-        margin: 0;
-    }
-
-    .status-note.danger {
-        color: #dc3545;
-        font-weight: bold;
-        margin-bottom: 5px;
-    }
-
-    .status-subnote {
-        font-size: 0.875rem; 
-        font-style: italic;
-        color: #6c757d;
-        margin-top: -5px;
-    }
-
-
-
-    .alert-success {
-        background-color: #d4edda;
-        color: #155724;
-        border-color: #c3e6cb;
-    }
-
-    .alert-danger {
-        background-color: #f8d7da;
-        color: #721c24;
-        border-color: #f5c6cb;
-    }
-
-    .alert-secondary {
-        background-color: #e2e3e5;
-        color: #6c757d;
-        border-color: #d6d8db;
-    }
-    .badge-success {
-        background-color: #28a745;
-        color: #fff;
-        padding: 3px 8px;
-        border-radius: 5px;
-        font-size: 0.75rem;
-        font-weight: bold;
-    }
-
-    .badge-danger {
-        background-color: #dc3545;
-        color: #fff;
-        padding: 3px 8px;
-        border-radius: 5px;
-        font-size: 0.75rem;
-        font-weight: bold;
-    }
-    .badge-pending {
-        background-color: #007bff; /* Warna biru */
-        color: #fff; /* Warna teks putih */
-        padding: 3px 8px;
-        border-radius: 5px;
-        font-size: 0.75rem;
-        font-weight: bold;
-    }
-
-
-</style>
 
 
 <h1 class="h3 mb-4 text-gray-800"><i class="fas fa-paper-plane"></i> Pengiriman Usulan</h1>
@@ -225,7 +43,7 @@
                     </div>
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Kirim</button>
+            <button type="submit" class="btn btn-primary btn-sm-custom"><i class="fas fa-paper-plane"></i> Kirim</button>
         </form>
     </div>
     <?php endif; ?>
@@ -237,24 +55,22 @@
     <!-- Tabel Kiri -->
     <div class="col-md-6">
         <div class="filter-section">
-            <h5><i>01: Input Usulan Mutasi oleh Cabang Dinas</i></h5>
+            <label class="text-primary"><i class="fas fa-info-circle"></i> 01: Belum Dikirim</label>
             <input type="text" id="filterStatus01" class="form-control filter-input" placeholder="Filter Nama Guru" onkeyup="filterTable('tableStatus01', this.value)">
         </div>
-        <div class="table-container">
-            <table id="tableStatus01" class="table table-striped">
+        <div class="table-responsive">
+            <table id="tableStatus01" class="table table-sm table-striped">
                 <thead>
                     <tr>
-                        <th>Nomor Usulan</th>
                         <th>Nama Guru</th>
                         <th>NIP</th>
                         <th>Sekolah Asal</th>
-                        <th>Tanggal Input</th>
+                        <th>Tanggal</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php foreach ($status01Usulan as $usulan): ?>
                         <tr class="table-row">
-                            <td><?= $usulan['nomor_usulan'] ?></td>
                             <td><?= $usulan['guru_nama'] ?></td>
                             <td><?= $usulan['guru_nip'] ?></td>
                             <td><?= $usulan['sekolah_asal'] ?></td>
@@ -264,45 +80,44 @@
                 </tbody>
             </table>
         </div>
-        <div class="pagination-container">
-                <?= custom_pagination(base_url('/pengiriman'), $totalStatus01, $perPage, $currentPage01, 'page_status01') ?>
-        </div>
+        <?php if (!empty($pager)) : ?>
+            <div class="pagination-container">
+                <?= $pager->links('page_status01', 'default_full'); ?>
+            </div>
+        <?php endif; ?>
     </div>
 
     <!-- Tabel Kanan -->
     <div class="col-md-6">
-        <div class="filter-section">
-            <h5><i>02: Usulan Dikirim ke Dinas Provinsi</i></h5>
-            <input type="text" id="filterStatus02" class="form-control filter-input" placeholder="Filter Nama Guru" onkeyup="filterTable('tableStatus02', this.value)">
-        </div>
-        <div class="table-container">
-            <table id="tableStatus02" class="table table-striped">
+    <div class="filter-section">
+        <label class="text-primary"><i class="fas fa-info-circle"></i> 02: Usulan Terkirim</label>
+        <input type="text" id="filterStatus02" class="form-control filter-input" placeholder="Filter Nama Guru" onkeyup="filterTable('tableStatus02', this.value)">
+    </div>
+
+        <div class="table-responsive">
+            <table id="tableStatus02" class="table table-sm table-striped">
                 <thead>
                     <tr>
-                        <th>Nomor Usulan</th>
-                        <th>Nama Guru</th>
-                        <th>NIP</th>
+                        <th>Nama Guru</th>                        
                         <th>Sekolah Asal</th>
-                        <th>Tanggal Kirim</th>                       
+                        <th>Tanggal</th>                       
                         <th>Aksi</th>
                     </tr>
                 </thead>
 				<tbody>
 				    <?php foreach ($status02Usulan as $usulan): ?>
 				        <tr class="table-row">
-                            <td>
-                                <?= $usulan['nomor_usulan'] ?>
-                                <?php if (!empty($usulan['status_usulan_cabdin'])): ?>
+                            <td><?= $usulan['guru_nama'] ?></td>
+				            <td><?= $usulan['sekolah_asal'] ?></td>
+				            <td align="center"><?= isset($usulan['updated_at']) ? date('d-m-Y', strtotime($usulan['updated_at'])) : '-' ?><br />
+                                <?php if (isset($usulan['status_usulan_cabdin']) && !empty($usulan['status_usulan_cabdin'])): ?>
                                     <span class="badge 
-                                        <?= $usulan['status_usulan_cabdin'] === 'Terkirim' ? 'badge-pending' : ($usulan['status_usulan_cabdin'] === 'Lengkap' ? 'badge-success' : 'badge-danger') ?>">
+                                        <?= $usulan['status_usulan_cabdin'] === 'Terkirim' ? 'badge-primary' : ($usulan['status_usulan_cabdin'] === 'Lengkap' ? 'badge-success' : 'badge-danger') ?>">
                                         <?= $usulan['status_usulan_cabdin'] ?>
                                     </span>
+                                <?php else: ?>
+                                    <span class="badge badge-secondary">Belum Dikirim</span>
                                 <?php endif; ?>
-                            </td>
-				            <td><?= $usulan['guru_nama'] ?></td>
-				            <td><?= $usulan['guru_nip'] ?></td>
-				            <td><?= $usulan['sekolah_asal'] ?></td>
-				            <td><?= isset($usulan['updated_at']) ? date('d-m-Y', strtotime($usulan['updated_at'])) : '-' ?>
                             </td>
 				            <td>
                                 <button class="btn btn-info btn-sm" onclick="showDetail(<?= htmlspecialchars(json_encode([
@@ -310,7 +125,8 @@
                                     'guru_nama' => $usulan['guru_nama'],
                                     'guru_nip' => $usulan['guru_nip'],
                                     'sekolah_asal' => $usulan['sekolah_asal'],
-                                    'status_usulan_cabdin' => $usulan['status_usulan_cabdin'],
+                                    'status_usulan_cabdin' => $usulan['status_usulan_cabdin'] ?? 'Belum Dikirim',
+
                                     'catatan' => $usulan['catatan'] ?? '-',
                                     'updated_at' => $usulan['updated_at'],
                                     'dokumen_rekomendasi' => $usulan['dokumen_rekomendasi']?? null,
@@ -324,12 +140,15 @@
 				</tbody>
             </table>
         </div>
-        <div class="pagination-container">
-                <?= custom_pagination(base_url('/pengiriman'), $totalStatus02, $perPage, $currentPage02, 'page_status02') ?>
-        </div>
+        <?php if (!empty($pager)) : ?>
+            <div class="pagination-container">
+                <?= $pager->links('page_status02', 'default_full'); ?>
+            </div>
+        <?php endif; ?>
+
         <!-- Detail Data -->
         <div id="detailData" class="mt-4 detail-container" style="display: none;">
-            <h5 class="mb-3"><i class="fas fa-info-circle"></i> Detail Usulan</h5>
+            <label class="text-primary"><i class="fas fa-info-circle"></i> Detail Usulan</label>
             <table class="table table-bordered detail-table">
                 <tbody>
                     <tr>
@@ -349,10 +168,10 @@
                         <td id="detailSekolahAsal"></td>
                     </tr>
                     <tr>
-                        <th>Dokumen Rekomendasi (PDF)</th>
+                        <th>Rekomendasi (PDF)</th>
                         <td>
-                            <a id="viewPdfLink" href="#" target="_blank" class="btn btn-info btn-sm">
-                                <i class="fas fa-file-pdf"></i> View PDF
+                            <a id="viewPdfLink" href="#" target="_blank" class="btn btn-info  btn-sm">
+                                <i class="fas fa-file-pdf"></i> Lihat
                             </a>
                         </td>
                     </tr>
@@ -371,7 +190,7 @@
                 <p id="status_usulan_cabdin" class="status-note text-center fw-bold"></p>
             </div>
 
-            <button class="btn btn-secondary mt-3" onclick="hideDetail()">
+            <button class="btn btn-secondary mt-3 btn-sm-custom" onclick="hideDetail()">
                 <i class="fas fa-times"></i>
             </button>
         </div>

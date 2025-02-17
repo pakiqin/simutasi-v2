@@ -1,9 +1,3 @@
-<?php if (session()->getFlashdata('success')) : ?>
-    <div class="alert alert-success">
-        <?= session()->getFlashdata('success'); ?>
-    </div>
-<?php endif; ?>
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -11,141 +5,88 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - SIMUTASI</title>
 
-    <link rel="stylesheet" href="/assets/css/sb-admin-2.min.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-
-    <style>
-        .login-card {
-            max-width: 450px;
-            margin: auto;
-        }
-        .login-logo {
-            width: 90px;
-            margin-bottom: 5px;
-        }
-        .instansi-text {
-            font-size: 1rem;
-            font-weight: bold;
-            color: #333;
-            text-transform: uppercase;
-            line-height: 1.2; /* Membuat teks lebih rapat */
-            margin-bottom: 2px;
-        }
-        .instansi-subtext {
-            font-size: 0.85rem;
-            color: #666;
-            line-height: 1.2;
-            margin-bottom: 10px;
-        }
-        .login-title {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #4e73df;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .login-title i {
-            margin-right: 8px;
-        }
-        .info-link {
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #007bff;
-            text-decoration: none;
-            font-weight: 500;
-            margin-top: 15px;
-        }
-        .info-link i {
-            margin-right: 5px;
-        }
-    </style>
+    <!-- CSS Kustom -->
+    <link rel="stylesheet" href="/assets/css/simutasi-landingpage.css">
 </head>
-<body class="bg-gradient-primary">
+<body class="login-body">
+
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-                <div class="card o-hidden border-0 shadow-lg my-5 login-card">
-                    <div class="card-body p-5 text-center">
+        <div class="row justify-content-center align-items-center min-vh-100">
+            <div class="col-md-5">
+                <div class="card login-card shadow-lg">
+                    <div class="card-body text-center p-4">
+                        <!-- Logo -->
+                        <img src="/assets/img/dinaspendidikanaceh.png" class="login-logo" alt="Logo Instansi">
 
-                        <img src="/assets/img/logo.png" class="login-logo" alt="SIMUTASI Logo">
+                        <!-- Judul Login -->
+                        <h5 class="login-title mt-3"><i class="fas fa-sign-in-alt"></i> Login</h5>
 
-                        <!-- Tambahan informasi PEMERINTAH ACEH dengan teks lebih rapat -->
-                        <p class="instansi-text">PEMERINTAH ACEH</p>
-                        <p class="instansi-text">DINAS PENDIDIKAN</p>
-                        <p class="instansi-subtext">Jl. Tgk. Mohd. Daud Beureueh No.22, Telp. 22620 Banda Aceh, Kodepos 23121</p>
-
-                        <h1 class="login-title"><i class="fas fa-key"></i> SIMUTASI Login Sistem</h1>
-
+                        <!-- Pesan Error -->
                         <?php if (session()->getFlashdata('error')) : ?>
-                            <div class="alert alert-danger">
-                                <?= session()->getFlashdata('error') ?>
+                            <div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
+                                <i class="fas fa-exclamation-triangle"></i> <?= session()->getFlashdata('error') ?>
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                             </div>
                         <?php endif; ?>
-                        <hr>
-                        <form class="user" action="/auth/authenticate" method="post">
-                            <div class="form-group">
+
+                        <!-- Form Login -->
+                        <form action="/auth/authenticate" method="post" class="mt-3">
+                            <div class="form-group mb-3">
                                 <input type="text" class="form-control form-control-user" name="username" placeholder="Username" required>
                             </div>
-                            <div class="form-group">
-                                <div class="input-group">
+                            <div class="form-group mb-3">
+                                <div class="position-relative">
                                     <input type="password" class="form-control form-control-user" name="password" id="password" placeholder="Password" required>
-                                    <div class="input-group-append">
-                                        <button type="button" class="btn btn-outline-secondary" id="togglePassword">
-                                            <i class="fas fa-eye"></i>
-                                        </button>
-                                    </div>
+                                    <i class="fa fa-eye position-absolute toggle-password" id="togglePassword"></i>
                                 </div>
                             </div>
 
-                            <div class="form-group text-center">
+                            <div class="form-group text-center mb-3">
                                 <div class="g-recaptcha" data-sitekey="6LepasoqAAAAAGbEhzC8fo_aolo1Jporb9biG24F"></div>
                             </div>
 
-                            <button type="submit" class="btn btn-primary btn-user btn-block">Login</button>
+                            <!-- Tombol Login -->
+                            <button type="submit" class="btn btn-login w-100">Masuk</button>
                         </form>
-                        <hr>
-                        <div class="info-link">
-                            <i class="fas fa-history"></i>
-                            <a href="/lacak-mutasi">Lacak usulan mutasi anda</a>
-                        </div>
-                        <div class="info-link">
-                            <i class="fas fa-arrow-left"></i>
-                            <a href="/">Kembali ke Beranda</a>
+
+                        <div class="d-flex justify-content-between mt-3 info-links">
+                            <a href="/" class="info-link">
+                                <i class="fas fa-arrow-left"></i> Kembali ke Beranda
+                            </a>
+                            <a href="/lacak-mutasi" class="info-link">
+                                <i class="fas fa-search"></i> Lacak Usulan Mutasi
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Toggle Password -->
+    <script>
+        document.getElementById("togglePassword").addEventListener("click", function() {
+            var passwordField = document.getElementById("password");
+            var icon = this;
+
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+                icon.classList.remove("fa-eye");
+                icon.classList.add("fa-eye-slash");
+            } else {
+                passwordField.type = "password";
+                icon.classList.remove("fa-eye-slash");
+                icon.classList.add("fa-eye");
+            }
+        });
+    </script>
+
 </body>
 </html>
-<script>
-    var passwordField = document.getElementById("password");
-    var toggleButton = document.getElementById("togglePassword");
-    var toggleIcon = toggleButton.querySelector("i");
-
-    // Event saat tombol ditekan (tahan)
-    toggleButton.addEventListener("mousedown", function() {
-        passwordField.type = "text";
-        toggleIcon.classList.remove("fa-eye");
-        toggleIcon.classList.add("fa-eye-slash");
-    });
-
-    // Event saat tombol dilepas
-    toggleButton.addEventListener("mouseup", function() {
-        passwordField.type = "password";
-        toggleIcon.classList.remove("fa-eye-slash");
-        toggleIcon.classList.add("fa-eye");
-    });
-
-    // Event jika mouse keluar dari tombol, agar tetap aman
-    toggleButton.addEventListener("mouseleave", function() {
-        passwordField.type = "password";
-        toggleIcon.classList.remove("fa-eye-slash");
-        toggleIcon.classList.add("fa-eye");
-    });
-</script>

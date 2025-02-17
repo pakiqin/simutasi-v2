@@ -4,16 +4,19 @@ namespace App\Controllers;
 
 use App\Models\RekomkadisModel;
 use App\Models\UsulanDiterimaModel;
+use App\Models\UsulanStatusHistoryModel;
 
 class RekomkadisController extends BaseController
 {
     protected $rekomkadisModel;
     protected $usulanDiterimaModel;
+    protected $statusHistoryModel;
 
     public function __construct()
     {
         $this->rekomkadisModel = new RekomkadisModel();
         $this->usulanDiterimaModel = new UsulanDiterimaModel();
+        $this->statusHistoryModel = new UsulanStatusHistoryModel();        
     }
 
     public function index()
@@ -69,7 +72,7 @@ class RekomkadisController extends BaseController
 
         // **3️⃣ Pengambilan Data untuk Tabel 05.4: Usulan (Telah Terbit Rekom)**
         $queryUsulanTerkait = $this->usulanDiterimaModel
-            ->select('usulan.*, rekom_kadis.nomor_rekomkadis, rekom_kadis.tanggal_rekomkadis, rekom_kadis.file_rekomkadis')
+            ->select('usulan.*, rekom_kadis.nomor_rekomkadis, rekom_kadis.perihal_rekomkadis, rekom_kadis.tanggal_rekomkadis, rekom_kadis.file_rekomkadis')
             ->join('rekom_kadis', 'usulan.id_rekomkadis = rekom_kadis.id', 'left')
             ->where('usulan.id_rekomkadis IS NOT NULL')
             ->orderBy('usulan.id', 'DESC');
@@ -94,10 +97,6 @@ class RekomkadisController extends BaseController
 
         return view('rekomkadis/index', $data);
     }
-
-
-
-
 
     public function store()
     {
@@ -196,4 +195,75 @@ class RekomkadisController extends BaseController
 
         return redirect()->to('/rekomkadis')->with('success', 'Data berhasil diperbarui.');
     }
+
+    public function sematkan()
+    {
+        $idUsulan = $this->request->getPost('id_usulan');
+        $idRekom = $this->request->getPost('id_rekomkadis');
+
+        // **Validasi input**
+        if (!$idUsulan || !$idRekom) {
+            return redirect()->to('/rekomkadis')->with('error', 'Data tidak lengkap.');
+        }
+
+        // **Ambil nomor usulan dari database**
+        $usulan = $this->usulanDiterimaModel->find($idUsulan);
+        if (!$usulan) {
+            return redirect()->to('/rekomkadis')->with('error', 'Usulan tidak ditemukan.');
+        }
+
+        $nomorUsulan = $usulan['nomor_usulan'];
+
+        // **Update usulan dengan rekomendasi yang dipilih**
+        $this->usulanDiterimaModel->update($idUsulan, [
+            'id_rekomkadis' => $idRekom,
+            'status' => '05',
+        ]);
+
+        // **Simpan riwayat status**
+        $this->statusHistoryModel->insert([
+            'nomor_usulan' => $nomorUsulan,
+            'status' => '05',
+            'catatan_history' => 'Penerbitan surat rekomendasi Kepala Dinas',
+        ]);
+
+        return redirect()->to('/rekomkadis')->with('success', 'Rekomendasi berhasil disematkan!');
+    }
+
+    public function batalrekomdis()
+    {
+        $input = $this->request->getJSON(true);
+        $nomorUsulan = $input['nomor_usulan'];
+
+        // **Pastikan nomor usulan valid dan masih berstatus 05**
+        $usulan = $this->usulanDiterimaModel->where('nomor_usulan', $nomorUsulan)
+                                            ->where('status', '05') // Hanya yang berstatus 05 bisa dibatalkan
+                                            ->first();
+
+        if (!$usulan) {
+            return $this->response->setJSON([
+                'success' => false,
+                'message' => 'Usulan tidak ditemukan atau sudah dibatalkan.'
+            ]);
+        }
+
+        // **Update usulan: hapus id_rekomkadis dan kembalikan status ke 04**
+        $this->usulanDiterimaModel->update($usulan['id'], [
+            'id_rekomkadis' => null,
+            'status' => '04',
+        ]);
+
+        // **Tambahkan riwayat pembatalan rekomendasi**
+        $this->statusHistoryModel->insert([
+            'nomor_usulan' => $nomorUsulan,
+            'status' => '04',
+            'catatan_history' => 'Surat rekomendasi Kepala Dinas (Dibatalkan)',
+        ]);
+
+        return $this->response->setJSON([
+            'success' => true,
+            'message' => 'Rekomendasi berhasil dibatalkan!'
+        ]);
+    }
+
 }

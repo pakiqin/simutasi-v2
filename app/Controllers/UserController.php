@@ -76,7 +76,7 @@ class UserController extends BaseController
         $user = $userModel->find($userId);
 
         $hakAkses = [];
-        if ($user['role'] === 'dinas') {
+        if ($user['role'] === 'operator') {
             $db = \Config\Database::connect();
             $query = $db->table('operator_cabang_dinas')
                 ->select('cabang_dinas.nama_cabang')

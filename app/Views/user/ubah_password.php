@@ -41,8 +41,8 @@
             </div>
         </div>
     </div>
-    <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Simpan</button>
-    <a href="/dashboard" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Kembali</a>
+    <a href="/dashboard" class="btn btn-sm-custom btn-secondary"><i class="fas fa-arrow-left"></i> Kembali</a>
+    <button type="submit" class="btn btn-sm-custom btn-primary"><i class="fas fa-save"></i> Simpan</button>
 </form>
 
 <?= $this->endSection() ?>

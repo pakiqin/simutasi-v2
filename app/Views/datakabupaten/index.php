@@ -5,13 +5,19 @@
     <i class="fas fa-map-marked-alt"></i> Daftar Kabupaten
 </h1>
 
-<div class="d-flex justify-content-between align-items-center mb-3 flex-wrap">
-    <a href="/kabupaten/create" class="btn btn-primary mb-2">
-        <i class="fas fa-plus-circle"></i> Tambah Kabupaten
-    </a>
-    <div class="d-flex align-items-center">
-        <label for="per_page" class="me-2 mb-0">Tampilkan:</label>
-        <select id="per_page" class="form-select form-select-sm" style="width: auto;" onchange="updatePerPage()">
+<!-- Header dengan Tombol Aksi dan Filter -->
+<div class="header-container">
+    <!-- Tombol Tambah di Kiri -->
+    <div class="action-buttons">
+        <a href="/kabupaten/create" class="btn btn-primary btn-sm-custom">
+            <i class="fas fa-plus-circle"></i> Tambah
+        </a>
+    </div>
+
+    <!-- Filter & Pagination di Kanan -->
+    <div class="filter-section">
+        <label for="per_page" class="mb-0"></label>
+        <select id="per_page" class="form-control pagination-select" onchange="updatePerPage()">
             <option value="10" <?= $perPage == 10 ? 'selected' : '' ?>>10</option>
             <option value="25" <?= $perPage == 25 ? 'selected' : '' ?>>25</option>
             <option value="50" <?= $perPage == 50 ? 'selected' : '' ?>>50</option>
@@ -19,39 +25,43 @@
     </div>
 </div>
 
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>No.</th>
-            <th>Nama Kabupaten/Kota</th>
-            <th>Ibukota</th>
-            <th>Aksi</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php 
-        $no = 1 + ($perPage * ($pager->getCurrentPage('kabupaten') - 1));
-        foreach ($kabupaten as $row): ?>
+<!-- Tabel Data Kabupaten -->
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
             <tr>
-                <td><?= $no++; ?></td>
-                <td><?= $row['nama_kab']; ?></td>
-                <td><?= $row['nama_ibukotakab']; ?></td>
-                <td>
-                    <a href="/kabupaten/edit/<?= $row['id_kab']; ?>" class="btn btn-warning btn-sm">
-                        <i class="fas fa-edit"></i> Edit
-                    </a>
-                    <button onclick="confirmDelete(<?= $row['id_kab']; ?>)" class="btn btn-danger btn-sm">
-                        <i class="fas fa-trash-alt"></i> Hapus
-                    </button>
-                </td>
+                <th>No.</th>
+                <th>Nama Kabupaten/Kota</th>
+                <th>Ibukota</th>
+                <th>Aksi</th>
             </tr>
-        <?php endforeach; ?>
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            <?php 
+            $no = 1 + ($perPage * ($pager->getCurrentPage('kabupaten') - 1));
+            foreach ($kabupaten as $row): ?>
+                <tr>
+                    <td><?= $no++; ?></td>
+                    <td><?= $row['nama_kab']; ?></td>
+                    <td><?= $row['nama_ibukotakab']; ?></td>
+                    <td class="action-column">
+                        <a href="/kabupaten/edit/<?= $row['id_kab']; ?>" class="btn btn-warning btn-sm-custom">
+                            <i class="fas fa-edit"></i> Edit
+                        </a>
+                        <button onclick="confirmDelete(<?= $row['id_kab']; ?>)" class="btn btn-danger btn-sm-custom">
+                            <i class="fas fa-trash-alt"></i> Hapus
+                        </button>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>
 
+<!-- Pagination -->
 <div class="d-flex justify-content-between align-items-center">
-    <p class="mb-0">Menampilkan <?= count($kabupaten); ?> dari <?= $pager->getTotal('kabupaten'); ?> data</p>
-    <?= $pager->links('kabupaten', 'custom_pagination'); ?>
+    <p class="pagination-info">Menampilkan <?= count($kabupaten); ?> dari <?= $pager->getTotal('kabupaten'); ?> data</p>
+    <?= $pager->links('kabupaten', 'default_full'); ?>
 </div>
 
 <script>

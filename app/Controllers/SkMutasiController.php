@@ -17,50 +17,58 @@ class SkMutasiController extends Controller
         $this->skMutasiModel = new SkMutasiModel();
     }
 
-public function index()
-{
-    $role = session()->get('role');
-    $userId = session()->get('id');
+    public function index()
+    {
+        $role = session()->get('role');
+        $userId = session()->get('id');
 
-    if ($role === 'operator') {
-        return redirect()->to('/dashboard')->with('error', 'Akses ditolak.');
+        if ($role === 'operator') {
+            return redirect()->to('/dashboard')->with('error', 'Akses ditolak.');
+        }
+
+        $db = \Config\Database::connect();
+        $cabangDinasIds = [];
+
+        if ($role === 'dinas') {
+            $cabangDinasQuery = $db->table('operator_cabang_dinas')
+                ->select('cabang_dinas_id')
+                ->where('user_id', $userId)
+                ->get()
+                ->getResultArray();
+            $cabangDinasIds = array_column($cabangDinasQuery, 'cabang_dinas_id');
+        }
+
+        // Ambil jumlah data per halaman dari request
+        $perPageKiri = $this->request->getGet('perPageKiri') ?? 10;
+        $perPageKanan = $this->request->getGet('perPageKanan') ?? 10;
+
+        $queryKiri = $this->usulanModel
+            ->select('usulan.*')
+            ->where('usulan.status', '06')
+            ->orderBy('usulan.created_at', 'ASC');
+
+        $usulanKiri = $queryKiri->paginate($perPageKiri, 'usulanKiri');
+        $pagerKiri = $this->usulanModel->pager;
+
+        $queryKanan = $this->usulanModel
+            ->select('usulan.*, sk_mutasi.*')
+            ->join('sk_mutasi', 'usulan.nomor_usulan = sk_mutasi.nomor_usulan', 'left')
+            ->where('usulan.status', '07')
+            ->orderBy('usulan.created_at', 'DESC');
+
+        $usulanKanan = $queryKanan->paginate($perPageKanan, 'usulanKanan');
+        $pagerKanan = $this->usulanModel->pager;
+
+        return view('skmutasi/index', [
+            'usulanKiri' => $usulanKiri,
+            'pagerKiri' => $pagerKiri,
+            'usulanKanan' => $usulanKanan,
+            'pagerKanan' => $pagerKanan,
+            'perPageKiri' => $perPageKiri,
+            'perPageKanan' => $perPageKanan,
+        ]);
     }
 
-    $db = \Config\Database::connect();
-    $cabangDinasIds = [];
-
-    if ($role === 'dinas') {
-        $cabangDinasQuery = $db->table('operator_cabang_dinas')
-            ->select('cabang_dinas_id')
-            ->where('user_id', $userId)
-            ->get()
-            ->getResultArray();
-        $cabangDinasIds = array_column($cabangDinasQuery, 'cabang_dinas_id');
-    }
-
-    // Ambil jumlah data per halaman dari request
-    $perPageKiri = $this->request->getGet('perPageKiri') ?? 10;
-    $perPageKanan = $this->request->getGet('perPageKanan') ?? 10;
-
-    $queryKiri = $this->usulanModel
-        ->select('usulan.*')
-        ->where('usulan.status', '06')
-        ->orderBy('usulan.created_at', 'ASC');
-
-    $usulanKiri = $queryKiri->paginate($perPageKiri, 'usulanKiri');
-    $pagerKiri = $this->usulanModel->pager;
-
-    $queryKanan = $this->usulanModel
-        ->select('usulan.*, sk_mutasi.*')
-        ->join('sk_mutasi', 'usulan.nomor_usulan = sk_mutasi.nomor_usulan', 'left')
-        ->where('usulan.status', '07')
-        ->orderBy('usulan.created_at', 'DESC');
-
-    $usulanKanan = $queryKanan->paginate($perPageKanan, 'usulanKanan');
-    $pagerKanan = $this->usulanModel->pager;
-
-    return view('skmutasi/index', compact('usulanKiri', 'pagerKiri', 'usulanKanan', 'pagerKanan', 'perPageKiri', 'perPageKanan'));
-}
 
 
     public function upload()

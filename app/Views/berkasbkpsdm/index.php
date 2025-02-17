@@ -1,167 +1,22 @@
 <?= $this->extend('layouts/main_layout'); ?>
 <?= $this->section('content'); ?>
-<style>
-    /* Custom checkbox styling */
-    .custom-checkbox {
-        position: relative;
-        cursor: pointer;
-        display: inline-block;
-        width: 20px;
-        height: 20px;
-    }
-
-    .custom-checkbox input {
-        opacity: 0;
-        position: absolute;
-        width: 0;
-        height: 0;
-    }
-
-    .custom-checkbox .checkmark {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 20px;
-        height: 20px;
-        background-color: #fff;
-        border: 2px solid #6c757d;
-        border-radius: 5px;
-        transition: all 0.3s;
-    }
-
-    .custom-checkbox input:checked + .checkmark {
-        background-color: #28a745;
-        border-color: #28a745;
-    }
-
-    .custom-checkbox .checkmark:after {
-        content: "";
-        position: absolute;
-        display: none;
-    }
-
-    .custom-checkbox input:checked + .checkmark:after {
-        display: block;
-    }
-
-    .custom-checkbox .checkmark:after {
-        left: 7px;
-        top: 3px;
-        width: 5px;
-        height: 10px;
-        border: solid white;
-        border-width: 0 2px 2px 0;
-        transform: rotate(45deg);
-    }
-        .detail-container {
-        margin-top: 5px;
-        display: none;
-        background-color: #f8f9fc;
-        border: 1px solid #dee2e6;
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
-
-    .detail-table {
-        width: 100%;
-        table-layout: fixed; /* Memastikan kolom sejajar */
-        border-collapse: collapse;
-    }
-
-    .detail-table th,
-    .detail-table td {
-        padding: 12px;
-        text-align: left;
-        border: 1px solid #dee2e6;
-        vertical-align: middle;
-        word-wrap: break-word; /* Jika teks panjang, tetap rapi */
-    }
-
-    .detail-table th {
-        background-color: #4e73df;
-        color: white;
-        font-weight: bold;
-        width: 35%; /* Lebar tetap untuk header */
-    }
-
-    .detail-table td {
-        background-color: #ffffff;
-        width: 65%; /* Lebar tetap untuk isi */
-    }
-        .table-container {
-        overflow-x: auto; /* Aktifkan scroll horizontal */
-    }
-    .detail-table tbody tr:hover {
-        background-color: #eaf1fd !important; /* Warna latar hover biru lembut */
-        transition: background-color 0.2s ease-in-out; /* Efek smooth */
-    }
-
-    table {
-        font-size: 0.75rem;
-        border-collapse: collapse;
-        width: 100%; /* Tabel akan memenuhi container */
-    }
-
-    table th, table td {
-        padding: 10px 15px;
-        white-space: nowrap;
-        text-align: left;
-        border: 1px solid #dee2e6; /* Border antar sel */
-    }
-
-    table th {
-        background-color: #4e73df; /* Warna biru sesuai dengan tombol Kirim */
-        color: white; /* Teks putih */
-        font-weight: bold; /* Cetak tebal */
-    }
-
-    table tbody tr:hover {
-        background-color: #eaf1fd; /* Warna latar biru lembut saat baris dihover */
-    }
-
-    .filter-section {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 10px;
-    }
-
-    .filter-input {
-        max-width: 250px; /* Batasi lebar input filter */
-    }
-
-    .pagination-container {
-        display: flex;
-        justify-content: flex-end; /* Posisi ke kanan */
-        margin-top: 5px; /* Jarak antara tabel dan pagination */
-    }
-
-    .bg-warning-custom {
-        background-color: #f6c23e !important;
-        color: #291e03 !important;
-        font-weight: bold; 
-    }
-
-
-</style>
 <h1 class="h3 mb-4 text-gray-800"><i class="fas fa-file-export"></i> Kirim Berkas ke BKA</h1>
 
 <div class="row">
     <!-- Tabel Kiri: Data Usulan Siap Dikirim -->
     <div class="col-md-6">
     <div class="d-flex justify-content-between align-items-center mb-2">
-        <h5 class="m-0"><i>06.1. Berkas Siap Dikirim</i></h5>
+        <label class="text-primary"><i class="fas fa-info-circle"></i> 06.1. Berkas Siap Dikirim</label>
         <input type="text" id="filterNamaGuru" class="form-control w-50" placeholder="Filter Nama Guru..." onkeyup="filterTable('tableSiapKirim', this.value)">
     </div>
         <div class="table-responsive">
-            <table id="tableSiapKirim" class="table table-striped">
+            <table id="tableSiapKirim" class="table table-sm table-striped">
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>Pilih</th>    
-                        <th>Nama Cabang Dinas</th>                                                
+                        <th>Pilih</th>
                         <th>Nama Guru</th>
+                        <th>NIP</th>                        
                         <th>Sekolah Asal</th>
                         <th>Aksi</th>
                     </tr>
@@ -180,9 +35,9 @@
                                             data-sekolah-tujuan="<?= $usulan['sekolah_tujuan']; ?>">
                                         <span class="checkmark"></span>
                                     </label>
-                                </td>
-                                <td><?= $usulan['nama_cabang']; ?></td>                                
+                                </td>                              
                                 <td><?= $usulan['guru_nama']; ?></td>
+                                <td><?= $usulan['guru_nip']; ?></td>                                  
                                 <td><?= $usulan['sekolah_asal']; ?></td>
                                 <td>
                                     <button class="btn btn-info btn-sm" onclick="showDetail(<?= htmlspecialchars(json_encode($usulan)) ?>)">
@@ -201,13 +56,13 @@
         </div>
             <!-- Pagination -->
         <div class="pagination-container">
-            <?= $pagerSiapKirim->links('usulanSiapKirim', 'custom_pagination'); ?>
+            <?= $pagerSiapKirim->links('usulanSiapKirim', 'default_full'); ?>
         </div>
                 <!-- Tabel Baru: 06.1.1 Data Akan Dikirim -->
         <div id="dataAkanDikirimContainer" class="mt-3 p-3 border rounded shadow-sm" style="display: none;">
-            <h5><i>06.1.1 Data Akan Dikirim</i></h5>
+            <label class="text-primary"><i class="fas fa-info-circle"></i> 06.1.1 Data Akan Dikirim</label>
             <div class="table-responsive">
-                <table id="tableAkanDikirim" class="table table-striped">
+                <table id="tableAkanDikirim" class="table table-sm table-striped">
                     <thead>
                         <tr>
                             <th>#</th>
@@ -221,14 +76,14 @@
             </div>
 
             <!-- Tombol Kirim & Batal -->
-            <button class="btn btn-success mt-2" onclick="kirimDataKeBKPSDM()">Kirim</button>
-            <button class="btn btn-danger mt-2" onclick="batalKirim()">Batal</button>
+            <button class="btn btn-success btn-sm-custom" onclick="kirimDataKeBKPSDM()">Kirim</button>
+            <button class="btn btn-secondary btn-sm-custom" onclick="batalKirim()">Batal</button>
         </div>
 
             <!-- Detail Usulan (Ditampilkan saat tombol "View" diklik) -->
         <div id="detailData" class="detail-container">
-            <h5 class="text-primary"><i class="fas fa-info-circle"></i> 06.1.1 Detail Usulan</h5>
-            <table  class="table detail-table">
+            <label class="text-primary"><i class="fas fa-info-circle"></i> 06.1.1 Detail Usulan</label>
+            <table  class="table-responsive table-bordered detail-table">
                 <tbody>
                     <tr><th>Nomor Usulan</th><td id="detailNomorUsulan"></td></tr>
                     <tr><th>Nama Guru</th><td id="detailNamaGuru"></td></tr>
@@ -240,55 +95,50 @@
                      <tr><th>Berkas Usulan</th>
                         <td>
                             <a id="berkasUsulanLinkKiri" href="#" target="_blank" class="btn btn-info btn-sm">
-                                <i class="fas fa-file-pdf"></i> Lihat Berkas
+                                <i class="fas fa-file-pdf"></i> Lihat
                             </a>
                         </td>
                     </tr>
                     <tr><th>Tanggal Input Usulan</th><td id="detailTanggalInput"></td></tr>
-                </tbody>
-            </table>
-            <h6 class="text-primary"><i class="fas fa-check-circle"></i> Rekomendasi Cabang Dinas</h6>
-            <table class="table detail-table">
-                <tbody>
+                    <tr>
+                        <th colspan="2" class="text-left text-primary custom-bg"><i class="fas fa-info-circle"></i> 
+                            Rekomendasi Cabang Dinas</th>
+                    </tr>  
                     <tr><th>Nama Cabang Dinas</th><td id="detailNamaCabang"></td></tr>
                     <tr><th>Dokumen Rekomendasi</th>
                         <td>
                             <a id="dokumenRekomendasiLink" href="#" target="_blank" class="btn btn-info btn-sm">
-                                <i class="fas fa-file-pdf"></i> Lihat Dokumen
+                                <i class="fas fa-file-pdf"></i> Lihat
                             </a>
                         </td>
                     </tr>
                     <tr><th>Operator</th><td id="detailOperator"></td></tr>
                     <tr><th>No. HP</th><td id="detailNoHP"></td></tr>
                     <tr><th>Tanggal Dikirimkan</th><td id="detailTanggalDikirim"></td></tr>
-                </tbody>
-            </table>
-
-            <h6 class="text-primary"><i class="fas fa-edit"></i> Status Telaah Kabid GTK</h6>
-            <table class="table detail-table">
-                <tbody>
+                    <tr>
+                        <th colspan="2" class="text-left text-primary custom-bg"><i class="fas fa-info-circle"></i> 
+                            Status Telaah Kabid GTK</th>
+                    </tr>
                     <tr><th>Status Telaah</th><td id="detailStatusTelaah"></td></tr>
                     <tr><th>Tanggal Telaah</th><td id="detailTanggalTelaah"></td></tr>
                     <tr><th>Catatan Telaah</th><td id="detailCatatanTelaah"></td></tr>
-                </tbody>
-            </table>
-
-            <h6 class="text-primary"><i class="fas fa-clipboard-check"></i> Rekomendasi Kadis</h6>
-            <table class="table detail-table">
-                <tbody>
+                    <tr>
+                        <th colspan="2" class="text-left text-primary custom-bg"><i class="fas fa-info-circle"></i> 
+                            Rekomendasi Kadis</th>
+                    </tr>
                     <tr><th>Nomor Rekomendasi</th><td id="detailNomorRekom"></td></tr>
                     <tr><th>Tanggal Surat Rekomendasi</th><td id="detailTanggalRekom"></td></tr>
                     <tr><th>File Rekom Kadis</th>
                         <td>
                             <a id="fileRekomLink" href="#" target="_blank" class="btn btn-info btn-sm">
-                                <i class="fas fa-file-pdf"></i> Lihat File
+                                <i class="fas fa-file-pdf"></i> Lihat
                             </a>
                         </td>
                     </tr>
                 </tbody>
             </table>
-
-            <button class="btn btn-secondary mt-2" onclick="hideDetail()">
+            <p></p>
+            <button class="btn btn-secondary btn-sm-custom" onclick="hideDetail()">
                 <i class="fas fa-window-close"></i>
             </button>
         </div>
@@ -296,23 +146,25 @@
 
     <!-- Tabel Kanan: Data Usulan yang Sudah Dikirim -->
     <div class="col-md-6">
-        <div class="d-flex justify-content-between align-items-center mb-2">
-            <h5 class="m-0"><i>06.2. Berkas Sudah Dikirim</i></h5>
-            <input type="text" id="filterBerkasDikirim" class="form-control w-50" placeholder="Cari Nama Guru atau Nomor Usulan..." onkeyup="filterTableBerkasDikirim()">
-            <form method="get" id="perPageBerkasDikirimForm">
-                <select name="perPageBerkasDikirim" class="form-control" onchange="document.getElementById('perPageBerkasDikirimForm').submit();">
-                    <option value="25" <?= $perPageBerkasDikirim == 25 ? 'selected' : '' ?>>25</option>
-                    <option value="50" <?= $perPageBerkasDikirim == 50 ? 'selected' : '' ?>>50</option>
-                    <option value="100" <?= $perPageBerkasDikirim == 100 ? 'selected' : '' ?>>100</option>
-                </select>
-            </form>
+        <div class="filter-section">
+            <label class="text-primary"><i class="fas fa-info-circle"></i> 06.2. Berkas Sudah Dikirim</label>
+            <div class="d-flex">
+                <input type="text" id="filterBerkasDikirim" class="form-control filter-input" placeholder="Nama Guru..." onkeyup="filterTableBerkasDikirim()">
+                <form method="get" id="perPageBerkasDikirimForm">
+                    <select name="perPageBerkasDikirim" class="form-control" onchange="document.getElementById('perPageBerkasDikirimForm').submit();">
+                        <option value="25" <?= $perPageBerkasDikirim == 25 ? 'selected' : '' ?>>25</option>
+                        <option value="50" <?= $perPageBerkasDikirim == 50 ? 'selected' : '' ?>>50</option>
+                        <option value="100" <?= $perPageBerkasDikirim == 100 ? 'selected' : '' ?>>100</option>
+                    </select>
+                </form>
+            </div>
         </div>
         <div class="table-responsive">
-            <table id="tableBerkasDikirim" class="table table-striped">
+            <table id="tableBerkasDikirim" class="table table-sm table-striped">
                 <thead>
                     <tr>
-                        <th>Nomor Usulan</th>
                         <th>Nama Guru</th>
+                        <th>NIP</th>                        
                         <th>Tgl Kirim</th>
                         <th>Aksi</th>
                     </tr>
@@ -321,8 +173,8 @@
                     <?php if (!empty($usulanSudahDikirim)): ?>
                         <?php foreach ($usulanSudahDikirim as $usulan): ?>
                             <tr>
-                                <td><?= $usulan['nomor_usulan']; ?></td>
                                 <td><?= $usulan['guru_nama']; ?></td>
+                                <td><?= $usulan['guru_nip']; ?></td>                                
                                 <td><?= date('d-m-Y', strtotime($usulan['tglkirimbkpsdm'])); ?></td>
                                 <td>
                                     <button class="btn btn-info btn-sm" onclick="showDetailKanan(<?= htmlspecialchars(json_encode($usulan)) ?>)">
@@ -341,12 +193,12 @@
         </div>
         <!-- Pagination -->
         <div class="pagination-container">
-            <?= $pagerSudahDikirim->links('usulanSudahDikirim', 'custom_pagination'); ?>
+            <?= $pagerSudahDikirim->links('usulanSudahDikirim', 'default_full'); ?>
         </div>
         <!-- Detail Usulan (Ditampilkan saat tombol "View" diklik) -->
         <div id="detailDataKanan" class="detail-container">
-            <h5 class="text-primary"><i class="fas fa-info-circle"></i> 06.2.1 Detail Berkas Sudah Dikirim</h5>
-            <table class="table detail-table">
+            <label class="text-primary"><i class="fas fa-info-circle"></i> 06.2.1 Detail Berkas Sudah Dikirim</label>
+            <table class="table table-responsive table-bordered detail-table">
                 <tbody>
                     <tr><th>Nomor Usulan</th><td id="detailNomorUsulanKanan"></td></tr>
                     <tr><th>Nama Guru</th><td id="detailNamaGuruKanan"></td></tr>
@@ -358,56 +210,50 @@
                     <tr><th>Berkas Usulan</th>
                         <td>
                             <a id="berkasUsulanLinkKanan" href="#" target="_blank" class="btn btn-info btn-sm">
-                                <i class="fas fa-file-pdf"></i> Lihat Berkas
+                                <i class="fas fa-file-pdf"></i> Lihat
                             </a>
                         </td>
                     </tr>
                     <tr><th>Tanggal Input Usulan</th><td id="detailTanggalInputKanan"></td></tr>
-                </tbody>
-            </table>
-
-            <h6 class="text-primary"><i class="fas fa-check-circle"></i> Rekomendasi Cabang Dinas</h6>
-            <table class="table detail-table">
-                <tbody>
+                    <tr>
+                        <th colspan="2" class="text-left text-primary custom-bg"><i class="fas fa-info-circle"></i> 
+                            Rekomendasi Cabang Dinas</th>
+                    </tr>
                     <tr><th>Nama Cabang Dinas</th><td id="detailNamaCabangKanan"></td></tr>
                     <tr><th>Dokumen Rekomendasi</th>
                         <td>
                             <a id="dokumenRekomendasiLinkKanan" href="#" target="_blank" class="btn btn-info btn-sm">
-                                <i class="fas fa-file-pdf"></i> Lihat Dokumen
+                                <i class="fas fa-file-pdf"></i> Lihat
                             </a>
                         </td>
                     </tr>
                     <tr><th>Operator</th><td id="detailOperatorKanan"></td></tr>
                     <tr><th>No. HP</th><td id="detailNoHPKanan"></td></tr>
                     <tr><th>Tanggal Dikirimkan</th><td id="detailTanggalDikirimKanan"></td></tr>
-                </tbody>
-            </table>
-
-            <h6 class="text-primary"><i class="fas fa-edit"></i> Status Telaah Kabid GTK</h6>
-            <table class="table detail-table">
-                <tbody>
+                    <tr>
+                        <th colspan="2" class="text-left text-primary custom-bg"><i class="fas fa-info-circle"></i> 
+                            Status Telaah Kabid GTK</th>
+                    </tr>
                     <tr><th>Status Telaah</th><td id="detailStatusTelaahKanan"></td></tr>
                     <tr><th>Tanggal Telaah</th><td id="detailTanggalTelaahKanan"></td></tr>
                     <tr><th>Catatan Telaah</th><td id="detailCatatanTelaahKanan"></td></tr>
-                </tbody>
-            </table>
-
-            <h6 class="text-primary"><i class="fas fa-clipboard-check"></i> Rekomendasi Kadis</h6>
-            <table class="table detail-table">
-                <tbody>
+                    <tr>
+                        <th colspan="2" class="text-left text-primary custom-bg"><i class="fas fa-info-circle"></i> 
+                            Rekomendasi Kadis</th>
+                    </tr>
                     <tr><th>Nomor Rekomendasi</th><td id="detailNomorRekomKanan"></td></tr>
                     <tr><th>Tanggal Surat Rekomendasi</th><td id="detailTanggalRekomKanan"></td></tr>
                     <tr><th>File Rekom Kadis</th>
                         <td>
                             <a id="fileRekomLinkKanan" href="#" target="_blank" class="btn btn-info btn-sm">
-                                <i class="fas fa-file-pdf"></i> Lihat File
+                                <i class="fas fa-file-pdf"></i> Lihat
                             </a>
                         </td>
                     </tr>
                 </tbody>
             </table>
 
-            <button class="btn btn-secondary mt-2" onclick="hideDetailKanan()">
+            <button class="btn btn-secondary btn-sm-custom" onclick="hideDetailKanan()">
                 <i class="fas fa-window-close"></i>
             </button>
         </div>
