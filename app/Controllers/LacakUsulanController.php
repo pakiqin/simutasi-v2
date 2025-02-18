@@ -20,8 +20,19 @@ class LacakUsulanController extends Controller
     {
         $nomorUsulan = $this->request->getPost('nomor_usulan');
         $nip = $this->request->getPost('nip');
+        $recaptchaResponse = $this->request->getPost('g-recaptcha-response');
 
-        // Model untuk mencari data usulan guru
+        // 🔹 Verifikasi Google reCAPTCHA
+        $secretKey = '6LepasoqAAAAAP0H_15xqhh9RI3HLByT-fnXO1BX'; // Ganti dengan SECRET KEY reCAPTCHA Anda
+        $verifyURL = "https://www.google.com/recaptcha/api/siteverify?secret={$secretKey}&response={$recaptchaResponse}";
+
+        $recaptcha = json_decode(file_get_contents($verifyURL));
+
+        if (!$recaptcha->success) {
+            return redirect()->to('/lacak-mutasi')->with('error', 'Verifikasi reCAPTCHA gagal. Silakan coba lagi.');
+        }
+
+        // 🔹 Model untuk mencari data usulan guru
         $usulanModel = new UsulanModel();
         $historyModel = new UsulanStatusHistoryModel();
         $skMutasiModel = new SkMutasiModel();

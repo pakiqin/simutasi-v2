@@ -208,12 +208,23 @@
     padding: 20px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease-in-out;
-    max-width: 400px;
+    max-width: 420px;
 }
 
 .login-card:hover {
     transform: scale(1.02);
 }
+/* ====== Penyesuaian Ukuran Login Title ====== */
+.login-title {
+    font-size: 1.05rem; /* Ukuran lebih kecil tetapi masih proporsional */
+    font-weight: bold; /* Menjaga ketebalan font */
+    color: #333; /* Warna teks lebih kontras */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px; /* Memberikan jarak antara ikon dan teks */
+}
+
 
 /* ======== TOMBOL LOGIN (TIDAK TERPENGARUH) ======== */
 .btn-login {
@@ -326,6 +337,10 @@
     .hero-section .btn-container {
         flex-wrap: nowrap; /* Paksa tombol tetap satu baris */
     }
+    .g-recaptcha {
+        transform: scale(0.75);
+        height: auto;
+    }
 }
 /* Pastikan style link di halaman login tetap sesuai */
 .login-body .info-links {
@@ -355,25 +370,52 @@
     color: #0056b3 !important;
 }
 
-/* ======== BODY TRACK PAGE ======== */
-.track-body {
-    background: linear-gradient(135deg, #0073f2, #001fb5);
-    display: flex !important;
+/* ======== PENYESUAIAN LOGO DI FORM LACAK MUTASI ======== */
+.track-logo, .login-logo {
+    max-width: 80%; /* Membatasi ukuran maksimum */
+    height: auto; /* Menjaga aspek rasio */
+    margin: 0 auto 10px auto; /* Memastikan logo tetap di tengah */
+    display: block;
+}
+
+/* ======== PENYESUAIAN CONTAINER RECAPTCHA ======== */
+.recaptcha-container {
+    display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    padding: 10px 0;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* ======== PASTIKAN RECAPTCHA TIDAK TERPOTONG ======== */
+.g-recaptcha {
+    transform: scale(0.90); /* Skala awal untuk menyesuaikan */
+    transform-origin: center;
+    max-width: 100%;
+    display: inline-block;
+    height: auto; /* Pastikan tinggi tetap */
+}
+
+/* ======== 1. PENGATURAN BODY UNTUK LACAK MUTASI ======== */
+.track-body {
+    background: linear-gradient(135deg, #3f51b5, #1a237e);
+    display: flex;
+    justify-content: center;
+    align-items: center;
     min-height: 100vh;
 }
 
-/* ======== CARD TRACK ======== */
+/* ======== 2. PENGATURAN KOTAK CARD UNTUK PENCARIAN ======== */
 .track-card {
-    background: white;
-    border-radius: 12px;
+    max-width: 420px;
+    width: 90%;
     padding: 25px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease-in-out;
-    max-width: 400px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .track-card:hover {
@@ -487,5 +529,12 @@
     .btn-search {
         font-size: 0.9rem;
         padding: 10px;
+    }
+    .g-recaptcha {
+        transform: scale(0.80);
+        height: auto;
+    }
+        .track-logo, .login-logo {
+        max-width: 70%; /* Lebih kecil di layar mobile */
     }
 }

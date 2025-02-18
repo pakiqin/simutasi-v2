@@ -46,7 +46,7 @@
                                 </div>
                             </div>
 
-                            <div class="form-group text-center mb-3">
+                            <div class="form-group text-center mb-3 recaptcha-container">
                                 <div class="g-recaptcha" data-sitekey="6LepasoqAAAAAGbEhzC8fo_aolo1Jporb9biG24F"></div>
                             </div>
 
@@ -56,10 +56,10 @@
 
                         <div class="d-flex justify-content-between mt-3 info-links">
                             <a href="/" class="info-link">
-                                <i class="fas fa-arrow-left"></i> Kembali ke Beranda
+                                <i class="fas fa-arrow-left"></i> Beranda
                             </a>
                             <a href="/lacak-mutasi" class="info-link">
-                                <i class="fas fa-search"></i> Lacak Usulan Mutasi
+                                <i class="fas fa-search"></i> Lacak Usulan
                             </a>
                         </div>
                     </div>

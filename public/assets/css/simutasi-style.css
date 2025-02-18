@@ -1,4 +1,44 @@
 /* ======== 1. PENGATURAN DASAR ======== */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: row;
+}
+
+#sidebar {
+    min-height: 100vh;
+    flex-shrink: 0;
+}
+
+#content-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+#content {
+    flex-grow: 1;
+}
+
+.sticky-footer {
+    width: 100%;
+    background-color: #f8f9fc;
+    padding: 10px 0;
+    text-align: center;
+    position: relative;
+}
+
+.mt-auto {
+    margin-top: auto;
+}
+
+
 body {
     font-size: 1rem;
     line-height: 1.2;
@@ -243,7 +283,7 @@ select.form-control {
     margin-top: 5px;
     padding: 6px;
     background: #f8f9fc;
-    //border-radius: 8px; /* Border-radius lebih kecil agar lebih elegan */
+    /*border-radius: 8px; /* Border-radius lebih kecil agar lebih elegan */
 }
 
 .page-item .page-link {
@@ -767,12 +807,14 @@ select.form-control {
 .dashboard-text-right {
     text-align: right;
 }
+/*
 .badge {
     font-size: 0.75rem;
     padding: 5px 8px;
     margin-right: 5px;
     border-radius: 6px;
 }
+*/
 
 /* ======== 5. RESPONSIVE SCALING UNTUK LAYAR KECIL ======== */
 @media screen and (max-width: 1280px) {
@@ -830,7 +872,9 @@ select.form-control {
         width: 95%;
         padding: 20px;
     }
-}
+    .g-recaptcha {
+        transform: scale(0.85);
+    }
 }
 
 @media screen and (max-width: 480px) {
@@ -866,4 +910,5 @@ select.form-control {
         font-size: 0.9rem;
         height: 36px;
     }
+    
 }
