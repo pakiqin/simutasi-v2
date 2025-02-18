@@ -4,42 +4,44 @@
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
 </div>
-
 <!-- 🔹 BARIS PERTAMA: 4 KOTAK STATISTIK -->
 <div class="row">
     <?php 
     $cards = [
         ["01 : Usulan Mutasi", "Semua Tahun", $total_usulan, "fa-file-alt", "dashboard-card-blue", []],
         ["02 : Usulan Cabdin", "Tahun $tahun_saat_ini", $total_usulan_cabdin, "fa-paper-plane", "dashboard-card-yellow", [
-            ["bg-primary text-white", "Menunggu Verifikasi: $total_terkirim"],
-            ["bg-danger text-white", "Belum Dikirim: $usulan_belum_dikirim"]
+            ["bg-primary text-white", "Terkirim: $total_terkirim"],
+            ["bg-danger text-white", "Blm. Kirim: $usulan_belum_dikirim"]
         ]],
         ["03 : Verifikasi Dinas", "Tahun $tahun_saat_ini", $total_verif_dinas, "fa-check-circle", "dashboard-card-red", [
             ["bg-success text-white", "Lengkap: $total_lengkap"],
-            ["bg-danger text-white", "TdkLengkap: $total_tdk_lengkap"]
+            ["bg-danger text-white", "Tdk. Lengkap: $total_tdk_lengkap"]
         ]],
         ["04 : Telaah Usulan", "Tahun $tahun_saat_ini", $total_telaah_kabid, "fa-user-tie", "dashboard-card-yellow", [
             ["bg-success text-white", "Disetujui: $telaah_disetujui"],
             ["bg-danger text-white", "Ditolak: $telaah_ditolak"]
-        ]]
+        ]],
     ];
     foreach ($cards as $card) : ?>
         <div class="col-xl-3 col-md-6 col-sm-12 mb-4">
-            <div class="card dashboard-card <?= $card[4]; ?>">
-                <div class="card-body d-flex flex-column">
-                    <div>
-                        <div class="dashboard-text-md text-uppercase"><?= $card[0]; ?></div>
-                        <div class="text-xs text-muted"><?= $card[1]; ?></div>
-                        <div class="mt-2">
-                            <?php foreach ($card[5] as $badge) : ?>
-                                <span class="badge <?= $badge[0]; ?>"><?= $badge[1]; ?></span>
-                            <?php endforeach; ?>
-                        </div>
+            <div class="dashboard-card-custom <?= $card[4]; ?>">
+                <div class="dashboard-card-body">
+                    <div class="dashboard-card-header">
+                        <span class="dashboard-title"><?= $card[0]; ?></span>
+                        <span class="dashboard-subtitle"><?= $card[1]; ?></span>
                     </div>
-                    <div class="dashboard-text-right mt-auto">
-                        <div class="h2 font-weight-bold"><?= $card[2]; ?></div>
+                    <!-- 🔹 Badge Status -->
+                    <div class="dashboard-card-content">
+                        <?php foreach ($card[5] as $badge) : ?>
+                            <span class="badge <?= $badge[0]; ?> px-2 py-1 rounded-pill"><?= $badge[1]; ?></span>
+                        <?php endforeach; ?>
                     </div>
-                    <i class="fas <?= $card[3]; ?> dashboard-icon"></i>
+
+                    <!-- 🔹 Footer: Angka & Ikon di Sebelah Kanan -->
+                    <div class="dashboard-card-footer d-flex justify-content-end align-items-center">
+                        <span class="dashboard-count me-2"><?= $card[2]; ?></span>
+                        <i class="fas <?= $card[3]; ?> dashboard-icon"></i>
+                    </div>
                 </div>
             </div>
         </div>
@@ -52,7 +54,7 @@
     $cards2 = [
         ["05 : Rekomendasi Kadis", "Tahun $tahun_saat_ini", $rekom_kadis, "fa-clipboard-check", "dashboard-card-green", [
             ["bg-success text-white", "Ada Rekom: $rekom_kadis_ada"],
-            ["bg-danger text-white", "Belum Ada Rekom: $rekom_kadis_belum"]
+            ["bg-danger text-white", "Belum Ada: $rekom_kadis_belum"]
         ]],
         ["06 : Dikirim ke BKA", "Tahun $tahun_saat_ini", $dikirim_bkpsdm, "fa-share-square", "dashboard-card-blue", [
             ["bg-success text-white", "Sudah: $kirim_bka_sudah"],
@@ -66,21 +68,24 @@
     ];
     foreach ($cards2 as $card) : ?>
         <div class="col-xl-4 col-md-6 col-sm-12 mb-4">
-            <div class="card dashboard-card <?= $card[4]; ?>">
-                <div class="card-body d-flex flex-column">
-                    <div>
-                        <div class="dashboard-text-md text-uppercase"><?= $card[0]; ?></div>
-                        <div class="text-xs text-muted"><?= $card[1]; ?></div>
-                        <div class="mt-2">
-                            <?php foreach ($card[5] as $badge) : ?>
-                                <span class="badge <?= $badge[0]; ?>"><?= $badge[1]; ?></span>
-                            <?php endforeach; ?>
-                        </div>
+            <div class="dashboard-card-custom <?= $card[4]; ?>">
+                <div class="dashboard-card-body">
+                    <div class="dashboard-card-header">
+                        <span class="dashboard-title"><?= $card[0]; ?></span>
+                        <span class="dashboard-subtitle"><?= $card[1]; ?></span>
                     </div>
-                    <div class="dashboard-text-right mt-auto">
-                        <div class="h2 font-weight-bold"><?= $card[2]; ?></div>
+                    <!-- 🔹 Badge Status -->
+                    <div class="dashboard-card-content">
+                        <?php foreach ($card[5] as $badge) : ?>
+                            <span class="badge <?= $badge[0]; ?> px-2 py-1 rounded-pill"><?= $badge[1]; ?></span>
+                        <?php endforeach; ?>
                     </div>
-                    <i class="fas <?= $card[3]; ?> dashboard-icon"></i>
+
+                    <!-- 🔹 Footer: Angka & Ikon di Sebelah Kanan -->
+                    <div class="dashboard-card-footer d-flex justify-content-end align-items-center">
+                        <span class="dashboard-count me-2"><?= $card[2]; ?></span>
+                        <i class="fas <?= $card[3]; ?> dashboard-icon"></i>
+                    </div>
                 </div>
             </div>
         </div>
