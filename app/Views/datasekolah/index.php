@@ -15,15 +15,16 @@
         <a href="/sekolah/import" class="btn btn-success btn-sm-custom">
             <i class="fas fa-file-import"></i> Import
         </a>
+        <!--
         <a href="/sekolah/export" class="btn btn-secondary btn-sm-custom">
             <i class="fas fa-file-download"></i> Ekspor
-        </a>
+        </a>-->
     </div>
 
     <!-- Filter & Pagination di Kanan -->
     <div class="filter-section">
-        <select id="kabupaten_filter" class="form-control" onchange="filterKabupaten()">
-            <option value="">Semua Kabupaten</option>
+        <select id="kabupaten_filter" class="form-control form-control-sm" onchange="filterKabupaten()">
+            <option value="">Kab</option>
             <?php foreach ($kabupaten as $row): ?>
                 <option value="<?= $row['id_kab']; ?>" <?= ($selectedKabupaten == $row['id_kab']) ? 'selected' : ''; ?>>
                     <?= $row['nama_kab']; ?>
@@ -41,6 +42,11 @@
 
 <!-- Tabel Data Sekolah -->
 <div class="table-responsive">
+    <!-- 🔹  Loading Overlay -->
+        <div id="tableLoadingOverlay" class="table-loading-overlay">
+        <div class="loader"></div>
+    </div>
+    <!-- 🔹 Akhir Loading Overlay -->
     <table class="table table-striped">
         <thead>
             <tr>
@@ -89,12 +95,38 @@
 </div>
 
 <script>
+    function showTableLoading() {
+        let overlay = document.getElementById("tableLoadingOverlay");
+        if (overlay) {
+            overlay.style.display = "flex";
+        }
+    }
+
+    function hideTableLoading() {
+        let overlay = document.getElementById("tableLoadingOverlay");
+        if (overlay) {
+            overlay.style.display = "none";
+        }
+    }
+
+    // Tampilkan loading saat halaman pertama kali dimuat
+    document.addEventListener("DOMContentLoaded", function () {
+        showTableLoading();
+        setTimeout(hideTableLoading, 1500); // Simulasi loading 1.5 detik
+    });
+
     function filterKabupaten() {
-        window.location.href = `?kabupaten=${document.getElementById('kabupaten_filter').value}`;
+        showTableLoading();
+        setTimeout(() => {
+            window.location.href = `?kabupaten=${document.getElementById('kabupaten_filter').value}`;
+        }, 300);
     }
 
     function updatePerPage() {
-        window.location.href = `?per_page=${document.getElementById('per_page').value}`;
+        showTableLoading();
+        setTimeout(() => {
+            window.location.href = `?per_page=${document.getElementById('per_page').value}`;
+        }, 300);
     }
 
     function confirmDelete(id) {
@@ -108,7 +140,12 @@
             confirmButtonText: "Ya, Hapus!",
             cancelButtonText: "Batal"
         }).then(result => {
-            if (result.isConfirmed) window.location.href = "/sekolah/delete/" + id;
+            if (result.isConfirmed) {
+                showTableLoading(); // Tampilkan loading saat proses hapus
+                setTimeout(() => {
+                    window.location.href = "/sekolah/delete/" + id;
+                }, 300);
+            }
         });
     }
 </script>
