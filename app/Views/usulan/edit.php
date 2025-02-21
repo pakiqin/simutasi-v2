@@ -92,15 +92,46 @@
             <!-- Tautan Berkas -->
             <div class="row border p-3 mt-3 rounded bg-white">
                 <div class="col-md-12">
-                    <label for="googleDriveLink">Tautan Berkas di Google Drive</label>
-                    <div class="input-group">
-                        <input type="text" name="google_drive_link" id="googleDriveLink" class="form-control" 
-                               value="<?= isset($usulan['google_drive_link']) ? $usulan['google_drive_link'] : ''; ?>" 
-                               placeholder="Masukkan Tautan Google Drive" required>
-                        <button type="button" class="btn btn-sm-custom btn-info" onclick="previewLink()">
-                            <i class="fas fa-eye"></i>
-                        </button>
-                    </div>
+                    <label class="text-primary"><i class="fas fa-file-upload"></i> Tautan Berkas di Google Drive</label>
+                    <?php 
+                    $berkas_labels = [
+                        "Surat Pengantar dari Cabang Dinas Asal",
+                        "Surat Pengantar dari Kepala Sekolah",
+                        "Surat Permohonan Pindah Tugas Bermaterai (Ditujukan Untuk Kepala Dinas)",
+                        "Surat Permohonan Pindah Tugas Bermaterai (Ditujukan Untuk Kepala BKA)",
+                        "Surat Permohonan Pindah Tugas Bermaterai (Ditujukan Untuk gubernur cq Sekda Aceh)",
+                        "Rekomendasi Kepala Sekolah Melepas Lengkap dengan Analisis",
+                        "Rekomendasi Melepas dari Pengawas Sekolah",
+                        "Rekomendasi Melepas dari Kepala Cabang Dinas Kab/Kota",
+                        "Rekomendasi Kepala Sekolah Menerima Lengkap dengan Analisis",
+                        "Rekomendasi Menerima dari Pengawas Sekolah",
+                        "Rekomendasi Menerima dari Kepala Cabang Dinas Kab/Kota",
+                        "Analisis Jabatan (Anjab) ditandatangani oleh Kepala Sekolah Melepas",
+                        "Surat Formasi GTK dari Sekolah Asal",
+                        "Foto Copy SK 80% dan SK Terakhir di Legalisir",
+                        "Foto Copy Karpeg dilegalisir",
+                        "Surat Keterangan tidak Pernah di Jatuhi Hukuman Disiplin",
+                        "Surat Keterangan bebas Temuan Inspektorat",
+                        "Surat Keterangan Bebas Tugas Belajar/Izin Belajar",
+                        "Daftar Riwayat Hidup/ Riwayat Pekerjaan",
+                        "Surat Tugas Suami dan Foto Copy Buku Nikah"
+                    ];
+                    ?>
+
+                    <?php for ($i = 0; $i < 20; $i++): ?>
+                        <div class="form-group mb-2">
+                            <label for="googleDriveLink<?= $i ?>">Berkas <?= str_pad($i + 1, 2, "0", STR_PAD_LEFT) ?> - <?= $berkas_labels[$i] ?></label>
+                            <div class="input-group">
+                                <input type="text" name="google_drive_link[]" id="googleDriveLink<?= $i ?>" class="form-control" 
+                                    placeholder="Masukkan Tautan Google Drive"
+                                    value="<?= isset($usulan_drive_links[$i]) ? $usulan_drive_links[$i] : '' ?>">
+                                <button type="button" class="btn btn-sm-custom btn-info" onclick="previewLink('googleDriveLink<?= $i ?>')">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                            <small id="errorMsg<?= $i ?>" class="form-text"></small> <!-- Pesan validasi -->
+                        </div>
+                    <?php endfor; ?>
                 </div>
             </div>
 
@@ -155,36 +186,81 @@
     });
 
 
-    function previewLink() {
-        let link = document.getElementById('googleDriveLink').value.trim();
+    document.addEventListener("DOMContentLoaded", function () {
+    const submitBtn = document.querySelector("button[type='submit']");
+    const googleDrivePattern = /^(https?:\/\/)?(www\.)?(drive\.google\.com\/(file\/d\/|open\?id=|drive\/folders\/)).+/;
+    
+    function validateLinks() {
+        let allValid = true;
 
-        // Validasi apakah tautan berisi teks
+        document.querySelectorAll("input[name='google_drive_link[]']").forEach((input, index) => {
+            let linkValue = input.value.trim();
+            let feedbackElement = document.getElementById(`errorMsg${index}`);
+
+            if (!linkValue) {
+                feedbackElement.textContent = "❌ Data masih kosong";
+                feedbackElement.style.color = "red";
+                allValid = false;
+            } else if (!googleDrivePattern.test(linkValue)) {
+                feedbackElement.textContent = "❌ Tautan tidak valid!";
+                feedbackElement.style.color = "red";
+                allValid = false;
+            } else {
+                feedbackElement.textContent = "✔ Tautan valid";
+                feedbackElement.style.color = "green";
+            }
+        });
+
+        submitBtn.disabled = !allValid;
+    }
+
+    // Event listener untuk setiap input tautan
+    document.querySelectorAll("input[name='google_drive_link[]']").forEach((input) => {
+        input.addEventListener("input", validateLinks);
+    });
+
+    // Cegah submit jika ada error
+    document.querySelector("form").addEventListener("submit", function (event) {
+        validateLinks();
+        if (submitBtn.disabled) {
+            event.preventDefault(); 
+            Swal.fire({
+                title: 'Gagal!',
+                text: 'Harap periksa kembali semua tautan sebelum menyimpan.',
+                icon: 'error',
+                confirmButtonText: 'OK'
+            });
+        }
+    });
+});
+
+    // Fungsi Preview Link Google Drive
+    function previewLink(inputId) {
+        let link = document.getElementById(inputId).value.trim();
+        let googleDrivePattern = /^(https?:\/\/)?(www\.)?(drive\.google\.com\/|docs\.google\.com\/)/;
+
         if (!link) {
             Swal.fire({
                 title: 'Peringatan!',
-                text: 'Tautan Google Drive belum diisi.',
+                text: `Tautan belum diisi untuk  ${inputId}.`,
                 icon: 'warning',
                 confirmButtonText: 'OK'
             });
             return;
         }
 
-        // Validasi apakah tautan mengandung format Google Drive
-        let googleDrivePattern = /^(https?:\/\/)?(www\.)?(drive\.google\.com\/|docs\.google\.com\/)/;
         if (!googleDrivePattern.test(link)) {
             Swal.fire({
                 title: 'Peringatan!',
-                text: 'Masukkan tautan Google Drive yang valid!',
+                text: `Masukkan tautan Google Drive yang valid untuk ${inputId}!`,
                 icon: 'warning',
                 confirmButtonText: 'OK'
             });
             return;
         }
 
-        // Jika valid, buka tautan di tab baru
         window.open(link, '_blank');
     }
-
-
 </script>
+
 <?= $this->endSection(); ?>

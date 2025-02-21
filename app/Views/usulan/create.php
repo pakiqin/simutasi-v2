@@ -109,13 +109,43 @@
                 <!-- Tautan Berkas -->
                 <div class="row border p-3 mt-3 rounded bg-white">
                     <div class="col-md-12">
-                        <label for="googleDriveLink">Tautan Berkas di Google Drive</label>
-                        <div class="input-group">
-                            <input type="text" name="google_drive_link" id="googleDriveLink" class="form-control" placeholder="Masukkan Tautan Google Drive" required>
-                            <button type="button" class="btn btn-sm-custom btn-info" onclick="previewLink()">
-                                <i class="fas fa-eye"></i>
-                            </button>
-                        </div>
+                        <label class="text-primary"><i class="fas fa-file-upload"></i> Tautan Berkas di Google Drive</label>
+                        <?php 
+                        $berkasLabels = [
+                            "Surat Pengantar dari Cabang Dinas Asal",
+                            "Surat Pengantar dari Kepala Sekolah",
+                            "Surat Permohonan Pindah Tugas Bermaterai (Ditujukan Untuk Kepala Dinas)",
+                            "Surat Permohonan Pindah Tugas Bermaterai (Ditujukan Untuk Kepala BKA)",
+                            "Surat Permohonan Pindah Tugas Bermaterai (Ditujukan Untuk Gubernur cq Sekda Aceh)",
+                            "Rekomendasi Kepala Sekolah Melepas Lengkap dengan Analisis (Jumlah jam, Siswa, Rombel, Guru Mapel Kurang atau Lebih)",
+                            "Rekomendasi Melepas dari Pengawas Sekolah",
+                            "Rekomendasi Melepas dari Kepala Cabang Dinas Kab/Kota",
+                            "Rekomendasi Kepala Sekolah Menerima Lengkap dengan Analisis (Jumlah jam, Siswa, Rombel, Guru Mapel Kurang atau Lebih)",
+                            "Rekomendasi Menerima dari Pengawas Sekolah",
+                            "Rekomendasi Menerima dari Kepala Cabang Dinas Kab/Kota",
+                            "Analisis Jabatan (Anjab) ditandatangani oleh Kepala Sekolah Melepas dan Mengetahui Kepala Dinas",
+                            "Surat Formasi GTK dari Sekolah Asal (Data Guru dan Tendik yang ditandatangani oleh Kepala Sekolah)",
+                            "Foto Copy SK 80% dan SK Terakhir di Legalisir",
+                            "Foto Copy Karpeg dilegalisir",
+                            "Surat Keterangan tidak Pernah di Jatuhi Hukuman Disiplin ditandatangani oleh Kepala Sekolah Melepas",
+                            "Surat Keterangan Bebas Temuan Inspektorat ditandatangani oleh Kepala Sekolah Melepas",
+                            "Surat Keterangan Bebas Tugas Belajar/Izin Belajar ditandatangani oleh Kepala Sekolah Melepas",
+                            "Daftar Riwayat Hidup/ Riwayat Pekerjaan",
+                            "Surat Tugas Suami dan Foto Copy Buku Nikah"
+                        ];
+
+                        for ($i = 0; $i < 20; $i++): ?>
+                            <div class="form-group mb-2">
+                                <label for="googleDriveLink<?= $i + 1 ?>">Berkas <?= str_pad($i + 1, 2, "0", STR_PAD_LEFT) ?> - <?= $berkasLabels[$i] ?></label>
+                                <div class="input-group">
+                                    <input type="text" name="google_drive_link[]" id="googleDriveLink<?= $i + 1 ?>" class="form-control" placeholder="Masukkan Tautan Google Drive">
+                                    <button type="button" class="btn btn-sm-custom btn-info" onclick="previewLink('googleDriveLink<?= $i + 1 ?>')">
+                                        <i class="fas fa-eye"></i>
+                                    </button>
+                                </div>
+                                <small id="errorMsg<?= $i + 1 ?>" class="form-text"></small> <!-- Tempat pesan error -->
+                            </div>
+                        <?php endfor; ?>
                     </div>
                 </div>
 
@@ -205,36 +235,51 @@ function checkNipNikAvailability(callback = null) {
 document.getElementById("guruNip").addEventListener("input", checkNipNikAvailability);
 document.getElementById("guruNik").addEventListener("input", checkNipNikAvailability);
 
-// Validasi Tautan Google Drive sebelum submit
 document.addEventListener("DOMContentLoaded", function () {
-    document.querySelector("form").addEventListener("submit", function (event) {
-        event.preventDefault(); // Cegah submit sementara
+    const submitBtn = document.querySelector("button[type='submit']");
+    const googleDrivePattern = /^(https?:\/\/)?(www\.)?(drive\.google\.com\/(file\/d\/|open\?id=|drive\/folders\/)).+/;
+    
+    function validateLinks() {
+        let allValid = true;
 
-        checkNipNikAvailability(() => {
-            let googleDriveLink = document.querySelector("input[name='google_drive_link']").value.trim();
+        document.querySelectorAll("input[name='google_drive_link[]']").forEach((input, index) => {
+            let linkValue = input.value.trim();
+            let feedbackElement = document.getElementById(`errorMsg${index + 1}`);
 
-            // 🔍 Update regex agar mendukung tautan folder Google Drive
-            let googleDrivePattern = /^(https?:\/\/)?(www\.)?(drive\.google\.com\/(file\/d\/|open\?id=|drive\/folders\/)).+/;
-
-            if (!googleDrivePattern.test(googleDriveLink)) {
-                Swal.fire({
-                    title: 'Gagal!',
-                    html: `<div style="text-align:left;">
-                            <p>Masukkan tautan Google Drive yang valid.</p>
-                            <b>Contoh format yang diterima:</b>
-                            <ul style="text-align:left; padding-left:15px;">
-                                <li>📂 <b>File:</b> <code>https://drive.google.com/file/d/EXAMPLE_ID/view</code></li>
-                                <li>📁 <b>Folder:</b> <code>https://drive.google.com/drive/folders/EXAMPLE_ID</code></li>
-                            </ul>
-                          </div>`,
-                    icon: 'error',
-                    confirmButtonText: 'OK'
-                });
-                return;
+            if (!linkValue) {
+                feedbackElement.textContent = "❌ Data masih kosong";
+                feedbackElement.style.color = "red";
+                allValid = false;
+            } else if (!googleDrivePattern.test(linkValue)) {
+                feedbackElement.textContent = "❌ Tautan tidak valid!";
+                feedbackElement.style.color = "red";
+                allValid = false;
+            } else {
+                feedbackElement.textContent = "✔ Tautan valid";
+                feedbackElement.style.color = "green";
             }
-
-            event.target.submit(); // Jika semua validasi lolos, lanjut submit
         });
+
+        submitBtn.disabled = !allValid;
+    }
+
+    // Event listener untuk setiap input tautan
+    document.querySelectorAll("input[name='google_drive_link[]']").forEach((input, index) => {
+        input.addEventListener("input", validateLinks);
+    });
+
+    // Cegah submit jika ada error
+    document.querySelector("form").addEventListener("submit", function (event) {
+        validateLinks();
+        if (submitBtn.disabled) {
+            event.preventDefault(); 
+            Swal.fire({
+                title: 'Gagal!',
+                text: 'Harap periksa kembali semua tautan sebelum menyimpan.',
+                icon: 'error',
+                confirmButtonText: 'OK'
+            });
+        }
     });
 });
 
@@ -260,15 +305,45 @@ document.addEventListener("DOMContentLoaded", function () {
     <?php endif; ?>
 });
 
-// Fungsi Preview Link Google Drive
-function previewLink() {
-    let link = document.getElementById('googleDriveLink').value.trim();
+// Fungsi Preview Link Google Drive untuk masing-masing input
+function previewLink(inputId) {
+    let link = document.getElementById(inputId).value.trim();
     let googleDrivePattern = /^(https?:\/\/)?(www\.)?(drive\.google\.com\/|docs\.google\.com\/)/;
+
+    // Daftar label berkas untuk mencocokkan dengan ID input
+    const berkasLabels = [
+        "Surat Pengantar dari Cabang Dinas Asal",
+        "Surat Pengantar dari Kepala Sekolah",
+        "Surat Permohonan Pindah Tugas Bermaterai (Ditujukan Untuk Kepala Dinas)",
+        "Surat Permohonan Pindah Tugas Bermaterai (Ditujukan Untuk Kepala BKA)",
+        "Surat Permohonan Pindah Tugas Bermaterai (Ditujukan Untuk Gubernur cq Sekda Aceh)",
+        "Rekomendasi Kepala Sekolah Melepas Lengkap dengan Analisis (Jumlah jam, Siswa, Rombel, Guru Mapel Kurang atau Lebih)",
+        "Rekomendasi Melepas dari Pengawas Sekolah",
+        "Rekomendasi Melepas dari Kepala Cabang Dinas Kab/Kota",
+        "Rekomendasi Kepala Sekolah Menerima Lengkap dengan Analisis (Jumlah jam, Siswa, Rombel, Guru Mapel Kurang atau Lebih)",
+        "Rekomendasi Menerima dari Pengawas Sekolah",
+        "Rekomendasi Menerima dari Kepala Cabang Dinas Kab/Kota",
+        "Analisis Jabatan (Anjab) ditandatangani oleh Kepala Sekolah Melepas dan Mengetahui Kepala Dinas",
+        "Surat Formasi GTK dari Sekolah Asal (Data Guru dan Tendik yang ditandatangani oleh Kepala Sekolah)",
+        "Foto Copy SK 80% dan SK Terakhir di Legalisir",
+        "Foto Copy Karpeg dilegalisir",
+        "Surat Keterangan tidak Pernah di Jatuhi Hukuman Disiplin ditandatangani oleh Kepala Sekolah Melepas",
+        "Surat Keterangan Bebas Temuan Inspektorat ditandatangani oleh Kepala Sekolah Melepas",
+        "Surat Keterangan Bebas Tugas Belajar/Izin Belajar ditandatangani oleh Kepala Sekolah Melepas",
+        "Daftar Riwayat Hidup/ Riwayat Pekerjaan",
+        "Surat Tugas Suami dan Foto Copy Buku Nikah"
+    ];
+
+    // Ambil nomor berkas dari inputId (misalnya: googleDriveLink1 → 1)
+    let berkasIndex = parseInt(inputId.replace("googleDriveLink", ""), 10) - 1;
+
+    // Cek apakah index valid dan ambil nama berkas
+    let berkasNama = berkasLabels[berkasIndex] || `Berkas ${berkasIndex + 1}`;
 
     if (!link) {
         Swal.fire({
             title: 'Peringatan!',
-            text: 'Tautan Google Drive belum diisi.',
+            text: `Tautan belum diisi untuk ${berkasNama}.`,
             icon: 'warning',
             confirmButtonText: 'OK'
         });
@@ -278,7 +353,7 @@ function previewLink() {
     if (!googleDrivePattern.test(link)) {
         Swal.fire({
             title: 'Peringatan!',
-            text: 'Masukkan tautan Google Drive yang valid!',
+            text: `Masukkan tautan Google Drive yang valid untuk ${berkasNama}!`,
             icon: 'warning',
             confirmButtonText: 'OK'
         });
@@ -287,6 +362,8 @@ function previewLink() {
 
     window.open(link, '_blank');
 }
+
+
 </script>
 
 <?= $this->endSection(); ?>

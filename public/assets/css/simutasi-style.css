@@ -91,8 +91,7 @@ body {
     justify-content: center;
     align-items: center;
 }
-
-/* 🔴 Lingkaran 1 - Merah */
+/* 🔵 Lingkaran 1 - Biru Muda */
 .loader::before {
     content: "";
     position: absolute;
@@ -100,11 +99,11 @@ body {
     height: 100%;
     border-radius: 50%;
     border: 4px solid transparent;
-    border-top-color: #ff3b30;
+    border-top-color: #a6c8ff; /* Soft Blue */
     animation: spin 1.2s linear infinite;
 }
 
-/* 🟡 Lingkaran 2 - Kuning */
+/* 🔵 Lingkaran 2 - Biru Pastel */
 .loader::after {
     content: "";
     position: absolute;
@@ -112,18 +111,18 @@ body {
     height: 80%;
     border-radius: 50%;
     border: 4px solid transparent;
-    border-top-color: #ffcc00;
+    border-top-color: #d6e4ff; /* Lighter Blue */
     animation: spin 1.5s linear infinite reverse;
 }
 
-/* 🟢 Lingkaran 3 - Hijau */
+/* 🔵 Lingkaran 3 - Biru Abu */
 .loader span {
     position: absolute;
     width: 60%;
     height: 60%;
     border-radius: 50%;
     border: 4px solid transparent;
-    border-top-color: #34c759;
+    border-top-color: #8ca8d6; /* Muted Blue */
     animation: spin 1.8s linear infinite;
 }
 
@@ -132,6 +131,7 @@ body {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
+
 
 
 
