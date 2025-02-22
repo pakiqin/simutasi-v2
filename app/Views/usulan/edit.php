@@ -234,33 +234,64 @@
     });
 });
 
-    // Fungsi Preview Link Google Drive
-    function previewLink(inputId) {
-        let link = document.getElementById(inputId).value.trim();
-        let googleDrivePattern = /^(https?:\/\/)?(www\.)?(drive\.google\.com\/|docs\.google\.com\/)/;
+// Fungsi Preview Link Google Drive untuk masing-masing input
+function previewLink(inputId) {
+    let link = document.getElementById(inputId).value.trim();
+    let googleDrivePattern = /^(https?:\/\/)?(www\.)?(drive\.google\.com\/|docs\.google\.com\/)/;
 
-        if (!link) {
-            Swal.fire({
-                title: 'Peringatan!',
-                text: `Tautan belum diisi untuk  ${inputId}.`,
-                icon: 'warning',
-                confirmButtonText: 'OK'
-            });
-            return;
-        }
+    // Daftar label berkas untuk mencocokkan dengan ID input
+    const berkasLabels = [
+        "Surat Pengantar dari Cabang Dinas Asal",
+        "Surat Pengantar dari Kepala Sekolah",
+        "Surat Permohonan Pindah Tugas Bermaterai (Ditujukan Untuk Kepala Dinas)",
+        "Surat Permohonan Pindah Tugas Bermaterai (Ditujukan Untuk Kepala BKA)",
+        "Surat Permohonan Pindah Tugas Bermaterai (Ditujukan Untuk Gubernur cq Sekda Aceh)",
+        "Rekomendasi Kepala Sekolah Melepas Lengkap dengan Analisis",
+        "Rekomendasi Melepas dari Pengawas Sekolah",
+        "Rekomendasi Melepas dari Kepala Cabang Dinas Kab/Kota",
+        "Rekomendasi Kepala Sekolah Menerima Lengkap dengan Analisis",
+        "Rekomendasi Menerima dari Pengawas Sekolah",
+        "Rekomendasi Menerima dari Kepala Cabang Dinas Kab/Kota",
+        "Analisis Jabatan (Anjab) ditandatangani oleh Kepala Sekolah Melepas",
+        "Surat Formasi GTK dari Sekolah Asal",
+        "Foto Copy SK 80% dan SK Terakhir di Legalisir",
+        "Foto Copy Karpeg dilegalisir",
+        "Surat Keterangan tidak Pernah di Jatuhi Hukuman Disiplin",
+        "Surat Keterangan Bebas Temuan Inspektorat",
+        "Surat Keterangan Bebas Tugas Belajar/Izin Belajar",
+        "Daftar Riwayat Hidup/ Riwayat Pekerjaan",
+        "Surat Tugas Suami dan Foto Copy Buku Nikah"
+    ];
 
-        if (!googleDrivePattern.test(link)) {
-            Swal.fire({
-                title: 'Peringatan!',
-                text: `Masukkan tautan Google Drive yang valid untuk ${inputId}!`,
-                icon: 'warning',
-                confirmButtonText: 'OK'
-            });
-            return;
-        }
+    // Ambil nomor berkas dari inputId (misalnya: googleDriveLink0 → 0, googleDriveLink1 → 1)
+    let berkasIndex = parseInt(inputId.replace("googleDriveLink", ""), 10);
 
-        window.open(link, '_blank');
+    // Pastikan indeks valid agar tidak error
+    let berkasNama = berkasLabels[berkasIndex] || `Berkas ${berkasIndex + 1}`;
+
+    if (!link) {
+        Swal.fire({
+            title: 'Peringatan!',
+            text: `Tautan belum diisi untuk ${berkasNama}.`,
+            icon: 'warning',
+            confirmButtonText: 'OK'
+        });
+        return;
     }
+
+    if (!googleDrivePattern.test(link)) {
+        Swal.fire({
+            title: 'Peringatan!',
+            text: `Masukkan tautan Google Drive yang valid untuk ${berkasNama}!`,
+            icon: 'warning',
+            confirmButtonText: 'OK'
+        });
+        return;
+    }
+
+    window.open(link, '_blank');
+}
+
 </script>
 
 <?= $this->endSection(); ?>
