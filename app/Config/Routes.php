@@ -141,6 +141,8 @@ $routes->get('/api/check-nip-nik', 'UsulanController::checkNipNik');
 $routes->get('/usulan/konfirmasi-cetak/(:segment)', 'UsulanController::konfirmasiCetak/$1');
 $routes->get('/usulan/generate-resi/(:any)', 'UsulanController::generateResi/$1');
 
+$routes->get('/usulan/getDriveLinks/(:segment)', 'UsulanController::getDriveLinks/$1');
+
 //$routes->get('/usulan/generate-resi/(:segment)', 'UsulanController::generateResi/$1');
 
 $routes->get('/pengiriman', 'PengirimanController::index');

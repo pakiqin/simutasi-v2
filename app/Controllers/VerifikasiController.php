@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Controllers;
-
+use App\Models\UsulanDriveModel;
 use App\Models\VerifikasiBerkasModel;
 use CodeIgniter\Controller;
 
@@ -132,5 +132,20 @@ class VerifikasiController extends BaseController
         }
     }
 
+    public function getDriveLinks($nomor_usulan)
+    {
+        $db = \Config\Database::connect();
+        $query = $db->table('usulan_drive_links')
+                    ->select('id, nomor_usulan, drive_link') // Pastikan hanya mengambil kolom yang diperlukan
+                    ->where('nomor_usulan', $nomor_usulan)
+                    ->get();
+    
+        $data = $query->getResultArray(); // ✅ Mengambil semua data dalam bentuk array
+    
+        log_message('debug', '[DEBUG] Total data yang dikembalikan dari database: ' . count($data));
+    
+        return $this->response->setJSON(["total" => count($data), "data" => $data]);
+    }
+    
 
 }

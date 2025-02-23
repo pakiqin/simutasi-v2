@@ -84,9 +84,9 @@
                     <tr>
                         <th>Berkas Usulan</th>
                         <td>
-                            <a id="berkasUsulanLink" href="#" target="_blank" class="btn btn-info  btn-sm">
+                            <button id="lihatBerkasBtn" class="btn btn-info btn-sm">
                                 <i class="fas fa-file-pdf"></i> Lihat
-                            </a>
+                            </button>
                         </td>
                     </tr>
                     <tr>
@@ -122,10 +122,6 @@
                         <th>Tanggal Dikirimkan</th>
                         <td id="detailTanggalDikirim"></td>
                     </tr>
-                    <tr>
-                        <th>Catatan</th>
-                        <td id="detailCatatan"></td>
-                    </tr>
                     
                     <?php if (!$readonly): ?>
                     <!-- Tombol Aksi Verifikasi -->
@@ -147,7 +143,37 @@
                 <i class="fas fa-window-close"></i>
             </button>
         </div>
-
+        
+                <!-- Modal Daftar Berkas -->
+        <div class="modal fade" id="berkasModal" tabindex="-1" aria-labelledby="berkasModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="berkasModalLabel">Daftar Berkas Scan</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                        <div class="modal-body">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Nama Berkas</th>
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="berkasList">
+                                    <tr><td colspan="3" class="text-center">Memuat data...</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary btn-sm-custom" data-dismiss="modal">Tutup</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
     </div>
 
@@ -156,6 +182,12 @@
         <div class="filter-section">
             <label class="text-primary"><i class="fas fa-info-circle"></i> 03.2: Usulan Diverifikasi</label>
             <input type="text" id="filterDiverifikasi" class="form-control filter-input" placeholder="Filter Nama Guru" onkeyup="filterTable('tableDiverifikasi', this.value)">
+            <!-- Dropdown untuk Filter Status -->
+            <select id="filterStatusVerifikasi" class="form-control" onchange="filterStatus()">
+                <option value="">Status</option>
+                <option value="Lengkap">Lengkap</option>
+                <option value="TdkLengkap">TdkLengkap</option>
+            </select>
         </div>
         <div class="table-responsive">
             <table id="tableDiverifikasi" class="table table-sm table-striped">
@@ -193,6 +225,7 @@
                 </tbody>
             </table>
         </div>
+
         <?php if (!empty($pagerDiverifikasi)) : ?>
             <div class="pagination-container">
                 <?= $pagerDiverifikasi->links('page_status04', 'default_full'); ?>
@@ -231,14 +264,6 @@
                     <td id="detailAlasanDiverifikasi"></td>
                 </tr>
                 <tr>
-                    <th>Berkas Usulan</th>
-                    <td>
-                        <a id="berkasUsulanLinkDiverifikasi" href="#" target="_blank" class="btn btn-info btn-sm">
-                            <i class="fas fa-file-pdf"></i> Lihat
-                        </a>
-                    </td>
-                </tr>
-                <tr>
                     <th>Tanggal Input Usulan</th>
                     <td id="detailTanggalInputDiverifikasi"></td>
                 </tr>
@@ -270,7 +295,7 @@
                     <td id="detailTanggalDikirimDiverifikasi"></td>
                 </tr>
                 <tr>
-                    <th>Catatan</th>
+                    <th>Catatan Verifikasi</th>
                     <td id="detailCatatanDiverifikasi"></td>
                 </tr>
             </tbody>
@@ -289,6 +314,25 @@
 
 <script>
 
+    document.addEventListener("DOMContentLoaded", function () {
+        let lihatBerkasBtn = document.getElementById("lihatBerkasBtn");
+
+        if (lihatBerkasBtn) {
+            lihatBerkasBtn.addEventListener("click", function () {
+                let nomorUsulan = document.getElementById("detailNomorUsulan").textContent;
+
+                //console.log("[DEBUG] Nomor usulan dari detail:", nomorUsulan);
+
+                if (!nomorUsulan) {
+                  //  console.error("[ERROR] Nomor usulan tidak ditemukan!");
+                    alert("Nomor usulan tidak tersedia.");
+                    return;
+                }
+
+                showBerkasModal(nomorUsulan);
+            });
+        }
+    });
 
     function filterTable(tableId, searchValue) {
         const table = document.getElementById(tableId);
@@ -320,7 +364,7 @@
         document.getElementById('detailSekolahTujuan').textContent = data.sekolah_tujuan || '-';
         document.getElementById('detailAlasan').textContent = data.alasan || '-';
         document.getElementById('detailTanggalInput').textContent = data.created_at ? new Date(data.created_at).toLocaleDateString('id-ID') : '-';
-
+/*
         const berkasLink = document.getElementById('berkasUsulanLink');
         if (data.google_drive_link) {
             berkasLink.href = data.google_drive_link;
@@ -328,13 +372,13 @@
         } else {
             berkasLink.style.display = 'none';
         }
-
+*/
         // BAGIAN 2: Informasi Rekomendasi Cabang Dinas
         document.getElementById('detailNamaCabang').textContent = data.nama_cabang || '-';
         document.getElementById('detailOperator').textContent = data.operator || '-';
         document.getElementById('detailNoHP').textContent = data.no_hp || '-';
         document.getElementById('detailTanggalDikirim').textContent = data.tanggal_dikirim ? new Date(data.tanggal_dikirim).toLocaleDateString('id-ID') : '-';
-        document.getElementById('detailCatatan').textContent = data.catatan || '-';
+        //document.getElementById('detailCatatan').textContent = data.catatan || '-';
 
         const dokumenLink = document.getElementById('dokumenRekomendasiLink');
         if (data.dokumen_rekomendasi) {
@@ -472,7 +516,7 @@ function kirimDataVerifikasi(nomorUsulan, status, catatan) {
         document.getElementById('detailTanggalInputDiverifikasi').textContent = data.created_at
             ? new Date(data.created_at).toLocaleDateString('id-ID')
             : '-';
-
+/*
         const berkasLink = document.getElementById('berkasUsulanLinkDiverifikasi');
         if (data.google_drive_link) {
             berkasLink.href = data.google_drive_link;
@@ -480,7 +524,7 @@ function kirimDataVerifikasi(nomorUsulan, status, catatan) {
         } else {
             berkasLink.style.display = 'none';
         }
-
+*/
         document.getElementById('detailNamaCabangDiverifikasi').textContent = data.nama_cabang || '-';
         document.getElementById('detailOperatorDiverifikasi').textContent = data.operator || '-';
         document.getElementById('detailNoHPDiverifikasi').textContent = data.no_hp || '-';
@@ -524,10 +568,91 @@ function kirimDataVerifikasi(nomorUsulan, status, catatan) {
 function hideDetailDiverifikasi() {
     document.getElementById('detailDataDiverifikasi').style.display = 'none';
 }
+function filterStatus() {
+    const filterValue = document.getElementById('filterStatusVerifikasi').value.toLowerCase();
+    const table = document.getElementById('tableDiverifikasi');
+    const rows = table.getElementsByTagName('tr');
 
+    for (let i = 1; i < rows.length; i++) {
+        const statusCell = rows[i].getElementsByTagName('td')[2]; // Kolom ke-4 (Status)
+        if (statusCell) {
+            const statusText = statusCell.textContent.toLowerCase();
+            rows[i].style.display =
+                filterValue === '' || statusText.includes(filterValue) ? '' : 'none';
+        }
+    }
+}
 
+function showBerkasModal(nomorUsulan) {
 
+    document.getElementById('berkasList').innerHTML = `<tr><td colspan="3" class="text-center">Memuat data...</td></tr>`;
 
+    fetch(`/usulan/getDriveLinks/${nomorUsulan}`)
+        .then(response => response.json())
+        .then(responseData => {
+            //console.log("[DEBUG] Data yang diterima dari API:", responseData);
+
+            if (!responseData || !responseData.data || responseData.data.length === 0) {
+                //console.warn("[WARNING] Tidak ada data berkas untuk nomor usulan:", nomorUsulan);
+                document.getElementById('berkasList').innerHTML = `<tr><td colspan="3" class="text-center text-danger">Tidak ada data berkas</td></tr>`;
+                return;
+            }
+
+            let berkasLabels = [
+                    "Surat Pengantar dari Cabang Dinas Asal",
+                    "Surat Pengantar dari Kepala Sekolah",
+                    "Surat Permohonan Pindah Tugas Bermaterai (Ditujukan Untuk Kepala Dinas)",
+                    "Surat Permohonan Pindah Tugas Bermaterai (Ditujukan Untuk Kepala BKA)",
+                    "Surat Permohonan Pindah Tugas Bermaterai (Ditujukan Untuk Gubernur cq Sekda Aceh)",
+                    "Rekomendasi Kepala Sekolah Melepas Lengkap dengan Analisis (Jumlah jam Siswa Rombel Guru Mapel Kurang atau Lebih)",
+                    "Rekomendasi Melepas dari Pengawas Sekolah",
+                    "Rekomendasi Melepas dari Kepala Cabang Dinas Kab/Kota",
+                    "Rekomendasi Kepala Sekolah Menerima Lengkap dengan Analisis (Jumlah jam Siswa Rombel Guru Mapel Kurang atau Lebih)",
+                    "Rekomendasi Menerima dari Pengawas Sekolah",
+                    "Rekomendasi Menerima dari Kepala Cabang Dinas Kab/Kota",
+                    "Analisis Jabatan (Anjab) ditandatangani oleh Kepala Sekolah Melepas dan Mengetahui Kepala Dinas",
+                    "Surat Formasi GTK dari Sekolah Asal (Data Guru dan Tendik yang ditandatangani oleh Kepala Sekolah)",
+                    "Foto Copy SK 80% dan SK Terakhir di Legalisir",
+                    "Foto Copy Karpeg dilegalisir",
+                    "Surat Keterangan tidak Pernah di Jatuhi Hukuman Disiplin ditandatangani oleh Kepala Sekolah Melepas",
+                    "Surat Keterangan Bebas Temuan Inspektorat ditandatangani oleh Kepala Sekolah Melepas",
+                    "Surat Keterangan Bebas Tugas Belajar/Izin Belajar ditandatangani oleh Kepala Sekolah Melepas",
+                    "Daftar Riwayat Hidup/ Riwayat Pekerjaan",
+                    "Surat Tugas Suami dan Foto Copy Buku Nikah"
+                ];
+
+            let berkasList = document.getElementById('berkasList');
+            berkasList.innerHTML = ""; 
+
+            responseData.data.forEach((berkas, index) => {
+                let row = document.createElement('tr');
+                let driveLink = berkas.drive_link ? berkas.drive_link : "#";
+
+                // Gunakan nama berkas dari array, jika index masih dalam rentang
+                let berkasNama = berkasLabels[index] || `Berkas ${index + 1}`;
+
+                //console.log(`[DEBUG] Berkas ${index + 1}:`, berkasNama, "Link:", driveLink);
+
+                row.innerHTML = `
+                    <td>${index + 1}</td>
+                    <td>${berkasNama}</td>
+                    <td>
+                        <a href="${driveLink}" target="_blank" class="btn btn-sm btn-info">
+                            <i class="fas fa-eye"></i>
+                        </a>
+                    </td>
+                `;
+                berkasList.appendChild(row);
+            });
+        })
+        .catch(error => {
+            //console.error("[ERROR] Gagal mengambil data berkas:", error);
+            document.getElementById('berkasList').innerHTML = `<tr><td colspan="3" class="text-center text-danger">Gagal memuat data</td></tr>`;
+        });
+
+    let modal = new bootstrap.Modal(document.getElementById("berkasModal"));
+    modal.show();
+}
 
 </script>
 

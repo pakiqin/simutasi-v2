@@ -150,12 +150,46 @@
         <tr>
             <th>Berkas Scan</th>
             <td>
-                <a href="#" id="googleDriveLink" class="btn btn-info btn-sm-custom" target="_blank">
-                    <i class="fas fa-eye"></i> Lihat
-                </a>
+            <button id="lihatBerkasBtn" class="btn btn-info btn-sm">
+                <i class="fas fa-file-pdf"></i> Lihat
+            </button>
+
             </td>
         </tr>
+
     </table>
+<!-- Modal Daftar Berkas -->
+<div class="modal fade" id="berkasModal" tabindex="-1" aria-labelledby="berkasModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="berkasModalLabel">Daftar Berkas Scan</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Nama Berkas</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody id="berkasList">
+                        <tr><td colspan="3" class="text-center">Memuat data...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary btn-sm-custom" data-dismiss="modal">Tutup</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
     <!-- Bagian History -->
     <h4>History</h4>
     <table class="table table-bordered">
@@ -178,6 +212,27 @@
     </div>
 </div>
 <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let lihatBerkasBtn = document.getElementById("lihatBerkasBtn");
+
+        if (lihatBerkasBtn) {
+            lihatBerkasBtn.addEventListener("click", function () {
+                let nomorUsulan = document.getElementById("detailNomorUsulan").textContent;
+
+                console.log("[DEBUG] Nomor usulan dari detail:", nomorUsulan);
+
+                if (!nomorUsulan) {
+                    console.error("[ERROR] Nomor usulan tidak ditemukan!");
+                    alert("Nomor usulan tidak tersedia.");
+                    return;
+                }
+
+                showBerkasModal(nomorUsulan);
+            });
+        }
+    });
+
+
         function showDetail(row) {
         document.getElementById('detailNamaGuru').textContent = row.guru_nama;
         document.getElementById('detailNIP').textContent = row.guru_nip;
@@ -185,7 +240,7 @@
         document.getElementById('detailSekolahAsal').textContent = row.sekolah_asal;
         document.getElementById('detailSekolahTujuan').textContent = row.sekolah_tujuan;
         document.getElementById('detailNomorUsulan').textContent = row.nomor_usulan;
-        document.getElementById('googleDriveLink').href = row.google_drive_link;
+       // document.getElementById('googleDriveLink').href = row.google_drive_link;
         document.getElementById('cetakResiButton').href = "/usulan/generate-resi/" + row.nomor_usulan;
 
         // Fetch data history berdasarkan nomor_usulan
@@ -324,6 +379,78 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     <?php endif; ?>
 });
+function showBerkasModal(nomorUsulan) {
+
+    document.getElementById('berkasList').innerHTML = `<tr><td colspan="3" class="text-center">Memuat data...</td></tr>`;
+
+    fetch(`/usulan/getDriveLinks/${nomorUsulan}`)
+        .then(response => response.json())
+        .then(responseData => {
+            //console.log("[DEBUG] Data yang diterima dari API:", responseData);
+
+            if (!responseData || !responseData.data || responseData.data.length === 0) {
+                //console.warn("[WARNING] Tidak ada data berkas untuk nomor usulan:", nomorUsulan);
+                document.getElementById('berkasList').innerHTML = `<tr><td colspan="3" class="text-center text-danger">Tidak ada data berkas</td></tr>`;
+                return;
+            }
+
+            let berkasLabels = [
+                "Surat Pengantar dari Cabang Dinas Asal",
+                "Surat Pengantar dari Kepala Sekolah",
+                "Surat Permohonan Pindah Tugas Bermaterai (Ditujukan Untuk Kepala Dinas)",
+                "Surat Permohonan Pindah Tugas Bermaterai (Ditujukan Untuk Kepala BKA)",
+                "Surat Permohonan Pindah Tugas Bermaterai (Ditujukan Untuk Gubernur cq Sekda Aceh)",
+                "Rekomendasi Kepala Sekolah Melepas Lengkap dengan Analisis (Jumlah jam Siswa Rombel Guru Mapel Kurang atau Lebih)",
+                "Rekomendasi Melepas dari Pengawas Sekolah",
+                "Rekomendasi Melepas dari Kepala Cabang Dinas Kab/Kota",
+                "Rekomendasi Kepala Sekolah Menerima Lengkap dengan Analisis (Jumlah jam Siswa Rombel Guru Mapel Kurang atau Lebih)",
+                "Rekomendasi Menerima dari Pengawas Sekolah",
+                "Rekomendasi Menerima dari Kepala Cabang Dinas Kab/Kota",
+                "Analisis Jabatan (Anjab) ditandatangani oleh Kepala Sekolah Melepas dan Mengetahui Kepala Dinas",
+                "Surat Formasi GTK dari Sekolah Asal (Data Guru dan Tendik yang ditandatangani oleh Kepala Sekolah)",
+                "Foto Copy SK 80% dan SK Terakhir di Legalisir",
+                "Foto Copy Karpeg dilegalisir",
+                "Surat Keterangan tidak Pernah di Jatuhi Hukuman Disiplin ditandatangani oleh Kepala Sekolah Melepas",
+                "Surat Keterangan Bebas Temuan Inspektorat ditandatangani oleh Kepala Sekolah Melepas",
+                "Surat Keterangan Bebas Tugas Belajar/Izin Belajar ditandatangani oleh Kepala Sekolah Melepas",
+                "Daftar Riwayat Hidup/ Riwayat Pekerjaan",
+                "Surat Tugas Suami dan Foto Copy Buku Nikah"
+            ];
+
+            let berkasList = document.getElementById('berkasList');
+            berkasList.innerHTML = ""; 
+
+            responseData.data.forEach((berkas, index) => {
+                let row = document.createElement('tr');
+                let driveLink = berkas.drive_link ? berkas.drive_link : "#";
+
+                // Gunakan nama berkas dari array, jika index masih dalam rentang
+                let berkasNama = berkasLabels[index] || `Berkas ${index + 1}`;
+
+                //console.log(`[DEBUG] Berkas ${index + 1}:`, berkasNama, "Link:", driveLink);
+
+                row.innerHTML = `
+                    <td>${index + 1}</td>
+                    <td>${berkasNama}</td>
+                    <td>
+                        <a href="${driveLink}" target="_blank" class="btn btn-sm btn-info">
+                            <i class="fas fa-eye"></i>
+                        </a>
+                    </td>
+                `;
+                berkasList.appendChild(row);
+            });
+        })
+        .catch(error => {
+            //console.error("[ERROR] Gagal mengambil data berkas:", error);
+            document.getElementById('berkasList').innerHTML = `<tr><td colspan="3" class="text-center text-danger">Gagal memuat data</td></tr>`;
+        });
+
+    let modal = new bootstrap.Modal(document.getElementById("berkasModal"));
+    modal.show();
+}
+
+
 
 
 </script>
