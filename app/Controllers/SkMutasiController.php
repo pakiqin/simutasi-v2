@@ -42,9 +42,10 @@ class SkMutasiController extends Controller
         $perPageKiri = $this->request->getGet('perPageKiri') ?? 10;
         $perPageKanan = $this->request->getGet('perPageKanan') ?? 10;
 
+        // 🔹 Perbaikan: Ambil data dengan status 05 dan 06
         $queryKiri = $this->usulanModel
             ->select('usulan.*')
-            ->where('usulan.status', '06')
+            ->whereIn('usulan.status', ['05', '06']) // ✅ Tambahkan status '05' dan '06'
             ->orderBy('usulan.created_at', 'ASC');
 
         $usulanKiri = $queryKiri->paginate($perPageKiri, 'usulanKiri');

@@ -57,12 +57,17 @@
                                         <h6 class="text-primary"><i class="fas fa-info-circle"></i> 07.1.1 Form Upload SK Mutasi / Nota Dinas</h6>
                                         <form method="post" action="<?= base_url('skmutasi/upload'); ?>" enctype="multipart/form-data">             
                                             <input type="hidden" name="nomor_usulan" value="<?= $usulan['nomor_usulan']; ?>">
+                                            <input type="hidden" name="status_usulan" value="<?= $usulan['status']; ?>">
                                             
                                             <div class="mb-2">
                                                 <label class="form-label">Jenis SK</label>
                                                 <select name="jenis_mutasi" class="form-control form-control-sm" required>
-                                                    <option value="SK Mutasi">SK Mutasi</option>
-                                                    <option value="Nota Dinas">Nota Dinas</option>
+                                                    <?php if ($usulan['status'] == '06') : ?>
+                                                        <option value="SK Mutasi" <?= ($usulan['status'] == '06') ? 'selected' : ''; ?>>SK Mutasi</option>
+                                                        <option value="Nota Dinas">Nota Dinas</option>
+                                                    <?php elseif ($usulan['status'] == '05') : ?>
+                                                        <option value="Nota Dinas" selected>Nota Dinas</option>
+                                                    <?php endif; ?>
                                                 </select>
                                             </div>
 
@@ -155,7 +160,7 @@
                                        title="Lihat SK Mutasi">
                                        <i class="fas fa-file-pdf"></i>
                                     </a>
-
+                                    <!--
                                     <button class="btn btn-warning btn-sm" 
                                         onclick="toggleForm('form-update-<?= $usulan['nomor_usulan']; ?>', 'row-kanan-<?= $usulan['nomor_usulan']; ?>')">
                                         <i class="fas fa-edit"></i>
@@ -164,6 +169,7 @@
                                         onclick="confirmDelete('<?= base_url('skmutasi/delete/' . $usulan['id_skmutasi']); ?>')">
                                         <i class="fas fa-trash"></i>
                                     </button>
+                                    -->
                                 </td>
                             </tr>
                             <!-- Form Update (Muncul di bawah baris data) -->

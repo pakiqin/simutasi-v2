@@ -4,7 +4,7 @@
 <div class="row" >
     <!-- Bagian 1: Form Input Surat Rekomendasi -->
     <div id="formInput" class="col-md-6">
-        <label class="text-primary"><i class="fas fa-info-circle"></i> 05.1: Input Surat Rekomendasi</label>        
+        <label class="text-primary"><i class="fas fa-info-circle"></i> 05.1: Input Rekomendasi (Bundel Berkas dari Srikandi)</label>        
         <div class="card mb-4">
             <div class="card-body">
                 <form action="/rekomkadis/store" method="post" enctype="multipart/form-data">
@@ -22,7 +22,7 @@
                         <input type="text" name="perihal_rekomkadis" id="perihal_rekomkadis" class="form-control" required>
                     </div>
                     <div class="form-group">
-                        <label for="file_rekomkadis">Upload Surat Rekomendasi (PDF, Maksimal 10 MB)</label>
+                        <label for="file_rekomkadis">Upload Bundel Berkas dari aplikasi Srikandi (PDF, Maksimal 10 MB)</label>
                         <input type="file" name="file_rekomkadis" id="file_rekomkadis" class="form-control" accept=".pdf" required>
                     </div>
                     <button type="submit" class="btn btn-primary btn-sm-custom"><i class="fas fa-save"></i> Simpan</button>

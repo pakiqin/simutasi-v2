@@ -52,7 +52,6 @@
                     </div>
                 </div>
             </div>
-            
             <!-- Tautan Berkas -->
             <div class="row border p-3 mt-3 rounded bg-white">
                 <div class="col-md-12">
@@ -65,24 +64,24 @@
                         "Surat Permohonan Pindah Tugas Bermaterai (Ditujukan Untuk Kepala BKA)",
                         "Surat Permohonan Pindah Tugas Bermaterai (Ditujukan Untuk Gubernur cq Sekda Aceh)",
                         "Rekomendasi Kepala Sekolah Melepas Lengkap dengan Analisis",
-                        "Rekomendasi Melepas dari Pengawas Sekolah",
+                        "Rekomendasi Melepas dari Pengawas Sekolah (Optional)",
                         "Rekomendasi Melepas dari Kepala Cabang Dinas Kab/Kota",
                         "Rekomendasi Kepala Sekolah Menerima Lengkap dengan Analisis",
-                        "Rekomendasi Menerima dari Pengawas Sekolah",
+                        "Rekomendasi Menerima dari Pengawas Sekolah (Optional)",
                         "Rekomendasi Menerima dari Kepala Cabang Dinas Kab/Kota",
                         "Analisis Jabatan (Anjab) ditandatangani oleh Kepala Sekolah Melepas",
                         "Surat Formasi GTK dari Sekolah Asal",
                         "Foto Copy SK 80% dan SK Terakhir di Legalisir",
                         "Foto Copy Karpeg dilegalisir",
                         "Surat Keterangan tidak Pernah di Jatuhi Hukuman Disiplin",
-                        "Surat Keterangan Bebas Temuan Inspektorat",
+                        "Surat Keterangan Bebas Temuan Inspektorat (Optional)",
                         "Surat Keterangan Bebas Tugas Belajar/Izin Belajar",
                         "Daftar Riwayat Hidup/ Riwayat Pekerjaan",
-                        "Surat Tugas Suami dan Foto Copy Buku Nikah"
+                        "Surat Tugas Suami dan Foto Copy Buku Nikah (Optional)"
                     ];
                     ?>
 
-                    <?php for ($i = 0; $i < 20; $i++): ?>
+                    <?php for ($i = 0; $i < count($berkas_labels); $i++): ?>
                         <div class="form-group mb-2">
                             <label for="googleDriveLink<?= $i ?>">Berkas <?= str_pad($i + 1, 2, "0", STR_PAD_LEFT) ?> - <?= $berkas_labels[$i] ?></label>
                             <div class="input-group">
@@ -93,7 +92,7 @@
                                     <i class="fas fa-eye"></i>
                                 </button>
                             </div>
-                            <small id="errorMsg<?= $i ?>" class="form-text"></small> <!-- Pesan validasi -->
+                            <small id="errorMsg<?= $i ?>" class="form-text"></small>
                         </div>
                     <?php endfor; ?>
                 </div>
@@ -115,6 +114,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const submitBtn = document.getElementById("submitBtn");
     const googleDrivePattern = /^(https?:\/\/)?(www\.)?(drive\.google\.com\/(file\/d\/|open\?id=|drive\/folders\/)).+/;
 
+    // Daftar indeks berkas yang boleh dikosongkan (sesuai urutan dari 0)
+    const optionalIndexes = [6, 9, 16, 19]; 
+
     function validateLinks() {
         let allValid = true;
 
@@ -122,6 +124,16 @@ document.addEventListener("DOMContentLoaded", function () {
             let linkValue = input.value.trim();
             let feedbackElement = document.getElementById(`errorMsg${index}`);
 
+            // Jika input termasuk dalam daftar opsional, boleh kosong
+            if (optionalIndexes.includes(index)) {
+                if (!linkValue) {
+                    feedbackElement.textContent = "✅ Opsional (Boleh dikosongkan)";
+                    feedbackElement.style.color = "gray";
+                    return;
+                }
+            }
+
+            // Jika bukan opsional, tetap wajib diisi
             if (!linkValue) {
                 feedbackElement.textContent = "❌ Data masih kosong";
                 feedbackElement.style.color = "red";
@@ -139,11 +151,30 @@ document.addEventListener("DOMContentLoaded", function () {
         submitBtn.disabled = !allValid;
     }
 
+    // Event listener untuk setiap input tautan
     document.querySelectorAll("input[name='google_drive_link[]']").forEach((input) => {
         input.addEventListener("input", validateLinks);
     });
+
+    // Jalankan validasi saat halaman pertama kali dimuat untuk menangani data yang sudah ada
+    validateLinks();
+
+    // Cegah submit jika ada error
+    document.querySelector("form").addEventListener("submit", function (event) {
+        validateLinks();
+        if (submitBtn.disabled) {
+            event.preventDefault(); 
+            Swal.fire({
+                title: 'Gagal!',
+                text: 'Harap periksa kembali semua tautan sebelum menyimpan.',
+                icon: 'error',
+                confirmButtonText: 'OK'
+            });
+        }
+    });
 });
 
+// Fungsi Preview Link Google Drive untuk masing-masing input
 function previewLink(index) {
     let inputId = `googleDriveLink${index}`;
     let link = document.getElementById(inputId).value.trim();
@@ -174,6 +205,7 @@ function previewLink(index) {
 
     window.open(link, '_blank');
 }
+
 </script>
 
 <?= $this->endSection(); ?>

@@ -3,6 +3,31 @@
 
 <?php if (session()->get('role') !== 'dinas'): ?>
 
+<?php 
+    $berkasLabels = [
+        "Surat Pengantar dari Cabang Dinas Asal",
+        "Surat Pengantar dari Kepala Sekolah",
+        "Surat Permohonan Pindah Tugas Bermaterai (Ditujukan Untuk Kepala Dinas)",
+        "Surat Permohonan Pindah Tugas Bermaterai (Ditujukan Untuk Kepala BKA)",
+        "Surat Permohonan Pindah Tugas Bermaterai (Ditujukan Untuk Gubernur cq Sekda Aceh)",
+        "Rekomendasi Kepala Sekolah Melepas Lengkap dengan Analisis (Jumlah jam, Siswa, Rombel, Guru Mapel Kurang atau Lebih)",
+        "Rekomendasi Melepas dari Pengawas Sekolah (Optional)",
+        "Rekomendasi Melepas dari Kepala Cabang Dinas Kab/Kota",
+        "Rekomendasi Kepala Sekolah Menerima Lengkap dengan Analisis (Jumlah jam, Siswa, Rombel, Guru Mapel Kurang atau Lebih)",
+        "Rekomendasi Menerima dari Pengawas Sekolah (Optional)",
+        "Rekomendasi Menerima dari Kepala Cabang Dinas Kab/Kota",
+        "Analisis Jabatan (Anjab) ditandatangani oleh Kepala Sekolah Melepas dan Mengetahui Kepala Dinas",
+        "Surat Formasi GTK dari Sekolah Asal (Data Guru dan Tendik yang ditandatangani oleh Kepala Sekolah)",
+        "Foto Copy SK 80% dan SK Terakhir di Legalisir",
+        "Foto Copy Karpeg dilegalisir",
+        "Surat Keterangan tidak Pernah di Jatuhi Hukuman Disiplin ditandatangani oleh Kepala Sekolah Melepas",
+        "Surat Keterangan Bebas Temuan Inspektorat ditandatangani oleh Kepala Sekolah Melepas (Optional)",
+        "Surat Keterangan Bebas Tugas Belajar/Izin Belajar ditandatangani oleh Kepala Sekolah Melepas",
+        "Daftar Riwayat Hidup/ Riwayat Pekerjaan",
+        "Surat Tugas Suami dan Foto Copy Buku Nikah (Optional)"
+    ];
+?>
+
     <h1 class="h3 mb-4 text-gray-800"><i class="fas fa-folder"></i> Tambah Usulan Mutasi</h1>
 
     <!-- Form dalam Card -->
@@ -72,6 +97,7 @@
                                     <option value="<?= $sekolah['id']; ?>"><?= $sekolah['nama_sekolah']; ?></option>
                                 <?php endforeach; ?>
                             </select>
+                            <input type="hidden" name="sekolah_asal_nama" id="sekolahAsalNama">
                         </div>
 
                         <div class="row">
@@ -102,52 +128,31 @@
                             <select id="sekolahTujuan" name="sekolah_tujuan_id" class="form-control w-100" required>
                                 <option value="">-- Pilih Sekolah --</option>
                             </select>
+                            <input type="hidden" name="sekolah_tujuan_nama" id="sekolahTujuanNama">
                         </div>
                     </div>
                 </div>
-
                 <!-- Tautan Berkas -->
                 <div class="row border p-3 mt-3 rounded bg-white">
                     <div class="col-md-12">
                         <label class="text-primary"><i class="fas fa-file-upload"></i> Tautan Berkas di Google Drive</label>
-                        <?php 
-                        $berkasLabels = [
-                            "Surat Pengantar dari Cabang Dinas Asal",
-                            "Surat Pengantar dari Kepala Sekolah",
-                            "Surat Permohonan Pindah Tugas Bermaterai (Ditujukan Untuk Kepala Dinas)",
-                            "Surat Permohonan Pindah Tugas Bermaterai (Ditujukan Untuk Kepala BKA)",
-                            "Surat Permohonan Pindah Tugas Bermaterai (Ditujukan Untuk Gubernur cq Sekda Aceh)",
-                            "Rekomendasi Kepala Sekolah Melepas Lengkap dengan Analisis (Jumlah jam, Siswa, Rombel, Guru Mapel Kurang atau Lebih)",
-                            "Rekomendasi Melepas dari Pengawas Sekolah",
-                            "Rekomendasi Melepas dari Kepala Cabang Dinas Kab/Kota",
-                            "Rekomendasi Kepala Sekolah Menerima Lengkap dengan Analisis (Jumlah jam, Siswa, Rombel, Guru Mapel Kurang atau Lebih)",
-                            "Rekomendasi Menerima dari Pengawas Sekolah",
-                            "Rekomendasi Menerima dari Kepala Cabang Dinas Kab/Kota",
-                            "Analisis Jabatan (Anjab) ditandatangani oleh Kepala Sekolah Melepas dan Mengetahui Kepala Dinas",
-                            "Surat Formasi GTK dari Sekolah Asal (Data Guru dan Tendik yang ditandatangani oleh Kepala Sekolah)",
-                            "Foto Copy SK 80% dan SK Terakhir di Legalisir",
-                            "Foto Copy Karpeg dilegalisir",
-                            "Surat Keterangan tidak Pernah di Jatuhi Hukuman Disiplin ditandatangani oleh Kepala Sekolah Melepas",
-                            "Surat Keterangan Bebas Temuan Inspektorat ditandatangani oleh Kepala Sekolah Melepas",
-                            "Surat Keterangan Bebas Tugas Belajar/Izin Belajar ditandatangani oleh Kepala Sekolah Melepas",
-                            "Daftar Riwayat Hidup/ Riwayat Pekerjaan",
-                            "Surat Tugas Suami dan Foto Copy Buku Nikah"
-                        ];
 
-                        for ($i = 0; $i < 20; $i++): ?>
+                        <?php for ($i = 0; $i < count($berkasLabels); $i++): ?>
                             <div class="form-group mb-2">
-                                <label for="googleDriveLink<?= $i + 1 ?>">Berkas <?= str_pad($i + 1, 2, "0", STR_PAD_LEFT) ?> - <?= $berkasLabels[$i] ?></label>
+                                <label for="googleDriveLink<?= $i ?>">Berkas <?= str_pad(($i + 1), 2, "0", STR_PAD_LEFT) ?> - <?= htmlspecialchars($berkasLabels[$i]) ?></label>
                                 <div class="input-group">
-                                    <input type="text" name="google_drive_link[]" id="googleDriveLink<?= $i + 1 ?>" class="form-control" placeholder="Masukkan Tautan Google Drive">
-                                    <button type="button" class="btn btn-sm-custom btn-info" onclick="previewLink('googleDriveLink<?= $i + 1 ?>')">
+                                    <input type="text" name="google_drive_link[]" id="googleDriveLink<?= $i ?>" class="form-control" placeholder="Masukkan Tautan Google Drive">
+                                    <button type="button" class="btn btn-sm-custom btn-info" onclick="previewLink(<?= $i ?>)">
                                         <i class="fas fa-eye"></i>
                                     </button>
                                 </div>
-                                <small id="errorMsg<?= $i + 1 ?>" class="form-text"></small> <!-- Tempat pesan error -->
+                                <small id="errorMsg<?= $i ?>" class="form-text"></small>
                             </div>
                         <?php endfor; ?>
                     </div>
                 </div>
+
+
 
                 <!-- Tombol -->
                 <div class="d-flex justify-content-between mt-4">
@@ -162,6 +167,18 @@
 <?php endif; ?>
 <!-- SCRIPT AJAX -->
 <script>
+const berkasLabels = <?= json_encode($berkasLabels) ?>;
+//ambil sekolah asal
+document.getElementById("sekolahAsal").addEventListener("change", function () {
+    let selectedOption = this.options[this.selectedIndex].text;
+    document.getElementById("sekolahAsalNama").value = selectedOption;
+});
+//ambil sekolah tujuan
+document.getElementById("sekolahTujuan").addEventListener("change", function () {
+    let selectedOption = this.options[this.selectedIndex].text;
+    document.getElementById("sekolahTujuanNama").value = selectedOption;
+});
+
 function updateCabangDinas(kabupatenId, targetCabangInput, targetCabangHidden, targetSekolahSelect) {
     if (kabupatenId) {
         fetch(`/api/get-cabang-dinas/${kabupatenId}`)
@@ -238,14 +255,33 @@ document.getElementById("guruNik").addEventListener("input", checkNipNikAvailabi
 document.addEventListener("DOMContentLoaded", function () {
     const submitBtn = document.querySelector("button[type='submit']");
     const googleDrivePattern = /^(https?:\/\/)?(www\.)?(drive\.google\.com\/(file\/d\/|open\?id=|drive\/folders\/)).+/;
-    
+
+    // Pastikan berkasLabels sudah ada
+    if (typeof berkasLabels === "undefined" || !Array.isArray(berkasLabels)) {
+        console.error("Daftar berkasLabels tidak ditemukan.");
+        return;
+    }
+
+    // Daftar indeks berkas yang boleh dikosongkan (0-based index)
+    const optionalIndexes = [6, 9, 16, 19]; // Berkas ke-7, 10, 17, 20
+
     function validateLinks() {
         let allValid = true;
 
         document.querySelectorAll("input[name='google_drive_link[]']").forEach((input, index) => {
             let linkValue = input.value.trim();
-            let feedbackElement = document.getElementById(`errorMsg${index + 1}`);
+            let feedbackElement = document.getElementById(`errorMsg${index}`);
 
+            // Jika input termasuk dalam daftar opsional, boleh kosong
+            if (optionalIndexes.includes(index)) {
+                if (!linkValue) {
+                    feedbackElement.textContent = "✅ Opsional (Boleh dikosongkan)";
+                    feedbackElement.style.color = "gray";
+                    return;
+                }
+            }
+
+            // Jika bukan opsional, tetap wajib diisi
             if (!linkValue) {
                 feedbackElement.textContent = "❌ Data masih kosong";
                 feedbackElement.style.color = "red";
@@ -264,15 +300,18 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Event listener untuk setiap input tautan
-    document.querySelectorAll("input[name='google_drive_link[]']").forEach((input, index) => {
+    document.querySelectorAll("input[name='google_drive_link[]']").forEach((input) => {
         input.addEventListener("input", validateLinks);
     });
+
+    // Jalankan validasi saat halaman pertama kali dimuat untuk menangani data yang sudah ada
+    validateLinks();
 
     // Cegah submit jika ada error
     document.querySelector("form").addEventListener("submit", function (event) {
         validateLinks();
         if (submitBtn.disabled) {
-            event.preventDefault(); 
+            event.preventDefault();
             Swal.fire({
                 title: 'Gagal!',
                 text: 'Harap periksa kembali semua tautan sebelum menyimpan.',
@@ -282,7 +321,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 });
-
 
 
 // SweetAlert Notifikasi
@@ -306,39 +344,24 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // Fungsi Preview Link Google Drive untuk masing-masing input
-function previewLink(inputId) {
-    let link = document.getElementById(inputId).value.trim();
+function previewLink(index) {
+    let inputId = `googleDriveLink${index}`;
+    let inputElement = document.getElementById(inputId);
+
+    if (!inputElement) {
+        Swal.fire({
+            title: 'Error!',
+            text: `Tidak ditemukan input untuk ${berkasLabels[index] || 'Berkas ' + (index + 1)}.`,
+            icon: 'error',
+            confirmButtonText: 'OK'
+        });
+        return;
+    }
+
+    let link = inputElement.value.trim();
     let googleDrivePattern = /^(https?:\/\/)?(www\.)?(drive\.google\.com\/|docs\.google\.com\/)/;
 
-    // Daftar label berkas untuk mencocokkan dengan ID input
-    const berkasLabels = [
-        "Surat Pengantar dari Cabang Dinas Asal",
-        "Surat Pengantar dari Kepala Sekolah",
-        "Surat Permohonan Pindah Tugas Bermaterai (Ditujukan Untuk Kepala Dinas)",
-        "Surat Permohonan Pindah Tugas Bermaterai (Ditujukan Untuk Kepala BKA)",
-        "Surat Permohonan Pindah Tugas Bermaterai (Ditujukan Untuk Gubernur cq Sekda Aceh)",
-        "Rekomendasi Kepala Sekolah Melepas Lengkap dengan Analisis (Jumlah jam, Siswa, Rombel, Guru Mapel Kurang atau Lebih)",
-        "Rekomendasi Melepas dari Pengawas Sekolah",
-        "Rekomendasi Melepas dari Kepala Cabang Dinas Kab/Kota",
-        "Rekomendasi Kepala Sekolah Menerima Lengkap dengan Analisis (Jumlah jam, Siswa, Rombel, Guru Mapel Kurang atau Lebih)",
-        "Rekomendasi Menerima dari Pengawas Sekolah",
-        "Rekomendasi Menerima dari Kepala Cabang Dinas Kab/Kota",
-        "Analisis Jabatan (Anjab) ditandatangani oleh Kepala Sekolah Melepas dan Mengetahui Kepala Dinas",
-        "Surat Formasi GTK dari Sekolah Asal (Data Guru dan Tendik yang ditandatangani oleh Kepala Sekolah)",
-        "Foto Copy SK 80% dan SK Terakhir di Legalisir",
-        "Foto Copy Karpeg dilegalisir",
-        "Surat Keterangan tidak Pernah di Jatuhi Hukuman Disiplin ditandatangani oleh Kepala Sekolah Melepas",
-        "Surat Keterangan Bebas Temuan Inspektorat ditandatangani oleh Kepala Sekolah Melepas",
-        "Surat Keterangan Bebas Tugas Belajar/Izin Belajar ditandatangani oleh Kepala Sekolah Melepas",
-        "Daftar Riwayat Hidup/ Riwayat Pekerjaan",
-        "Surat Tugas Suami dan Foto Copy Buku Nikah"
-    ];
-
-    // Ambil nomor berkas dari inputId (misalnya: googleDriveLink1 → 1)
-    let berkasIndex = parseInt(inputId.replace("googleDriveLink", ""), 10) - 1;
-
-    // Cek apakah index valid dan ambil nama berkas
-    let berkasNama = berkasLabels[berkasIndex] || `Berkas ${berkasIndex + 1}`;
+    let berkasNama = berkasLabels[index] || `Berkas ${index + 1}`;
 
     if (!link) {
         Swal.fire({
@@ -362,6 +385,7 @@ function previewLink(inputId) {
 
     window.open(link, '_blank');
 }
+
 
 
 </script>

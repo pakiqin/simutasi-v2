@@ -584,42 +584,40 @@ function filterStatus() {
 }
 
 function showBerkasModal(nomorUsulan) {
-
     document.getElementById('berkasList').innerHTML = `<tr><td colspan="3" class="text-center">Memuat data...</td></tr>`;
 
     fetch(`/usulan/getDriveLinks/${nomorUsulan}`)
         .then(response => response.json())
         .then(responseData => {
-            //console.log("[DEBUG] Data yang diterima dari API:", responseData);
-
             if (!responseData || !responseData.data || responseData.data.length === 0) {
-                //console.warn("[WARNING] Tidak ada data berkas untuk nomor usulan:", nomorUsulan);
                 document.getElementById('berkasList').innerHTML = `<tr><td colspan="3" class="text-center text-danger">Tidak ada data berkas</td></tr>`;
                 return;
             }
 
             let berkasLabels = [
-                    "Surat Pengantar dari Cabang Dinas Asal",
-                    "Surat Pengantar dari Kepala Sekolah",
-                    "Surat Permohonan Pindah Tugas Bermaterai (Ditujukan Untuk Kepala Dinas)",
-                    "Surat Permohonan Pindah Tugas Bermaterai (Ditujukan Untuk Kepala BKA)",
-                    "Surat Permohonan Pindah Tugas Bermaterai (Ditujukan Untuk Gubernur cq Sekda Aceh)",
-                    "Rekomendasi Kepala Sekolah Melepas Lengkap dengan Analisis (Jumlah jam Siswa Rombel Guru Mapel Kurang atau Lebih)",
-                    "Rekomendasi Melepas dari Pengawas Sekolah",
-                    "Rekomendasi Melepas dari Kepala Cabang Dinas Kab/Kota",
-                    "Rekomendasi Kepala Sekolah Menerima Lengkap dengan Analisis (Jumlah jam Siswa Rombel Guru Mapel Kurang atau Lebih)",
-                    "Rekomendasi Menerima dari Pengawas Sekolah",
-                    "Rekomendasi Menerima dari Kepala Cabang Dinas Kab/Kota",
-                    "Analisis Jabatan (Anjab) ditandatangani oleh Kepala Sekolah Melepas dan Mengetahui Kepala Dinas",
-                    "Surat Formasi GTK dari Sekolah Asal (Data Guru dan Tendik yang ditandatangani oleh Kepala Sekolah)",
-                    "Foto Copy SK 80% dan SK Terakhir di Legalisir",
-                    "Foto Copy Karpeg dilegalisir",
-                    "Surat Keterangan tidak Pernah di Jatuhi Hukuman Disiplin ditandatangani oleh Kepala Sekolah Melepas",
-                    "Surat Keterangan Bebas Temuan Inspektorat ditandatangani oleh Kepala Sekolah Melepas",
-                    "Surat Keterangan Bebas Tugas Belajar/Izin Belajar ditandatangani oleh Kepala Sekolah Melepas",
-                    "Daftar Riwayat Hidup/ Riwayat Pekerjaan",
-                    "Surat Tugas Suami dan Foto Copy Buku Nikah"
-                ];
+                "Surat Pengantar dari Cabang Dinas Asal",
+                "Surat Pengantar dari Kepala Sekolah",
+                "Surat Permohonan Pindah Tugas Bermaterai (Ditujukan Untuk Kepala Dinas)",
+                "Surat Permohonan Pindah Tugas Bermaterai (Ditujukan Untuk Kepala BKA)",
+                "Surat Permohonan Pindah Tugas Bermaterai (Ditujukan Untuk Gubernur cq Sekda Aceh)",
+                "Rekomendasi Kepala Sekolah Melepas Lengkap dengan Analisis",
+                "Rekomendasi Melepas dari Pengawas Sekolah (Optional)",
+                "Rekomendasi Melepas dari Kepala Cabang Dinas Kab/Kota",
+                "Rekomendasi Kepala Sekolah Menerima Lengkap dengan Analisis",
+                "Rekomendasi Menerima dari Pengawas Sekolah (Optional)",
+                "Rekomendasi Menerima dari Kepala Cabang Dinas Kab/Kota",
+                "Analisis Jabatan (Anjab) ditandatangani oleh Kepala Sekolah Melepas",
+                "Surat Formasi GTK dari Sekolah Asal",
+                "Foto Copy SK 80% dan SK Terakhir di Legalisir",
+                "Foto Copy Karpeg dilegalisir",
+                "Surat Keterangan tidak Pernah di Jatuhi Hukuman Disiplin",
+                "Surat Keterangan Bebas Temuan Inspektorat (Optional)",
+                "Surat Keterangan Bebas Tugas Belajar/Izin Belajar",
+                "Daftar Riwayat Hidup/ Riwayat Pekerjaan",
+                "Surat Tugas Suami dan Foto Copy Buku Nikah (Optional)"
+            ];
+
+            const optionalIndexes = [6, 9, 16, 19]; 
 
             let berkasList = document.getElementById('berkasList');
             berkasList.innerHTML = ""; 
@@ -627,32 +625,38 @@ function showBerkasModal(nomorUsulan) {
             responseData.data.forEach((berkas, index) => {
                 let row = document.createElement('tr');
                 let driveLink = berkas.drive_link ? berkas.drive_link : "#";
-
-                // Gunakan nama berkas dari array, jika index masih dalam rentang
                 let berkasNama = berkasLabels[index] || `Berkas ${index + 1}`;
 
-                //console.log(`[DEBUG] Berkas ${index + 1}:`, berkasNama, "Link:", driveLink);
+                let button = `<a href="${driveLink}" target="_blank" class="btn btn-sm btn-info">
+                                <i class="fas fa-eye"></i> Lihat
+                              </a>`;
+
+                if (!berkas.drive_link) {
+                    if (!optionalIndexes.includes(index)) {
+                        button = `<button class="btn btn-danger btn-sm" onclick="showMissingFileAlert('${berkasNama}')">
+                                    <i class="fas fa-exclamation-circle"></i> Kosong
+                                  </button>`;
+                    } else {
+                        button = ""; // Jika opsional dan kosong, tidak menampilkan tombol apapun
+                    }
+                }
 
                 row.innerHTML = `
                     <td>${index + 1}</td>
                     <td>${berkasNama}</td>
-                    <td>
-                        <a href="${driveLink}" target="_blank" class="btn btn-sm btn-info">
-                            <i class="fas fa-eye"></i>
-                        </a>
-                    </td>
+                    <td>${button}</td>
                 `;
                 berkasList.appendChild(row);
             });
         })
         .catch(error => {
-            //console.error("[ERROR] Gagal mengambil data berkas:", error);
             document.getElementById('berkasList').innerHTML = `<tr><td colspan="3" class="text-center text-danger">Gagal memuat data</td></tr>`;
         });
 
     let modal = new bootstrap.Modal(document.getElementById("berkasModal"));
     modal.show();
 }
+
 
 </script>
 
