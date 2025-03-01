@@ -14,6 +14,13 @@ class RekomkadisController extends BaseController
 
     public function __construct()
     {
+        // Cek apakah user adalah operator, jika iya redirect ke dashboard
+        if (session()->get('role') == 'operator') {
+            redirect()->to('/dashboard')->with('error', 'Akses ditolak.')->send();
+            exit();
+        }
+    
+        // Inisialisasi model
         $this->rekomkadisModel = new RekomkadisModel();
         $this->usulanDiterimaModel = new UsulanDiterimaModel();
         $this->statusHistoryModel = new UsulanStatusHistoryModel();        
@@ -26,11 +33,6 @@ class RekomkadisController extends BaseController
         $RekomperPage = 9; // Pagination khusus untuk tabel 05.2 (Daftar Surat Rekomendasi Kadis)
         $UsulanperPage = $this->request->getGet('perPageUsulan') ?? 25; // Default tampil 25 data
         $keyword = $this->request->getGet('searchUsulan') ?? ''; // Kata kunci pencarian
-
-        // Jika role adalah operator, redirect ke dashboard
-        if ($role === 'operator') {
-            return redirect()->to('/dashboard')->with('error', 'Akses ditolak.');
-        }
 
         $db = \Config\Database::connect();
         $cabangDinasIds = [];

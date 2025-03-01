@@ -92,7 +92,7 @@ $routes->group('kabupaten', ['filter' => 'auth'], function ($routes) {
     $routes->get('delete/(:num)', 'datakabupaten\KabupatenController::delete/$1');
 });
 
-$routes->group('sekolah', function ($routes) {
+$routes->group('sekolah', ['filter' => 'auth'], function ($routes) {
     $routes->get('/', 'SekolahController::index');
     $routes->get('create', 'SekolahController::create');
     $routes->post('store', 'SekolahController::store');

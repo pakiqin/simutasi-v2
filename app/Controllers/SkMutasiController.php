@@ -13,6 +13,13 @@ class SkMutasiController extends Controller
     
     public function __construct()
     {
+        // Cek apakah user adalah operator, jika iya redirect ke dashboard
+        if (session()->get('role') == 'operator') {
+            redirect()->to('/dashboard')->with('error', 'Akses ditolak.')->send();
+            exit();
+        }
+    
+        // Inisialisasi model
         $this->usulanModel = new UsulanModel();
         $this->skMutasiModel = new SkMutasiModel();
     }
@@ -21,10 +28,6 @@ class SkMutasiController extends Controller
     {
         $role = session()->get('role');
         $userId = session()->get('id');
-
-        if ($role === 'operator') {
-            return redirect()->to('/dashboard')->with('error', 'Akses ditolak.');
-        }
 
         $db = \Config\Database::connect();
         $cabangDinasIds = [];

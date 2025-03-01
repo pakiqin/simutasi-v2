@@ -10,6 +10,16 @@ class OperatorCabdinController extends BaseController
 
     public function __construct()
     {
+        // Daftar role yang diizinkan
+        $allowedRoles = ['admin', 'kabid', 'dinas'];
+
+        // Cek apakah role user termasuk dalam daftar yang diizinkan
+        if (!in_array(session()->get('role'), $allowedRoles)) {
+            redirect()->to('/dashboard')->with('error', 'Akses ditolak.')->send();
+            exit();
+        }
+
+        // Inisialisasi model yang digunakan    
         $this->userModel = new UserModel();
     }
 

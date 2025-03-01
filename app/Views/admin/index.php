@@ -44,28 +44,23 @@
             </tr>
         </thead>
         <tbody>
-            <?php $no = 1 + ($perPage * ($pager->getCurrentPage('users') - 1));
+            <?php 
+            $currentUserId = session()->get('id'); // ID admin yang sedang login
+            $no = 1 + ($perPage * ($pager->getCurrentPage('users') - 1));
             foreach ($users as $user): ?>
                 <tr>
                     <td><?= $no++; ?></td>
-                    <td><?= $user['nama']; ?></td>
-                    <td><?= $user['username']; ?></td>
-                    <td><?= $user['email']; ?></td>
-                    <td><?= $user['no_hp']; ?></td>
+                    <td><?= esc($user['nama']); ?></td>
+                    <td><?= esc($user['username']); ?></td>
+                    <td><?= esc($user['email']); ?></td>
+                    <td><?= esc($user['no_hp']); ?></td>
                     <td class="action-column">
-                        <a href="/admin/edit/<?= $user['id']; ?>" class="btn btn-warning btn-sm-custom">
-                            <i class="fas fa-edit"></i>Edit
-                        </a>
-                        <button onclick="confirmDelete(<?= $user['id']; ?>)" class="btn btn-danger btn-sm-custom">
-                            <i class="fas fa-trash-alt"></i>Hapus
-                        </button>
-                        <?php if ($user['status'] === 'enable'): ?>
-                            <button class="btn btn-success btn-sm-custom" onclick="confirmDisable(<?= $user['id']; ?>)">
-                                <i class="fas fa-check-square"></i>Enable
-                            </button>
-                        <?php else: ?>
-                            <button class="btn btn-secondary btn-sm-custom" onclick="confirmEnable(<?= $user['id']; ?>)">
-                                <i class="fas fa-square"></i>Disable
+                        <?php if ($user['id'] != $currentUserId) : ?>
+                            <a href="/admin/edit/<?= $user['id']; ?>" class="btn btn-warning btn-sm-custom">
+                                <i class="fas fa-edit"></i>Edit
+                            </a>
+                            <button onclick="confirmDelete(<?= $user['id']; ?>)" class="btn btn-danger btn-sm-custom">
+                                <i class="fas fa-trash-alt"></i>Hapus
                             </button>
                         <?php endif; ?>
                     </td>
@@ -74,6 +69,7 @@
         </tbody>
     </table>
 </div>
+
 
 <!-- Pagination -->
 <div class="d-flex justify-content-between align-items-center">

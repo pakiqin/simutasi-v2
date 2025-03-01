@@ -11,6 +11,13 @@ class BerkasBKPSDMController extends BaseController
 
     public function __construct()
     {
+        // Cek apakah user adalah operator, jika iya redirect ke dashboard
+        if (session()->get('role') == 'operator') {
+            redirect()->to('/dashboard')->with('error', 'Akses ditolak.')->send();
+            exit();
+        }
+    
+        // Inisialisasi model
         $this->berkasModel = new BerkasBKPSDMModel();
     }
 
@@ -18,10 +25,6 @@ class BerkasBKPSDMController extends BaseController
     {
         $role = session()->get('role');
         $userId = session()->get('id');
-
-        if ($role === 'operator') {
-            return redirect()->to('/dashboard')->with('error', 'Akses ditolak.');
-        }
 
         $perPage = $this->request->getGet('perPage') ?? 25;
         $perPageBerkasDikirim = $this->request->getGet('perPageBerkasDikirim') ?? 25;

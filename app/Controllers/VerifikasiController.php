@@ -11,6 +11,13 @@ class VerifikasiController extends BaseController
 
     public function __construct()
     {
+        // Cek apakah user adalah operator, jika iya redirect ke dashboard
+        if (session()->get('role') == 'operator') {
+            redirect()->to('/dashboard')->with('error', 'Akses ditolak.')->send();
+            exit();
+        }
+    
+        // Inisialisasi model
         $this->verifikasiBerkasModel = new VerifikasiBerkasModel();
     }
     public function index()
@@ -18,11 +25,6 @@ class VerifikasiController extends BaseController
         $role = session()->get('role');
         $userId = session()->get('id');
         $perPage = 10;
-
-        // Operator tidak bisa mengakses halaman verifikasi
-        if ($role === 'operator') {
-            return redirect()->to('/dashboard')->with('error', 'Akses ditolak.');
-        }
 
         $db = \Config\Database::connect();
         $cabangDinasIds = [];

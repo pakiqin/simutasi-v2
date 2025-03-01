@@ -10,6 +10,13 @@ class TelaahController extends BaseController
 
     public function __construct()
     {
+        // Cek apakah user adalah operator, jika iya redirect ke dashboard
+        if (session()->get('role') == 'operator') {
+            redirect()->to('/dashboard')->with('error', 'Akses ditolak.')->send();
+            exit();
+        }
+    
+        // Inisialisasi model
         $this->telaahBerkasModel = new TelaahBerkasModel();
         $this->db = \Config\Database::connect();
 
@@ -21,10 +28,6 @@ class TelaahController extends BaseController
         $userId = session()->get('id'); // Ambil ID pengguna dari session
         $perPage = 50;
 
-        // Jika role adalah operator, redirect ke dashboard
-        if ($role === 'operator') {
-            return redirect()->to('/dashboard')->with('error', 'Akses ditolak.');
-        }
 
         $db = \Config\Database::connect();
         $cabangDinasIds = [];

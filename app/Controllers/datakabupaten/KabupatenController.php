@@ -11,6 +11,13 @@ class KabupatenController extends BaseController
 
     public function __construct()
     {
+        // Cek apakah user adalah admin, jika bukan redirect ke dashboard
+        if (session()->get('role') !== 'admin') {
+            redirect()->to('/dashboard')->with('error', 'Akses ditolak.')->send();
+            exit();
+        }
+    
+        // Inisialisasi model
         $this->kabupatenModel = new KabupatenModel();
     }
 

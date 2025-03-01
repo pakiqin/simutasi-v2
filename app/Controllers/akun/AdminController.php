@@ -11,11 +11,21 @@ class AdminController extends BaseController
 
     public function __construct()
     {
+        // Cek apakah user adalah admin, jika bukan redirect ke dashboard
+        if (session()->get('role') !== 'admin') {
+            redirect()->to('/dashboard')->with('error', 'Akses ditolak.')->send();
+            exit();
+        }
+    
+        // Inisialisasi model
         $this->userModel = new UserModel();
     }
+    
+    
 
     public function index()
     {
+
         $perPage = $this->request->getVar('per_page') ?: 5; // Default jumlah data per halaman
 
         // Ambil data pengguna dengan role 'admin' menggunakan paginate

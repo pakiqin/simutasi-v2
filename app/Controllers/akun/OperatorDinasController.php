@@ -15,6 +15,14 @@ class OperatorDinasController extends BaseController
 
     public function __construct()
     {
+        // Cek apakah user memiliki role yang diperbolehkan (admin atau kabid)
+        $allowedRoles = ['admin', 'kabid'];
+        if (!in_array(session()->get('role'), $allowedRoles)) {
+            redirect()->to('/dashboard')->with('error', 'Akses ditolak.')->send();
+            exit();
+        }
+
+        // Inisialisasi model yang digunakan
         $this->userModel = new UserModel();
         $this->cabangDinasModel = new CabangDinasModel();
         $this->operatorCabangDinasModel = new OperatorCabangDinasModel();        
