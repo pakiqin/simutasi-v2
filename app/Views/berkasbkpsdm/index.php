@@ -127,9 +127,8 @@
                         <th colspan="2" class="text-left text-primary custom-bg"><i class="fas fa-info-circle"></i> 
                             Rekomendasi Kadis</th>
                     </tr>
-                    <tr><th>Nomor Rekomendasi</th><td id="detailNomorRekom"></td></tr>
-                    <tr><th>Tanggal Surat Rekomendasi</th><td id="detailTanggalRekom"></td></tr>
-                    <tr><th>File Rekom Kadis</th>
+                    <tr><th>Tanggal Input Rekomendasi</th><td id="detailTanggalRekom"></td></tr>
+                    <tr><th>Berkas Rekom Kadis</th>
                         <td>
                             <a id="fileRekomLink" href="#" target="_blank" class="btn btn-info btn-sm">
                                 <i class="fas fa-file-pdf"></i> Lihat
@@ -268,9 +267,8 @@
                         <th colspan="2" class="text-left text-primary custom-bg"><i class="fas fa-info-circle"></i> 
                             Rekomendasi Kadis</th>
                     </tr>
-                    <tr><th>Nomor Rekomendasi</th><td id="detailNomorRekomKanan"></td></tr>
-                    <tr><th>Tanggal Surat Rekomendasi</th><td id="detailTanggalRekomKanan"></td></tr>
-                    <tr><th>File Rekom Kadis</th>
+                    <tr><th>Tanggal Input Rekomendasi</th><td id="detailTanggalRekomKanan"></td></tr>
+                    <tr><th>Berkas Rekom Kadis</th>
                         <td>
                             <a id="fileRekomLinkKanan" href="#" target="_blank" class="btn btn-info btn-sm">
                                 <i class="fas fa-file-pdf"></i> Lihat
@@ -442,7 +440,6 @@
         document.getElementById('detailCatatanTelaah').textContent = data.catatan_telaah || '-';
 
         // Data Rekomendasi Kadis
-        document.getElementById('detailNomorRekom').textContent = data.nomor_rekomkadis || '-';
         document.getElementById('detailTanggalRekom').textContent = data.tanggal_rekomkadis ? new Date(data.tanggal_rekomkadis).toLocaleDateString('id-ID') : '-';
 
         const fileRekomLink = document.getElementById('fileRekomLink');
@@ -518,7 +515,6 @@
         document.getElementById('detailCatatanTelaahKanan').textContent = data.catatan_telaah || '-';
 
         // Data Rekomendasi Kadis
-        document.getElementById('detailNomorRekomKanan').textContent = data.nomor_rekomkadis || '-';
         document.getElementById('detailTanggalRekomKanan').textContent = data.tanggal_rekomkadis 
             ? new Date(data.tanggal_rekomkadis).toLocaleDateString('id-ID') 
             : '-';

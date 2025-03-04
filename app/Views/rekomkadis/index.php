@@ -162,11 +162,11 @@
                         <td id="detailSekolahTujuan"></td>
                     </tr>                
                     <tr>
-                        <th>Tanggal Surat Rekomendasi</th>
+                        <th>Tanggal Input Rekomendasi</th>
                         <td id="detailTanggalRekom"></td>
                     </tr>                    
                     <tr>
-                    <th>File Rekom Kadis</th>
+                    <th>Berkas Rekom Kadis</th>
                     <td>
                         <a id="berkasRekomLink" href="#" target="_blank" class="btn btn-info btn-sm">
                             <i class="fas fa-file-pdf"></i> Lihat
