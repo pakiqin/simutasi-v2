@@ -14,6 +14,7 @@ class UsulanDiterimaModel extends Model
         'sekolah_asal',
         'sekolah_tujuan',
         'alasan',
+        'nomor_usulan',
         'id_rekomkadis',
         'status',
     ];
