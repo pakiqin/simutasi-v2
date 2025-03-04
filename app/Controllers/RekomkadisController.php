@@ -25,6 +25,7 @@ class RekomkadisController extends BaseController
         $this->usulanDiterimaModel = new UsulanDiterimaModel();
         $this->statusHistoryModel = new UsulanStatusHistoryModel();        
     }
+    
     public function index()
     {
         $role = session()->get('role');
