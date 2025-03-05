@@ -118,30 +118,48 @@ $routes->post('/user/updatePassword', 'UserController::updatePassword');
 $routes->get('/user/profile', 'UserController::profile');
 $routes->post('/user/updateProfile', 'UserController::updateProfile');
 
-// Routes untuk usulan
+// Routes untuk usulan 
 $routes->group('usulan', ['filter' => 'auth'], function ($routes) {
     $routes->get('/', 'UsulanController::index');
-    $routes->get('create', 'UsulanController::create');
-    $routes->post('store', 'UsulanController::store');
-    $routes->get('edit/(:num)', 'UsulanController::edit/$1');
-    $routes->post('update/(:num)', 'UsulanController::update/$1');
+    
+    // 🔹 Tahap 1: Input Data Guru & Usulan
+    $routes->get('create', 'UsulanController::create'); 
+    $routes->post('store-data-guru', 'UsulanController::storeDataGuru'); 
+    // 🔹 Tahap 2: Input 20 Link Berkas
+    $routes->get('upload-berkas/(:segment)', 'UsulanController::uploadBerkas/$1'); 
+    $routes->post('store-drive-links/(:segment)', 'UsulanController::storeDriveLinks/$1'); 
+
+    // 🔹 Edit Usulan Tahap 1
+    $routes->get('edit-usulan/(:num)', 'UsulanController::editUsulan/$1'); 
+    $routes->post('update-usulan/(:num)', 'UsulanController::updateUsulan/$1');
+    // 🔹 Edit Usulan Tahap 1 dan 2
+    $routes->get('edit-berkas/(:segment)', 'UsulanController::editBerkas/$1');
+    $routes->post('update-berkas/(:segment)', 'UsulanController::updateDriveLinks/$1'); 
+
+    // 🔹 Proses lainnya (Hapus, Revisi)
     $routes->get('delete/(:num)', 'UsulanController::delete/$1');
     $routes->get('deletetolak/(:num)', 'UsulanController::deletetolak/$1');    
     $routes->get('revisi/(:num)', 'UsulanController::revisi/$1');
     $routes->post('updateRevisi/(:num)', 'UsulanController::updateRevisi/$1');
     $routes->get('getHistory/(:segment)', 'UsulanController::getHistory/$1');
-});
-$routes->post('revisi_usulan/deleteByNomorUsulan', 'RevisiUsulanController::deleteByNomorUsulan');
-$routes->get('usulan/revisi/(:any)', 'UsulanController::revisi/$1');
 
+    // 🔹 Proses Cetak & Resi
+    $routes->get('konfirmasi-cetak/(:segment)', 'UsulanController::konfirmasiCetak/$1');
+    $routes->get('generate-resi/(:any)', 'UsulanController::generateResi/$1');
+
+    // 🔹 Mengambil tautan Google Drive dari usulan
+    $routes->get('getDriveLinks/(:segment)', 'UsulanController::getDriveLinks/$1');
+});
+
+// API untuk mendapatkan data tambahan
 $routes->get('/api/get-cabang-dinas/(:num)', 'UsulanController::getCabangDinas/$1');
 $routes->get('/api/get-sekolah/(:num)', 'UsulanController::getSekolah/$1');
 $routes->get('/api/check-nip-nik', 'UsulanController::checkNipNik');
 
-$routes->get('/usulan/konfirmasi-cetak/(:segment)', 'UsulanController::konfirmasiCetak/$1');
-$routes->get('/usulan/generate-resi/(:any)', 'UsulanController::generateResi/$1');
+// Proses revisi usulan
+$routes->post('revisi_usulan/deleteByNomorUsulan', 'RevisiUsulanController::deleteByNomorUsulan');
+$routes->get('usulan/revisi/(:any)', 'UsulanController::revisi/$1');
 
-$routes->get('/usulan/getDriveLinks/(:segment)', 'UsulanController::getDriveLinks/$1');
 
 //$routes->get('/usulan/generate-resi/(:segment)', 'UsulanController::generateResi/$1');
 
@@ -175,18 +193,12 @@ $routes->post('sematkan/proses', 'SematkanController::proses');
 
 $routes->group('rekomkadis', ['filter' => 'auth'], function ($routes) {
     $routes->get('/', 'RekomkadisController::index');
-    $routes->post('store', 'RekomkadisController::store');
-    $routes->get('edit/(:num)', 'RekomkadisController::edit/$1');    
-    $routes->get('delete/(:num)', 'RekomkadisController::delete/$1');
-    $routes->post('updaterekomkadis/(:num)', 'RekomkadisController::updaterekomkadis/$1');
-
-    // 🔹 **Perubahan Rute Sematkan**
-    $routes->post('sematkan', 'RekomkadisController::sematkan'); // **Menangani penyematan langsung**
-    $routes->post('batalrekomdis', 'RekomkadisController::batalrekomdis');
+    $routes->post('upload', 'RekomkadisController::uploadRekom'); // 🔹 Unggah rekomendasi langsung ke usulan
+    $routes->post('hapus/(:segment)', 'RekomkadisController::hapusRekom/$1'); // 🔹 Hapus rekomendasi berdasarkan nomor usulan
 });
 
-
 $routes->get('file/rekomkadis/(:segment)', 'FileController::viewRekomkadis/$1');
+
 
 
 // Route untuk halaman Kirim Berkas ke BKPSDM

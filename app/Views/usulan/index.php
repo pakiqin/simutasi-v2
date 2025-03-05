@@ -66,7 +66,7 @@
                             <?php if ($role !== 'dinas'): ?> <!-- Dinas tidak bisa edit & hapus -->
                                 <?php if ($row['status'] === '01'): ?>
                                     <!-- Status 01: Bisa Edit & Hapus -->
-                                    <a href="/usulan/edit/<?= $row['id'] ?>" class="btn btn-warning btn-sm-custom">
+                                    <a href="/usulan/edit-usulan/<?= $row['id'] ?>" class="btn btn-warning btn-sm-custom">
                                         <i class="fas fa-edit"></i>
                                     </a>
                                     <a href="#" class="btn btn-danger btn-sm-custom" onclick="confirmDelete('/usulan/delete/<?= $row['id'] ?>')">
@@ -75,8 +75,9 @@
 
                                 <?php elseif ($row['status'] === '02' && $row['status_usulan_cabdin'] === 'TdkLengkap'): ?>
                                     <!-- Tombol Revisi Usulan -->
-                                    <a href="javascript:void(0)" class="btn btn-revisi btn-sm-custom" onclick="submitRevisiForm('<?= $row['nomor_usulan'] ?>')">
-                                        <i class="fas fa-undo-alt"></i>                                    </a>
+                                    <a href="javascript:void(0)" class="btn btn-danger btn-sm-custom" onclick="submitRevisiForm('<?= $row['nomor_usulan'] ?>')">
+                                        <i class="fas fa-undo-alt"></i>Revisi
+                                    </a>
                                     <form id="revisiForm" action="/revisi_usulan/deleteByNomorUsulan" method="POST" style="display: none;">
                                         <input type="hidden" name="nomor_usulan" id="revisiNomorUsulan">
                                     </form>

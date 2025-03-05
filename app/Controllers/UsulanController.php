@@ -106,11 +106,7 @@ class UsulanController extends BaseController
         return $this->response->setJSON(["total" => count($data), "data" => $data]);
     }
     
-    
-    
-    
-
-
+   
     public function getHistory($nomor_usulan)
     {
         // Ambil data dari tabel usulan_status_history
@@ -123,24 +119,23 @@ class UsulanController extends BaseController
     }
 
 
-
     public function create()
     {
         $role = session()->get('role');
         $userId = session()->get('id');
-
+    
         // Cegah role 'dinas' mengakses halaman ini
         if ($role === 'dinas') {
             return redirect()->to('/usulan')->with('error', 'Anda tidak memiliki izin untuk menambah usulan.');
         }
-
+    
         // Inisialisasi model
         $kabupatenModel = new \App\Models\KabupatenModel();
         $cabangDinasModel = new \App\Models\CabangDinasModel();
         $cabangDinasKabupatenModel = new \App\Models\CabangDinasKabupatenModel();
         $sekolahModel = new \App\Models\SekolahModel();    
         $operatorModel = new \App\Models\OperatorCabangDinasModel();
-
+    
         // Inisialisasi array data untuk dikirim ke view
         $data = [
             'kabupaten_asal_id' => null,
@@ -149,31 +144,32 @@ class UsulanController extends BaseController
             'cabang_dinas_asal_nama' => '',
             'sekolahAsalList' => [], // Pastikan variabel ini selalu ada agar tidak error
             'kabupatenList' => $kabupatenModel->findAll(),
+            'is_operator' => ($role === 'operator'), // Tandai sebagai operator
         ];
-
+    
         // Jika role adalah operator, ambil otomatis Kabupaten Asal & Cabang Dinas Asal berdasarkan user
         if ($role === 'operator') {
             $operator = $operatorModel->where('user_id', $userId)->first();
-
+    
             if ($operator) {
                 // Ambil data cabang dinas dari operator
                 $cabangDinasOperator = $cabangDinasModel->find($operator['cabang_dinas_id']);
-
+    
                 // Cari kabupaten yang terkait dengan cabang dinas
                 $cabangDinasKabupaten = $cabangDinasKabupatenModel
                     ->where('cabang_dinas_id', $operator['cabang_dinas_id'])
                     ->first();
-
+    
                 // Ambil data kabupaten jika ada
                 $kabupatenOperator = $cabangDinasKabupaten 
                     ? $kabupatenModel->find($cabangDinasKabupaten['kabupaten_id']) 
                     : null;
-
+    
                 // Ambil daftar sekolah berdasarkan Kabupaten Asal (jika ada)
                 $sekolahAsalList = ($kabupatenOperator) 
                     ? $sekolahModel->where('kabupaten_id', $kabupatenOperator['id_kab'])->findAll()
                     : [];
-
+    
                 // Set data untuk tampilan form
                 $data['kabupaten_asal_id'] = $kabupatenOperator ? $kabupatenOperator['id_kab'] : null;
                 $data['kabupaten_asal_nama'] = $kabupatenOperator ? $kabupatenOperator['nama_kab'] : 'Tidak Ditemukan';
@@ -182,8 +178,26 @@ class UsulanController extends BaseController
                 $data['sekolahAsalList'] = $sekolahAsalList;
             }
         }
-
+    
         return view('usulan/create', $data);
+    }
+
+    public function uploadBerkas($nomorUsulan)
+    {
+        // Periksa apakah nomor usulan valid
+        $usulan = $this->usulanModel->where('nomor_usulan', $nomorUsulan)->first();
+
+        if (!$usulan) {
+            return redirect()->to('/usulan')->with('error', 'Nomor usulan tidak ditemukan.');
+        }
+
+        // Kirim data ke view
+        $data = [
+            'nomor_usulan' => $nomorUsulan,
+            'usulan' => $usulan,
+        ];
+
+        return view('usulan/upload_berkas', $data);
     }
 
     public function getCabangDinas($kabupatenId)
@@ -227,75 +241,111 @@ class UsulanController extends BaseController
         return $this->response->setJSON($sekolahList);
     }
     
-    public function store()
+    public function storeDataGuru()
     {
         $db = \Config\Database::connect();
-        $usulanDriveModel = new \App\Models\UsulanDriveModel(); // Model untuk tabel usulan_drive_links
-    
+
         // Mulai transaksi database
         $db->transBegin();
-    
+
         try {
-            // Ambil ID & Nama Sekolah langsung dari input form
+            // Ambil data dari input form
+            $guruNama = $this->request->getPost('guru_nama');
+            $guruNip = $this->request->getPost('guru_nip');
+            $guruNik = $this->request->getPost('guru_nik');
+            $alasan = $this->request->getPost('alasan');
             $cabangDinasAsalId = $this->request->getPost('cabang_dinas_asal_id');
-            $cabangDinasTujuanId = $this->request->getPost('cabang_dinas_tujuan_id');
-            $sekolahAsal = $this->request->getPost('sekolah_asal_nama'); // Ambil langsung nama sekolah
-            $sekolahTujuan = $this->request->getPost('sekolah_tujuan_nama'); // Ambil langsung nama sekolah
-    
+            $sekolahAsal = $this->request->getPost('sekolah_asal_nama');
+            $sekolahTujuan = $this->request->getPost('sekolah_tujuan_nama');
+
             // Pastikan data sekolah dan cabang dinas tidak kosong
             if (empty($sekolahAsal) || empty($sekolahTujuan) || empty($cabangDinasAsalId)) {
                 throw new \Exception('Data sekolah atau cabang dinas tidak ditemukan.');
             }
-    
-            // Ambil kode cabang dinas asal untuk nomor usulan
+
+            // Generate nomor usulan
             $kodeCabang = $this->getKodeCabangDinas($cabangDinasAsalId);
-    
-            // Tanggal pengajuan dalam format YYYYMMDD
             $tanggal = date('Ymd');
-    
-            // Hitung nomor urut berdasarkan kode cabang dan tanggal
             $lastUsulan = $this->usulanModel
                 ->select('nomor_usulan')
                 ->like('nomor_usulan', "{$kodeCabang}{$tanggal}", 'after')
                 ->orderBy('nomor_usulan', 'DESC')
                 ->first();
-    
-            $nomorUrut = ($lastUsulan) 
-                ? sprintf('%04d', (int) substr($lastUsulan['nomor_usulan'], -4) + 1)
-                : '0001';
-    
-            // Gabungkan menjadi nomor unik
+
+            $nomorUrut = ($lastUsulan) ? sprintf('%04d', (int) substr($lastUsulan['nomor_usulan'], -4) + 1) : '0001';
             $nomorUsulan = "{$kodeCabang}{$tanggal}{$nomorUrut}";
-    
-            // Simpan data usulan ke database
+
+            // Simpan data ke database
             $this->usulanModel->save([
-                'guru_nama'        => $this->request->getPost('guru_nama'),
-                'guru_nik'         => $this->request->getPost('guru_nik'),
-                'guru_nip'         => $this->request->getPost('guru_nip'),
-                'sekolah_asal'     => $sekolahAsal, // Gunakan langsung dari inputan
-                'sekolah_tujuan'   => $sekolahTujuan, // Gunakan langsung dari inputan
-                'alasan'           => $this->request->getPost('alasan'),
+                'guru_nama'        => $guruNama,
+                'guru_nik'         => $guruNik,
+                'guru_nip'         => $guruNip,
+                'sekolah_asal'     => $sekolahAsal,
+                'sekolah_tujuan'   => $sekolahTujuan,
+                'alasan'           => $alasan,
                 'cabang_dinas_id'  => $cabangDinasAsalId,
                 'nomor_usulan'     => $nomorUsulan,
                 'status'           => '01',
             ]);
+
+            // Simpan riwayat status
+            $this->addStatusHistory($nomorUsulan, '01', 'Input data guru dan sekolah oleh Cabang Dinas');
+
+            // Commit transaksi jika sukses
+            $db->transCommit();
+
+            // Simpan nomor usulan ke session
+            session()->set('nomor_usulan', $nomorUsulan);
+
+            // Redirect ke tahap 2 (upload berkas)
+            return redirect()->to("/usulan/upload-berkas/{$nomorUsulan}")->with('success', 'Data guru dan sekolah berhasil disimpan. Silakan lanjut ke upload berkas.');
+
+        } catch (\Exception $e) {
+            // Rollback jika ada kesalahan
+            $db->transRollback();
+            log_message('error', 'Gagal menyimpan data guru: ' . $e->getMessage());
+            return redirect()->back()->with('error', 'Gagal menyimpan data. Silakan coba lagi.')->withInput();
+        }
+    }
+
     
-            // Simpan riwayat status awal
-            $this->addStatusHistory($nomorUsulan, '01', 'Input data usulan mutasi oleh Cabang Dinas');
+
+    public function storeDriveLinks($nomor_usulan)
+    {
+        $db = \Config\Database::connect();
+        $usulanDriveModel = new \App\Models\UsulanDriveModel(); 
     
-            // Simpan tautan berkas ke tabel `usulan_drive_links` dan pastikan ada 20 baris
+        // Cek apakah nomor usulan valid
+        $usulan = $this->usulanModel->where('nomor_usulan', $nomor_usulan)->first();
+        if (!$usulan) {
+            return redirect()->to('/usulan')->with('error', 'Nomor usulan tidak valid.');
+        }
+    
+        // Mulai transaksi database
+        $db->transBegin();
+    
+        try {
+            // Ambil tautan berkas dari form
             $googleDriveLinks = $this->request->getPost('google_drive_link');
+    
+            // Validasi jumlah link yang harus 20
+            if (count($googleDriveLinks) < 20) {
+                throw new \Exception('Semua tautan berkas harus diisi.');
+            }
     
             $dataBerkas = [];
             $timestamp = date('Y-m-d H:i:s');
     
             for ($i = 0; $i < 20; $i++) {
                 $dataBerkas[] = [
-                    'nomor_usulan' => $nomorUsulan,
-                    'drive_link'   => isset($googleDriveLinks[$i]) ? $googleDriveLinks[$i] : '', // Bisa kosong
+                    'nomor_usulan' => $nomor_usulan,
+                    'drive_link'   => isset($googleDriveLinks[$i]) ? $googleDriveLinks[$i] : '', // Bisa kosong jika opsional
                     'created_at'   => $timestamp,
                 ];
             }
+    
+            // Hapus data lama sebelum menyimpan yang baru (jika ada)
+            $usulanDriveModel->where('nomor_usulan', $nomor_usulan)->delete();
     
             // Simpan semua data ke database dalam satu operasi batch insert
             $usulanDriveModel->insertBatch($dataBerkas);
@@ -303,89 +353,183 @@ class UsulanController extends BaseController
             // Commit transaksi jika semua berhasil
             $db->transCommit();
     
-            // Simpan nomor usulan ke session
-            session()->set('nomor_usulan', $nomorUsulan);
-            session()->setFlashdata('redirectToCetak', true);
-    
-            return redirect()->to('/usulan')->with('success', 'Usulan berhasil ditambahkan!');
+        // Set flashdata untuk SweetAlert
+        session()->setFlashdata('success', 'Berkas berhasil diunggah dan disimpan!');
+        session()->setFlashdata('nomor_usulan', $nomorUsulan); // Simpan nomor usulan untuk cetak resi
+
+        return redirect()->to('/usulan/upload-berkas/' . $nomorUsulan);
     
         } catch (\Exception $e) {
             // Rollback jika terjadi kesalahan
             $db->transRollback();
-            log_message('error', 'Gagal menyimpan usulan: ' . $e->getMessage());
-            return redirect()->back()->with('error', 'Gagal menyimpan usulan. Silakan coba lagi.')->withInput();
+            log_message('error', 'Gagal menyimpan berkas: ' . $e->getMessage());
+            return redirect()->back()->with('error', 'Gagal menyimpan berkas. Silakan coba lagi.');
         }
     }
-    
-    
-    
+      
 
-    public function checkNipNik()
+    public function editUsulan($id)
     {
-        $nip = $this->request->getGet('nip');
-        $nik = $this->request->getGet('nik');
+        // Ambil data usulan dengan JOIN ke tabel yang terkait
+        $usulan = $this->usulanModel
+            ->select('usulan.*, 
+                    sekolah_asal.nama_sekolah as sekolah_asal_nama,
+                    sekolah_tujuan.nama_sekolah as sekolah_tujuan_nama,
+                    kab_asal.id_kab as kabupaten_asal_id,
+                    kab_asal.nama_kab as kabupaten_asal_nama,
+                    kab_tujuan.id_kab as kabupaten_tujuan_id,
+                    kab_tujuan.nama_kab as kabupaten_tujuan_nama,
+                    cd_asal.id AS cabang_dinas_asal_id,
+                    cd_asal.nama_cabang as cabang_dinas_asal_nama,
+                    cd_tujuan.id AS cabang_dinas_tujuan_id,
+                    cd_tujuan.nama_cabang as cabang_dinas_tujuan_nama')
+            ->join('data_sekolah as sekolah_asal', 'usulan.sekolah_asal = sekolah_asal.nama_sekolah', 'left')
+            ->join('data_sekolah as sekolah_tujuan', 'usulan.sekolah_tujuan = sekolah_tujuan.nama_sekolah', 'left')
+            ->join('kabupaten as kab_asal', 'sekolah_asal.kabupaten_id = kab_asal.id_kab', 'left')
+            ->join('kabupaten as kab_tujuan', 'sekolah_tujuan.kabupaten_id = kab_tujuan.id_kab', 'left')
+            ->join('cabang_dinas_kabupaten as cdk_asal', 'kab_asal.id_kab = cdk_asal.kabupaten_id', 'left')
+            ->join('cabang_dinas as cd_asal', 'cdk_asal.cabang_dinas_id = cd_asal.id', 'left')
+            ->join('cabang_dinas_kabupaten as cdk_tujuan', 'kab_tujuan.id_kab = cdk_tujuan.kabupaten_id', 'left')
+            ->join('cabang_dinas as cd_tujuan', 'cdk_tujuan.cabang_dinas_id = cd_tujuan.id', 'left')
+            ->where('usulan.id', $id)
+            ->first();
     
-        $exists = $this->usulanModel
-            ->groupStart()
-                ->where('guru_nip', $nip)
-                ->orWhere('guru_nik', $nik)
-            ->groupEnd()
-            ->whereNotIn('status', ['08'])
-            ->countAllResults() > 0;
-    
-        return $this->response->setJSON(['exists' => $exists]);
-    }
-    
-
-
-    public function destroy($id)
-    {
-        $usulan = $this->usulanModel->find($id);
-        
         if (!$usulan) {
-            return redirect()->to('/usulan')->with('error', 'Usulan tidak ditemukan.');
+            return redirect()->to('/usulan')->with('error', 'Data usulan tidak ditemukan.');
         }
-
-        // Hapus data
-        $this->usulanModel->delete($id);
-
-        // Pastikan tidak ada redirect ke konfirmasi cetak saat menghapus
-        session()->remove('nomor_usulan');
-        session()->remove('redirectToCetak'); 
-
-        return redirect()->to('/usulan')->with('success', 'Usulan berhasil dihapus!');
-    }
-
-
-    // Fungsi untuk mendapatkan kode cabang dinas berdasarkan ID
-    private function getKodeCabangDinas($cabangDinasId)
-    {
-        $cabangDinasModel = new \App\Models\CabangDinasModel();
-        $cabangDinas = $cabangDinasModel->find($cabangDinasId);
-        return $cabangDinas['kode_cabang'];
-    }
-
-    // Fungsi untuk menyimpan riwayat status ke tabel usulan_status_history
-    private function addStatusHistory($nomorUsulan, $status, $catatan = null)
-    {
-        $statusHistoryModel = new \App\Models\UsulanStatusHistoryModel();
-        $statusHistoryModel->save([
-            'nomor_usulan' => $nomorUsulan,
-            'status' => $status,
-            'updated_at' => date('Y-m-d H:i:s'),
-            'catatan_history' => $catatan,
+    
+        $kabupatenModel = new KabupatenModel();
+        $kabupatenList = $kabupatenModel->findAll();
+    
+        return view('usulan/editusulan', [
+            'usulan' => $usulan,
+            'kabupatenList' => $kabupatenList
         ]);
     }
 
-    public function konfirmasiCetak($nomorUsulan)
+    public function editBerkas($nomor_usulan)
     {
-        if (!$nomorUsulan) {
-            return redirect()->to('/usulan')->with('error', 'Nomor usulan tidak valid.');
+        // Ambil data usulan berdasarkan nomor usulan
+        $usulan = $this->usulanModel->where('nomor_usulan', $nomor_usulan)->first();
+
+        if (!$usulan) {
+            return redirect()->to('/usulan')->with('error', 'Data usulan tidak ditemukan.');
         }
 
-        return view('usulan/konfirmasi_cetak', ['nomor_usulan' => $nomorUsulan]);
+        // Ambil data berkas dari tabel usulan_drive_links
+        $usulanDriveModel = new \App\Models\UsulanDriveModel();
+        $driveLinks = $usulanDriveModel->where('nomor_usulan', $nomor_usulan)->orderBy('id', 'ASC')->findAll();
+
+        // Pastikan 20 slot tersedia (jika kurang, isi dengan kosong)
+        $usulan_drive_links = array_fill(0, 20, '');
+        foreach ($driveLinks as $index => $link) {
+            if ($index < 20) {
+                $usulan_drive_links[$index] = $link['drive_link'];
+            }
+        }
+
+        return view('usulan/editberkas', [
+            'usulan' => $usulan,
+            'nomor_usulan' => $nomor_usulan, // Kirim nomor usulan ke view agar bisa digunakan
+            'usulan_drive_links' => $usulan_drive_links
+        ]);
     }
 
+    public function updateUsulan($id)
+    {
+        try {
+            // Ambil data usulan berdasarkan ID
+            $usulan = $this->usulanModel->find($id);
+    
+            if (!$usulan) {
+                return redirect()->to('/usulan')->with('error', 'Data usulan tidak ditemukan.');
+            }
+    
+            // Ambil ID sekolah tujuan dari inputan
+            $sekolahTujuanId = $this->request->getPost('sekolah_tujuan');
+    
+            // Ambil nama sekolah berdasarkan ID
+            $sekolahModel = new \App\Models\SekolahModel();
+            $sekolahTujuan = $sekolahModel->where('id', $sekolahTujuanId)->first();
+    
+            if (!$sekolahTujuan) {
+                return redirect()->to('/usulan/edit-usulan/' . $id)->with('error', 'Sekolah tujuan tidak ditemukan.');
+            }
+    
+            // Data yang akan diperbarui
+            $dataUpdate = [
+                'guru_nama' => $this->request->getPost('guru_nama'),
+                'sekolah_tujuan' => $sekolahTujuan['nama_sekolah'], // Simpan nama sekolah tujuan, bukan ID
+                'alasan' => $this->request->getPost('alasan'),
+            ];
+    
+            // Lakukan update data usulan
+            $this->usulanModel->update($id, $dataUpdate);
+    
+            return redirect()->to('/usulan/edit-usulan/' . $id)
+                ->with('success', 'Data usulan berhasil diperbarui.');
+    
+        } catch (\Exception $e) {
+            return redirect()->to('/usulan/edit-usulan/' . $id)->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
+        }
+    }
+
+    public function updateDriveLinks($nomor_usulan)
+    {
+        $db = \Config\Database::connect();
+        $usulanDriveModel = new \App\Models\UsulanDriveModel();
+
+        // Cek apakah nomor usulan valid
+        $usulan = $this->usulanModel->where('nomor_usulan', $nomor_usulan)->first();
+        if (!$usulan) {
+            session()->setFlashdata('error', 'Nomor usulan tidak valid.');
+            return redirect()->to('/usulan/edit-berkas/' . $nomor_usulan);
+        }
+
+        // Mulai transaksi database
+        $db->transBegin();
+
+        try {
+            // Ambil tautan berkas dari form
+            $googleDriveLinks = $this->request->getPost('google_drive_link');
+
+            // Validasi jumlah link yang harus 20
+            if (count($googleDriveLinks) < 20) {
+                throw new \Exception('Semua tautan berkas harus diisi.');
+            }
+
+            $dataBerkas = [];
+            $timestamp = date('Y-m-d H:i:s');
+
+            for ($i = 0; $i < 20; $i++) {
+                $dataBerkas[] = [
+                    'nomor_usulan' => $nomor_usulan,
+                    'drive_link'   => isset($googleDriveLinks[$i]) ? $googleDriveLinks[$i] : '',
+                    'updated_at'   => $timestamp,
+                ];
+            }
+
+            // Hapus data lama sebelum menyimpan yang baru
+            $usulanDriveModel->where('nomor_usulan', $nomor_usulan)->delete();
+
+            // Simpan semua data ke database dalam satu operasi batch insert
+            $usulanDriveModel->insertBatch($dataBerkas);
+
+            // Commit transaksi jika semua berhasil
+            $db->transCommit();
+
+            // ✅ Set flashdata untuk SweetAlert
+            session()->setFlashdata('success', 'Berkas berhasil diperbarui!');
+
+            return redirect()->to('/usulan/edit-berkas/' . $nomor_usulan);
+
+        } catch (\Exception $e) {
+            $db->transRollback();
+            log_message('error', 'Gagal memperbarui berkas: ' . $e->getMessage());
+            session()->setFlashdata('error', 'Gagal memperbarui berkas. Silakan coba lagi.');
+            return redirect()->to('/usulan/edit-berkas/' . $nomor_usulan);
+        }
+    }
 
     public function generateResi($nomorUsulan)
     {
@@ -435,149 +579,87 @@ class UsulanController extends BaseController
         echo $dompdf->output();
         exit;
     }
-    public function edit($id)
+
+    public function checkNipNik()
     {
-        // Ambil data usulan dengan JOIN ke tabel yang terkait
-        $usulan = $this->usulanModel
-            ->select('usulan.*, 
-                      sekolah_asal.nama_sekolah as sekolah_asal_nama,
-                      sekolah_tujuan.nama_sekolah as sekolah_tujuan_nama,
-                      kab_asal.id_kab as kabupaten_asal_id,
-                      kab_asal.nama_kab as kabupaten_asal_nama,
-                      kab_tujuan.id_kab as kabupaten_tujuan_id,
-                      kab_tujuan.nama_kab as kabupaten_tujuan_nama,
-                      cd_asal.id AS cabang_dinas_asal_id,
-                      cd_asal.nama_cabang as cabang_dinas_asal_nama,
-                      cd_tujuan.id AS cabang_dinas_tujuan_id,
-                      cd_tujuan.nama_cabang as cabang_dinas_tujuan_nama')
-            ->join('data_sekolah as sekolah_asal', 'usulan.sekolah_asal = sekolah_asal.nama_sekolah', 'left')
-            ->join('data_sekolah as sekolah_tujuan', 'usulan.sekolah_tujuan = sekolah_tujuan.nama_sekolah', 'left')
-            ->join('kabupaten as kab_asal', 'sekolah_asal.kabupaten_id = kab_asal.id_kab', 'left')
-            ->join('kabupaten as kab_tujuan', 'sekolah_tujuan.kabupaten_id = kab_tujuan.id_kab', 'left')
-            ->join('cabang_dinas_kabupaten as cdk_asal', 'kab_asal.id_kab = cdk_asal.kabupaten_id', 'left')
-            ->join('cabang_dinas as cd_asal', 'cdk_asal.cabang_dinas_id = cd_asal.id', 'left')
-            ->join('cabang_dinas_kabupaten as cdk_tujuan', 'kab_tujuan.id_kab = cdk_tujuan.kabupaten_id', 'left')
-            ->join('cabang_dinas as cd_tujuan', 'cdk_tujuan.cabang_dinas_id = cd_tujuan.id', 'left')
-            ->where('usulan.id', $id)
-            ->first();
+        $nip = $this->request->getGet('nip');
+        $nik = $this->request->getGet('nik');
     
-        // Pastikan data usulan ditemukan
-        if (!$usulan) {
-            return redirect()->to('/usulan')->with('error', 'Data usulan tidak ditemukan.');
-        }
+        $exists = $this->usulanModel
+            ->groupStart()
+                ->where('guru_nip', $nip)
+                ->orWhere('guru_nik', $nik)
+            ->groupEnd()
+            ->whereNotIn('status', ['08'])
+            ->countAllResults() > 0;
     
-        // Ambil daftar kabupaten untuk dropdown
-        $kabupatenModel = new KabupatenModel();
-        $kabupatenList = $kabupatenModel->findAll();
-    
-        // Ambil tautan berkas dari tabel usulan_drive_links berdasarkan nomor usulan
-        $usulanDriveModel = new \App\Models\UsulanDriveModel();
-        $driveLinks = $usulanDriveModel->where('nomor_usulan', $usulan['nomor_usulan'])->orderBy('id', 'ASC')->findAll();
-    
-        // Pastikan 20 slot tersedia (isi kosong jika kurang)
-        $usulan_drive_links = array_fill(0, 20, ''); // Menggunakan 20 slot tetap
-        foreach ($driveLinks as $index => $link) {
-            if ($index < 20) { // Pastikan tidak lebih dari 20
-                $usulan_drive_links[$index] = $link['drive_link'];
-            }
-        }
-    
-        return view('usulan/edit', [
-            'usulan' => $usulan,
-            'kabupatenList' => $kabupatenList,
-            'usulan_drive_links' => $usulan_drive_links
+        return $this->response->setJSON(['exists' => $exists]);
+    }
+
+    // Fungsi untuk mendapatkan kode cabang dinas berdasarkan ID
+    private function getKodeCabangDinas($cabangDinasId)
+    {
+        $cabangDinasModel = new \App\Models\CabangDinasModel();
+        $cabangDinas = $cabangDinasModel->find($cabangDinasId);
+        return $cabangDinas['kode_cabang'];
+    }
+
+    // Fungsi untuk menyimpan riwayat status ke tabel usulan_status_history
+    private function addStatusHistory($nomorUsulan, $status, $catatan = null)
+    {
+        $statusHistoryModel = new \App\Models\UsulanStatusHistoryModel();
+        $statusHistoryModel->save([
+            'nomor_usulan' => $nomorUsulan,
+            'status' => $status,
+            'updated_at' => date('Y-m-d H:i:s'),
+            'catatan_history' => $catatan,
         ]);
     }
-    
-    public function update($id)
-    {
-        // Ambil data usulan berdasarkan ID
-        $usulan = $this->usulanModel->find($id);
-    
-        if (!$usulan) {
-            return redirect()->to('/usulan')->with('error', 'Data usulan tidak ditemukan.');
-        }
-    
-        // Ambil nomor usulan
-        $nomorUsulan = $usulan['nomor_usulan'];
-    
-        // Ambil nama sekolah tujuan langsung dari inputan
-        $sekolahTujuanNama = $this->request->getPost('sekolah_tujuan_nama');
-    
-        // Mulai transaksi database
-        $db = \Config\Database::connect();
-        $db->transBegin();
-    
-        try {
-            // Update data usulan
-            $this->usulanModel->update($id, [
-                'guru_nama'      => $this->request->getPost('guru_nama'),
-                'sekolah_tujuan' => $sekolahTujuanNama, // Simpan nama sekolah tujuan
-                'alasan'         => $this->request->getPost('alasan'),
-            ]);
-    
-            // Ambil daftar tautan Google Drive dari input form
-            $googleDriveLinks = $this->request->getPost('google_drive_link');
-    
-            // Model untuk usulan_drive_links
-            $usulanDriveModel = new \App\Models\UsulanDriveModel();
-    
-            // Hapus tautan lama sebelum menyimpan yang baru
-            $usulanDriveModel->where('nomor_usulan', $nomorUsulan)->delete();
-    
-            // Simpan tautan baru ke dalam tabel `usulan_drive_links`
-            for ($i = 0; $i < 20; $i++) { // Pastikan selalu ada 20 baris
-                $usulanDriveModel->insert([
-                    'nomor_usulan' => $nomorUsulan,
-                    'drive_link'   => isset($googleDriveLinks[$i]) ? $googleDriveLinks[$i] : '',
-                    'created_at'   => date('Y-m-d H:i:s'),
-                ]);
-            }
-    
-            // Commit transaksi jika semua berhasil
-            $db->transCommit();
-    
-            // Set flash message sukses
-            session()->setFlashdata('success', 'Usulan berhasil diperbarui!');
-    
-        } catch (\Exception $e) {
-            // Jika ada error, rollback transaksi untuk mencegah data tidak sinkron
-            $db->transRollback();
-            log_message('error', 'Gagal memperbarui usulan: ' . $e->getMessage());
-            return redirect()->to('/usulan/edit/' . $id)->with('error', 'Terjadi kesalahan saat memperbarui usulan.');
-        }
-    
-        return redirect()->to('/usulan');
-    }
-    
 
+    public function konfirmasiCetak($nomorUsulan)
+    {
+        if (!$nomorUsulan) {
+            return redirect()->to('/usulan')->with('error', 'Nomor usulan tidak valid.');
+        }
+
+        return view('usulan/konfirmasi_cetak', ['nomor_usulan' => $nomorUsulan]);
+    }
 
     public function delete($id)
     {
         $usulan = $this->usulanModel->find($id);
-    
+
         if (!$usulan) {
+            log_message('error', "Gagal menghapus: Data usulan dengan ID {$id} tidak ditemukan.");
             return redirect()->to('/usulan')->with('error', 'Data usulan tidak ditemukan.');
         }
-    
+
         $nomorUsulan = $usulan['nomor_usulan'];
-        
+
         $db = \Config\Database::connect();
         $db->transStart(); // Mulai transaksi
-    
+
         try {
-            // Hapus semua berkas terkait di tabel usulan_drive_links terlebih dahulu
-            $db->table('usulan_drive_links')->where('nomor_usulan', $nomorUsulan)->delete();
-    
+            // Hapus semua berkas terkait di tabel usulan_drive_links
+            $deletedBerkas = $db->table('usulan_drive_links')->where('nomor_usulan', $nomorUsulan)->delete();
+            if (!$deletedBerkas) {
+                log_message('error', "Gagal menghapus: Data di tabel `usulan_drive_links` untuk nomor usulan {$nomorUsulan} tidak ditemukan atau gagal dihapus.");
+            }
+
+            // Hapus data di tabel lain yang mungkin terkait
+            $db->table('usulan_status_history')->where('nomor_usulan', $nomorUsulan)->delete();
+            $db->table('pengiriman_usulan')->where('nomor_usulan', $nomorUsulan)->delete();
+
             // Setelah itu, hapus data usulan
             $this->usulanModel->delete($id);
-    
+
             $db->transComplete(); // Selesaikan transaksi
-    
+
             if ($db->transStatus() === false) {
+                log_message('error', "Gagal menghapus: Terjadi kesalahan dalam transaksi database.");
                 throw new \Exception('Gagal menghapus data.');
             }
-    
+
             return redirect()->to('/usulan')->with('success', 'Data usulan berhasil dihapus.');
         } catch (\Exception $e) {
             $db->transRollback(); // Kembalikan transaksi jika terjadi error
@@ -585,7 +667,6 @@ class UsulanController extends BaseController
             return redirect()->to('/usulan')->with('error', 'Terjadi kesalahan saat menghapus data.');
         }
     }
-    
 
     public function deletetolak($id)
     {
@@ -637,24 +718,13 @@ class UsulanController extends BaseController
         // Ambil daftar tautan dari form input
         $driveLinks = $this->request->getPost('google_drive_link');
     
-        // Pastikan jumlah data tetap 20, meskipun ada yang kosong
-        $driveLinks = array_pad($driveLinks, 20, ""); 
-    
-        // Daftar indeks berkas yang boleh kosong (opsional)
-        $optionalIndexes = [6, 9, 16, 19]; 
-    
-        // Pola regex untuk validasi Google Drive
-        $googleDrivePattern = "/^(https?:\/\/)?(www\.)?(drive\.google\.com\/(file\/d\/|open\?id=|drive\/folders\/)).+/";
-    
-        // Validasi tautan hanya untuk berkas wajib
-        foreach ($driveLinks as $index => $link) {
-            if (!in_array($index, $optionalIndexes) && empty($link)) {
-                return redirect()->back()->with('error', "Tautan berkas ke-" . ($index + 1) . " wajib diisi.")->withInput();
-            }
-            if (!empty($link) && !preg_match($googleDrivePattern, $link)) {
-                return redirect()->back()->with('error', "Tautan berkas ke-" . ($index + 1) . " tidak valid.")->withInput();
-            }
+        // Pastikan data dikirimkan dan dalam bentuk array
+        if (!$driveLinks || !is_array($driveLinks)) {
+            return redirect()->back()->with('error', 'Data tautan berkas tidak valid.');
         }
+    
+        // Pastikan jumlah data tetap 20 (jika kurang, tambahkan kosong)
+        $driveLinks = array_pad($driveLinks, 20, ""); 
     
         // Mulai transaksi database
         $db = \Config\Database::connect();
@@ -666,14 +736,14 @@ class UsulanController extends BaseController
             // Ambil data lama dari database berdasarkan nomor usulan
             $existingLinks = $usulanDriveModel->where('nomor_usulan', $nomorUsulan)->orderBy('id', 'ASC')->findAll();
     
-            // Jika jumlah data lama kurang dari 20, tambahkan kosong
+            // Pastikan jumlah data lama juga 20 agar sesuai dengan data baru
             $existingLinks = array_pad($existingLinks, 20, ['drive_link' => '', 'id' => null]);
     
             // Persiapkan data untuk update atau insert
             foreach ($driveLinks as $index => $link) {
                 $data = [
                     'nomor_usulan' => $nomorUsulan,
-                    'drive_link'   => $link, // Bisa kosong jika opsional
+                    'drive_link'   => trim($link), // Bersihkan input dari spasi ekstra
                     'created_at'   => date('Y-m-d H:i:s')
                 ];
     
@@ -698,9 +768,10 @@ class UsulanController extends BaseController
             // Rollback jika terjadi kesalahan
             $db->transRollback();
             log_message('error', 'Gagal menyimpan revisi: ' . $e->getMessage());
-            return redirect()->to('/usulan/edit/' . $id)->with('error', 'Terjadi kesalahan saat menyimpan revisi.');
+            return redirect()->to('/usulan/revisi/' . $id)->with('error', 'Terjadi kesalahan saat menyimpan revisi.');
         }
     }
+    
     
     
 

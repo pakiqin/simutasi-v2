@@ -19,7 +19,7 @@
     }
 </style>
 
-<h1 class="h3 mb-4 text-gray-800"><i class="fas fa-undo-alt"></i> Revisi Usulan Mutasi</h1>
+<h1 class="h3 mb-4 text-gray-800"><i class="fas fa-file-upload"></i> Edit Berkas Usulan</h1>
 
 <!-- Ringkasan Data Guru & Sekolah -->
 <div class="card shadow-sm p-4 mb-4">
@@ -42,19 +42,18 @@
     </div>
 </div>
 
-<!-- Navigasi Tab -->
 <div class="card mt-3">
     <ul class="nav nav-tabs nav-custom">
         <li class="nav-item">
-            <a class="nav-link disabled">1️⃣ Data Guru & Sekolah</a>
+            <a class="nav-link" href="/usulan/edit-usulan/<?= $usulan['id'] ?>">1️⃣ Data Guru & Sekolah</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link active" href="#">2️⃣ Revisi Berkas</a>
+            <a class="nav-link active" href="#">2️⃣ Edit Berkas</a>
         </li>
     </ul>
 
     <div class="card-body">
-        <form action="/usulan/updateRevisi/<?= $usulan['id'] ?>" method="post">
+        <form action="/usulan/update-berkas/<?= $nomor_usulan ?>" method="post">
             <div class="row">
                 <div class="col-md-12">
                     <?php 
@@ -65,19 +64,19 @@
                         "Surat Permohonan Pindah Tugas Bermaterai (Ditujukan Untuk Kepala Dinas)",
                         "Surat Permohonan Pindah Tugas Bermaterai (Ditujukan Untuk Kepala BKA)",
                         "Surat Permohonan Pindah Tugas Bermaterai (Ditujukan Untuk Gubernur cq Sekda Aceh)",
-                        "Rekomendasi Kepala Sekolah Melepas Lengkap dengan Analisis",
+                        "Rekomendasi Kepala Sekolah Melepas Lengkap dengan Analisis (Jumlah jam, Siswa, Rombel, Guru Mapel Kurang atau Lebih)",
                         "Rekomendasi Melepas dari Pengawas Sekolah (Optional)",
                         "Rekomendasi Melepas dari Kepala Cabang Dinas Kab/Kota",
-                        "Rekomendasi Kepala Sekolah Menerima Lengkap dengan Analisis",
+                        "Rekomendasi Kepala Sekolah Menerima Lengkap dengan Analisis (Jumlah jam, Siswa, Rombel, Guru Mapel Kurang atau Lebih)",
                         "Rekomendasi Menerima dari Pengawas Sekolah (Optional)",
                         "Rekomendasi Menerima dari Kepala Cabang Dinas Kab/Kota",
-                        "Analisis Jabatan (Anjab) ditandatangani oleh Kepala Sekolah Melepas",
-                        "Surat Formasi GTK dari Sekolah Asal",
+                        "Analisis Jabatan (Anjab) ditandatangani oleh Kepala Sekolah Melepas dan Mengetahui Kepala Dinas",
+                        "Surat Formasi GTK dari Sekolah Asal (Data Guru dan Tendik yang ditandatangani oleh Kepala Sekolah)",
                         "Foto Copy SK 80% dan SK Terakhir di Legalisir",
                         "Foto Copy Karpeg dilegalisir",
-                        "Surat Keterangan tidak Pernah di Jatuhi Hukuman Disiplin",
-                        "Surat Keterangan Bebas Temuan Inspektorat (Optional)",
-                        "Surat Keterangan Bebas Tugas Belajar/Izin Belajar",
+                        "Surat Keterangan tidak Pernah di Jatuhi Hukuman Disiplin ditandatangani oleh Kepala Sekolah Melepas",
+                        "Surat Keterangan Bebas Temuan Inspektorat ditandatangani oleh Kepala Sekolah Melepas (Optional)",
+                        "Surat Keterangan Bebas Tugas Belajar/Izin Belajar ditandatangani oleh Kepala Sekolah Melepas",
                         "Daftar Riwayat Hidup/ Riwayat Pekerjaan",
                         "Surat Tugas Suami dan Foto Copy Buku Nikah (Optional)"
                     ];
@@ -107,23 +106,22 @@
             </div>
 
             <div class="d-flex justify-content-between mt-4">
-                <a href="/usulan" class="btn btn-sm-custom btn-secondary">
+                <!-- 🔹 Tombol Kembali ke Edit Usulan -->
+                <a href="/usulan/edit-usulan/<?= $usulan['id'] ?>" class="btn btn-sm-custom btn-secondary">
                     <i class="fas fa-arrow-left"></i> Kembali
                 </a>
+
+                <!-- 🔹 Tombol Simpan Perubahan -->
                 <button type="submit" class="btn btn-sm-custom btn-primary" id="submitBtn">
-                    <i class="fas fa-save"></i> Simpan Revisi
+                    <i class="fas fa-save"></i> Simpan Perubahan
                 </button>
             </div>
         </form>
     </div>
 </div>
 
-<!-- SCRIPT VALIDASI & PREVIEW -->
+<!-- SCRIPT VALIDASI BERKAS -->
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-    validateLinks(); // Jalankan validasi saat halaman dimuat
-});
-
 const berkasLabels = <?= json_encode($berkasLabels) ?>;    
 const googleDrivePattern = /^(https?:\/\/)?(www\.)?(drive\.google\.com\/(file\/d\/|open\?id=|drive\/folders\/)).+/;
 const optionalIndexes = [6, 9, 16, 19]; 
@@ -138,7 +136,7 @@ function validateLinks() {
 
         if (optionalIndexes.includes(index) && !linkValue) {
             feedbackElement.innerHTML = "✅ Opsional (Boleh dikosongkan)";
-            feedbackElement.style.color = "gray";
+            feedbackElement.style.color = "green";
             return;
         }
 
@@ -161,6 +159,31 @@ function validateLinks() {
 
 document.querySelectorAll("input[name='google_drive_link[]']").forEach((input) => {
     input.addEventListener("input", validateLinks);
+});
+
+document.addEventListener("DOMContentLoaded", validateLinks);
+
+document.addEventListener("DOMContentLoaded", function () {
+    <?php if (session()->getFlashdata('success')): ?>
+        Swal.fire({
+            title: 'Berhasil!',
+            text: "<?= session()->getFlashdata('success'); ?>",
+            icon: 'success',
+            confirmButtonText: 'OK'
+        }).then(() => {
+            // ✅ Redirect ke halaman usulan setelah dikonfirmasi
+            window.location.href = "/usulan";
+        });
+    <?php endif; ?>
+
+    <?php if (session()->getFlashdata('error')): ?>
+        Swal.fire({
+            title: 'Gagal!',
+            text: "<?= session()->getFlashdata('error'); ?>",
+            icon: 'error',
+            confirmButtonText: 'OK'
+        });
+    <?php endif; ?>
 });
 
 
@@ -204,6 +227,7 @@ function previewLink(index) {
 
     window.open(link, '_blank');
 }
+
 </script>
 
 <?= $this->endSection(); ?>
