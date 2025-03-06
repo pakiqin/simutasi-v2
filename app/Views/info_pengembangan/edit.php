@@ -51,7 +51,7 @@
                 toolbar: [
                     ['style', ['bold', 'italic', 'underline', 'clear']],
                     ['para', ['ul', 'ol', 'paragraph']],
-                    ['insert', ['link', 'video']], // Menghapus insert picture agar tidak bisa upload gambar langsung
+                    ['insert', ['link', 'picture', 'video']], // Mengaktifkan kembali "picture" agar bisa menyisipkan gambar via URL
                     ['view', ['codeview']]
                 ],
                 callbacks: {
@@ -59,7 +59,7 @@
                         alert('Upload gambar langsung tidak diperbolehkan! Silakan gunakan URL gambar online.');
                     },
                     onInit: function() {
-                        // Menonaktifkan opsi upload file langsung di dialog gambar
+                        // Nonaktifkan upload gambar lokal, tetapi tetap izinkan penyisipan URL gambar
                         $(".note-image-input").prop('disabled', true).css('cursor', 'not-allowed');
                     }
                 }
@@ -69,5 +69,6 @@
         }
     });
 </script>
+
 
 <?= $this->endSection(); ?>

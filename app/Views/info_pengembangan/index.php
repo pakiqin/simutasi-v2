@@ -72,10 +72,10 @@
                         <i class="fas fa-calendar-alt text-secondary"></i> 
                             <?= date('d M Y', strtotime($info['tanggal'])); ?>
                         </small>
-                        <hr class="my-2">
                         <div class="info-content">
                             <?= html_entity_decode($info['deskripsi']); ?> <!-- Hanya tampilkan status "public" -->
                         </div>
+                        <hr class="my-2">
                     </li>
                 <?php endforeach; ?>
             <?php endif; ?>
