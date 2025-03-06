@@ -110,9 +110,6 @@ $routes->group('sekolah', ['filter' => 'auth'], function ($routes) {
     $routes->get('download-template', 'SekolahController::downloadTemplate'); // Download Template
 });
 
-
-
-
 $routes->get('/user/changePassword', 'UserController::changePassword');
 $routes->post('/user/updatePassword', 'UserController::updatePassword');
 $routes->get('/user/profile', 'UserController::profile');
@@ -241,6 +238,23 @@ $routes->get('/lacak-mutasi/download/rekom/(:any)/(:any)', 'LacakUsulanControlle
 
 // 🔹 Rute untuk mengunduh Dokumen Rekomendasi dari Pengiriman Usulan (Status 02)
 $routes->get('/lacak-mutasi/download/dokumen/(:any)/(:any)', 'LacakUsulanController::downloadDokumenRekom/$1/$2');
+
+
+
+// Routes untuk Info Pengembangan (Dapat diakses semua pengguna yang login)
+$routes->group('info_pengembangan', ['filter' => 'auth'], function ($routes) {
+    $routes->get('/', 'InfoController::index');
+});
+$routes->group('kelola_info', ['filter' => 'auth'], function ($routes) {
+    $routes->get('/', 'InfoController::manage');
+    $routes->get('create', 'InfoController::create');  // Halaman tambah
+    $routes->post('store', 'InfoController::store');   // Simpan data baru
+    $routes->get('edit/(:num)', 'InfoController::edit/$1'); // Halaman edit
+    $routes->post('update/(:num)', 'InfoController::update/$1'); // Update data
+    $routes->get('delete/(:num)', 'InfoController::delete/$1'); // Hapus data
+});
+
+
 
 
 

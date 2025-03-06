@@ -169,9 +169,30 @@
             </div>
         </li>        
     <?php endif; ?>    
-    <!-- Divider -->
-    <hr class="sidebar-divider d-none d-md-block">
+    
+    <!-- Info Menu -->
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#infoMenu" aria-expanded="true" aria-controls="infoMenu">
+            <i class="fas fa-info-circle"></i>
+            <span>Info</span>
+        </a>
+        <div id="infoMenu" class="collapse" aria-labelledby="headingInfo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <h6 class="collapse-header">Informasi:</h6>
+                <a class="collapse-item" href="<?= base_url('/info_pengembangan'); ?>">
+                    <i class="fas fa-info-circle"></i> Info Pengembangan
+                </a>
 
+                <?php if (session()->get('role') == 'admin'): ?>
+                    <a class="collapse-item" href="<?= base_url('/kelola_info'); ?>">
+                        <i class="fas fa-cogs"></i> Kelola Info
+                    </a>
+                <?php endif; ?>
+            </div>
+        </div>
+    </li>
+
+    <hr class="sidebar-divider d-none d-md-block">
     <!-- Logout -->
     <li class="nav-item">
         <a class="nav-link" href="<?= base_url('/logout'); ?>">

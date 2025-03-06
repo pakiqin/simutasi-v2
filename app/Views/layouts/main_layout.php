@@ -72,6 +72,14 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="<?= base_url('assets/js/simutasi-overlay.js'); ?>"></script>
 
+        <!-- Load Summernote hanya jika dibutuhkan -->
+        <?= $this->renderSection('scripts'); ?>
+
+        <!-- Debugging: Cek versi jQuery -->
+        <script>
+            console.log("jQuery version:", $.fn.jquery);
+        </script>
+
 </body>
 
 </html>
