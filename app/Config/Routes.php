@@ -254,7 +254,7 @@ $routes->group('kelola_info', ['filter' => 'auth'], function ($routes) {
     $routes->get('delete/(:num)', 'InfoController::delete/$1'); // Hapus data
 });
 
-
+$routes->get('/helpdesk', 'HelpdeskController::index', ['filter' => 'auth']);
 
 
 
