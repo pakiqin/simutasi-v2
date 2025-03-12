@@ -88,6 +88,7 @@ class LacakUsulanController extends Controller
 
         // 🔹 Kirim ke tampilan hasil_lacak_mutasi.php
         return view('hasil_lacak_mutasi', [
+            'pengirimanUsulan' => $pengirimanUsulan,
             'nomorUsulan'   => $usulan['nomor_usulan'],
             'namaGuru'      => $usulan['guru_nama'],
             'nipGuru'       => $usulan['guru_nip'],
@@ -200,4 +201,35 @@ class LacakUsulanController extends Controller
 
         return $this->response->download($filePath, null)->setFileName($fileData['dokumen_rekomendasi']);
     }
+
+    //chatbox saran
+    public function submitSaran()
+    {
+        // Cek apakah request berasal dari AJAX secara manual
+        if (!isset($_SERVER['HTTP_X_REQUESTED_WITH']) || $_SERVER['HTTP_X_REQUESTED_WITH'] !== 'XMLHttpRequest') {
+            return $this->response->setJSON(['status' => 'error', 'message' => 'Request tidak valid.']);
+        }
+    
+        // Ambil data dari request
+        $nomorUsulan = $this->request->getPost('nomor_usulan');
+        $email = $this->request->getPost('email');
+        $saran = $this->request->getPost('saran');
+    
+        if (empty($email) || empty($saran)) {
+            return $this->response->setJSON(['status' => 'error', 'message' => 'Email dan saran harus diisi!']);
+        }
+    
+        // Simpan ke database
+        $saranModel = new \App\Models\SaranMutasiModel();
+        $saranModel->save([
+            'nomor_usulan' => $nomorUsulan,
+            'email' => $email,
+            'saran' => $saran
+        ]);
+    
+        return $this->response->setJSON(['status' => 'success', 'message' => 'Terima kasih atas saran Anda!']);
+    }
+    
+    
+
 }

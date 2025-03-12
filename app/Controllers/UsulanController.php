@@ -136,15 +136,19 @@ class UsulanController extends BaseController
         $sekolahModel = new \App\Models\SekolahModel();    
         $operatorModel = new \App\Models\OperatorCabangDinasModel();
     
+        // Ambil semua kabupaten untuk pilihan tujuan
+        $kabupatenListTujuan = $kabupatenModel->findAll();
+    
         // Inisialisasi array data untuk dikirim ke view
         $data = [
             'kabupaten_asal_id' => null,
             'kabupaten_asal_nama' => '',
             'cabang_dinas_asal_id' => null,
             'cabang_dinas_asal_nama' => '',
-            'sekolahAsalList' => [], // Pastikan variabel ini selalu ada agar tidak error
-            'kabupatenList' => $kabupatenModel->findAll(),
-            'is_operator' => ($role === 'operator'), // Tandai sebagai operator
+            'sekolahAsalList' => [],
+            'kabupatenListAsal' => [],
+            'kabupatenListTujuan' => $kabupatenListTujuan, // Semua kabupaten untuk tujuan
+            'is_operator' => ($role === 'operator'),
         ];
     
         // Jika role adalah operator, ambil otomatis Kabupaten Asal & Cabang Dinas Asal berdasarkan user
@@ -152,35 +156,26 @@ class UsulanController extends BaseController
             $operator = $operatorModel->where('user_id', $userId)->first();
     
             if ($operator) {
-                // Ambil data cabang dinas dari operator
-                $cabangDinasOperator = $cabangDinasModel->find($operator['cabang_dinas_id']);
-    
-                // Cari kabupaten yang terkait dengan cabang dinas
-                $cabangDinasKabupaten = $cabangDinasKabupatenModel
+                // Ambil daftar kabupaten yang terkait dengan cabang dinas operator
+                $kabupatenOperatorList = $cabangDinasKabupatenModel
                     ->where('cabang_dinas_id', $operator['cabang_dinas_id'])
-                    ->first();
+                    ->findAll();
     
-                // Ambil data kabupaten jika ada
-                $kabupatenOperator = $cabangDinasKabupaten 
-                    ? $kabupatenModel->find($cabangDinasKabupaten['kabupaten_id']) 
-                    : null;
+                // Ambil ID kabupaten yang ditemukan
+                $kabupatenIds = array_column($kabupatenOperatorList, 'kabupaten_id');
     
-                // Ambil daftar sekolah berdasarkan Kabupaten Asal (jika ada)
-                $sekolahAsalList = ($kabupatenOperator) 
-                    ? $sekolahModel->where('kabupaten_id', $kabupatenOperator['id_kab'])->findAll()
-                    : [];
+                // Ambil daftar kabupaten berdasarkan ID yang sudah difilter
+                $kabupatenListAsal = $kabupatenModel->whereIn('id_kab', $kabupatenIds)->findAll();
     
                 // Set data untuk tampilan form
-                $data['kabupaten_asal_id'] = $kabupatenOperator ? $kabupatenOperator['id_kab'] : null;
-                $data['kabupaten_asal_nama'] = $kabupatenOperator ? $kabupatenOperator['nama_kab'] : 'Tidak Ditemukan';
-                $data['cabang_dinas_asal_id'] = $cabangDinasOperator ? $cabangDinasOperator['id'] : null;
-                $data['cabang_dinas_asal_nama'] = $cabangDinasOperator ? $cabangDinasOperator['nama_cabang'] : 'Tidak Ditemukan';
-                $data['sekolahAsalList'] = $sekolahAsalList;
+                $data['kabupatenListAsal'] = $kabupatenListAsal;
             }
         }
     
         return view('usulan/create', $data);
     }
+    
+    
 
     public function uploadBerkas($nomorUsulan)
     {

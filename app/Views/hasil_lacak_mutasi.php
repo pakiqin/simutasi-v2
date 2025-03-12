@@ -6,6 +6,8 @@
     <title>Hasil Lacak Usulan Mutasi</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="/assets/css/simutasi-lacak.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </head>
 <body class="track-body">
 
@@ -49,7 +51,23 @@
                     <?php foreach ($results as $data) : ?>
                         <li class="timeline-item">
                             <p class="status"><i class="fas fa-check-circle"></i> <?= strtoupper($data['status']) ?> - <?= $data['catatan_history'] ?></p>
-                            <p class="time"><i class="far fa-clock"></i> <?= date('l, d M Y H:i', strtotime($data['updated_at'])) ?> WIB</p>
+                            <p class="time">
+                                <i class="far fa-calendar-alt"></i> 
+                                <?php 
+                                    $bulan = [
+                                        'January' => 'Januari', 'February' => 'Februari', 'March' => 'Maret',
+                                        'April' => 'April', 'May' => 'Mei', 'June' => 'Juni',
+                                        'July' => 'Juli', 'August' => 'Agustus', 'September' => 'September',
+                                        'October' => 'Oktober', 'November' => 'November', 'December' => 'Desember'
+                                    ];
+
+                                    // Ambil tanggal dari database tanpa waktu
+                                    $tanggal = date('d F Y', strtotime($data['updated_at']));
+                                    $tanggal = str_replace(array_keys($bulan), array_values($bulan), $tanggal);
+
+                                    echo $tanggal;
+                                ?>
+                            </p>
 
                             <?php if ($data['status'] == '07' && !empty($fileSK) && !empty($tokenSK)): ?>
                                 <a href="/lacak-mutasi/download/sk/<?= $nomorUsulan; ?>/<?= $tokenSK; ?>" class="download-btn">
@@ -62,13 +80,18 @@
                                     <i class="fas fa-download"></i> Unduh Rekomendasi Kadis
                                 </a>
                             <?php endif; ?>
+                            <?php
+                                $statusTelaah = $pengirimanUsulan['status_telaah'] ?? null;
+                            ?>
 
                             <?php if ($data['status'] == '02' && !empty($fileDokumenRekom) && !empty($tokenDokumenRekom)): ?>
-                                <a href="/lacak-mutasi/download/dokumen/<?= $nomorUsulan; ?>/<?= $tokenDokumenRekom; ?>" class="download-btn">
-                                    <i class="fas fa-download"></i> Unduh Dokumen Rekomendasi
-                                </a>
+                                <?php if ($statusTelaah === null): ?>
+                                    <a href="/lacak-mutasi/download/dokumen/<?= $nomorUsulan; ?>/<?= $tokenDokumenRekom; ?>" class="download-btn">
+                                        <i class="fas fa-download"></i> Unduh Dokumen Rekomendasi
+                                    </a>
+                                <?php endif; ?>
                             <?php endif; ?>
-                            
+                           
                             <?php if ($data['status'] == '01' && !empty($googleDriveLink)): ?>
                                 <a href="<?= $googleDriveLink; ?>" target="_blank" class="download-btn">
                                     <i class="fas fa-download"></i> Unduh Dokumen
@@ -87,10 +110,103 @@
         </div>
     </div>
 
-    <!-- Footer -->
+    <!-- Chatbox Saran -->
+    <div id="chatbox-container">
+        <div id="chatbox-header">
+            <span><i class="fas fa-comment-dots"></i> Kotak Saran</span>
+            <button id="close-chatbox">&times;</button>
+        </div>
+        <div id="chatbox-body">
+        <p class="saran-ajakan">
+            <i class="fas fa-info-circle"></i> 
+            Kami menghargai masukan Anda! Berikan saran untuk perbaikan proses mutasi.
+        </p>
+
+
+            <label  align="left">Email <span class="text-danger">*</span></label>
+            <input type="email" id="email-guru" placeholder="Masukkan email Anda" required>
+
+            <label  align="left">Saran <span class="text-danger">*</span></label>
+            <textarea id="saran-text" placeholder="Tulis saran Anda di sini..." rows="3" required></textarea>
+        </div>
+        <div id="chatbox-footer">
+            <button id="send-saran" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Kirim</button>
+        </div>
+    </div>
+
+    <!-- Tombol Buka Chatbox -->
+    <div id="chatbox-toggle">
+        <i class="fas fa-comment-alt"></i>
+    </div>
+
     <footer class="footer">
         <p>&copy; 2025 SIMUTASI | Dinas Pendidikan Aceh</p>
     </footer>
+
+    <script>
+        document.getElementById('chatbox-toggle').addEventListener('click', function() {
+            document.getElementById('chatbox-container').style.display = 'block';
+        });
+
+        document.getElementById('close-chatbox').addEventListener('click', function() {
+            document.getElementById('chatbox-container').style.display = 'none';
+        });
+
+        document.getElementById('send-saran').addEventListener('click', function() {
+            var email = document.getElementById('email-guru').value;
+            var saranText = document.getElementById('saran-text').value;
+
+            if (email.trim() === '' || saranText.trim() === '') {
+                alert('Email dan saran wajib diisi!');
+                return;
+            }
+
+            var formData = new FormData();
+            formData.append('nomor_usulan', '<?= $nomorUsulan ?>');
+            formData.append('email', email);
+            formData.append('saran', saranText);
+            
+            console.log("Mengirim data:", Object.fromEntries(formData.entries()));
+
+            fetch('/lacak-mutasi/submit-saran', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest'
+                }
+            }).then(response => response.json())
+            .then(data => {
+                Swal.fire({
+                    title: "Terima Kasih!",
+                    text: data.message,
+                    icon: "success",
+                    confirmButtonText: "OK",
+                    width: "400px",
+                    padding: "15px",
+                    timer: 3000,
+                    customClass: {
+                        popup: "small-swal-popup"
+                    }
+                }).then(() => {
+                    document.getElementById('chatbox-container').style.display = 'none';
+                    document.getElementById('email-guru').value = "";
+                    document.getElementById('saran-text').value = "";
+                });
+            }).catch(error => {
+                Swal.fire({
+                    title: "Error!",
+                    text: "Terjadi kesalahan, coba lagi.",
+                    icon: "error",
+                    confirmButtonText: "OK",
+                    width: "350px",
+                    padding: "15px"
+                });
+            });
+
+        });
+    </script>
+</body>
+</html>
 
 </body>
 </html>
