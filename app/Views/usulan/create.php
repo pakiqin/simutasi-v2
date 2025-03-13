@@ -66,25 +66,34 @@
                             <div class="col-md-6">
                                 <div class="form-group mb-3">
                                     <label for="kabupatenAsal">Kabupaten Asal</label>
-                                    <select id="kabupatenAsal" name="kabupaten_asal_id" class="form-control"
-                                        <?= (session()->get('role') === 'operator') ? 'disabled' : 'required' ?>>
-                                        <option value="">-- Pilih --</option>
-                                        <?php foreach ($kabupatenList as $kabupaten): ?>
-                                            <option value="<?= $kabupaten['id_kab']; ?>"
-                                                <?= (session()->get('role') === 'operator' && $kabupaten['id_kab'] == $kabupaten_asal_id) ? 'selected' : '' ?>>
-                                                <?= $kabupaten['nama_kab']; ?>
-                                            </option>
-                                        <?php endforeach; ?>
+                                    <select id="kabupatenAsal" name="kabupaten_asal_id" class="form-control" required>
+                                        <option value="">-- Pilih Kabupaten --</option>
+                                        <?php 
+                                            // Jika role = operator, hanya tampilkan kabupaten terkait Cabang Dinas
+                                            if (session()->get('role') === 'operator') {
+                                                foreach ($kabupatenListAsal as $kabupaten): ?>
+                                                    <option value="<?= $kabupaten['id_kab']; ?>" <?= ($kabupaten['id_kab'] == $kabupaten_asal_id) ? 'selected' : '' ?>>
+                                                        <?= $kabupaten['nama_kab']; ?>
+                                                    </option>
+                                                <?php endforeach;
+                                            } else {
+                                                // Jika role = admin atau kabid, tampilkan semua kabupaten
+                                                foreach ($kabupatenListTujuan as $kabupaten): ?>
+                                                    <option value="<?= $kabupaten['id_kab']; ?>" <?= ($kabupaten['id_kab'] == $kabupaten_asal_id) ? 'selected' : '' ?>>
+                                                        <?= $kabupaten['nama_kab']; ?>
+                                                    </option>
+                                                <?php endforeach;
+                                            }
+                                            ?>                                                
                                     </select>
-                                    <input type="hidden" name="kabupaten_asal_id" value="<?= $kabupaten_asal_id; ?>">
                                 </div>
                             </div>
+
                             <div class="col-md-6">
                                 <div class="form-group mb-3">
                                     <label for="cabangDinasAsal">Cabang Dinas Asal</label>
-                                    <input type="text" id="cabangDinasAsal" class="form-control" readonly
-                                           value="<?= $cabang_dinas_asal_nama; ?>">
-                                    <input type="hidden" id="cabangDinasAsalId" name="cabang_dinas_asal_id" value="<?= $cabang_dinas_asal_id; ?>">
+                                    <input type="text" id="cabangDinasAsal" class="form-control" readonly>
+                                    <input type="hidden" id="cabangDinasAsalId" name="cabang_dinas_asal_id">
                                 </div>
                             </div>
                         </div>
@@ -107,15 +116,15 @@
                         <div class="row">
                             <!-- Kabupaten Tujuan & Cabang Dinas Tujuan sejajar -->
                             <div class="col-md-6">
-                                <div class="form-group mb-3">
-                                    <label for="kabupatenTujuan">Kabupaten Tujuan</label>
-                                    <select id="kabupatenTujuan" name="kabupaten_tujuan_id" class="form-control" required>
-                                        <option value="">-- Pilih --</option>
-                                        <?php foreach ($kabupatenList as $kabupaten): ?>
-                                            <option value="<?= $kabupaten['id_kab']; ?>"><?= $kabupaten['nama_kab']; ?></option>
-                                        <?php endforeach; ?>
-                                    </select>
-                                </div>
+                            <div class="form-group mb-3">
+                                <label for="kabupatenTujuan">Kabupaten Tujuan</label>
+                                <select id="kabupatenTujuan" name="kabupaten_tujuan_id" class="form-control" required>
+                                    <option value="">-- Pilih --</option>
+                                    <?php foreach ($kabupatenListTujuan as $kabupaten): ?>
+                                        <option value="<?= $kabupaten['id_kab']; ?>"><?= $kabupaten['nama_kab']; ?></option>
+                                    <?php endforeach; ?>
+                                </select>
+                            </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group mb-3">
@@ -162,7 +171,7 @@ document.getElementById("sekolahTujuan").addEventListener("change", function () 
     document.getElementById("sekolahTujuanNama").value = selectedOption;
 });
 
-// Fungsi untuk memperbarui Cabang Dinas berdasarkan Kabupaten
+// Fungsi untuk memperbarui Cabang Dinas berdasarkan Kabupaten dan menampilkan sekolah terkait
 function updateCabangDinas(kabupatenId, targetCabangInput, targetCabangHidden, targetSekolahSelect) {
     if (kabupatenId) {
         fetch(`/api/get-cabang-dinas/${kabupatenId}`)
@@ -172,15 +181,18 @@ function updateCabangDinas(kabupatenId, targetCabangInput, targetCabangHidden, t
                 document.getElementById(targetCabangHidden).value = data.id || "";
             });
 
-        fetch(`/api/get-sekolah/${kabupatenId}`)
-            .then(response => response.json())
-            .then(data => {
-                let sekolahSelect = document.getElementById(targetSekolahSelect);
-                sekolahSelect.innerHTML = '<option value="">-- Pilih Sekolah --</option>';
-                data.forEach(sekolah => {
-                    sekolahSelect.innerHTML += `<option value="${sekolah.id}">${sekolah.nama_sekolah}</option>`;
+        // Ambil daftar sekolah sesuai kabupaten yang dipilih
+        if (targetSekolahSelect) {
+            fetch(`/api/get-sekolah/${kabupatenId}`)
+                .then(response => response.json())
+                .then(data => {
+                    let sekolahSelect = document.getElementById(targetSekolahSelect);
+                    sekolahSelect.innerHTML = '<option value="">-- Pilih Sekolah --</option>';
+                    data.forEach(sekolah => {
+                        sekolahSelect.innerHTML += `<option value="${sekolah.id}">${sekolah.nama_sekolah}</option>`;
+                    });
                 });
-            });
+        }
     }
 }
 

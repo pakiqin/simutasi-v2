@@ -239,6 +239,14 @@ $routes->get('/lacak-mutasi/download/rekom/(:any)/(:any)', 'LacakUsulanControlle
 // 🔹 Rute untuk mengunduh Dokumen Rekomendasi dari Pengiriman Usulan (Status 02)
 $routes->get('/lacak-mutasi/download/dokumen/(:any)/(:any)', 'LacakUsulanController::downloadDokumenRekom/$1/$2');
 
+//kotak saran
+$routes->post('/lacak-mutasi/submit-saran', 'LacakUsulanController::submitSaran');
+$routes->get('/kotak-saran', 'SaranController::index', ['filter' => 'auth']);
+$routes->get('/kotak-saran/balas/(:num)', 'SaranController::balas/$1', ['filter' => 'auth']);
+$routes->post('/kotak-saran/submitBalasan/(:num)', 'SaranController::submitBalasan/$1', ['filter' => 'auth']);
+$routes->get('/kotak-saran/delete/(:num)', 'SaranController::delete/$1', ['filter' => 'auth']);
+
+
 
 
 // Routes untuk Info Pengembangan (Dapat diakses semua pengguna yang login)

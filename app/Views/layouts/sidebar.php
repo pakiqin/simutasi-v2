@@ -211,6 +211,24 @@
             <span>Helpdesk</span>
         </a>
     </li>
+
+    <!-- Nav Item - Kotak Saran -->
+    <?php if (session()->get('role') == 'admin' || session()->get('role') == 'kabid'): ?>
+        <li class="nav-item">
+            <a class="nav-link" href="<?= base_url('/kotak-saran'); ?>">
+                <i class="fas fa-envelope"></i>
+                <span>Kotak Saran</span>
+                <?php if (!empty($jumlahBelumDibalas) && $jumlahBelumDibalas > 0): ?>
+                    <span class="badge badge-danger"><?= $jumlahBelumDibalas ?></span>
+                <?php endif; ?>
+            </a>
+        </li>
+    <?php endif; ?>
+
+
+
+
+
     <hr class="sidebar-divider d-none d-md-block">
     <!-- Logout -->
     <li class="nav-item">

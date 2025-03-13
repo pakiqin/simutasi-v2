@@ -3,7 +3,7 @@
 
 <h1 class="h5 mb-4 text-gray-800"><i class="fas fa-info-circle"></i> Tambah Info Pengembangan</h1>
 
-<div class="card shadow-sm">
+<div class="card shadow-sm mb-5"">
     <div class="card-body">
         <form action="<?= base_url('kelola_info/store'); ?>" method="post">
             <?= csrf_field(); ?>

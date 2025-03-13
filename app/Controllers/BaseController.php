@@ -8,6 +8,7 @@ use CodeIgniter\HTTP\IncomingRequest;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use Psr\Log\LoggerInterface;
+use App\Models\SaranMutasiModel; // Tambahkan model yang benar
 
 /**
  * Class BaseController
@@ -46,6 +47,9 @@ abstract class BaseController extends Controller
     /**
      * @return void
      */
+
+     protected $jumlahBelumDibalas; // Properti baru untuk jumlah saran
+
     public function initController(RequestInterface $request, ResponseInterface $response, LoggerInterface $logger)
     {
         // Do Not Edit This Line
@@ -54,5 +58,16 @@ abstract class BaseController extends Controller
         // Preload any models, libraries, etc, here.
 
         // E.g.: $this->session = service('session');
+
+        // Ambil jumlah saran "Belum Dibalas" hanya jika user adalah admin/kabid
+        if (session()->get('role') === 'admin' || session()->get('role') === 'kabid') {
+            $saranModel = new SaranMutasiModel();
+            $this->jumlahBelumDibalas = $saranModel->where('status', 'Belum Dibalas')->countAllResults();
+        } else {
+            $this->jumlahBelumDibalas = 0; // Set default jika bukan admin/kabid
+        }
+        // Simpan data dalam bentuk array
+        service('renderer')->setData(['jumlahBelumDibalas' => $this->jumlahBelumDibalas]);
     }
+
 }
