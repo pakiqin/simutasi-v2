@@ -29,15 +29,25 @@
             width: 100%;
             border-collapse: collapse;
             margin-top: 15px;
+            table-layout: fixed; /* Perubahan: Mencegah kolom berubah ukuran secara tidak proporsional */
         }
         .table-data td, .table-data th {
             border: 1px solid #000;
             padding: 6px;
             font-size: 14px;
+            word-wrap: break-word; /* Perubahan: Memastikan teks panjang tidak melebar */
+            white-space: pre-wrap; /* Perubahan: Memungkinkan teks panjang tetap dalam batas kolom */
         }
         .table-data th {
             background-color: #f1f1f1;
             text-align: left;
+            width: 30%; /* Perubahan: Menjaga keseimbangan lebar kolom */
+        }
+                .table-data td {
+            width: 70%; /* Perubahan: Memastikan teks berada dalam batas kolom */
+        }
+        .table-data td:nth-child(2) {
+            max-width: 300px; /* Perubahan: Membatasi lebar maksimum kolom untuk teks panjang */
         }
         .footer {
             font-size: 10px;
