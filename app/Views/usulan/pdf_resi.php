@@ -43,7 +43,7 @@
             text-align: left;
             width: 30%; /* Perubahan: Menjaga keseimbangan lebar kolom */
         }
-                .table-data td {
+        .table-data td {
             width: 70%; /* Perubahan: Memastikan teks berada dalam batas kolom */
         }
         .table-data td:nth-child(2) {
