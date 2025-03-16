@@ -268,4 +268,6 @@ $routes->get('/helpdesk', 'HelpdeskController::index', ['filter' => 'auth']);
 
 
 // Catch-all untuk halaman yang tidak ditemukan (opsional)
-$routes->set404Override();
+$routes->set404Override(function () {
+    echo view('custom404/404'); // Sesuaikan dengan folder custom yang telah dibuat
+});

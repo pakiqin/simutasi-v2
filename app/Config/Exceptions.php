@@ -101,6 +101,10 @@ class Exceptions extends BaseConfig
      */
     public function handler(int $statusCode, Throwable $exception): ExceptionHandlerInterface
     {
+        if ($exception instanceof \CodeIgniter\Exceptions\PageNotFoundException) {
+            echo view('custom404/404');
+            exit;
+        }
         return new ExceptionHandler($this);
     }
 }
