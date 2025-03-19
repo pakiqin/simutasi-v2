@@ -665,26 +665,81 @@ class UsulanController extends BaseController
 
     public function deletetolak($id)
     {
-        $pengirimanModel = new \App\Models\PengirimanUsulanModel();
-        $usulanModel = new \App\Models\UsulanModel();
-
-        $usulan = $usulanModel->find($id);
-        $pengiriman = $pengirimanModel->where('nomor_usulan', $usulan['nomor_usulan'])->first();
-
-        if ($pengiriman) {
-            // Hapus file PDF jika ada
-            if (!empty($pengiriman['dokumen_rekomendasi'])) {
-                $filePath = WRITEPATH . 'uploads/rekomendasi/' . $pengiriman['dokumen_rekomendasi'];
-                if (file_exists($filePath)) {
-                    unlink($filePath);
-                }
+        $db = \Config\Database::connect();
+        $db->transStart(); // Mulai transaksi untuk mencegah data tidak sinkron
+    
+        try {
+            $pengirimanModel = new \App\Models\PengirimanUsulanModel();
+            $usulanModel = new \App\Models\UsulanModel();
+            $usulanDriveModel = new \App\Models\UsulanDriveModel();
+            $historyModel = new \App\Models\UsulanStatusHistoryModel();
+    
+            // 🔍 1. Cek apakah usulan ada
+            $usulan = $usulanModel->find($id);
+            if (!$usulan) {
+                log_message('error', "Gagal menghapus: Usulan dengan ID {$id} tidak ditemukan.");
+                throw new \Exception('Data usulan tidak ditemukan.');
             }
-            $pengirimanModel->where('nomor_usulan', $usulan['nomor_usulan'])->delete();
+            $nomorUsulan = $usulan['nomor_usulan'];
+    
+            // 🔍 2. Hapus data terkait di pengiriman_usulan
+            $pengiriman = $pengirimanModel->where('nomor_usulan', $nomorUsulan)->first();
+            if ($pengiriman) {
+                log_message('debug', "Menghapus data pengiriman_usulan untuk nomor_usulan: {$nomorUsulan}");
+    
+                // 🔍 Hapus file PDF jika ada
+                if (!empty($pengiriman['dokumen_rekomendasi'])) {
+                    $filePath = WRITEPATH . 'uploads/rekomendasi/' . $pengiriman['dokumen_rekomendasi'];
+                    if (file_exists($filePath)) {
+                        unlink($filePath);
+                    } else {
+                        log_message('error', "File rekomendasi tidak ditemukan: {$filePath}");
+                    }
+                }
+                $pengirimanModel->where('nomor_usulan', $nomorUsulan)->delete();
+            } else {
+                log_message('error', "Tidak ditemukan data pengiriman_usulan untuk nomor_usulan: {$nomorUsulan}");
+            }
+    
+            // 🔍 3. Hapus data terkait di usulan_status_history
+            $historyCount = $historyModel->where('nomor_usulan', $nomorUsulan)->countAllResults();
+            if ($historyCount > 0) {
+                log_message('debug', "Menghapus data usulan_status_history untuk nomor_usulan: {$nomorUsulan}");
+                $historyModel->where('nomor_usulan', $nomorUsulan)->delete();
+            } else {
+                log_message('error', "Tidak ditemukan data usulan_status_history untuk nomor_usulan: {$nomorUsulan}");
+            }
+    
+            // 🔍 4. Hapus data terkait di usulan_drive_links
+            $driveCount = $usulanDriveModel->where('nomor_usulan', $nomorUsulan)->countAllResults();
+            if ($driveCount > 0) {
+                log_message('debug', "Menghapus data usulan_drive_links untuk nomor_usulan: {$nomorUsulan}");
+                $usulanDriveModel->where('nomor_usulan', $nomorUsulan)->delete();
+            } else {
+                log_message('error', "Tidak ditemukan data usulan_drive_links untuk nomor_usulan: {$nomorUsulan}");
+            }
+    
+            // 🔍 5. Hapus data utama di tabel usulan
+            log_message('debug', "Menghapus data usulan dengan ID: {$id}");
+            $usulanModel->delete($id);
+    
+            $db->transComplete(); // Selesaikan transaksi
+    
+            if ($db->transStatus() === false) {
+                log_message('error', "Gagal menghapus: Terjadi kesalahan dalam transaksi database.");
+                throw new \Exception('Gagal menghapus data.');
+            }
+    
+            session()->setFlashdata('success', 'Usulan dan dokumen terkait berhasil dihapus!');
+            return redirect()->to('/usulan');
+    
+        } catch (\Exception $e) {
+            $db->transRollback(); // Jika terjadi error, batalkan semua perubahan
+            log_message('error', "Gagal menghapus usulan: " . $e->getMessage());
+            return redirect()->to('/usulan')->with('error', 'Terjadi kesalahan saat menghapus data.');
         }
-        $this->usulanModel->delete($id);
-        session()->setFlashdata('success', 'Usulan dan dokumen terkait berhasil dihapus!');
-        return redirect()->to('/usulan');
     }
+    
 
     public function revisi($nomorUsulan)
     {
