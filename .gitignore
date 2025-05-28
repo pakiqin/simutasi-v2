@@ -1,0 +1,22 @@
+# File konfigurasi rahasia
+.env
+
+# Direktori vendor composer
+/vendor/
+
+# Cache & logs CodeIgniter 4
+/writable/cache/
+/writable/logs/
+/writable/session/
+/writable/debugbar/
+/writable/uploads/
+
+# Editor/IDE
+.vscode/
+*.sublime-workspace
+*.sublime-project
+
+# File log dan sampah lainnya
+*.log
+.DS_Store
+Thumbs.db
