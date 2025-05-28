@@ -1,0 +1,50 @@
+DEBUG - 2025-03-12 15:07:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-12 15:08:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-12 15:08:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-12 15:08:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-12 15:08:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-12 15:08:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-12 15:08:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-12 15:08:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-12 15:09:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-12 15:09:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+CRITICAL - 2025-03-12 15:09:20 --> ErrorException: file_get_contents(): SSL operation failed with code 1. OpenSSL Error messages:
+error:0A000086:SSL routines::certificate verify failed
+[Method: POST, Route: lacak-mutasi/search]
+in APPPATH\Controllers\LacakUsulanController.php on line 29.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'file_get_contents(): SSL operation failed with code 1. OpenSSL Error messages:
+error:0A000086:SSL routines::certificate verify failed', 'C:\\xampp\\htdocs\\simutasi\\app\\Controllers\\LacakUsulanController.php', 29)
+ 2 APPPATH\Controllers\LacakUsulanController.php(29): file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret=6LepasoqAAAAAP0H_15xqhh9RI3HLByT-fnXO1BX&response=03AFcWeA4DsrMbhFReAHgnXkooL-pk-vrGJ2eVcs1tr8bTBO6og_uZTnLZCPLrng82hv150eiHILyj62m6BIbLHuf-KE3rTYrlIVNZedj6AgTQtyLJZ638-RHTRxLw5_jw3qo0mFsZKWmdnpwiqkDVQPz0hMdG4ztlDUQGSSMFecknTDb3E-AEYoj69RuTPWYa5SpU8KCnotP65oLOquqil54J2tI3l8GWnuCXf_atM5vIyP4uu32J2KrWFle5dqXQKII-uw8xctkQDjt1C1o4CbKA-VRNVQcrd9QT9xgww8HvXhi1MBYIDi1Y8NAC-hv_WgbTAF3gB6Je0x6PQc-HYT_inB0Hryw9vvwnV3jiv78y-x8xCRDRKhoI6GonXcJ23mN1QwQ6fVlNIbZqARNjS1nMEiBpryyuxCpgaOnEC7bkAMZ40ihcoUd3Vbz-qta69RshJqkuBELSziqp5WAPDoo8-IQrOD57RwDLYKFJ4w9w-meG92gb1kc3ySJfSsTv7GB-1g7NYQJF_kT8I2Hszbrl2QbRiOvnDST_9rkkjWLVgY2mp6UN6mtMNv3VECCm-Jz-ZeFa8fDh4132rrLBogut_KSHbCZhfHWXWHcnEuY9MqJ1ZoFJfIlXHBZe_KIFVyH66e9PJK99qHNUV3p-Ud3tacdfEVYZvy0NrwZeSo30E_IMYcQHH7RqhqlbRgLOLEdm09QRi0dErMSe4KVHpwBCuDBYJVp93loTbRJrKmiGFLjSF9Xoc6S6q5XN-KMtCWo0kmshibpizqJlZL-npo_lqsAWgRPZ_XsA68plW9gt2DgCWOojs77eJwFTnlISvjpYGgzMvGUkCfNy5ZD0LGkoZUZy6tybn9AM4idV5b8CWlVZFcOU1wtRCSjn69Q27pXB76bPWidwaitYm4BO1CuyYh5zgSoGsu9gVFEtlpyk6lv-_fxV9rstrqXtyNjKExQqzBjvsKaUDmBvJBSjIqO9bXnzWydQjAq-1WjWaVYEryGr_qnvWLUiGHDAowx8KDZZRo0aDufC3C-IvVAKRWY9_h9VBNDKmxJRmcN_X_lmZCTNXNYsJb9mTKIxcSq03Q_qNR1lhDSfFpPzkeqCD7KJntzHlDiNNUWcEwgcnYrJ0MuJ_J7Rhmaltbzrt-BtI9RYiY4F3mKDffuG7Qk684ilhmAYVf_dY_foOOEwczoh9Bq9RwFIgBXLi118JWl2cJA2u6S6gBdVM4bfrPPs4DtnB41qF86ZaQbVs4dR5CvaCT3zZrAtA7ExPu1WHXtp3nuLVOHGsw3rdoO9nVTF6NoboffJsT0LPqekP2Ae7-UuGEj_XBftei3IBSLL3-3q68gLN1lbENfrDxlFroVyimY178ve4vER86GEws97VBppZPtgNAIm1FaXh6-XdAU98Dg7w0utHA3y3vONCqOX9VNY6n0n9-LUVghY75Gx7FtID67LrWRve-2eFmriyNdWA4PkkfSnjHWp3y9o5tWw7ExuOBuEyxJJTzUyj9CtbnTEk428gWzozydwY88kSqI6Q0fIBCANIcLayUhq4jgNnQhJ3rf0IvaVzVzAu4J-2X2nLrqTstSgBggYrD2e34EYiPBO7VhtrxZchgN8VBCi2GR5xHGhINVS1EJHckqlqOIkzpkGt5BOmRiLi7PtA3bAF53r37KnCaGyXEDbPPS9WN1chfk1SMcYkTG9w6DQLhbvVV-Hq-55E9ApeUFffjCde4qNSt4kgmMM6SufUdUr9FiqRDJ1AD_ITK61q8dEzPHMVRktcz_-QNCwF1HrP2ocenUdOfcry-43usEAumtFlRRAU6ZVpUbtTxa4ZXtaaZYdSYwSrDWoouqE9sFP8-DpIK2E4__72a1wFSL53s4oZPt9PIkIsX2e3kBsCHjYs3ij8pxDhi3_X29AgDN4GImGGddMGFWOBpfMaKfmdw1enAOnL6XCp_PYdZpN4pKD2l5boG9D817iBdM')
+ 3 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\LacakUsulanController->search()
+ 4 SYSTEMPATH\CodeIgniter.php(509): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LacakUsulanController))
+ 5 SYSTEMPATH\CodeIgniter.php(355): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 SYSTEMPATH\Boot.php(334): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH\Boot.php(67): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 8 FCPATH\index.php(56): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 9 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\simutasi\\public\\index.php')
+DEBUG - 2025-03-12 15:09:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-12 15:09:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-12 15:09:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-12 15:10:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-12 15:18:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-12 15:18:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-12 15:18:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-12 15:21:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-12 15:21:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-12 15:21:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-12 15:27:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-12 15:27:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-12 15:27:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-12 15:30:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-12 15:30:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-12 15:30:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-12 15:34:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-12 15:34:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-12 15:34:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-12 15:36:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-12 15:36:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-12 15:36:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-12 15:39:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-12 15:41:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-12 15:41:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2025-03-12 15:41:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

@@ -28,7 +28,7 @@
         <!-- Tab Bar -->
         <ul class="nav nav-tabs nav-custom">
             <li class="nav-item">
-                <a class="nav-link active" href="#">1️⃣ Data Guru & Sekolah</a>
+                <a class="nav-link active" href="#">1️⃣ Data GTK & Instansi</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link disabled" href="#">2️⃣ Upload Berkas</a>
@@ -40,7 +40,16 @@
                     <!-- Kolom Kiri (1/3) -->
                     <div class="col-md-4">
                         <div class="form-group mb-3">
-                            <label for="guruNama">Nama Guru</label>
+                        <label for="jenis_usulan">Jenis Usulan</label>
+                        <select name="jenis_usulan" id="jenis_usulan" class="form-control" required>
+                            <option value="mutasi_tetap" <?= old('jenis_usulan') === 'mutasi_tetap' ? 'selected' : '' ?>>Mutasi</option>
+                            <option value="nota_dinas" <?= old('jenis_usulan') === 'nota_dinas' ? 'selected' : '' ?>>Nota Dinas</option>
+                            <option value="perpanjangan_nota_dinas" <?= old('jenis_usulan') === 'perpanjangan_nota_dinas' ? 'selected' : '' ?>>Perpanjangan Nota Dinas</option>
+                        </select>
+
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="guruNama">Nama GTK</label>
                             <input type="text" name="guru_nama" id="guruNama" class="form-control" required>
                         </div>
                         <div class="form-group mb-3">
@@ -137,9 +146,9 @@
 
                         <!-- Sekolah Tujuan -->
                         <div class="form-group mb-3">
-                            <label for="sekolahTujuan">Sekolah Tujuan</label>
+                            <label for="sekolahTujuan">Sekolah / Instansi Tujuan</label>
                             <select id="sekolahTujuan" name="sekolah_tujuan_id" class="form-control w-100" required>
-                                <option value="">-- Pilih Sekolah --</option>
+                                <option value="">-- Pilih --</option>
                             </select>
                             <input type="hidden" name="sekolah_tujuan_nama" id="sekolahTujuanNama">
                         </div>

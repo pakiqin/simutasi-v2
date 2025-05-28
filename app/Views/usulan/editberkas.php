@@ -126,35 +126,69 @@ const berkasLabels = <?= json_encode($berkasLabels) ?>;
 const googleDrivePattern = /^(https?:\/\/)?(www\.)?(drive\.google\.com\/(file\/d\/|open\?id=|drive\/folders\/)).+/;
 const optionalIndexes = [6, 9, 16, 19]; 
 
-function validateLinks() {
+async function validateLinks() {
     let allValid = true;
     let submitBtn = document.getElementById("submitBtn");
 
-    document.querySelectorAll("input[name='google_drive_link[]']").forEach((input, index) => {
+    for (let i = 0; i < document.querySelectorAll("input[name='google_drive_link[]']").length; i++) {
+        let input = document.querySelectorAll("input[name='google_drive_link[]']")[i];
         let linkValue = input.value.trim();
-        let feedbackElement = document.getElementById(`errorMsg${index}`);
+        let feedbackElement = document.getElementById(`errorMsg${i}`);
 
-        if (optionalIndexes.includes(index) && !linkValue) {
+        if (optionalIndexes.includes(i) && !linkValue) {
             feedbackElement.innerHTML = "✅ Opsional (Boleh dikosongkan)";
             feedbackElement.style.color = "green";
-            return;
+            continue;
         }
 
         if (!linkValue) {
             feedbackElement.innerHTML = "❌ Data masih kosong";
             feedbackElement.style.color = "red";
             allValid = false;
-        } else if (!googleDrivePattern.test(linkValue)) {
+            continue;
+        }
+
+        let match = linkValue.match(googleDrivePattern);
+        if (!match) {
             feedbackElement.innerHTML = "❌ Tautan tidak valid!";
             feedbackElement.style.color = "red";
             allValid = false;
+            continue;
+        }
+
+        let fileId = match[1];
+        let fileInfo = await checkGoogleDriveFile(fileId);
+
+        if (!fileInfo.success) {
+            feedbackElement.innerHTML = `❌ ${fileInfo.message}`;
+            feedbackElement.style.color = "red";
+            allValid = false;
         } else {
-            feedbackElement.innerHTML = "✔ Tautan valid";
+            feedbackElement.innerHTML = "✔ Tautan valid dan file adalah PDF";
             feedbackElement.style.color = "green";
         }
-    });
+    }
 
     submitBtn.disabled = !allValid;
+}
+
+async function checkGoogleDriveFile(fileId) {
+    try {
+        let response = await fetch(`https://www.googleapis.com/drive/v3/files/${fileId}?fields=mimeType,name&key=YOUR_GOOGLE_DRIVE_API_KEY`);
+        let data = await response.json();
+
+        if (data.error) {
+            return { success: false, message: "File tidak bisa diakses (Periksa izin)" };
+        }
+
+        if (data.mimeType !== "application/pdf") {
+            return { success: false, message: "File bukan PDF!" };
+        }
+
+        return { success: true };
+    } catch (error) {
+        return { success: false, message: "Gagal memverifikasi file" };
+    }
 }
 
 document.querySelectorAll("input[name='google_drive_link[]']").forEach((input) => {

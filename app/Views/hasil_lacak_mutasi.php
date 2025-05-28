@@ -204,6 +204,11 @@
             });
 
         });
+
+        // Langsung tampilkan chatbox saat halaman selesai dimuat
+        window.addEventListener('DOMContentLoaded', function () {
+            document.getElementById('chatbox-container').style.display = 'block';
+        });
     </script>
 </body>
 </html>
